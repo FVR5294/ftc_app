@@ -1,6 +1,9 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DeviceInterfaceModule;
+import com.qualcomm.robotcore.hardware.DigitalChannelController;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
@@ -14,12 +17,15 @@ import com.qualcomm.robotcore.hardware.Servo;
  */
 public class robotconfig {
 
+    public static final int LED_CHANNEL = 5;
     public DcMotor fLeftMotor = null;
     public DcMotor fRightMotor = null;
     public DcMotor bLeftMotor = null;
     public DcMotor bRightMotor = null;
     public Servo buttonPusher = null;//now public, because of Ben
-    /* Public OpMode members. */
+    public ColorSensor sensorRGB;
+    public DeviceInterfaceModule cdim;
+    public boolean bLedOn = false;
     HardwareMap hwMap = null;
 
     /* Constructor */
@@ -135,6 +141,14 @@ public class robotconfig {
         bLeftMotor = hwMap.dcMotor.get("bl_drive");
         bRightMotor = hwMap.dcMotor.get("br_drive");
 
+        //get sensor stuff
+        cdim = hwMap.deviceInterfaceModule.get("dim");
+        sensorRGB = hwMap.colorSensor.get("color");
+
+        //initialize sensor stuff
+        cdim.setDigitalChannelMode(LED_CHANNEL, DigitalChannelController.Mode.OUTPUT);
+        cdim.setDigitalChannelState(LED_CHANNEL, bLedOn);
+
         // And initialize servo
         buttonPusher = hwMap.servo.get("buttonPusher");
 
@@ -182,14 +196,16 @@ public class robotconfig {
     /***
      * code that will one day detect the color of the beacon
      *
-     * @return 1 for red, -1 for blue
+     * @return 1 for red, -1 for blue, 0 if can't tell
      */
     public int detectColor() {
-        // TODO: 10/31/2016 insert adafruitRGB sensor code here
-        //red should return 1
-        //blue should return -1
-        //for now, assume the sensor is always detecting red
-        return 1;
+        if (sensorRGB.red() > sensorRGB.blue()) {
+            return 1;
+        } else if (sensorRGB.blue() > sensorRGB.red()) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
 
     /***
@@ -201,11 +217,21 @@ public class robotconfig {
      */
     public void move(double forward, double right, double spin) {
 
-        fLeftMotor.setPower(forward + right + spin);
-        fRightMotor.setPower(forward - right - spin);
-        bLeftMotor.setPower(forward - right + spin);
-        bRightMotor.setPower(forward + right - spin);
+        fLeftMotor.setPower(scale(forward) + scale(right) + scale(spin));
+        fRightMotor.setPower(scale(forward) - scale(right) - scale(spin));
+        bLeftMotor.setPower(scale(forward) - scale(right) + scale(spin));
+        bRightMotor.setPower(scale(forward) + scale(right) - scale(spin));
 
+    }
+
+    /***
+     * function to scale the output of the joystick
+     *
+     * @param input unscaled joystick values
+     * @return scaled joystick values
+     */
+    public double scale(double input) {
+        return Math.pow(input, 1.8);
     }
 
 }

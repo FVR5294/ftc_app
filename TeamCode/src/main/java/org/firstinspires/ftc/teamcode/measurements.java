@@ -12,8 +12,8 @@ public class measurements {
     public float perimeterLength = ((12 * 12) - 2) * this.mmPerInch;
     public float tileLength = perimeterLength / 12;
     public float wheelDiameter = 4 * this.mmPerInch;
-    public float widthOfDrive = 15 * this.mmPerInch;
-    public float heightOfDrive = 14 * this.mmPerInch;
+    public float widthOfDrive = (13 + 3 / 8) * this.mmPerInch;
+    public float heightOfDrive = (14 + 3 / 8) * this.mmPerInch;
     public float robotWidth = (float) (17.5 * this.mmPerInch);
     public float robotDepth = (float) (17.5 * this.mmPerInch);
     public float wheelDiagonal = (float) (2 * Math.sqrt((this.heightOfDrive * this.heightOfDrive) + (this.widthOfDrive * this.widthOfDrive)));

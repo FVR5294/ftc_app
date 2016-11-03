@@ -33,8 +33,6 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.ftcrobotcontroller.R;
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.RobotLog;
 
 import org.firstinspires.ftc.robotcore.external.ClassFactory;
@@ -92,18 +90,21 @@ import java.util.List;
 public class imageTracking {
 
     public static final String TAG = "Vuforia Sample";
-
+    public List<VuforiaTrackable> allTrackables;
+    public boolean locationUpdated = false;
+    public Telemetry telemetry;
     robotconfig robot = new robotconfig();
-
     OpenGLMatrix lastLocation = null;
-
     /**
      * {@link #vuforia} is the variable we will use to store our instance of the Vuforia
      * localization engine.
      */
     VuforiaLocalizer vuforia;
+    private OpenGLMatrix data;
 
-    public List<VuforiaTrackable> allTrackables;
+    public imageTracking(Telemetry telemetry) {
+        this.telemetry = telemetry;
+    }
 
     public void init() throws InterruptedException {
         /**
@@ -352,40 +353,50 @@ public class imageTracking {
         /** Wait for the game to begin */
 
 
-
         /** Start tracking the data sets we care about. */
         //stonesAndChips.activate();
         targets.activate();
     }
 
-        public OpenGLMatrix getTrackingData(Telemetry telemetry) {
-
-            for (VuforiaTrackable trackable : allTrackables) {
-                /**
-                 * getUpdatedRobotLocation() will return null if no new information is available since
-                 * the last time that call was made, or if the trackable is not currently visible.
-                 * getRobotLocation() will return null if the trackable is not currently visible.
-                 */
-                telemetry.addData(trackable.getName(), ((VuforiaTrackableDefaultListener) trackable.getListener()).isVisible() ? "Visible" : "Not Visible");    //
-
-                OpenGLMatrix robotLocationTransform = ((VuforiaTrackableDefaultListener) trackable.getListener()).getUpdatedRobotLocation();
-                if (robotLocationTransform != null) {
-                    lastLocation = robotLocationTransform;
-                }
-            }
+    /***
+     * code sets variables lastLocation to a matrix and locationUpdated to true or false depending on if the camera sees a location
+     */
+    public OpenGLMatrix getTrackingData() {
+        locationUpdated = false;
+        for (VuforiaTrackable trackable : allTrackables) {
             /**
-             * Provide feedback as to where the robot was last located (if we know).
+             * getUpdatedRobotLocation() will return null if no new information is available since
+             * the last time that call was made, or if the trackable is not currently visible.
+             * getRobotLocation() will return null if the trackable is not currently visible.
              */
-            if (lastLocation != null) {
-                //  RobotLog.vv(TAG, "robot=%s", format(lastLocation));
-                telemetry.addData("Pos", format(lastLocation));
-            } else {
-                telemetry.addData("Pos", "Unknown");
-            }
-            telemetry.update();
-            return lastLocation;
-        }
+            telemetry.addData(trackable.getName(), ((VuforiaTrackableDefaultListener) trackable.getListener()).isVisible() ? "Visible" : "Not Visible");    //
 
+            OpenGLMatrix robotLocationTransform = ((VuforiaTrackableDefaultListener) trackable.getListener()).getUpdatedRobotLocation();
+            if (robotLocationTransform != null) {
+                lastLocation = robotLocationTransform;
+                locationUpdated = true;
+            }
+        }
+        /**
+         * Provide feedback as to where the robot was last located (if we know).
+         */
+        if (lastLocation != null) {
+            //  RobotLog.vv(TAG, "robot=%s", format(lastLocation));
+            telemetry.addData("Pos", format(lastLocation));
+        } else {
+            telemetry.addData("Pos", "Unknown");
+        }
+        telemetry.update();
+        return lastLocation;
+    }
+
+    public int getDegreeOffset() {
+        if (locationUpdated) {
+            this.data = getTrackingData();
+            this.data.toVector();
+        }
+        return 0;
+    }
 
     /**
      * A simple utility that extracts positioning information from a transformation matrix
