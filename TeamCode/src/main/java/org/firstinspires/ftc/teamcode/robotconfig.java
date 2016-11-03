@@ -169,9 +169,11 @@ public class robotconfig {
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
         this.resetMotorEncoders();
+        Thread.yield();
         this.enableMotorEncoders();
+        Thread.yield();
         this.disableMotorBreak();
-
+        Thread.yield();
     }
 
     /***

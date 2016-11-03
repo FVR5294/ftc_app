@@ -25,7 +25,7 @@ public class autonomous extends LinearOpMode {
 
         robot.init(hardwareMap);
         p.init(robot);
-
+        idle();
         int color = 1;//1=red -1=blue
 
         telemetry.addData("Say", "Running program number %d", color);
@@ -69,6 +69,7 @@ public class autonomous extends LinearOpMode {
         while (robot.isMotorBusy() && opModeIsActive() && (runtime.seconds() < timeout)) {
             telemetry.addData("Path1", "Currently at %7d :%7d :%7d :%7d", robot.fLeftMotor.getCurrentPosition(), robot.fRightMotor.getCurrentPosition(), robot.bLeftMotor.getCurrentPosition(), robot.bRightMotor.getCurrentPosition());
             telemetry.update();
+            idle();
         }
     }
 }

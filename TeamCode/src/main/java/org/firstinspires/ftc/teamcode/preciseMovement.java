@@ -13,7 +13,9 @@ public class preciseMovement {
         this.robot = robot;
         //this.robot.enableMotorBreak();
         this.robot.resetMotorEncoders();
+        Thread.yield();
         this.robot.enableEncodersToPosition();
+        Thread.yield();
         this.robot.setMotorPower(1);
     }
 
@@ -46,7 +48,9 @@ public class preciseMovement {
      */
     public void move(double forward, double right, double spin) {
         this.robot.resetMotorEncoders();
+        Thread.yield();
         this.robot.enableEncodersToPosition();
+        Thread.yield();
         this.robot.setMotorTargets(mm2pulses(forward), mm2pulses(right), mm2pulses(spin2mm(spin)));
     }
 
