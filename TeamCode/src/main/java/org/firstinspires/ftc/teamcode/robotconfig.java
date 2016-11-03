@@ -164,7 +164,7 @@ public class robotconfig {
         bRightMotor.setPower(0);
 
         //and check servo power
-        buttonPusher.setPosition(0.5);
+        this.pushButton(0);
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
@@ -231,7 +231,7 @@ public class robotconfig {
      * @return scaled joystick values
      */
     public double scale(double input) {
-        return Math.pow(input, 1.8);
+        return input;
     }
 
 }

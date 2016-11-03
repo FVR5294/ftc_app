@@ -8,16 +8,15 @@ package org.firstinspires.ftc.teamcode;
  * includes a bunch of important measurements
  */
 public class measurements {
-    public float mmPerInch = (float) 25.4; //please don't ask why I am using millimeters instead of inches
-    public float perimeterLength = ((12 * 12) - 2) * this.mmPerInch;
-    public float tileLength = perimeterLength / 12;
-    public float wheelDiameter = 4 * this.mmPerInch;
-    public float widthOfDrive = (13 + 3 / 8) * this.mmPerInch;
-    public float heightOfDrive = (14 + 3 / 8) * this.mmPerInch;
-    public float robotWidth = (float) (17.5 * this.mmPerInch);
-    public float robotDepth = (float) (17.5 * this.mmPerInch);
-    public float wheelDiagonal = (float) (2 * Math.sqrt((this.heightOfDrive * this.heightOfDrive) + (this.widthOfDrive * this.widthOfDrive)));
+    public double mmPerInch = 25.4; //please don't ask why I am using millimeters instead of inches
+    public double perimeterLength = ((12 * 12) - 2) * this.mmPerInch;
+    public double tileLength = perimeterLength / 12;
+    public double wheelDiameter = 4 * this.mmPerInch;
+    public double widthOfDrive = (13 + 3 / 8) * this.mmPerInch;
+    public double heightOfDrive = (14 + 3 / 8) * this.mmPerInch;
+    public double robotWidth = (17.5 * this.mmPerInch);
+    public double robotDepth = (17.5 * this.mmPerInch);
+    public double wheelDiagonal = (2 * Math.sqrt((this.heightOfDrive * this.heightOfDrive) + (this.widthOfDrive * this.widthOfDrive)));
     public int ppr = 280;
-    public int ppd = ppr * 360;
-    public float pi = (float) 3.1415926535897932384626433832795;
+    public double pi = 3.1415926535897932384626433832795;
 }
