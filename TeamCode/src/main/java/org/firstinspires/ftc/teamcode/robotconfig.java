@@ -170,6 +170,8 @@ public class robotconfig {
         // May want to use RUN_USING_ENCODERS if encoders are installed.
         this.resetMotorEncoders();
         Thread.yield();
+        this.setMotorTargets(0, 0, 0);
+        Thread.yield();
         this.enableMotorEncoders();
         Thread.yield();
         this.disableMotorBreak();
