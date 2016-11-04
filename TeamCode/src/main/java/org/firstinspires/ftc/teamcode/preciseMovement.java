@@ -14,7 +14,6 @@ import static java.lang.Thread.sleep;
  * library to use math for precise movement, primarily for autonomous
  */
 public class preciseMovement {
-    private robotconfig robot;
     private measurements m = new measurements();
     private ElapsedTime runtime = new ElapsedTime();
 
@@ -44,7 +43,7 @@ public class preciseMovement {
      * @return number of pulses generated
      */
     private int mm2pulses(double mm) {
-        return (int) ((mm / (m.pi * m.wheelDiameter)) * m.ppr);
+        return (int) ((m.ppr / (m.pi * m.wheelDiameter)) * mm);
     }
 
     /***
