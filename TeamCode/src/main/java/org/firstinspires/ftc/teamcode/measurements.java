@@ -17,6 +17,6 @@ public class measurements {
     public double robotWidth = (17.5 * this.mmPerInch);
     public double robotDepth = (17.5 * this.mmPerInch);
     public double wheelDiagonal = (2 * Math.sqrt((this.heightOfDrive * this.heightOfDrive) + (this.widthOfDrive * this.widthOfDrive)));
-    public int ppr = 280 * 4;
+    public int ppr = 280;
     public double pi = 3.1415926535897932384626433832795;
 }
