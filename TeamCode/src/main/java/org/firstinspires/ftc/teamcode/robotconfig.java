@@ -103,10 +103,10 @@ public class robotconfig {
      * @param spin    pulses in spinning clockwise
      */
     public void setMotorTargets(int forward, int right, int spin) {
-        fLeftMotor.setTargetPosition(forward + right + spin);
-        fRightMotor.setTargetPosition(forward - right - spin);
-        bLeftMotor.setTargetPosition(forward - right + spin);
-        bRightMotor.setTargetPosition(forward + right - spin);
+        fLeftMotor.setTargetPosition(fLeftMotor.getCurrentPosition() + forward + right + spin);
+        fRightMotor.setTargetPosition(fRightMotor.getCurrentPosition() + forward - right - spin);
+        bLeftMotor.setTargetPosition(bLeftMotor.getCurrentPosition() + forward - right + spin);
+        bRightMotor.setTargetPosition(bRightMotor.getCurrentPosition() + forward + right - spin);
     }
 
     /***
@@ -184,17 +184,18 @@ public class robotconfig {
      * @param button input 1 for the left button, 2 for the right button, and any other number to reset it back to center
      */
     public void pushButton(int button) {
+        /*
         switch (button) {
             case 1:
-                this.buttonPusher.setPosition(0.3);//right button
+                buttonPusher.setPosition(0.3);//right button
                 break;
             case -1:
-                this.buttonPusher.setPosition(0.7);//left button
+                buttonPusher.setPosition(0.7);//left button
                 break;
             default:
                 buttonPusher.setPosition(0.5);
                 break;
-        }
+        }//*/
     }
 
     /***

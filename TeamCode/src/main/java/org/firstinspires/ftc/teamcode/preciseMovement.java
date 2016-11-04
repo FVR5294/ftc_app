@@ -4,6 +4,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
+import static java.lang.Thread.sleep;
+
 /**
  * Created by mail2 on 10/31/2016.
  */
@@ -14,21 +16,15 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 public class preciseMovement {
     private robotconfig robot;
     private measurements m = new measurements();
-    private Telemetry telemetry;
-    private ElapsedTime runtime;
-    private autonomous.status status;
+    private ElapsedTime runtime = new ElapsedTime();
 
-    public void init(robotconfig robot, Telemetry telemetry, ElapsedTime runtime, autonomous.status status) {
-        this.robot = robot;
-        this.telemetry = telemetry;
-        this.runtime = runtime;
-        this.status = status;
+    public void init(robotconfig robot) {
         //this.robot.enableMotorBreak();
-        this.robot.resetMotorEncoders();
+        robot.resetMotorEncoders();
         Thread.yield();
-        this.robot.enableEncodersToPosition();
+        robot.enableEncodersToPosition();
         Thread.yield();
-        this.robot.setMotorPower(1);
+        robot.setMotorPower(1);
     }
 
     /***
@@ -58,27 +54,25 @@ public class preciseMovement {
      * @param right   mm to slide to the right
      * @param spin    degrees to spin clockwise (or negative for counter clockwise)
      */
-    public void move(double forward, double right, double spin) {
-        this.robot.resetMotorEncoders();
-        Thread.yield();
-        this.robot.enableEncodersToPosition();
-        Thread.yield();
-        this.robot.setMotorTargets(mm2pulses(forward), mm2pulses(right), mm2pulses(spin2mm(spin)));
+    public void move(double forward, double right, double spin, robotconfig robot, Telemetry telemetry) {
+        robot.setMotorTargets(mm2pulses(forward), mm2pulses(right), mm2pulses(spin2mm(spin)));
+        waitForMotors(robot, telemetry, forward, right, spin);
     }
 
-    public void waitForMotors() {
+    public void waitForMotors(robotconfig robot, Telemetry telemetry, double forward, double right, double spin) {
         double timeout = 5;
         runtime.reset();
-        telemetry.addData("Path0", "Start %7d :%7d :%7d :%7d", robot.fLeftMotor.getCurrentPosition(), robot.fRightMotor.getCurrentPosition(), robot.bLeftMotor.getCurrentPosition(), robot.bRightMotor.getCurrentPosition());
-        telemetry.addData("Path1", "Now   %7d :%7d :%7d :%7d", robot.fLeftMotor.getCurrentPosition(), robot.fRightMotor.getCurrentPosition(), robot.bLeftMotor.getCurrentPosition(), robot.bRightMotor.getCurrentPosition());
-        telemetry.addData("Path2", "End   %7d :%7d :%7d :%7d", robot.fLeftMotor.getTargetPosition(), robot.fRightMotor.getTargetPosition(), robot.bLeftMotor.getTargetPosition(), robot.bRightMotor.getTargetPosition());
-        telemetry.update();
-        boolean isRunning = true;
-        while (robot.isMotorBusy() && (runtime.seconds() < timeout) && isRunning) {
-            telemetry.addData("Path1", "Currently at %7d :%7d :%7d :%7d", robot.fLeftMotor.getCurrentPosition(), robot.fRightMotor.getCurrentPosition(), robot.bLeftMotor.getCurrentPosition(), robot.bRightMotor.getCurrentPosition());
+        while (robot.isMotorBusy() && (runtime.seconds() < timeout)) {
+            telemetry.addData("Path0", "Go to %f in : %f in : %f in", (forward / m.mmPerInch), (right / m.mmPerInch), spin);
+            telemetry.addData("Path1", "At  %7d :%7d :%7d :%7d", robot.fLeftMotor.getCurrentPosition(), robot.fRightMotor.getCurrentPosition(), robot.bLeftMotor.getCurrentPosition(), robot.bRightMotor.getCurrentPosition());
+            telemetry.addData("Path2", "End %7d :%7d :%7d :%7d", robot.fLeftMotor.getTargetPosition(), robot.fRightMotor.getTargetPosition(), robot.bLeftMotor.getTargetPosition(), robot.bRightMotor.getTargetPosition());
             telemetry.update();
-            isRunning = status.call();
             Thread.yield();
+        }
+        try {
+            sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 

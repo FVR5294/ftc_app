@@ -108,7 +108,6 @@ public class testOp extends OpMode {
         telemetry.addData("forward", "%.2f", forward);
         telemetry.addData("right", "%.2f", right);
         telemetry.addData("spin", "%.2f", spin);
-        updateTelemetry(telemetry);
     }
 
     /*
