@@ -4,8 +4,6 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
-import static java.lang.Thread.sleep;
-
 /**
  * Created by mail2 on 10/31/2016.
  */
@@ -23,7 +21,7 @@ public class preciseMovement {
         Thread.yield();
         robot.enableEncodersToPosition();
         Thread.yield();
-        robot.setMotorPower(1);
+        robot.setMotorPower(0.75);
     }
 
     /***
@@ -33,7 +31,7 @@ public class preciseMovement {
      * @return distance a wheel will spin in mm
      */
     private double spin2mm(double degrees) {
-        return (degrees / 360) * (m.wheelDiagonal * m.pi);
+        return (degrees / 360) * (measurements.wheelDiagonal * measurements.pi);
     }
 
     /***
@@ -43,7 +41,7 @@ public class preciseMovement {
      * @return number of pulses generated
      */
     private int mm2pulses(double mm) {
-        return (int) ((m.ppr / (m.pi * m.wheelDiameter)) * mm);
+        return (int) ((measurements.ppr / (measurements.pi * measurements.wheelDiameter)) * mm);
     }
 
     /***
@@ -62,16 +60,11 @@ public class preciseMovement {
         double timeout = 5;
         runtime.reset();
         while (robot.isMotorBusy() && (runtime.seconds() < timeout)) {
-            telemetry.addData("Path0", "Go to %f in : %f in : %f in", (forward / m.mmPerInch), (right / m.mmPerInch), spin);
+            telemetry.addData("Path0", "Go to %f in : %f in : %f in", (forward / measurements.mmPerInch), (right / measurements.mmPerInch), spin);
             telemetry.addData("Path1", "At  %7d :%7d :%7d :%7d", robot.fLeftMotor.getCurrentPosition(), robot.fRightMotor.getCurrentPosition(), robot.bLeftMotor.getCurrentPosition(), robot.bRightMotor.getCurrentPosition());
             telemetry.addData("Path2", "End %7d :%7d :%7d :%7d", robot.fLeftMotor.getTargetPosition(), robot.fRightMotor.getTargetPosition(), robot.bLeftMotor.getTargetPosition(), robot.bRightMotor.getTargetPosition());
             telemetry.update();
             Thread.yield();
-        }
-        try {
-            sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 
