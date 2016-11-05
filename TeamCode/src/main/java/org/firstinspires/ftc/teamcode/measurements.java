@@ -10,7 +10,7 @@ package org.firstinspires.ftc.teamcode;
 public class measurements {
     public static final double mmPerInch = 25.4; //please don't ask why I am using millimeters instead of inches
     public static final double perimeterLength = 142 * mmPerInch;
-    public static final double tileLength = 23.5 * mmPerInch;
+    public static final double tileLength = 24 * mmPerInch;
     public static final double wheelDiameter = 4 * mmPerInch;
     public static final double widthOfDrive = 15 * mmPerInch;
     public static final double heightOfDrive = 15 * mmPerInch;

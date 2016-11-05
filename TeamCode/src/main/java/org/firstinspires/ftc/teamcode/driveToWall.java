@@ -20,7 +20,7 @@ public class driveToWall extends LinearOpMode {
         idle();
         waitForStart();
         while (opModeIsActive()) {
-            p.move(0, 0, 90, robot, telemetry);
+            p.move(0, 0, 90, 4, robot, telemetry);
             sleep(1000);
         }
     }

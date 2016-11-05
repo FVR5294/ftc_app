@@ -21,7 +21,7 @@ public class preciseMovement {
         Thread.yield();
         robot.enableEncodersToPosition();
         Thread.yield();
-        robot.setMotorPower(0.75);
+        robot.setMotorPower(0.5);
     }
 
     /***
@@ -51,13 +51,12 @@ public class preciseMovement {
      * @param right   mm to slide to the right
      * @param spin    degrees to spin clockwise (or negative for counter clockwise)
      */
-    public void move(double forward, double right, double spin, robotconfig robot, Telemetry telemetry) {
+    public void move(double forward, double right, double spin, double timeout, robotconfig robot, Telemetry telemetry) {
         robot.setMotorTargets(mm2pulses(forward), mm2pulses(right), mm2pulses(spin2mm(spin)));
-        waitForMotors(robot, telemetry, forward, right, spin);
+        waitForMotors(robot, telemetry, forward, right, spin, timeout);
     }
 
-    public void waitForMotors(robotconfig robot, Telemetry telemetry, double forward, double right, double spin) {
-        double timeout = 5;
+    public void waitForMotors(robotconfig robot, Telemetry telemetry, double forward, double right, double spin, double timeout) {
         runtime.reset();
         while (robot.isMotorBusy() && (runtime.seconds() < timeout)) {
             telemetry.addData("Path0", "Go to %f in : %f in : %f in", (forward / measurements.mmPerInch), (right / measurements.mmPerInch), spin);
