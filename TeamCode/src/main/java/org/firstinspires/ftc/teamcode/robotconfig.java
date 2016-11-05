@@ -36,6 +36,10 @@ public class robotconfig {
     public OpMode opMode;
     public Telemetry ltelemetry;
     public boolean debugMode = true;
+    private final double MAX_POWER = 0.95;
+    private final double MIN_POWER = 0.05;
+    private final double DEAD_ZONE = 0.02;
+
 
 
     /* Constructor */
@@ -238,6 +242,7 @@ public class robotconfig {
         Thread.yield();
         this.disableMotorBreak();
         Thread.yield();
+
         addlog(dl, "r.init", "r.init finished (a)");
     }
 
@@ -369,7 +374,25 @@ public class robotconfig {
      * @return scaled joystick values
      */
     public double scale(double input) {
-        return input;
+
+        double sign = 1.0;
+        double output;
+
+        if(input < 0.0) {
+            sign = -1.0;    // remember incoming joystick direction, -1 is fully up
+        }
+
+        input = input * input;  // power transfer curve, adjust sign handling if sign is preserved by this function
+
+        if (input < (DEAD_ZONE * DEAD_ZONE)) { // need to square DEAD_ZONE since input is already squared
+            return(0);
+        }
+
+        output = (input - (DEAD_ZONE * DEAD_ZONE));             // shift so that range is from 0 to 1.0-DEAD_ZONE^2 instead of DEAD_ZONE^2 to 1.0
+        output = output / ( 1.0 - (DEAD_ZONE * DEAD_ZONE));     // scale so 0 to 1.0-DEAD_ZONE^2 is now 0 to 1
+        output = output * (MAX_POWER - MIN_POWER);              // scale so range is now 0 to (MAX-MIN)
+        output = output + MIN_POWER;                            // shift so range is now MIN_POWER to MAX_POWER
+        return (output * sign);         // don't forget to restore the sign of the input
     }
 
 }
