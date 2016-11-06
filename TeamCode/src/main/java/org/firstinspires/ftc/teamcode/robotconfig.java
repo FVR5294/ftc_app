@@ -244,12 +244,7 @@ public class robotconfig {
         // May want to use RUN_USING_ENCODERS if encoders are installed.
         this.resetMotorEncoders();
         Thread.yield();
-        this.setMotorTargets(0, 0, 0);
-        Thread.yield();
         this.enableMotorEncoders();
-        Thread.yield();
-        this.disableMotorBreak();
-        Thread.yield();
 
         addlog(dl, "r.init", "r.init finished (a)");
     }
@@ -301,12 +296,7 @@ public class robotconfig {
         // May want to use RUN_USING_ENCODERS if encoders are installed.
         this.resetMotorEncoders();
         Thread.yield();
-        this.setMotorTargets(0, 0, 0);
-        Thread.yield();
         this.enableMotorEncoders();
-        Thread.yield();
-        this.disableMotorBreak();
-        Thread.yield();
 
         addlog(dl, "r.init", "r.init finished (t)");
     }
@@ -320,13 +310,13 @@ public class robotconfig {
         addlog(dl, "robot", "pushButton was invoked");
         switch (button) {
             case 1:
-                buttonPusher.setPosition(0.3);//right button
+                buttonPusher.setPosition(0.8);//right button
                 break;
             case -1:
-                buttonPusher.setPosition(0.7);//left button
+                buttonPusher.setPosition(0.5);//left button
                 break;
             default:
-                buttonPusher.setPosition(0.5);
+                buttonPusher.setPosition(0.65);
                 break;
         }//*/
     }
