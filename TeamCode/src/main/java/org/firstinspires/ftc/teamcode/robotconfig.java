@@ -1,11 +1,15 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DeviceInterfaceModule;
 import com.qualcomm.robotcore.hardware.DigitalChannelController;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 /***
  * robotconfig is a simple and effective way to import the robot configuration information into every program.
@@ -18,6 +22,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 public class robotconfig {
 
     public static final int LED_CHANNEL = 5;
+    static public DataLogger dl;
     public DcMotor fLeftMotor = null;
     public DcMotor fRightMotor = null;
     public DcMotor bLeftMotor = null;
@@ -26,11 +31,26 @@ public class robotconfig {
     public ColorSensor sensorRGB;
     public DeviceInterfaceModule cdim;
     public boolean bLedOn = false;
-    HardwareMap hwMap = null;
+    public HardwareMap hwMap = null;
+    public LinearOpMode linearOpMode;
+    public OpMode opMode;
+    public Telemetry ltelemetry;
+    public boolean debugMode = true;
+    private final double MAX_POWER = 0.95;
+    private final double MIN_POWER = 0.05;
+    private final double DEAD_ZONE = 0.02;
+
+
 
     /* Constructor */
     public robotconfig() {
 
+    }
+
+    static public void addlog(DataLogger dli, String function, String message) {
+        dli.addField(function);
+        dli.addField(message);
+        dli.newLine();
     }
 
     /***
@@ -38,6 +58,10 @@ public class robotconfig {
      * This function only has to be run if one wants the break to be enabled.
      */
     public void enableMotorBreak() {
+        addlog(dl, "robot", "enableMotorBreak was called");
+        if (debugMode) {
+            return;
+        }
         fLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         fRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         bLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -49,6 +73,10 @@ public class robotconfig {
      * This function only has to be run if one wants disable the break after it is manually enabled
      */
     public void disableMotorBreak() {
+        addlog(dl, "robot", "disableMotorBreak was called");
+        if (debugMode) {
+            return;
+        }
         fLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         fRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         bLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
@@ -59,6 +87,10 @@ public class robotconfig {
      * resets the encoders of the drive train motors but doesn't put them back to the normal mode
      */
     public void resetMotorEncoders() {
+        addlog(dl, "robot", "resetMotorEncoders was called");
+        if (debugMode) {
+            return;
+        }
         fLeftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         fRightMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         bLeftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -69,6 +101,10 @@ public class robotconfig {
      * makes the drive train motors use the RUN_USING_ENCODER mode
      */
     public void enableMotorEncoders() {
+        addlog(dl, "robot", "enableMotorEncoders was called");
+        if (debugMode) {
+            return;
+        }
         fLeftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         fRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         bLeftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -79,6 +115,10 @@ public class robotconfig {
      * makes the drive train motors use the RUN_TO_POSITION mode
      */
     public void enableEncodersToPosition() {
+        addlog(dl, "robot", "enableEncodersToPosition was called");
+        if (debugMode) {
+            return;
+        }
         fLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         fRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         bLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -89,6 +129,10 @@ public class robotconfig {
      * sets the drive train mobor mode to RUN_WITHOUT_ENCODER
      */
     public void disableMotorEncoders() {
+        addlog(dl, "robot", "disableMotorEncoders was called");
+        if (debugMode) {
+            return;
+        }
         fLeftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         fRightMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         bLeftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -103,6 +147,10 @@ public class robotconfig {
      * @param spin    pulses in spinning clockwise
      */
     public void setMotorTargets(int forward, int right, int spin) {
+        addlog(dl, "robot", "setMotorTargets was called - f:r:s: " + String.format("%d", forward) + " : " + String.format("%d", right) + " : " + String.format("%d", spin));
+        if (debugMode) {
+            return;
+        }
         fLeftMotor.setTargetPosition(fLeftMotor.getCurrentPosition() + forward + right + spin);
         fRightMotor.setTargetPosition(fRightMotor.getCurrentPosition() + forward - right - spin);
         bLeftMotor.setTargetPosition(bLeftMotor.getCurrentPosition() + forward - right + spin);
@@ -115,6 +163,10 @@ public class robotconfig {
      * @param power power for all motors
      */
     public void setMotorPower(double power) {
+        addlog(dl, "robot", "setMotorPower was called - power: " + String.format("%.2f", power));
+        if (debugMode) {
+            return;
+        }
         fLeftMotor.setPower(power);
         fRightMotor.setPower(power);
         bLeftMotor.setPower(power);
@@ -127,13 +179,84 @@ public class robotconfig {
      * @return true if any one of the motors are busy
      */
     public boolean isMotorBusy() {
+        addlog(dl, "robot", "isMotorBusy was called");
+        if (debugMode) {
+            return (false);
+        }
         return fLeftMotor.isBusy() || fRightMotor.isBusy() || bLeftMotor.isBusy() || bRightMotor.isBusy();
     }
 
-    /* Initialize standard Hardware interfaces */
-    public void init(HardwareMap ahwMap) {
-        // Save reference to Hardware map
-        hwMap = ahwMap;
+    /* Initialize standard Hardware interfaces - LinearOpMode */
+
+    public void init(LinearOpMode linearOpMode) {
+
+        this.linearOpMode = linearOpMode;
+
+        // Save reference to Hardware map in class variable
+
+        hwMap = linearOpMode.hardwareMap;
+
+        dl = new DataLogger("10635", "autonomousTest");
+        addlog(dl, "r.init", "r.init was invoked (a)");
+
+        // Define and Initialize Motors
+        if (!debugMode) {
+
+            fLeftMotor = hwMap.dcMotor.get("fl_drive");
+            fRightMotor = hwMap.dcMotor.get("fr_drive");
+            bLeftMotor = hwMap.dcMotor.get("bl_drive");
+            bRightMotor = hwMap.dcMotor.get("br_drive");
+
+            //get sensor stuff
+            cdim = hwMap.deviceInterfaceModule.get("dim");
+            sensorRGB = hwMap.colorSensor.get("color");
+
+            //initialize sensor stuff
+            cdim.setDigitalChannelMode(LED_CHANNEL, DigitalChannelController.Mode.OUTPUT);
+            cdim.setDigitalChannelState(LED_CHANNEL, bLedOn);
+
+            // And initialize servo
+            buttonPusher = hwMap.servo.get("buttonPusher");
+
+            fLeftMotor.setDirection(DcMotor.Direction.FORWARD); //forward for andymark motor in drivetrain
+            bLeftMotor.setDirection(DcMotor.Direction.FORWARD); //forward for andymark motor in drivetrain
+            fRightMotor.setDirection(DcMotor.Direction.REVERSE); //reverse for andymark motor in drivetrain
+            bRightMotor.setDirection(DcMotor.Direction.REVERSE); //reverse for andymark motor in drivetrain
+
+            // Set all motors to zero power
+            fLeftMotor.setPower(0);
+            fRightMotor.setPower(0);
+            bLeftMotor.setPower(0);
+            bRightMotor.setPower(0);
+        }
+        //and check servo power
+        this.pushButton(0);
+
+        // Set all motors to run without encoders.
+        // May want to use RUN_USING_ENCODERS if encoders are installed.
+        this.resetMotorEncoders();
+        Thread.yield();
+        this.setMotorTargets(0, 0, 0);
+        Thread.yield();
+        this.enableMotorEncoders();
+        Thread.yield();
+        this.disableMotorBreak();
+        Thread.yield();
+
+        addlog(dl, "r.init", "r.init finished (a)");
+    }
+
+        /* Initialize standard Hardware interfaces */
+
+    public void init(OpMode opMode) {
+        this.opMode = opMode;
+
+        // Save reference to Hardware map in class variable
+
+        hwMap = opMode.hardwareMap;
+
+        dl = new DataLogger("10635", "TeleOp");
+        addlog(dl, "r.init", "r.init was invoked (t)");
 
         // Define and Initialize Motors
         fLeftMotor = hwMap.dcMotor.get("fl_drive");
@@ -176,6 +299,8 @@ public class robotconfig {
         Thread.yield();
         this.disableMotorBreak();
         Thread.yield();
+
+        addlog(dl, "r.init", "r.init finished (t)");
     }
 
     /***
@@ -184,7 +309,8 @@ public class robotconfig {
      * @param button input 1 for the left button, 2 for the right button, and any other number to reset it back to center
      */
     public void pushButton(int button) {
-        /*
+        addlog(dl, "robot", "pushButton was invoked");
+       /*
         switch (button) {
             case 1:
                 buttonPusher.setPosition(0.3);//right button
@@ -204,6 +330,12 @@ public class robotconfig {
      * @return 1 for red, -1 for blue, 0 if can't tell
      */
     public int detectColor() {
+
+        addlog(dl, "robot", "detectColor was called");
+
+        if (debugMode) {
+            return (1);  // if no hardware, let's assume red
+        }
         if (sensorRGB.red() > sensorRGB.blue()) {
             return 1;
         } else if (sensorRGB.blue() > sensorRGB.red()) {
@@ -222,6 +354,12 @@ public class robotconfig {
      */
     public void move(double forward, double right, double spin) {
 
+        addlog(dl, "robot", "move was called - f:r:s: " + String.format("%.2f", forward) + " : " + String.format("%.2f", right) + " : " + String.format("%.2f", spin));
+
+        if (debugMode) {
+            return;
+        }
+
         fLeftMotor.setPower(scale(forward) + scale(right) + scale(spin));
         fRightMotor.setPower(scale(forward) - scale(right) - scale(spin));
         bLeftMotor.setPower(scale(forward) - scale(right) + scale(spin));
@@ -236,7 +374,25 @@ public class robotconfig {
      * @return scaled joystick values
      */
     public double scale(double input) {
-        return input;
+
+        double sign = 1.0;
+        double output;
+
+        if(input < 0.0) {
+            sign = -1.0;    // remember incoming joystick direction, -1 is fully up
+        }
+
+        input = input * input;  // power transfer curve, adjust sign handling if sign is preserved by this function
+
+        if (input < (DEAD_ZONE * DEAD_ZONE)) { // need to square DEAD_ZONE since input is already squared
+            return(0);
+        }
+
+        output = (input - (DEAD_ZONE * DEAD_ZONE));             // shift so that range is from 0 to 1.0-DEAD_ZONE^2 instead of DEAD_ZONE^2 to 1.0
+        output = output / ( 1.0 - (DEAD_ZONE * DEAD_ZONE));     // scale so 0 to 1.0-DEAD_ZONE^2 is now 0 to 1
+        output = output * (MAX_POWER - MIN_POWER);              // scale so range is now 0 to (MAX-MIN)
+        output = output + MIN_POWER;                            // shift so range is now MIN_POWER to MAX_POWER
+        return (output * sign);         // don't forget to restore the sign of the input
     }
 
 }
