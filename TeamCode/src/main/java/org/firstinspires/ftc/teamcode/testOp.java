@@ -83,9 +83,9 @@ public class testOp extends OpMode {
         double spin;
 
         //get values from joystick
-        forward = -gamepad1.left_stick_y;
-        right = gamepad1.left_stick_x;
-        spin = gamepad1.right_stick_x;
+        forward = -gamepad1.left_stick_y * Math.abs(gamepad1.left_stick_y);
+        right = gamepad1.left_stick_x * Math.abs(gamepad1.left_stick_x);
+        spin = gamepad1.right_stick_x * Math.abs(gamepad1.right_stick_x);
 
         //look at the beautiful simplicity of my code, thanks to the robotconfig class
         robot.move(forward, right, spin);//all it takes is one line to set the power for all 4 motors

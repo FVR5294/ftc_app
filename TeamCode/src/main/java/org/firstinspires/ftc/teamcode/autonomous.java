@@ -31,36 +31,39 @@ public class autonomous extends LinearOpMode {
         waitForStart();
         telemetry.addData("Say", "Running program number %d", color);
         robotconfig.addlog(dl, "autonomous", "Started");
-        p.move(Math.abs(measurements.tileLength - measurements.robotDepth) / 2, 0, 0, 3, robot, telemetry);
-        p.move(measurements.tileLength, color * measurements.tileLength * -1, 0, 3, robot, telemetry);
-        p.move(0, 0, color * -90, 3, robot, telemetry);
-        p.move(0, color * measurements.tileLength, 0, 3, robot, telemetry);
-        p.move(measurements.tileLength, 0, 0, 3, robot, telemetry);
+        p.move(52 * measurements.mmPerInch, 50 * measurements.mmPerInch * color, 0, 6, robot, telemetry);
+
+        p.move(6 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
 
         robotconfig.addlog(dl, "autonomous", "Finished move setup for first beacon");
 
         robotconfig.addlog(dl, "autonomous", "Detect color and push button for first beacon");
+        robot.setMotorPower(0);
         robot.pushButton(robot.detectColor() * color);//see why this is a switch, Ben?
         //detect color returns 1 for red
         //color is multiplied by -1 if it is trying to get blue
         //push button accepts the 1 for red and pushes the right (pun intended) button
 
         robotconfig.addlog(dl, "autonomous", "Finished button push for first beacon");
-
+        robot.setMotorPower(1);
         robotconfig.addlog(dl, "autonomous", "Back off and reset from first beacon");
-        p.move(measurements.mmPerInch * -4, 0, 0, 3, robot, telemetry); //back away from the button
+        p.move(measurements.mmPerInch * -6, 0, 0, 3, robot, telemetry); //back away from the button
 
         robot.pushButton(0);//reset button pusher to prevent accidental press at next beacon
 
         robotconfig.addlog(dl, "autonomous", "Back off complete -- move to second beacon");
 
-        p.move(0, color * measurements.tileLength * 2, 0, 3, robot, telemetry);//slide to the right/left
-        p.move(measurements.mmPerInch * 4.01, 0, 0, 3, robot, telemetry); //get next button
+        p.move(0, color * 47 * measurements.mmPerInch, 0, 3, robot, telemetry);//slide to the right/left
+        p.move(measurements.mmPerInch * 6, 0, 0, 3, robot, telemetry); //get next button
 
         robotconfig.addlog(dl, "autonomous", "Finished move setup for second beacon");
 
+        robot.setMotorPower(0);
+
         robotconfig.addlog(dl, "autonomous", "Detect color and push button for second beacon");
         robot.pushButton(robot.detectColor() * color);//admit it, my way is better than your's
+
+        robot.setMotorPower(1);
 
         p.move(-Math.abs(measurements.tileLength - measurements.robotDepth) / 2, 0, 0, 3, robot, telemetry);
 

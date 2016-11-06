@@ -1,7 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
 
 /**
@@ -18,7 +18,7 @@ import com.qualcomm.robotcore.hardware.Servo;
  * Use Android Studio to Copy this Class, and Paste it into your team's code folder with a new name.
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
-@Autonomous(name = "Concept: Scan Servo", group = "Concept")
+@TeleOp(name = "Concept: Scan Servo", group = "Concept")
 public class ConceptScanServo extends LinearOpMode {
 
     static final double INCREMENT = 0.01;     // amount to slew servo each CYCLE_MS cycle
@@ -49,21 +49,11 @@ public class ConceptScanServo extends LinearOpMode {
         while (opModeIsActive()) {
 
             // slew the servo, according to the rampUp (direction) variable.
-            if (rampUp) {
-                // Keep stepping up until we hit the max value.
+            if (gamepad1.dpad_up)
                 position += INCREMENT;
-                if (position >= MAX_POS) {
-                    position = MAX_POS;
-                    rampUp = !rampUp;   // Switch ramp direction
-                }
-            } else {
-                // Keep stepping down until we hit the min value.
+
+            if (gamepad1.dpad_down)
                 position -= INCREMENT;
-                if (position <= MIN_POS) {
-                    position = MIN_POS;
-                    rampUp = !rampUp;  // Switch ramp direction
-                }
-            }
 
             // Display the current value
             telemetry.addData("Servo Position", "%5.2f", position);

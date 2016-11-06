@@ -35,7 +35,7 @@ public class preciseMovement {
         Thread.yield();
         robot.enableEncodersToPosition();
         Thread.yield();
-        robot.setMotorPower(0.9);
+        robot.setMotorPower(1);
 
         robotconfig.addlog(dl, "pm.init", "pm.init finished");
     }

@@ -31,14 +31,14 @@ public class robotconfig {
     public DcMotor bLeftMotor = null;
     public DcMotor bRightMotor = null;
     public Servo buttonPusher = null;//now public, because of Ben
-    public ColorSensor sensorRGB;
+    public ColorSensor colorSensorButton;
     public DeviceInterfaceModule cdim;
     public boolean bLedOn = false;
     public HardwareMap hwMap = null;
     public LinearOpMode linearOpMode;
     public OpMode opMode;
     public Telemetry ltelemetry;
-    public boolean debugMode = true;
+    public boolean debugMode = false;
 
 
     /* Constructor */
@@ -217,7 +217,7 @@ public class robotconfig {
 
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
-            sensorRGB = hwMap.colorSensor.get("color");
+            colorSensorButton = hwMap.colorSensor.get("colorButton");
 
             //initialize sensor stuff
             cdim.setDigitalChannelMode(LED_CHANNEL, DigitalChannelController.Mode.OUTPUT);
@@ -269,7 +269,7 @@ public class robotconfig {
 
         //get sensor stuff
         cdim = hwMap.deviceInterfaceModule.get("dim");
-        sensorRGB = hwMap.colorSensor.get("color");
+        colorSensorButton = hwMap.colorSensor.get("colorButton");
 
         //initialize sensor stuff
         cdim.setDigitalChannelMode(LED_CHANNEL, DigitalChannelController.Mode.OUTPUT);
@@ -310,10 +310,10 @@ public class robotconfig {
         addlog(dl, "robot", "pushButton was invoked");
         switch (button) {
             case 1:
-                buttonPusher.setPosition(0.8);//right button
+                buttonPusher.setPosition(0.72);//right button
                 break;
             case -1:
-                buttonPusher.setPosition(0.5);//left button
+                buttonPusher.setPosition(0.43);//left button
                 break;
             default:
                 buttonPusher.setPosition(0.65);
@@ -333,9 +333,9 @@ public class robotconfig {
         if (debugMode) {
             return (1);  // if no hardware, let's assume red
         }
-        if (sensorRGB.red() > sensorRGB.blue()) {
+        if (colorSensorButton.red() > colorSensorButton.blue()) {
             return 1;
-        } else if (sensorRGB.blue() > sensorRGB.red()) {
+        } else if (colorSensorButton.blue() > colorSensorButton.red()) {
             return -1;
         } else {
             return 0;
