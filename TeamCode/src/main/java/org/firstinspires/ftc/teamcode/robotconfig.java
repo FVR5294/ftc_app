@@ -110,13 +110,6 @@ public class robotconfig {
         bRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
-    public void setMotorMaxSpeed() {
-        fLeftMotor.setMaxSpeed(1000);
-        fRightMotor.setMaxSpeed(1000);
-        bLeftMotor.setMaxSpeed(1000);
-        bRightMotor.setMaxSpeed(1000);
-    }
-
     /***
      * makes the drive train motors use the RUN_TO_POSITION mode
      */
@@ -212,8 +205,6 @@ public class robotconfig {
             fRightMotor = hwMap.dcMotor.get("fr_drive");
             bLeftMotor = hwMap.dcMotor.get("bl_drive");
             bRightMotor = hwMap.dcMotor.get("br_drive");
-
-            setMotorMaxSpeed();
 
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
@@ -316,7 +307,7 @@ public class robotconfig {
                 buttonPusher.setPosition(0.43);//left button
                 break;
             default:
-                buttonPusher.setPosition(0.65);
+                buttonPusher.setPosition(0.56);
                 break;
         }//*/
     }
@@ -330,9 +321,6 @@ public class robotconfig {
 
         addlog(dl, "robot", "detectColor was called");
 
-        if (debugMode) {
-            return (1);  // if no hardware, let's assume red
-        }
         if (colorSensorButton.red() > colorSensorButton.blue()) {
             return 1;
         } else if (colorSensorButton.blue() > colorSensorButton.red()) {

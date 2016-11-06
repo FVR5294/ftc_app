@@ -40,9 +40,9 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 public class testOp extends OpMode {
 
+    public int color = 1;
     /* Declare OpMode members. */
     robotconfig robot = new robotconfig();
-
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -90,19 +90,23 @@ public class testOp extends OpMode {
         //look at the beautiful simplicity of my code, thanks to the robotconfig class
         robot.move(forward, right, spin);//all it takes is one line to set the power for all 4 motors
 
-        if (gamepad1.x) {
+        if (gamepad1.x || gamepad2.x) {
             robot.pushButton(-1);
         }
 
 
-        if (gamepad1.b) {
+        if (gamepad1.b || gamepad2.b) {
             robot.pushButton(1);
         }
 
         //reset servo if neither button is pressed
-//        if (!gamepad1.dpad_left && !gamepad1.dpad_right) {
-//            robot.pushButton(0);
-//        }
+        if (!gamepad1.x && !gamepad2.x && !gamepad1.a && !gamepad2.a && !gamepad1.b && !gamepad2.b) {
+            robot.pushButton(0);
+        }
+
+        if (gamepad1.a || gamepad2.a) {
+            robot.pushButton(robot.detectColor() * color);
+        }
 
         // Send telemetry message to signify robot running;
         telemetry.addData("forward", "%.2f", forward);

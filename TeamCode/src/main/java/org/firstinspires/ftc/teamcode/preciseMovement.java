@@ -33,6 +33,7 @@ public class preciseMovement {
 
         robot.resetMotorEncoders();
         Thread.yield();
+        robot.setMotorTargets(0, 0, 0);
         robot.enableEncodersToPosition();
         Thread.yield();
         robot.setMotorPower(1);
@@ -61,11 +62,14 @@ public class preciseMovement {
     }
 
     /***
-     * sets the drive train motor encoder targets to values to go a specific distance
+     * function takes measurements in mm to move the robot
      *
-     * @param forward mm forward to move
-     * @param right   mm to slide to the right
-     * @param spin    degrees to spin clockwise (or negative for counter clockwise)
+     * @param forward amount to move forward in mm
+     * @param right amount to move right in mm
+     * @param spin amount to spin degrees clockwise
+     * @param timeout time to take doing movement
+     * @param robot just make it robot, for getting the configuration
+     * @param telemetry just leave it as telemetry to allow program to write telemetry
      */
     public void move(double forward, double right, double spin, double timeout, robotconfig robot, Telemetry telemetry) {
         robotconfig.addlog(dl, "pm.move", "called with right:" + String.format("%.2f", right) + " and spin:" + String.format("%.2f", spin));
