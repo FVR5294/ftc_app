@@ -23,6 +23,9 @@ public class robotconfig {
 
     public static final int LED_CHANNEL = 5;
     static public DataLogger dl;
+    private final double MAX_POWER = 1.00;
+    private final double MIN_POWER = 0.05;
+    private final double DEAD_ZONE = 0.02;
     public DcMotor fLeftMotor = null;
     public DcMotor fRightMotor = null;
     public DcMotor bLeftMotor = null;
@@ -36,10 +39,6 @@ public class robotconfig {
     public OpMode opMode;
     public Telemetry ltelemetry;
     public boolean debugMode = true;
-    private final double MAX_POWER = 0.95;
-    private final double MIN_POWER = 0.05;
-    private final double DEAD_ZONE = 0.02;
-
 
 
     /* Constructor */
@@ -109,6 +108,13 @@ public class robotconfig {
         fRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         bLeftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         bRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    }
+
+    public void setMotorMaxSpeed() {
+        fLeftMotor.setMaxSpeed(1000);
+        fRightMotor.setMaxSpeed(1000);
+        bLeftMotor.setMaxSpeed(1000);
+        bRightMotor.setMaxSpeed(1000);
     }
 
     /***
@@ -206,6 +212,8 @@ public class robotconfig {
             fRightMotor = hwMap.dcMotor.get("fr_drive");
             bLeftMotor = hwMap.dcMotor.get("bl_drive");
             bRightMotor = hwMap.dcMotor.get("br_drive");
+
+            setMotorMaxSpeed();
 
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
@@ -310,7 +318,6 @@ public class robotconfig {
      */
     public void pushButton(int button) {
         addlog(dl, "robot", "pushButton was invoked");
-       /*
         switch (button) {
             case 1:
                 buttonPusher.setPosition(0.3);//right button
@@ -378,18 +385,18 @@ public class robotconfig {
         double sign = 1.0;
         double output;
 
-        if(input < 0.0) {
+        if (input < 0.0) {
             sign = -1.0;    // remember incoming joystick direction, -1 is fully up
         }
 
         input = input * input;  // power transfer curve, adjust sign handling if sign is preserved by this function
 
         if (input < (DEAD_ZONE * DEAD_ZONE)) { // need to square DEAD_ZONE since input is already squared
-            return(0);
+            return (0);
         }
 
         output = (input - (DEAD_ZONE * DEAD_ZONE));             // shift so that range is from 0 to 1.0-DEAD_ZONE^2 instead of DEAD_ZONE^2 to 1.0
-        output = output / ( 1.0 - (DEAD_ZONE * DEAD_ZONE));     // scale so 0 to 1.0-DEAD_ZONE^2 is now 0 to 1
+        output = output / (1.0 - (DEAD_ZONE * DEAD_ZONE));     // scale so 0 to 1.0-DEAD_ZONE^2 is now 0 to 1
         output = output * (MAX_POWER - MIN_POWER);              // scale so range is now 0 to (MAX-MIN)
         output = output + MIN_POWER;                            // shift so range is now MIN_POWER to MAX_POWER
         return (output * sign);         // don't forget to restore the sign of the input

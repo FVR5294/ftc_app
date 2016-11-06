@@ -15,12 +15,13 @@ public class driveToWall extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
-        robot.init(hardwareMap);
-        p.init(robot);
+        robot.init(this);
+        p.init(robot, this);
         idle();
         waitForStart();
         while (opModeIsActive()) {
-            p.move(0, 0, 90, 4, robot, telemetry);
+            p.move(0, 0, 90, 5, robot, telemetry);
+            p.move(4 * measurements.tileLength, 0, 0, 5, robot, telemetry);
             sleep(1000);
         }
     }

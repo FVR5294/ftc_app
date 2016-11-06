@@ -5,11 +5,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
-<<<<<<< HEAD
-=======
 import static org.firstinspires.ftc.teamcode.robotconfig.dl;
 
->>>>>>> c648692b9923c033955355aa35ede321d17bb75e
 /**
  * Created by mail2 on 10/31/2016.
  */
@@ -18,15 +15,11 @@ import static org.firstinspires.ftc.teamcode.robotconfig.dl;
  * library to use math for precise movement, primarily for autonomous
  */
 public class preciseMovement {
-<<<<<<< HEAD
-=======
     public robotconfig robot;
->>>>>>> c648692b9923c033955355aa35ede321d17bb75e
-    private measurements m = new measurements();
-    private ElapsedTime runtime = new ElapsedTime();
     public LinearOpMode linearOpMode;
     public Telemetry ltelemetry;
-
+    private measurements m = new measurements();
+    private ElapsedTime runtime = new ElapsedTime();
 
     public void init(robotconfig robot, LinearOpMode linearOpMode) {
         //this.robot.enableMotorBreak();
@@ -42,13 +35,9 @@ public class preciseMovement {
         Thread.yield();
         robot.enableEncodersToPosition();
         Thread.yield();
-<<<<<<< HEAD
-        robot.setMotorPower(0.5);
-=======
-        robot.setMotorPower(1);
+        robot.setMotorPower(0.9);
 
         robotconfig.addlog(dl, "pm.init", "pm.init finished");
->>>>>>> c648692b9923c033955355aa35ede321d17bb75e
     }
 
     /***
@@ -78,39 +67,23 @@ public class preciseMovement {
      * @param right   mm to slide to the right
      * @param spin    degrees to spin clockwise (or negative for counter clockwise)
      */
-<<<<<<< HEAD
     public void move(double forward, double right, double spin, double timeout, robotconfig robot, Telemetry telemetry) {
-=======
-    public void move(double forward, double right, double spin, robotconfig robot, Telemetry telemetry) {
         robotconfig.addlog(dl, "pm.move", "called with right:" + String.format("%.2f", right) + " and spin:" + String.format("%.2f", spin));
-        // return;
->>>>>>> c648692b9923c033955355aa35ede321d17bb75e
         robot.setMotorTargets(mm2pulses(forward), mm2pulses(right), mm2pulses(spin2mm(spin)));
         waitForMotors(robot, telemetry, forward, right, spin, timeout);
     }
 
-<<<<<<< HEAD
     public void waitForMotors(robotconfig robot, Telemetry telemetry, double forward, double right, double spin, double timeout) {
         runtime.reset();
-        while (robot.isMotorBusy() && (runtime.seconds() < timeout)) {
-            telemetry.addData("Path0", "Go to %f in : %f in : %f in", (forward / measurements.mmPerInch), (right / measurements.mmPerInch), spin);
-=======
-    public void waitForMotors(robotconfig robot, Telemetry telemetry, double forward, double right, double spin) {
-        double timeout = 5;
-        robotconfig.addlog(dl, "pm.waitforMotors", "called with right:" + String.format("%.2f", right) + " and spin:" + String.format("%.2f", spin) + " and forward:" + String.format("%.2f", forward));
-        // return;
-        runtime.reset();
         while (robot.isMotorBusy() && (runtime.seconds() < timeout) && linearOpMode.opModeIsActive()) {
-            telemetry.addData("Path0", "Go to %f in : %f in : %f in", (forward / m.mmPerInch), (right / m.mmPerInch), spin);
->>>>>>> c648692b9923c033955355aa35ede321d17bb75e
+            telemetry.addData("Path0", "Go to %f in : %f in : %f in", (forward / measurements.mmPerInch), (right / measurements.mmPerInch), spin);
+            robotconfig.addlog(dl, "pm.waitforMotors", "called with right:" + String.format("%.2f", right) + " and spin:" + String.format("%.2f", spin) + " and forward:" + String.format("%.2f", forward));
+            telemetry.addData("Path0", "Go to %f in : %f in : %f in", (forward / measurements.mmPerInch), (right / measurements.mmPerInch), spin);
             telemetry.addData("Path1", "At  %7d :%7d :%7d :%7d", robot.fLeftMotor.getCurrentPosition(), robot.fRightMotor.getCurrentPosition(), robot.bLeftMotor.getCurrentPosition(), robot.bRightMotor.getCurrentPosition());
             telemetry.addData("Path2", "End %7d :%7d :%7d :%7d", robot.fLeftMotor.getTargetPosition(), robot.fRightMotor.getTargetPosition(), robot.bLeftMotor.getTargetPosition(), robot.bRightMotor.getTargetPosition());
             telemetry.update();
             Thread.yield();
         }
-<<<<<<< HEAD
-=======
-
         // Need to gracefully exit loop here as we have either timed out or a stop has been requested
 
         if (runtime.seconds() >= timeout) {
@@ -120,9 +93,6 @@ public class preciseMovement {
         } else {
             robotconfig.addlog(dl, "pm.waitforMotors", "exited move normally");
         }
-
-
->>>>>>> c648692b9923c033955355aa35ede321d17bb75e
     }
 
 }
