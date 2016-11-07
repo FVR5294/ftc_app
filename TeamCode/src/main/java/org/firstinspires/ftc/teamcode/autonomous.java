@@ -49,12 +49,21 @@ public class autonomous extends LinearOpMode {
         robot.pushButton(robot.detectColor() * color);
         robot.setMotorPower(speed);
 
+        p.move(-4 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
+
         robot.pushButton(0);
+
+        p.move(0, 48 * measurements.mmPerInch * color, 0, 3, robot, telemetry);
+
+        p.move(5 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
 
         robot.setMotorPower(0);
         robot.pushButton(robot.detectColor() * color);
         robot.setMotorPower(speed);
 
+        p.move(-4 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
+
+        p.move(-measurements.tileLength * 2, -measurements.tileLength * color * 2, 0, 3, robot, telemetry);
 
         robot.setMotorPower(0);
         robotconfig.addlog(dl, "autonomous", "Autonomous is complete");
