@@ -35,7 +35,7 @@ public class autonomous extends LinearOpMode {
 
         robot.setMotorPower(speed);
 
-        p.move(11 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
+        p.move(10 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
 
         p.move(0, 0, -color * 45, 3, robot, telemetry);
 
@@ -43,19 +43,27 @@ public class autonomous extends LinearOpMode {
 
         p.move(0, 0, -color * 45, 3, robot, telemetry);
 
-        p.move(10 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
+        while (!robot.detectLine()) {
+            p.move(0, color * 0.5, 0, 0.5, robot, telemetry);
+        }
+
+        p.move(6 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
 
         robot.setMotorPower(0);
         robot.pushButton(robot.detectColor() * color);
         robot.setMotorPower(speed);
 
-        p.move(-4 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
+        p.move(-6 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
 
         robot.pushButton(0);
 
         p.move(0, 48 * measurements.mmPerInch * color, 0, 3, robot, telemetry);
 
-        p.move(5 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
+        while (!robot.detectLine()) {
+            p.move(0, color * 0.5, 0, 0.5, robot, telemetry);
+        }
+
+        p.move(6 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
 
         robot.setMotorPower(0);
         robot.pushButton(robot.detectColor() * color);
@@ -63,7 +71,7 @@ public class autonomous extends LinearOpMode {
 
         p.move(-4 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
 
-        p.move(-measurements.tileLength * 2, -measurements.tileLength * color * 2, 0, 3, robot, telemetry);
+        p.move(-60 * measurements.mmPerInch, -60 * measurements.mmPerInch * color, 0, 3, robot, telemetry);
 
         robot.setMotorPower(0);
         robotconfig.addlog(dl, "autonomous", "Autonomous is complete");

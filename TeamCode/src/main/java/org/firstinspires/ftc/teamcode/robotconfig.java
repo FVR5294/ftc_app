@@ -39,6 +39,9 @@ public class robotconfig {
     public OpMode opMode;
     public Telemetry ltelemetry;
     public boolean debugMode = false;
+    public ColorSensor colorSensorLine;
+    public int colorSensorLineThreashold = 0;
+
 
 
     /* Constructor */
@@ -209,6 +212,8 @@ public class robotconfig {
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
             colorSensorButton = hwMap.colorSensor.get("colorButton");
+            colorSensorLine = hwMap.colorSensor.get("colorLine");
+            colorSensorLineThreashold = colorSensorLine.green() + 20;
 
             //initialize sensor stuff
             cdim.setDigitalChannelMode(LED_CHANNEL, DigitalChannelController.Mode.OUTPUT);
@@ -328,6 +333,15 @@ public class robotconfig {
         } else {
             return 0;
         }
+    }
+
+    /***
+     * function is used to find the line on the field
+     *
+     * @return true if line is detected
+     */
+    public boolean detectLine() {
+        return colorSensorLine.green() > colorSensorLineThreashold;
     }
 
     /***
