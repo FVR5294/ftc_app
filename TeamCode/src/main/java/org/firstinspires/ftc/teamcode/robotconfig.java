@@ -212,8 +212,8 @@ public class robotconfig {
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
             colorSensorButton = hwMap.colorSensor.get("colorButton");
-            colorSensorLine = hwMap.colorSensor.get("colorLine");
-            colorSensorLineThreashold = colorSensorLine.green() + 20;
+            //colorSensorLine = hwMap.colorSensor.get("colorTape");
+            //colorSensorLineThreashold = colorSensorLine.green() + 10;
 
             //initialize sensor stuff
             cdim.setDigitalChannelMode(LED_CHANNEL, DigitalChannelController.Mode.OUTPUT);

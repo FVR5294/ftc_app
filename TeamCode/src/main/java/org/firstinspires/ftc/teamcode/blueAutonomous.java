@@ -37,13 +37,13 @@ public class blueAutonomous extends LinearOpMode {
 
         p.move(0, 0, -color * 45, 3, robot, telemetry);
 
-        p.move(56 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
+        p.move(57 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
 
         p.move(0, 0, -color * 45, 3, robot, telemetry);
 
-        while (!robot.detectLine()) {
-            p.move(0, color * 0.5, 0, 0.5, robot, telemetry);
-        }
+//        while (!robot.detectLine()) {
+//            p.move(0, color * 0.25, 0, 0.1, robot, telemetry);
+//        }
 
         p.move(6 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
 
@@ -55,11 +55,11 @@ public class blueAutonomous extends LinearOpMode {
 
         robot.pushButton(0);
 
-        p.move(0, 48 * measurements.mmPerInch * color, 0, 3, robot, telemetry);
+        p.move(0, 60 * measurements.mmPerInch * color, 0, 3, robot, telemetry);
 
-        while (!robot.detectLine()) {
-            p.move(0, color * 0.5, 0, 0.5, robot, telemetry);
-        }
+//        while (!robot.detectLine()) {
+//            p.move(0, color * 0.25, 0, 0.1, robot, telemetry);
+//        }
 
         p.move(6 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
 
