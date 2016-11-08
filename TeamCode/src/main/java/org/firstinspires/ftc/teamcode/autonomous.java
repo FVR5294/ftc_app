@@ -54,8 +54,8 @@ public class autonomous extends LinearOpMode {
         p.automaticSquareUp(robot, telemetry);
 
         timer.reset();
-        while (!robot.detectLine() && timer.seconds() < 5) {
-            p.move(0, color * 0.25, 0, 1, robot, telemetry);
+        while (!robot.detectLine() && timer.seconds() < 3) {
+            p.move(0, color * 20, 0, 1, robot, telemetry);
         }
 
         p.automaticSquareUp(robot, telemetry);
@@ -76,8 +76,8 @@ public class autonomous extends LinearOpMode {
 
         p.automaticSquareUp(robot, telemetry);
 
-        while (!robot.detectLine() && timer.seconds() < 5) {
-            p.move(0, color * 0.5, 0, 1, robot, telemetry);
+        while (!robot.detectLine() && timer.seconds() < 3) {
+            p.move(0, color * 20, 0, 1, robot, telemetry);
         }
 
         p.automaticSquareUp(robot, telemetry);
