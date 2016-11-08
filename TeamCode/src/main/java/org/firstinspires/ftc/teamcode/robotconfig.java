@@ -1,8 +1,9 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.hardware.adafruit.BNO055IMU;
+import com.qualcomm.hardware.adafruit.JustLoggingAccelerationIntegrator;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DeviceInterfaceModule;
 import com.qualcomm.robotcore.hardware.DigitalChannelController;
@@ -10,6 +11,10 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
+import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
+import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 /***
  * robotconfig is a simple and effective way to import the robot configuration information into every program.
@@ -30,8 +35,7 @@ public class robotconfig {
     public DcMotor fRightMotor = null;
     public DcMotor bLeftMotor = null;
     public DcMotor bRightMotor = null;
-    public Servo buttonPusher = null;//now public, because of Ben
-    public ColorSensor colorSensorButton;
+    public Servo buttonPusher = null;
     public DeviceInterfaceModule cdim;
     public boolean bLedOn = false;
     public HardwareMap hwMap = null;
@@ -39,9 +43,17 @@ public class robotconfig {
     public OpMode opMode;
     public Telemetry ltelemetry;
     public boolean debugMode = false;
-    public ColorSensor colorSensorLine;
-    public int colorSensorLineThreashold = 0;
 
+    //color sensor code with multiplexor
+    public int colorSensorLineThreashold = 3000;
+    MultiplexColorSensor muxColor;
+    int[] ports = {2, 5};
+
+    // The IMU sensor object
+    BNO055IMU imu;
+    // State used for updating telemetry
+    Orientation angles;
+    Acceleration gravity;
 
 
     /* Constructor */
@@ -211,13 +223,30 @@ public class robotconfig {
 
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
-            colorSensorButton = hwMap.colorSensor.get("colorButton");
-            //colorSensorLine = hwMap.colorSensor.get("colorTape");
-            //colorSensorLineThreashold = colorSensorLine.green() + 10;
+            int milliSeconds = 48;
+            muxColor = new MultiplexColorSensor(hwMap, "mux", "ada", ports, milliSeconds, MultiplexColorSensor.GAIN_16X);
+            muxColor.startPolling();
 
             //initialize sensor stuff
             cdim.setDigitalChannelMode(LED_CHANNEL, DigitalChannelController.Mode.OUTPUT);
             cdim.setDigitalChannelState(LED_CHANNEL, bLedOn);
+
+            // Set up the parameters with which we will use our IMU. Note that integration
+            // algorithm here just reports accelerations to the logcat log; it doesn't actually
+            // provide positional information.
+            BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
+            parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
+            parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+            parameters.calibrationDataFile = "AdafruitIMUCalibration.json"; // see the calibration sample opmode
+            parameters.loggingEnabled = false;
+            parameters.loggingTag = "IMU";
+            parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
+
+            // Retrieve and initialize the IMU. We expect the IMU to be attached to an I2C port
+            // on a Core Device Interface Module, configured to be a sensor of type "AdaFruit IMU",
+            // and named "imu".
+            imu = hwMap.get(BNO055IMU.class, "imu");
+            imu.initialize(parameters);
 
             // And initialize servo
             buttonPusher = hwMap.servo.get("buttonPusher");
@@ -265,11 +294,30 @@ public class robotconfig {
 
         //get sensor stuff
         cdim = hwMap.deviceInterfaceModule.get("dim");
-        colorSensorButton = hwMap.colorSensor.get("colorButton");
+        int milliSeconds = 48;
+        muxColor = new MultiplexColorSensor(hwMap, "mux", "ada", ports, milliSeconds, MultiplexColorSensor.GAIN_16X);
+        muxColor.startPolling();
 
         //initialize sensor stuff
         cdim.setDigitalChannelMode(LED_CHANNEL, DigitalChannelController.Mode.OUTPUT);
         cdim.setDigitalChannelState(LED_CHANNEL, bLedOn);
+
+        // Set up the parameters with which we will use our IMU. Note that integration
+        // algorithm here just reports accelerations to the logcat log; it doesn't actually
+        // provide positional information.
+        BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
+        parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
+        parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+        parameters.calibrationDataFile = "AdafruitIMUCalibration.json"; // see the calibration sample opmode
+        parameters.loggingEnabled = false;
+        parameters.loggingTag = "IMU";
+        parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
+
+        // Retrieve and initialize the IMU. We expect the IMU to be attached to an I2C port
+        // on a Core Device Interface Module, configured to be a sensor of type "AdaFruit IMU",
+        // and named "imu".
+        imu = hwMap.get(BNO055IMU.class, "imu");
+        imu.initialize(parameters);
 
         // And initialize servo
         buttonPusher = hwMap.servo.get("buttonPusher");
@@ -295,6 +343,15 @@ public class robotconfig {
         this.enableMotorEncoders();
 
         addlog(dl, "r.init", "r.init finished (t)");
+    }
+
+    /***
+     * is a shortcut to get the intrinsic z angle of the robot
+     *
+     * @return imu.getAngularOrientation().toAxesReference(AxesReference.INTRINSIC).toAxesOrder(AxesOrder.ZYX).firstAngle;
+     */
+    public double getCurrentAngle() {
+        return imu.getAngularOrientation().toAxesReference(AxesReference.INTRINSIC).toAxesOrder(AxesOrder.ZYX).firstAngle;
     }
 
     /***
@@ -326,9 +383,9 @@ public class robotconfig {
 
         addlog(dl, "robot", "detectColor was called");
 
-        if (colorSensorButton.red() > colorSensorButton.blue()) {
+        if (muxColor.getCRGB(ports[0])[1] > muxColor.getCRGB(ports[0])[3]) {
             return 1;
-        } else if (colorSensorButton.blue() > colorSensorButton.red()) {
+        } else if (muxColor.getCRGB(ports[0])[3] > muxColor.getCRGB(ports[0])[1]) {
             return -1;
         } else {
             return 0;
@@ -341,7 +398,7 @@ public class robotconfig {
      * @return true if line is detected
      */
     public boolean detectLine() {
-        return colorSensorLine.green() > colorSensorLineThreashold;
+        return muxColor.getCRGB(ports[1])[2] > colorSensorLineThreashold;
     }
 
     /***
