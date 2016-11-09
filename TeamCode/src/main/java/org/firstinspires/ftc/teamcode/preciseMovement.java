@@ -72,6 +72,7 @@ public class preciseMovement {
      * @param telemetry just leave it as telemetry to allow program to write telemetry
      */
     public void move(double forward, double right, double spin, double timeout, robotconfig robot, Telemetry telemetry) {
+        telemetry.addData("colorSensor", "Green: %d", robot.muxColor.getCRGB(robot.ports[1])[2]);
         robotconfig.addlog(dl, "pm.move", "called with right:" + String.format("%.2f", right) + " and spin:" + String.format("%.2f", spin));
         robot.setMotorTargets(mm2pulses(forward), mm2pulses(right), mm2pulses(spin2mm(spin)));
         waitForMotors(robot, telemetry, forward, right, spin, timeout);
