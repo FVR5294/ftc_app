@@ -45,25 +45,27 @@ public class autonomous extends LinearOpMode {
 
         p.automaticSquareUp(robot, telemetry);
 
-        p.move(57 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
+        p.move(57 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
 
         p.automaticSquareUp(robot, telemetry);
 
-        p.move(0, 0, -color * 45, 2, robot, telemetry);
+        p.move(0, 0, -color * 45, 1, robot, telemetry);
 
         p.automaticSquareUp(robot, telemetry);
 
         timer.reset();
-        while (!robot.detectLine() && timer.seconds() < 10) {
-            p.move(0, color * 20, 0, 0.5, robot, telemetry);
+        while (!robot.detectLine() && timer.seconds() < 2 && opModeIsActive()) {
+            p.move(0, color * 20, 0, 0.2, robot, telemetry);
         }
 
         p.automaticSquareUp(robot, telemetry);
 
-        p.move(10 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
-
+        robot.setMotorPower(speed * 0.75);
+        p.move(4 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
         robot.pushButton(robot.detectColor() * color);
         sleep(500);
+        robot.setMotorPower(speed);
+
         p.automaticSquareUp(robot, telemetry);
 
         p.move(-2 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
@@ -77,20 +79,22 @@ public class autonomous extends LinearOpMode {
         p.automaticSquareUp(robot, telemetry);
 
         timer.reset();
-        while (!robot.detectLine() && timer.seconds() < 10) {
-            p.move(0, color * 20, 0, 0.5, robot, telemetry);
+        while (!robot.detectLine() && timer.seconds() < 2 && opModeIsActive()) {
+            p.move(0, color * 20, 0, 0.2, robot, telemetry);
         }
         sleep(500);
         p.automaticSquareUp(robot, telemetry);
-
+        robot.setMotorPower(speed * 0.75);
         p.move(2 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
-
         robot.pushButton(robot.detectColor() * color);
+        robot.setMotorPower(speed);
         p.automaticSquareUp(robot, telemetry);
 
         p.move(-4 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
 
         p.automaticSquareUp(robot, telemetry);
+
+        robot.setMotorPower(1);
 
         p.move(-64 * measurements.mmPerInch, -64 * measurements.mmPerInch * color, 0, 3, robot, telemetry);
 
