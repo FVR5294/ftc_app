@@ -9,6 +9,7 @@ import com.qualcomm.robotcore.hardware.DeviceInterfaceModule;
 import com.qualcomm.robotcore.hardware.DigitalChannelController;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.TouchSensor;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
@@ -46,9 +47,9 @@ public class robotconfig {
 
     //color sensor code with multiplexor
     public int colorSensorLineThreashold = 3000;
+    public TouchSensor touchBeacon;
     MultiplexColorSensor muxColor;
     int[] ports = {2, 5};
-
     // The IMU sensor object
     BNO055IMU imu;
     // State used for updating telemetry
@@ -248,6 +249,8 @@ public class robotconfig {
             imu = hwMap.get(BNO055IMU.class, "imu");
             imu.initialize(parameters);
 
+            touchBeacon = hwMap.touchSensor.get("touchBeacon");
+
             // And initialize servo
             buttonPusher = hwMap.servo.get("buttonPusher");
 
@@ -363,13 +366,13 @@ public class robotconfig {
         addlog(dl, "robot", "pushButton was invoked");
         switch (button) {
             case 1:
-                buttonPusher.setPosition(0.72);//right button
+                buttonPusher.setPosition(1);//0.72);//right button
                 break;
             case -1:
-                buttonPusher.setPosition(0.43);//left button
+                buttonPusher.setPosition(0);//0.42);//left
                 break;
             default:
-                buttonPusher.setPosition(0.56);
+                buttonPusher.setPosition(0.54);
                 break;
         }//*/
     }

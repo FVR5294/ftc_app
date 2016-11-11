@@ -33,74 +33,77 @@ public class autonomous extends LinearOpMode {
         waitForStart();
         robotconfig.addlog(dl, "autonomous", "Started");
 
-        double speed = 0.65;
+        double speed = 0.7;
 
         robot.setMotorPower(speed);
 
-        p.move(8 * measurements.mmPerInch, 0, 0, 2, robot, telemetry);
+        p.move(11 * measurements.mmPerInch, 0, 0, 10, robot, telemetry);
 
         p.automaticSquareUp(robot, telemetry);
 
-        p.move(0, 0, -color * 45, 1, robot, telemetry);
+        p.move(0, 0, -color * 45, 10, robot, telemetry);
 
         p.automaticSquareUp(robot, telemetry);
 
-        p.move(57 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
+        p.move(52 * measurements.mmPerInch, 0, 0, 10, robot, telemetry);
+
+        p.move(0, 0, -color * 45, 10, robot, telemetry);
 
         p.automaticSquareUp(robot, telemetry);
 
-        p.move(0, 0, -color * 45, 1, robot, telemetry);
+        p.move(5.5 * measurements.mmPerInch, 0, 0, 10, robot, telemetry);
 
-        p.automaticSquareUp(robot, telemetry);
 
-        timer.reset();
-        while (!robot.detectLine() && timer.seconds() < 2 && opModeIsActive()) {
-            p.move(0, color * 20, 0, 0.2, robot, telemetry);
+        while (!robot.detectLine() && opModeIsActive()) {
+            p.move(0, color * 10, 0, 10, robot, telemetry);
         }
 
         p.automaticSquareUp(robot, telemetry);
 
-        robot.setMotorPower(speed * 0.75);
-        p.move(4 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
+        while (!robot.touchBeacon.isPressed()) {
+            p.move(10, 0, 0, 10, robot, telemetry);
+        }
+
         robot.pushButton(robot.detectColor() * color);
         sleep(500);
-        robot.setMotorPower(speed);
 
-        p.automaticSquareUp(robot, telemetry);
-
-        p.move(-2 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
+        p.move(-2 * measurements.mmPerInch, 0, 0, 10, robot, telemetry);
 
         p.automaticSquareUp(robot, telemetry);
 
         robot.pushButton(0);
 
-        p.move(0, 53 * measurements.mmPerInch * color, 0, 3, robot, telemetry);
+        p.move(0, 48 * measurements.mmPerInch * color, 0, 10, robot, telemetry);
 
         p.automaticSquareUp(robot, telemetry);
 
-        timer.reset();
-        while (!robot.detectLine() && timer.seconds() < 2 && opModeIsActive()) {
-            p.move(0, color * 20, 0, 0.2, robot, telemetry);
+        while (!robot.detectLine() && opModeIsActive()) {
+            p.move(0, color * 10, 0, 10, robot, telemetry);
         }
-        sleep(500);
-        p.automaticSquareUp(robot, telemetry);
-        robot.setMotorPower(speed * 0.75);
-        p.move(2 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
-        robot.pushButton(robot.detectColor() * color);
-        robot.setMotorPower(speed);
+
         p.automaticSquareUp(robot, telemetry);
 
-        p.move(-4 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
+        while (!robot.touchBeacon.isPressed()) {
+            p.move(10, 0, 0, 10, robot, telemetry);
+        }
+
+        robot.pushButton(robot.detectColor() * color);
+
+        sleep(500);
+
+        p.automaticSquareUp(robot, telemetry);
+
+        p.move(-4 * measurements.mmPerInch, 0, 0, 10, robot, telemetry);
 
         p.automaticSquareUp(robot, telemetry);
 
         robot.setMotorPower(1);
 
-        p.move(-64 * measurements.mmPerInch, -64 * measurements.mmPerInch * color, 0, 3, robot, telemetry);
+        p.move(-64 * measurements.mmPerInch, -64 * measurements.mmPerInch * color, 0, 10, robot, telemetry);
 
         p.automaticSquareUp(robot, telemetry);
 
-        p.move(-4 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
+        p.move(-4 * measurements.mmPerInch, 0, 0, 10, robot, telemetry);
 
         robot.setMotorPower(0);
         robotconfig.addlog(dl, "autonomous", "Autonomous is complete");

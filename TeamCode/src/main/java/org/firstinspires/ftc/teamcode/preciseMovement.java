@@ -107,7 +107,7 @@ public class preciseMovement {
      * @param telemetry should be telemetry
      */
     public void automaticSquareUp(robotconfig robot, Telemetry telemetry) {
-        this.move(0, 0, (robot.getCurrentAngle() - (Math.round(robot.getCurrentAngle() / 45) * 45)), 1, robot, telemetry);
+        this.move(0, 0, (robot.getCurrentAngle() - (Math.round(robot.getCurrentAngle() / 45) * 45)), 3, robot, telemetry);
     }
 
 }
