@@ -78,6 +78,12 @@ public class preciseMovement {
         waitForMotors(robot, telemetry, forward, right, spin, timeout);
     }
 
+    public void movesegments(double forward, double right, double spin, double timeout, int segments, robotconfig robot, Telemetry telemetry) {
+        for (int i = 0; i < segments; i++) {
+            move(forward / segments, right / segments, spin / segments, timeout / segments, robot, telemetry);
+        }
+    }
+
     public void waitForMotors(robotconfig robot, Telemetry telemetry, double forward, double right, double spin, double timeout) {
         runtime.reset();
         while (robot.isMotorBusy() && (runtime.seconds() < timeout) && linearOpMode.opModeIsActive()) {

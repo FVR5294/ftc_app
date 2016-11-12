@@ -31,7 +31,7 @@ public class autonomous extends LinearOpMode {
         waitForStart();
         robotconfig.addlog(dl, "autonomous", "Started");
 
-        double speed = 0.7;
+        double speed = 0.72;
 
         robot.setMotorPower(speed);
 

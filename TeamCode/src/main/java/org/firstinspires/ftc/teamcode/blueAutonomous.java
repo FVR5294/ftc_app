@@ -25,11 +25,16 @@ public class blueAutonomous extends LinearOpMode {
         robotconfig.addlog(dl, "autonomous", "Done with robot.init --- starting p.init");
         p.init(robot, this);
         robotconfig.addlog(dl, "autonomous", "Done with pm.init --- waiting for start");
+        robot.pushButton(1);
+        sleep(500);
+        robot.pushButton(-1);
+        sleep(500);
+        robot.pushButton(0);
 
         waitForStart();
         robotconfig.addlog(dl, "autonomous", "Started");
 
-        double speed = 0.7;
+        double speed = 0.72;
 
         robot.setMotorPower(speed);
 
@@ -47,7 +52,7 @@ public class blueAutonomous extends LinearOpMode {
 
         p.automaticSquareUp(robot, telemetry);
 
-        p.move(5.5 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
+        p.move(7 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
 
 
         while (!robot.detectLine() && opModeIsActive()) {
@@ -63,7 +68,7 @@ public class blueAutonomous extends LinearOpMode {
         robot.pushButton(robot.detectColor() * color);
         sleep(500);
 
-        p.move(-2 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
+        p.move(-1 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
 
         p.automaticSquareUp(robot, telemetry);
 
