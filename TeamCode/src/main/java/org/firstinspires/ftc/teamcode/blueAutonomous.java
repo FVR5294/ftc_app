@@ -2,7 +2,6 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.util.ElapsedTime;
 
 import static org.firstinspires.ftc.teamcode.robotconfig.dl;
 
@@ -16,7 +15,6 @@ public class blueAutonomous extends LinearOpMode {
     public static int color = -1;
     public robotconfig robot = new robotconfig();
     public preciseMovement p = new preciseMovement();
-    public ElapsedTime timer = new ElapsedTime();
 
     @Override
     public void runOpMode() {
@@ -31,11 +29,11 @@ public class blueAutonomous extends LinearOpMode {
         waitForStart();
         robotconfig.addlog(dl, "autonomous", "Started");
 
-        double speed = 0.65;
+        double speed = 0.7;
 
         robot.setMotorPower(speed);
 
-        p.move(8 * measurements.mmPerInch, 0, 0, 2, robot, telemetry);
+        p.move(11 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
 
         p.automaticSquareUp(robot, telemetry);
 
@@ -43,26 +41,27 @@ public class blueAutonomous extends LinearOpMode {
 
         p.automaticSquareUp(robot, telemetry);
 
-        p.move(57 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
+        p.move(52 * measurements.mmPerInch, 0, 0, 5, robot, telemetry);
+
+        p.move(0, 0, -color * 45, 1, robot, telemetry);
 
         p.automaticSquareUp(robot, telemetry);
 
-        p.move(0, 0, -color * 45, 2, robot, telemetry);
+        p.move(5.5 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
 
-        p.automaticSquareUp(robot, telemetry);
 
-        timer.reset();
-        while (!robot.detectLine() && timer.seconds() < 10) {
-            p.move(0, color * 20, 0, 0.5, robot, telemetry);
+        while (!robot.detectLine() && opModeIsActive()) {
+            p.move(0, color * 10, 0, 0.5, robot, telemetry);
         }
 
         p.automaticSquareUp(robot, telemetry);
 
-        p.move(10 * measurements.mmPerInch, 0, 0, 3, robot, telemetry);
+        while (!robot.touchBeacon.isPressed()) {
+            p.move(10, 0, 0, 0.5, robot, telemetry);
+        }
 
         robot.pushButton(robot.detectColor() * color);
         sleep(500);
-        p.automaticSquareUp(robot, telemetry);
 
         p.move(-2 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
 
@@ -70,27 +69,33 @@ public class blueAutonomous extends LinearOpMode {
 
         robot.pushButton(0);
 
-        p.move(0, 53 * measurements.mmPerInch * color, 0, 3, robot, telemetry);
+        p.move(0, 53 * measurements.mmPerInch * color, 0, 5, robot, telemetry);
 
         p.automaticSquareUp(robot, telemetry);
 
-        timer.reset();
-        while (!robot.detectLine() && timer.seconds() < 10) {
-            p.move(0, color * 20, 0, 0.5, robot, telemetry);
+        while (!robot.detectLine() && opModeIsActive()) {
+            p.move(0, color * 10, 0, 0.5, robot, telemetry);
         }
-        sleep(500);
+
         p.automaticSquareUp(robot, telemetry);
 
-        p.move(2 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
+        while (!robot.touchBeacon.isPressed()) {
+            p.move(10, 0, 0, 0.5, robot, telemetry);
+        }
 
         robot.pushButton(robot.detectColor() * color);
+
+        sleep(500);
+
         p.automaticSquareUp(robot, telemetry);
 
         p.move(-4 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
 
         p.automaticSquareUp(robot, telemetry);
 
-        p.move(-64 * measurements.mmPerInch, -64 * measurements.mmPerInch * color, 0, 3, robot, telemetry);
+        robot.setMotorPower(1);
+
+        p.move(-64 * measurements.mmPerInch, -64 * measurements.mmPerInch * color, 0, 5, robot, telemetry);
 
         p.automaticSquareUp(robot, telemetry);
 

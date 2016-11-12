@@ -94,6 +94,7 @@ public class preciseMovement {
         if (runtime.seconds() >= timeout) {
             robotconfig.addlog(dl, "pm.waitforMotors", "timed out: " + String.format("%.2f", runtime.seconds()));
         } else if (!linearOpMode.opModeIsActive()) {
+            robot.resetMotorEncoders();
             robotconfig.addlog(dl, "pm.waitforMotors", "Stop of opmode was requested");
         } else {
             robotconfig.addlog(dl, "pm.waitforMotors", "exited move normally");
@@ -107,7 +108,7 @@ public class preciseMovement {
      * @param telemetry should be telemetry
      */
     public void automaticSquareUp(robotconfig robot, Telemetry telemetry) {
-        this.move(0, 0, (robot.getCurrentAngle() - (Math.round(robot.getCurrentAngle() / 45) * 45)), 3, robot, telemetry);
+        this.move(0, 0, (robot.getCurrentAngle() - (Math.round(robot.getCurrentAngle() / 45) * 45)), 1, robot, telemetry);
     }
 
 }
