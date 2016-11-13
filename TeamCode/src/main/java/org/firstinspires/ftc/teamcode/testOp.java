@@ -54,7 +54,7 @@ public class testOp extends OpMode {
         robot.init(this);
         robot.move(0, 0, 0);
         // Send telemetry message to signify robot waiting;
-        telemetry.addData("Say", "Hello Driver");    //
+        telemetry.addData("Say", "Hello Driver");
         updateTelemetry(telemetry);
     }
 
