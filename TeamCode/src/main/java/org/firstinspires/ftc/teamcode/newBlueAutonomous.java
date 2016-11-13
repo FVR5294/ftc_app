@@ -9,9 +9,9 @@ import static org.firstinspires.ftc.teamcode.robotconfig.dl;
  * Created by mail2 on 11/3/2016.
  */
 
-@Autonomous(name = "legacy blue autonomous program", group = "2016")
+@Autonomous(name = "blue autonomous program", group = "2016")
 
-public class blueAutonomous extends LinearOpMode {
+public class newBlueAutonomous extends LinearOpMode {
     public static int color = -1;
     public robotconfig robot = new robotconfig();
     public preciseMovement p = new preciseMovement();
@@ -47,22 +47,21 @@ public class blueAutonomous extends LinearOpMode {
 
         p.automaticSquareUp(robot, telemetry);
 
-        p.move(6 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
+        p.move(5.5 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
 
 
         while (!robot.detectLine() && opModeIsActive()) {
-            p.move(0, color * 10, 0, 0.5, robot, telemetry);
+            p.move(0, color * 10, 0, 1, robot, telemetry);
         }
 
         p.automaticSquareUp(robot, telemetry);
 
         while (!robot.touchBeacon.isPressed()) {
-            p.move(10, 0, 0, 0.5, robot, telemetry);
+            p.move(10, 0, 0, 1, robot, telemetry);
         }
 
         robot.pushButton(robot.detectColor() * color);
-
-        sleep(100);
+        sleep(500);
 
         p.move(-2 * measurements.mmPerInch, 0, 0, 1, robot, telemetry);
 
@@ -70,23 +69,23 @@ public class blueAutonomous extends LinearOpMode {
 
         robot.pushButton(0);
 
-        p.move(4 * measurements.mmPerInch, 53 * measurements.mmPerInch * color, 0, 5, robot, telemetry);
+        p.move(0, 55 * measurements.mmPerInch * color, 0, 5, robot, telemetry);
 
         p.automaticSquareUp(robot, telemetry);
 
         while (!robot.detectLine() && opModeIsActive()) {
-            p.move(0, color * 10, 0, 0.5, robot, telemetry);
+            p.move(0, color * 10, 0, 1, robot, telemetry);
         }
 
         p.automaticSquareUp(robot, telemetry);
 
         while (!robot.touchBeacon.isPressed()) {
-            p.move(10, 0, 0, 0.5, robot, telemetry);
+            p.move(10, 0, 0, 1, robot, telemetry);
         }
 
         robot.pushButton(robot.detectColor() * color);
 
-        sleep(100);
+        sleep(500);
 
         p.automaticSquareUp(robot, telemetry);
 

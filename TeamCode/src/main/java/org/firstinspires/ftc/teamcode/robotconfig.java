@@ -36,6 +36,7 @@ public class robotconfig {
     public DcMotor fRightMotor = null;
     public DcMotor bLeftMotor = null;
     public DcMotor bRightMotor = null;
+    //public DcMotor spinner = null;
     public Servo buttonPusher = null;
     public DeviceInterfaceModule cdim;
     public boolean bLedOn = false;
@@ -222,6 +223,89 @@ public class robotconfig {
             bLeftMotor = hwMap.dcMotor.get("bl_drive");
             bRightMotor = hwMap.dcMotor.get("br_drive");
 
+            //spinner = hwMap.dcMotor.get("spinner");
+
+            //get sensor stuff
+            cdim = hwMap.deviceInterfaceModule.get("dim");
+            int milliSeconds = 48;
+            muxColor = new MultiplexColorSensor(hwMap, "mux", "ada", ports, milliSeconds, MultiplexColorSensor.GAIN_16X);
+            muxColor.startPolling();
+
+            //initialize sensor stuff
+            cdim.setDigitalChannelMode(LED_CHANNEL, DigitalChannelController.Mode.OUTPUT);
+            cdim.setDigitalChannelState(LED_CHANNEL, bLedOn);
+
+            // Set up the parameters with which we will use our IMU. Note that integration
+            // algorithm here just reports accelerations to the logcat log; it doesn't actually
+            // provide positional information.
+            BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
+            parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
+            parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+            parameters.calibrationDataFile = "AdafruitIMUCalibration.json"; // see the calibration sample opmode
+            parameters.loggingEnabled = false;
+            parameters.loggingTag = "IMU";
+            parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
+
+            // Retrieve and initialize the IMU. We expect the IMU to be attached to an I2C port
+            // on a Core Device Interface Module, configured to be a sensor of type "AdaFruit IMU",
+            // and named "imu".
+            imu = hwMap.get(BNO055IMU.class, "imu");
+            imu.initialize(parameters);
+
+            touchBeacon = hwMap.touchSensor.get("touchBeacon");
+
+            // And initialize servo
+            buttonPusher = hwMap.servo.get("buttonPusher");
+
+            fLeftMotor.setDirection(DcMotor.Direction.FORWARD); //forward for andymark motor in drivetrain
+            bLeftMotor.setDirection(DcMotor.Direction.FORWARD); //forward for andymark motor in drivetrain
+            fRightMotor.setDirection(DcMotor.Direction.REVERSE); //reverse for andymark motor in drivetrain
+            bRightMotor.setDirection(DcMotor.Direction.REVERSE); //reverse for andymark motor in drivetrain
+
+            //spinner.setDirection(DcMotor.Direction.REVERSE);
+
+            // Set all motors to zero power
+            fLeftMotor.setPower(0);
+            fRightMotor.setPower(0);
+            bLeftMotor.setPower(0);
+            bRightMotor.setPower(0);
+
+            //spinner.setPower(0);
+        }
+        //and check servo power
+        this.pushButton(0);
+
+        // Set all motors to run without encoders.
+        // May want to use RUN_USING_ENCODERS if encoders are installed.
+        this.resetMotorEncoders();
+        Thread.yield();
+        this.enableMotorEncoders();
+
+        addlog(dl, "r.init", "r.init finished (a)");
+    }
+
+        /* Initialize standard Hardware interfaces */
+
+    public void init(OpMode opMode) {
+        this.opMode = opMode;
+
+        // Save reference to Hardware map in class variable
+
+        hwMap = opMode.hardwareMap;
+
+        dl = new DataLogger("10635", "autonomousTest");
+        addlog(dl, "r.init", "r.init was invoked (a)");
+
+        // Define and Initialize Motors
+        if (!debugMode) {
+
+            fLeftMotor = hwMap.dcMotor.get("fl_drive");
+            fRightMotor = hwMap.dcMotor.get("fr_drive");
+            bLeftMotor = hwMap.dcMotor.get("bl_drive");
+            bRightMotor = hwMap.dcMotor.get("br_drive");
+
+            //spinner = hwMap.dcMotor.get("spinner");
+
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
             int milliSeconds = 48;
@@ -264,6 +348,8 @@ public class robotconfig {
             fRightMotor.setPower(0);
             bLeftMotor.setPower(0);
             bRightMotor.setPower(0);
+
+            //spinner.setPower(0);
         }
         //and check servo power
         this.pushButton(0);
@@ -275,77 +361,6 @@ public class robotconfig {
         this.enableMotorEncoders();
 
         addlog(dl, "r.init", "r.init finished (a)");
-    }
-
-        /* Initialize standard Hardware interfaces */
-
-    public void init(OpMode opMode) {
-        this.opMode = opMode;
-
-        // Save reference to Hardware map in class variable
-
-        hwMap = opMode.hardwareMap;
-
-        dl = new DataLogger("10635", "TeleOp");
-        addlog(dl, "r.init", "r.init was invoked (t)");
-
-        // Define and Initialize Motors
-        fLeftMotor = hwMap.dcMotor.get("fl_drive");
-        fRightMotor = hwMap.dcMotor.get("fr_drive");
-        bLeftMotor = hwMap.dcMotor.get("bl_drive");
-        bRightMotor = hwMap.dcMotor.get("br_drive");
-
-        //get sensor stuff
-        cdim = hwMap.deviceInterfaceModule.get("dim");
-        int milliSeconds = 48;
-        muxColor = new MultiplexColorSensor(hwMap, "mux", "ada", ports, milliSeconds, MultiplexColorSensor.GAIN_16X);
-        muxColor.startPolling();
-
-        //initialize sensor stuff
-        cdim.setDigitalChannelMode(LED_CHANNEL, DigitalChannelController.Mode.OUTPUT);
-        cdim.setDigitalChannelState(LED_CHANNEL, bLedOn);
-
-        // Set up the parameters with which we will use our IMU. Note that integration
-        // algorithm here just reports accelerations to the logcat log; it doesn't actually
-        // provide positional information.
-        BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
-        parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
-        parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
-        parameters.calibrationDataFile = "AdafruitIMUCalibration.json"; // see the calibration sample opmode
-        parameters.loggingEnabled = false;
-        parameters.loggingTag = "IMU";
-        parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
-
-        // Retrieve and initialize the IMU. We expect the IMU to be attached to an I2C port
-        // on a Core Device Interface Module, configured to be a sensor of type "AdaFruit IMU",
-        // and named "imu".
-        imu = hwMap.get(BNO055IMU.class, "imu");
-        imu.initialize(parameters);
-
-        // And initialize servo
-        buttonPusher = hwMap.servo.get("buttonPusher");
-
-        fLeftMotor.setDirection(DcMotor.Direction.FORWARD); //forward for andymark motor in drivetrain
-        bLeftMotor.setDirection(DcMotor.Direction.FORWARD); //forward for andymark motor in drivetrain
-        fRightMotor.setDirection(DcMotor.Direction.REVERSE); //reverse for andymark motor in drivetrain
-        bRightMotor.setDirection(DcMotor.Direction.REVERSE); //reverse for andymark motor in drivetrain
-
-        // Set all motors to zero power
-        fLeftMotor.setPower(0);
-        fRightMotor.setPower(0);
-        bLeftMotor.setPower(0);
-        bRightMotor.setPower(0);
-
-        //and check servo power
-        this.pushButton(0);
-
-        // Set all motors to run without encoders.
-        // May want to use RUN_USING_ENCODERS if encoders are installed.
-        this.resetMotorEncoders();
-        Thread.yield();
-        this.enableMotorEncoders();
-
-        addlog(dl, "r.init", "r.init finished (t)");
     }
 
     /***
