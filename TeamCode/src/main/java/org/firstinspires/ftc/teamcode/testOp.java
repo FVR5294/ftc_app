@@ -82,9 +82,9 @@ public class testOp extends OpMode {
         double spin;
 
         //get values from joystick
-        forward = -gamepad1.left_stick_y * Math.abs(gamepad1.left_stick_y);// + -gamepad2.left_stick_y * Math.abs(gamepad2.left_stick_y);
-        right = gamepad1.left_stick_x * Math.abs(gamepad1.left_stick_x);// + gamepad2.left_stick_x * Math.abs(gamepad2.left_stick_x);
-        spin = gamepad1.right_stick_x * Math.abs(gamepad1.right_stick_x);// + gamepad2.right_stick_x * Math.abs(gamepad2.right_stick_x);
+        forward = -scale(gamepad1.left_stick_y);// + -scale(gamepad2.left_stick_y);
+        right = scale(gamepad1.left_stick_x);// + scale(gamepad2.left_stick_x);
+        spin = scale(gamepad1.right_stick_x);// + scale(gamepad2.right_stick_x);
 
         //look at the beautiful simplicity of my code, thanks to the robotconfig class
         robot.move(forward, right, spin);//all it takes is one line to set the power for all 4 motors
@@ -135,6 +135,13 @@ public class testOp extends OpMode {
     @Override
     public void stop() {
         robot.move(0, 0, 0);
+    }
+
+    public double scale(double input) {//returns an interesting set of arcs
+        if (input > 0)
+            return (1 - Math.sqrt(1 - input * input));
+        else
+            return (Math.sqrt(1 - input * input) - 1);
     }
 
 }

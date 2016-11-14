@@ -85,6 +85,20 @@ public class robotconfig {
     }
 
     /***
+     * sets max motor speed to a specific integer representing 4480 pulses per second
+     */
+    public void setMaxMotorSpeed() {
+        addlog(dl, "robot", "setMaxMotorSpeed was called");
+        if (debugMode) {
+            return;
+        }
+        fLeftMotor.setMaxSpeed(4480);
+        fRightMotor.setMaxSpeed(4480);
+        bLeftMotor.setMaxSpeed(4480);
+        bRightMotor.setMaxSpeed(4480);
+    }
+
+    /***
      * disables the motor break for the drive train motors.
      * This function only has to be run if one wants disable the break after it is manually enabled
      */
@@ -269,6 +283,8 @@ public class robotconfig {
             fRightMotor.setPower(0);
             bLeftMotor.setPower(0);
             bRightMotor.setPower(0);
+
+            setMaxMotorSpeed();
 
             //spinner.setPower(0);
         }
