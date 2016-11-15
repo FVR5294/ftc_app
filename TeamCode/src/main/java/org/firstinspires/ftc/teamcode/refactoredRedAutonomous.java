@@ -12,13 +12,12 @@ import static org.firstinspires.ftc.teamcode.robotconfig.dl;
 @TeleOp(name = "red autonomous", group = "refactored")
 
 public class refactoredRedAutonomous extends LinearOpMode {
-    public static final String[] states = {"clear el wall", "arc twards beacon", "siezure twards line", "stab beacon", "select color", "back away from the beacon", "drive twards next beacon"};
+
     public static int color = 1;
-    public static int state = 0;
+    public static int currentState = 0;
     public robotconfig robot = new robotconfig();
     public preciseMovement p = new preciseMovement();
-    public boolean firstTime = true;
-    public boolean conditionsMet = false;//if you really want to, make this list proper englishes
+    public stateslist state = new stateslist();
 
     @Override
     public void runOpMode() {
@@ -32,26 +31,51 @@ public class refactoredRedAutonomous extends LinearOpMode {
         robotconfig.addlog(dl, "autonomous", "Started");
 
         while (opModeIsActive()) {
-            switch (state) {
-                case -1://template case for structure... something is very wrong if this is ever actually run
-
-                    if (firstTime) {
-                        robotconfig.addlog(dl, states[0], "started");
-                        //set power stuff and init
-                    }
-
-                    if ("something" == "true" && "a few other things" == "true") {//checks for stuff
-                        conditionsMet = true;
-                    }
-
-                    if (!conditionsMet) {
-                        //run code
-                    } else {
-                        state++;
-                        conditionsMet = false;
-                        firstTime = false;
-                        robotconfig.addlog(dl, states[0], "ended");
-                    }
+            switch (currentState) {
+                case 0:
+                    state.clearWall.run();
+                    break;
+                case 1:
+                    state.arcTorwardsBeacon.run();
+                    break;
+                case 2:
+                    state.getCloserToWall.run();
+                    break;
+                case 3:
+                    state.scanForLine.run();
+                    break;
+                case 4:
+                    state.driveTorwardsBeacon.run();
+                    break;
+                case 5:
+                    state.pushBeaconButton.run();
+                    break;
+                case 6:
+                    state.backAwayFromBeacon.run();
+                    break;
+                case 7:
+                    state.driveToNextBeacon.run();
+                    break;
+                case 8:
+                    state.scanForLine.run();
+                    break;
+                case 9:
+                    state.driveTorwardsBeacon.run();
+                    break;
+                case 10:
+                    state.pushBeaconButton.run();
+                    break;
+                case 11:
+                    state.backAwayFromBeacon.run();
+                    break;
+                case 12:
+                    state.retreatToCenter.run();
+                    break;
+                case 13:
+                    state.driveOnToWood.run();
+                    break;
+                case 14:
+                    state.stop.run();
                     break;
                 default:
                     robotconfig.addlog(dl, "error", "state not defined");
