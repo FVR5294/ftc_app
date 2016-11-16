@@ -31,56 +31,95 @@ public class refactoredRedAutonomous extends LinearOpMode {
         robotconfig.addlog(dl, "autonomous", "Started");
 
         while (opModeIsActive()) {
+
+            robotconfig.addlog(dl, "Mainline", "Begining state machine pass");
+
             switch (currentState) {
                 case 0:
+                    robotconfig.addlog(dl, "StateMachine", "Executing clearWall state");
                     state.clearWall.run();
+                    robotconfig.addlog(dl, "StateMachine", "clearWall state execution complete");
                     break;
                 case 1:
+                    robotconfig.addlog(dl, "StateMachine", "Executing arcTorwardsBeacon state");
                     state.arcTorwardsBeacon.run();
+                    robotconfig.addlog(dl, "StateMachine", "arcTorwardsBeacon state execution complete");
                     break;
                 case 2:
+                    robotconfig.addlog(dl, "StateMachine", "Executing getCloserToWall state");
                     state.getCloserToWall.run();
+                    robotconfig.addlog(dl, "StateMachine", "getCloserToWall state execution complete");
                     break;
                 case 3:
+                    robotconfig.addlog(dl, "StateMachine", "Executing scanForLine state");
                     state.scanForLine.run();
+                    robotconfig.addlog(dl, "StateMachine", "scanForLine state execution complete");
                     break;
                 case 4:
-                    state.driveTorwardsBeacon.run();
+                    robotconfig.addlog(dl, "StateMachine", "Executing clearWall state");
+                    state.driveTowardsBeacon.run();
+                    robotconfig.addlog(dl, "StateMachine", "clearWall state execution complete");
                     break;
                 case 5:
+                    robotconfig.addlog(dl, "StateMachine", "Executing pushBeaconButton state");
                     state.pushBeaconButton.run();
+                    robotconfig.addlog(dl, "StateMachine", "pushBeaconButton state execution complete");
                     break;
                 case 6:
+                    robotconfig.addlog(dl, "StateMachine", "Executing backAwayFromBeacon state");
                     state.backAwayFromBeacon.run();
+                    robotconfig.addlog(dl, "StateMachine", "backAwayFromBeacon state execution complete");
                     break;
                 case 7:
+                    robotconfig.addlog(dl, "StateMachine", "Executing driveToNextBeacon state");
                     state.driveToNextBeacon.run();
+                    robotconfig.addlog(dl, "StateMachine", "driveToNextBeacon state execution complete");
                     break;
                 case 8:
+                    robotconfig.addlog(dl, "StateMachine", "Executing scanForLine state");
                     state.scanForLine.run();
+                    robotconfig.addlog(dl, "StateMachine", "scanForLine state execution complete");
                     break;
                 case 9:
-                    state.driveTorwardsBeacon.run();
+                    robotconfig.addlog(dl, "StateMachine", "Executing driveTowardsBeacon state");
+                    state.driveTowardsBeacon.run();
+                    robotconfig.addlog(dl, "StateMachine", "driveTowardsBeacon state execution complete");
                     break;
                 case 10:
+                    robotconfig.addlog(dl, "StateMachine", "Executing pushBeaconButton state");
                     state.pushBeaconButton.run();
+                    robotconfig.addlog(dl, "StateMachine", "pushBeaconButton state execution complete");
                     break;
                 case 11:
+                    robotconfig.addlog(dl, "StateMachine", "Executing backAwayFromBeacon state");
                     state.backAwayFromBeacon.run();
+                    robotconfig.addlog(dl, "StateMachine", "backAwayFromBeacon state execution complete");
                     break;
                 case 12:
+                    robotconfig.addlog(dl, "StateMachine", "Executing retreatToCenter state");
                     state.retreatToCenter.run();
+                    robotconfig.addlog(dl, "StateMachine", "retreatToCenter state execution complete");
                     break;
                 case 13:
+                    robotconfig.addlog(dl, "StateMachine", "Executing driveOnToWood state");
                     state.driveOnToWood.run();
+                    robotconfig.addlog(dl, "StateMachine", "driveOnToWood state execution complete");
                     break;
                 case 14:
+                    robotconfig.addlog(dl, "StateMachine", "Executing stop state");
                     state.stop.run();
+                    robotconfig.addlog(dl, "StateMachine", "stop state execution complete");
                     break;
                 default:
                     robotconfig.addlog(dl, "error", "state not defined");
                     break;
             }
+
+            robotconfig.addlog(dl, "Mainline", "Ending state machine pass");
+
         }
+
+        robotconfig.addlog(dl, "autonomous", "Done with opmode, exited based on OpmodeIsActive false");
+
     }
 }

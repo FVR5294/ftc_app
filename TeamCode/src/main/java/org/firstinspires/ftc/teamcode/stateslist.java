@@ -93,7 +93,7 @@ public class stateslist {
     /***
      * state makes robot drive forward until touch sensor is touching beacon
      */
-    public state driveTorwardsBeacon = new state("stab beacon with touch sensor") {
+    public state driveTowardsBeacon = new state("stab beacon with touch sensor") {
         public void firstTime() {
 
         }
