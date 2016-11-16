@@ -5,6 +5,7 @@ import static org.firstinspires.ftc.teamcode.stateslist.currentState;
 
 /**
  * Created by mail2 on 11/15/2016.
+ * Project: ftc_app_for_2016_robot
  */
 
 interface substate {
@@ -19,7 +20,7 @@ interface substate {
 
 class state implements substate {
     public String name;
-    boolean isFirstTime = true;
+    private boolean isFirstTime = true;
 
     public state(String name) {
         this.name = name;

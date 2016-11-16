@@ -4,26 +4,28 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import static org.firstinspires.ftc.teamcode.robotconfig.dl;
+import static org.firstinspires.ftc.teamcode.stateslist.currentState;
+import static org.firstinspires.ftc.teamcode.stateslist.robot;
 
 /**
  * Created by mail2 on 11/15/2016.
+ * Project: ftc_app_for_2016_robot
  */
 
 @Autonomous(name = "blue autonomous", group = "refactored")
 
 public class refactoredBlueAutonomous extends LinearOpMode {
 
-    public static int currentBlueState = 0;
-    public static robotconfig blueRobot = new robotconfig();
-    public preciseMovement p = new preciseMovement();
-    public stateslist state = new stateslist(this, -1);
+    private preciseMovement p = new preciseMovement();
+    private stateslist state = new stateslist();
 
     @Override
     public void runOpMode() {
-        blueRobot.init(this);  // send whole LinearOpMode object and context
+        robot.init(this);  // send whole LinearOpMode object and context
         robotconfig.addlog(dl, "autonomous", "Done with robot.init --- starting p.init");
-        p.init(blueRobot, this);
+        p.init(robot, this);
         robotconfig.addlog(dl, "autonomous", "Done with pm.init --- waiting for start");
+        state.color = -1;
         telemetry.addData("Say", "Hello Driver");
         telemetry.update();
         waitForStart();
@@ -33,7 +35,7 @@ public class refactoredBlueAutonomous extends LinearOpMode {
 
             robotconfig.addlog(dl, "Mainline", "Begining state machine pass");
 
-            switch (currentBlueState) {
+            switch (currentState) {
                 case 0:
                     state.clearWall.run();
                     break;
@@ -89,8 +91,8 @@ public class refactoredBlueAutonomous extends LinearOpMode {
 
         }
 
-        blueRobot.setMotorPower(0);
-        blueRobot.pushButton(0);
+        robot.setMotorPower(0);
+        robot.pushButton(0);
 
         robotconfig.addlog(dl, "autonomous", "Done with opmode, exited based on OpmodeIsActive false");
 

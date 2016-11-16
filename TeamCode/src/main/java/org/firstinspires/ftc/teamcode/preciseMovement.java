@@ -5,19 +5,22 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
+import java.util.Locale;
+
 import static org.firstinspires.ftc.teamcode.robotconfig.dl;
 
 /**
  * Created by mail2 on 10/31/2016.
+ * Project: ftc_app_for_2016_robot
  */
 
 /***
  * library to use math for precise movement, primarily for autonomous
  */
-public class preciseMovement {
+class preciseMovement {
     public robotconfig robot;
-    public LinearOpMode linearOpMode;
     public Telemetry ltelemetry;
+    private LinearOpMode linearOpMode;
     private measurements m = new measurements();
     private ElapsedTime runtime = new ElapsedTime();
 
@@ -30,7 +33,7 @@ public class preciseMovement {
         // Save reference to Hardware map in class variable
 
         robotconfig.addlog(dl, "pm.init", "pm.init was invoked");
-
+        robot.enableEncodersToPosition();
         robot.resetMotorEncoders();
         Thread.yield();
         robot.setMotorTargets(0, 0, 0);
@@ -73,7 +76,7 @@ public class preciseMovement {
      */
     public void move(double forward, double right, double spin, double timeout, robotconfig robot, Telemetry telemetry) {
         telemetry.addData("colorSensor", "Green: %d", robot.muxColor.getCRGB(robot.ports[1])[2]);
-        robotconfig.addlog(dl, "pm.move", "called with right:" + String.format("%.2f", right) + " and spin:" + String.format("%.2f", spin));
+        robotconfig.addlog(dl, "pm.move", "called with right:" + String.format(Locale.ENGLISH, "%.2f", right) + " and spin:" + String.format(Locale.ENGLISH, "%.2f", spin));
         robot.setMotorTargets(mm2pulses(forward), mm2pulses(right), mm2pulses(spin2mm(spin)));
         waitForMotors(robot, telemetry, forward, right, spin, timeout);
     }
@@ -84,11 +87,11 @@ public class preciseMovement {
         }
     }
 
-    public void waitForMotors(robotconfig robot, Telemetry telemetry, double forward, double right, double spin, double timeout) {
+    private void waitForMotors(robotconfig robot, Telemetry telemetry, double forward, double right, double spin, double timeout) {
         runtime.reset();
         while (robot.isMotorBusy() && (runtime.seconds() < timeout) && linearOpMode.opModeIsActive()) {
             telemetry.addData("Path0", "Go to %f in : %f in : %f in", (forward / measurements.mmPerInch), (right / measurements.mmPerInch), spin);
-            robotconfig.addlog(dl, "pm.waitforMotors", "called with right:" + String.format("%.2f", right) + " and spin:" + String.format("%.2f", spin) + " and forward:" + String.format("%.2f", forward));
+            robotconfig.addlog(dl, "pm.waitforMotors", "called with right:" + String.format(Locale.ENGLISH, "%.2f", right) + " and spin:" + String.format(Locale.ENGLISH, "%.2f", spin) + " and forward:" + String.format(Locale.ENGLISH, "%.2f", forward));
             telemetry.addData("Path0", "Go to %f in : %f in : %f in", (forward / measurements.mmPerInch), (right / measurements.mmPerInch), spin);
             telemetry.addData("Path1", "At  %7d :%7d :%7d :%7d", robot.fLeftMotor.getCurrentPosition(), robot.fRightMotor.getCurrentPosition(), robot.bLeftMotor.getCurrentPosition(), robot.bRightMotor.getCurrentPosition());
             telemetry.addData("Path2", "End %7d :%7d :%7d :%7d", robot.fLeftMotor.getTargetPosition(), robot.fRightMotor.getTargetPosition(), robot.bLeftMotor.getTargetPosition(), robot.bRightMotor.getTargetPosition());
@@ -98,7 +101,7 @@ public class preciseMovement {
         // Need to gracefully exit loop here as we have either timed out or a stop has been requested
 
         if (runtime.seconds() >= timeout) {
-            robotconfig.addlog(dl, "pm.waitforMotors", "timed out: " + String.format("%.2f", runtime.seconds()));
+            robotconfig.addlog(dl, "pm.waitforMotors", "timed out: " + String.format(Locale.ENGLISH, "%.2f", runtime.seconds()));
         } else if (!linearOpMode.opModeIsActive()) {
             robot.resetMotorEncoders();
             robotconfig.addlog(dl, "pm.waitforMotors", "Stop of opmode was requested");
@@ -113,7 +116,7 @@ public class preciseMovement {
      * @param robot     should be robot
      * @param telemetry should be telemetry
      */
-    public void automaticSquareUp(robotconfig robot, Telemetry telemetry) {
+    void automaticSquareUp(robotconfig robot, Telemetry telemetry) {
         this.move(0, 0, (robot.getCurrentAngle() - (Math.round(robot.getCurrentAngle() / 45) * 45)), 1, robot, telemetry);
     }
 
