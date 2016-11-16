@@ -2,6 +2,8 @@ package org.firstinspires.ftc.teamcode;
 
 import android.os.Environment;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -27,19 +29,21 @@ public class DataLogger {
     static private final boolean ENABLE_LOGGING = true;
     static private final boolean ENABLE_MULTIPLE_LOGS = true;
 
-    public DataLogger(String dirName, String fileName) {
+    public DataLogger(String dirName, String fileName, Telemetry telemetry) {
 
 
         if(!ENABLE_LOGGING) {return;}
 
-        //    telemetry.addData("00:DataLogger","Invoked...");
+            telemetry.addData("00:DataLogger","Invoked...");
 
         String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state)) {
-            //        telemetry.addData("00:DataLogger","ExternalStorage is writeable");
+
+/*        if (Environment.MEDIA_MOUNTED.equals(state)) {
+                    telemetry.addData("01:DataLogger","ExternalStorage is writeable");
         } else {
-            //        telemetry.addData("00:DataLogger","ExternalStorage is NOT writeable");
+                    telemetry.addData("01:DataLogger","ExternalStorage is NOT writeable");
         }
+*/
 
         if(ENABLE_MULTIPLE_LOGS) {
             Date now = Calendar.getInstance().getTime();
@@ -49,13 +53,17 @@ public class DataLogger {
         }
 
         File logdir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), dirName);
+ //       telemetry.addData("02:DataLogger", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/" + dirName);
         File logfile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), dirName + "/" + fileName + ".csv");
+ //       telemetry.addData("03:DataLogger", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + dirName + "/" + fileName + ".csv");
 
+/*
         if (!logdir.mkdirs()) {
-            //       telemetry.addData("00:DataLogger", "Directory not created");
+                   telemetry.addData("05:DataLogger", "Directory not created");
         } else {
-            //       telemetry.addData("00:DataLogger", "Directory is created");
+                   telemetry.addData("05:DataLogger", "Directory is created");
         }
+*/
 
         // Make sure that the directory exists
 

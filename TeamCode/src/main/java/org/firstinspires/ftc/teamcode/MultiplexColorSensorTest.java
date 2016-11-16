@@ -24,6 +24,7 @@
 
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -35,6 +36,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
  * Adafruit color sensors plugged into the I2C multiplexer on ports 2 and 5.
  */
 @TeleOp(name = "MultiplexColorSensorTest", group = "Iterative Opmode")
+@Disabled
 public class MultiplexColorSensorTest extends OpMode {
     MultiplexColorSensor muxColor;
     int[] ports = {2, 5};
