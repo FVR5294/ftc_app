@@ -8,13 +8,13 @@ import static org.firstinspires.ftc.teamcode.stateslist.currentState;
 import static org.firstinspires.ftc.teamcode.stateslist.robot;
 
 /**
- * Created by mail2 on 11/13/2016.
+ * Created by mail2 on 11/15/2016.
  * Project: ftc_app_for_2016_robot
  */
 
-@Autonomous(name = "red autonomous", group = "refactored")
+@Autonomous(name = "blue autonomous", group = "refactored")
 
-public class refactoredRedAutonomous extends LinearOpMode {
+public class refactoredBlueAutonomous extends LinearOpMode {
 
     private preciseMovement p = new preciseMovement();
     private stateslist state = new stateslist();
@@ -25,7 +25,7 @@ public class refactoredRedAutonomous extends LinearOpMode {
         robotconfig.addlog(dl, "autonomous", "Done with robot.init --- starting p.init");
         p.init(robot, this);
         robotconfig.addlog(dl, "autonomous", "Done with pm.init --- waiting for start");
-        state.color = 1;
+        state.color = -1;
         telemetry.addData("Say", "Hello Driver");
         telemetry.update();
         waitForStart();

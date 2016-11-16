@@ -6,7 +6,6 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DeviceInterfaceModule;
-import com.qualcomm.robotcore.hardware.DigitalChannelController;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.TouchSensor;
@@ -16,6 +15,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
+
+import java.util.Locale;
 
 /***
  * robotconfig is a simple and effective way to import the robot configuration information into every program.
@@ -27,35 +28,29 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
  */
 public class robotconfig {
 
-    public static final int LED_CHANNEL = 5;
     static public DataLogger dl;
-    private final double MAX_POWER = 1.00;
-    private final double MIN_POWER = 0.05;
-    private final double DEAD_ZONE = 0.02;
-    public DcMotor fLeftMotor = null;
-    public DcMotor fRightMotor = null;
-    public DcMotor bLeftMotor = null;
-    public DcMotor bRightMotor = null;
-    //public DcMotor spinner = null;
-    public Servo buttonPusher = null;
-    public DeviceInterfaceModule cdim;
-    public boolean bLedOn = false;
-    public HardwareMap hwMap = null;
-    public LinearOpMode linearOpMode;
-    public OpMode opMode;
-    public Telemetry ltelemetry;
-    public boolean debugMode = false;
-
-    //color sensor code with multiplexor
-    public int colorSensorLineThreashold = 3000;
-    public TouchSensor touchBeacon;
+    DcMotor fLeftMotor;
+    DcMotor fRightMotor;
+    DcMotor bLeftMotor;
+    DcMotor bRightMotor;
+    Telemetry ltelemetry;
+    TouchSensor touchBeacon;
     MultiplexColorSensor muxColor;
     int[] ports = {2, 5};
-    // The IMU sensor object
-    BNO055IMU imu;
     // State used for updating telemetry
     Orientation angles;
     Acceleration gravity;
+    //public DcMotor spinner = null;
+    private Servo buttonPusher;
+    private DeviceInterfaceModule cdim;
+    private HardwareMap hwMap = null;
+    private LinearOpMode linearOpMode;
+    private OpMode opMode;
+    private boolean debugMode = false;
+    //color sensor code with multiplexor
+    private int colorSensorLineThreashold = 3000;
+    // The IMU sensor object
+    private BNO055IMU imu;
 
 
     /* Constructor */
@@ -63,7 +58,7 @@ public class robotconfig {
 
     }
 
-    static public void addlog(DataLogger dli, String function, String message) {
+    static void addlog(DataLogger dli, String function, String message) {
         dli.addField(function);
         dli.addField(message);
         dli.newLine();
@@ -73,7 +68,7 @@ public class robotconfig {
      * enables the motor break for the drive train motors.
      * This function only has to be run if one wants the break to be enabled.
      */
-    public void enableMotorBreak() {
+    void enableMotorBreak() {
         addlog(dl, "robot", "enableMotorBreak was called");
         if (debugMode) {
             return;
@@ -87,7 +82,7 @@ public class robotconfig {
     /***
      * sets max motor speed to a specific integer representing 4480 pulses per second
      */
-    public void setMaxMotorSpeed() {
+    private void setMaxMotorSpeed() {
         addlog(dl, "robot", "setMaxMotorSpeed was called");
         if (debugMode) {
             return;
@@ -102,7 +97,7 @@ public class robotconfig {
      * disables the motor break for the drive train motors.
      * This function only has to be run if one wants disable the break after it is manually enabled
      */
-    public void disableMotorBreak() {
+    void disableMotorBreak() {
         addlog(dl, "robot", "disableMotorBreak was called");
         if (debugMode) {
             return;
@@ -116,7 +111,7 @@ public class robotconfig {
     /***
      * resets the encoders of the drive train motors but doesn't put them back to the normal mode
      */
-    public void resetMotorEncoders() {
+    void resetMotorEncoders() {
         addlog(dl, "robot", "resetMotorEncoders was called");
         if (debugMode) {
             return;
@@ -130,7 +125,7 @@ public class robotconfig {
     /***
      * makes the drive train motors use the RUN_USING_ENCODER mode
      */
-    public void enableMotorEncoders() {
+    private void enableMotorEncoders() {
         addlog(dl, "robot", "enableMotorEncoders was called");
         if (debugMode) {
             return;
@@ -144,7 +139,7 @@ public class robotconfig {
     /***
      * makes the drive train motors use the RUN_TO_POSITION mode
      */
-    public void enableEncodersToPosition() {
+    void enableEncodersToPosition() {
         addlog(dl, "robot", "enableEncodersToPosition was called");
         if (debugMode) {
             return;
@@ -176,8 +171,8 @@ public class robotconfig {
      * @param right   pulses in sliding to the right (or left if negative)
      * @param spin    pulses in spinning clockwise
      */
-    public void setMotorTargets(int forward, int right, int spin) {
-        addlog(dl, "robot", "setMotorTargets was called - f:r:s: " + String.format("%d", forward) + " : " + String.format("%d", right) + " : " + String.format("%d", spin));
+    void setMotorTargets(int forward, int right, int spin) {
+        addlog(dl, "robot", "setMotorTargets was called - f:r:s: " + String.format(Locale.ENGLISH, "%d", forward) + " : " + String.format(Locale.ENGLISH, "%d", right) + " : " + String.format(Locale.ENGLISH, "%d", spin));
         if (debugMode) {
             return;
         }
@@ -192,8 +187,8 @@ public class robotconfig {
      *
      * @param power power for all motors
      */
-    public void setMotorPower(double power) {
-        addlog(dl, "robot", "setMotorPower was called - power: " + String.format("%.2f", power));
+    void setMotorPower(double power) {
+        addlog(dl, "robot", "setMotorPower was called - power: " + String.format(Locale.ENGLISH, "%.2f", power));
         if (debugMode) {
             return;
         }
@@ -208,12 +203,9 @@ public class robotconfig {
      *
      * @return true if any one of the motors are busy
      */
-    public boolean isMotorBusy() {
+    boolean isMotorBusy() {
         addlog(dl, "robot", "isMotorBusy was called");
-        if (debugMode) {
-            return (false);
-        }
-        return fLeftMotor.isBusy() || fRightMotor.isBusy() || bLeftMotor.isBusy() || bRightMotor.isBusy();
+        return !debugMode && (fLeftMotor.isBusy() || fRightMotor.isBusy() || bLeftMotor.isBusy() || bRightMotor.isBusy());
     }
 
     /* Initialize standard Hardware interfaces - LinearOpMode */
@@ -246,8 +238,8 @@ public class robotconfig {
             muxColor.startPolling();
 
             //initialize sensor stuff
-            cdim.setDigitalChannelMode(LED_CHANNEL, DigitalChannelController.Mode.OUTPUT);
-            cdim.setDigitalChannelState(LED_CHANNEL, bLedOn);
+//            cdim.setDigitalChannelMode(1, DigitalChannelController.Mode.OUTPUT);
+//            cdim.setDigitalChannelState(1, bLedOn);
 
             // Set up the parameters with which we will use our IMU. Note that integration
             // algorithm here just reports accelerations to the logcat log; it doesn't actually
@@ -329,8 +321,8 @@ public class robotconfig {
             muxColor.startPolling();
 
             //initialize sensor stuff
-            cdim.setDigitalChannelMode(LED_CHANNEL, DigitalChannelController.Mode.OUTPUT);
-            cdim.setDigitalChannelState(LED_CHANNEL, bLedOn);
+//            cdim.setDigitalChannelMode(1, DigitalChannelController.Mode.OUTPUT);
+//            cdim.setDigitalChannelState(1, bLedOn);
 
             // Set up the parameters with which we will use our IMU. Note that integration
             // algorithm here just reports accelerations to the logcat log; it doesn't actually
@@ -384,7 +376,7 @@ public class robotconfig {
      *
      * @return imu.getAngularOrientation().toAxesReference(AxesReference.INTRINSIC).toAxesOrder(AxesOrder.ZYX).firstAngle;
      */
-    public double getCurrentAngle() {
+    double getCurrentAngle() {
         return imu.getAngularOrientation().toAxesReference(AxesReference.INTRINSIC).toAxesOrder(AxesOrder.ZYX).firstAngle;
     }
 
@@ -393,7 +385,7 @@ public class robotconfig {
      *
      * @param button input 1 for the left button, 2 for the right button, and any other number to reset it back to center
      */
-    public void pushButton(int button) {
+    void pushButton(int button) {
         addlog(dl, "robot", "pushButton was invoked");
         switch (button) {
             case 1:
@@ -413,7 +405,7 @@ public class robotconfig {
      *
      * @return 1 for red, -1 for blue, 0 if can't tell
      */
-    public int detectColor() {
+    int detectColor() {
 
         addlog(dl, "robot", "detectColor was called");
 
@@ -431,7 +423,7 @@ public class robotconfig {
      *
      * @return true if line is detected
      */
-    public boolean detectLine() {
+    boolean detectLine() {
         return muxColor.getCRGB(ports[1])[2] > colorSensorLineThreashold;
     }
 
@@ -444,7 +436,7 @@ public class robotconfig {
      */
     public void move(double forward, double right, double spin) {
 
-        addlog(dl, "robot", "move was called - f:r:s: " + String.format("%.2f", forward) + " : " + String.format("%.2f", right) + " : " + String.format("%.2f", spin));
+        addlog(dl, "robot", "move was called - f:r:s: " + String.format(Locale.ENGLISH, "%.2f", forward) + " : " + String.format(Locale.ENGLISH, "%.2f", right) + " : " + String.format(Locale.ENGLISH, "%.2f", spin));
 
         if (debugMode) {
             return;
@@ -463,7 +455,7 @@ public class robotconfig {
      * @param input unscaled joystick values
      * @return scaled joystick values
      */
-    public double scale(double input) {
+    private double scale(double input) {
 
         double sign = 1.0;
         double output;
@@ -474,12 +466,15 @@ public class robotconfig {
 
         input = input * input;  // power transfer curve, adjust sign handling if sign is preserved by this function
 
+        double DEAD_ZONE = 0.02;
         if (input < (DEAD_ZONE * DEAD_ZONE)) { // need to square DEAD_ZONE since input is already squared
             return (0);
         }
 
         output = (input - (DEAD_ZONE * DEAD_ZONE));             // shift so that range is from 0 to 1.0-DEAD_ZONE^2 instead of DEAD_ZONE^2 to 1.0
         output = output / (1.0 - (DEAD_ZONE * DEAD_ZONE));     // scale so 0 to 1.0-DEAD_ZONE^2 is now 0 to 1
+        double MAX_POWER = 1.00;
+        double MIN_POWER = 0.05;
         output = output * (MAX_POWER - MIN_POWER);              // scale so range is now 0 to (MAX-MIN)
         output = output + MIN_POWER;                            // shift so range is now MIN_POWER to MAX_POWER
         return (output * sign);         // don't forget to restore the sign of the input
