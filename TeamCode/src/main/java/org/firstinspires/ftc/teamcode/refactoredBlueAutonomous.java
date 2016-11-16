@@ -6,23 +6,23 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import static org.firstinspires.ftc.teamcode.robotconfig.dl;
 
 /**
- * Created by mail2 on 11/13/2016.
+ * Created by mail2 on 11/15/2016.
  */
 
-@Autonomous(name = "red autonomous", group = "refactored")
+@Autonomous(name = "blue autonomous", group = "refactored")
 
-public class refactoredRedAutonomous extends LinearOpMode {
+public class refactoredBlueAutonomous extends LinearOpMode {
 
-    public static int currentRedState = 0;
-    public static robotconfig redRobot = new robotconfig();
+    public static int currentBlueState = 0;
+    public static robotconfig blueRobot = new robotconfig();
     public preciseMovement p = new preciseMovement();
-    public stateslist state = new stateslist(this, 1);
+    public stateslist state = new stateslist(this, -1);
 
     @Override
     public void runOpMode() {
-        redRobot.init(this);  // send whole LinearOpMode object and context
+        blueRobot.init(this);  // send whole LinearOpMode object and context
         robotconfig.addlog(dl, "autonomous", "Done with robot.init --- starting p.init");
-        p.init(redRobot, this);
+        p.init(blueRobot, this);
         robotconfig.addlog(dl, "autonomous", "Done with pm.init --- waiting for start");
         telemetry.addData("Say", "Hello Driver");
         telemetry.update();
@@ -33,7 +33,7 @@ public class refactoredRedAutonomous extends LinearOpMode {
 
             robotconfig.addlog(dl, "Mainline", "Begining state machine pass");
 
-            switch (currentRedState) {
+            switch (currentBlueState) {
                 case 0:
                     state.clearWall.run();
                     break;
@@ -89,8 +89,8 @@ public class refactoredRedAutonomous extends LinearOpMode {
 
         }
 
-        redRobot.setMotorPower(0);
-        redRobot.pushButton(0);
+        blueRobot.setMotorPower(0);
+        blueRobot.pushButton(0);
 
         robotconfig.addlog(dl, "autonomous", "Done with opmode, exited based on OpmodeIsActive false");
 

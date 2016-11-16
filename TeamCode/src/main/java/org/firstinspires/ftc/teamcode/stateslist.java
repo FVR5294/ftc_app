@@ -1,17 +1,24 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+
+import static org.firstinspires.ftc.teamcode.robotconfig.dl;
+
 /**
  * Created by mail2 on 11/15/2016.
  */
 
 public class stateslist {
 
+    public static robotconfig robot;
+    public static int currentState;
+    public int color = 0;
     /***
      * state makes robot drive forward slightly
      */
     public state clearWall = new state("clear el wall") {
         public void firstTime() {
-
+            robot.move(1, 0, 0);
         }
 
         public void everyTime() {
@@ -26,7 +33,6 @@ public class stateslist {
 
         }
     };
-
     /***
      * state makes robot arc 90 degrees so it ends up pointed towards the beacon
      */
@@ -47,7 +53,6 @@ public class stateslist {
 
         }
     };
-
     /***
      * state makes robot drive closer to the wall so the sensor is in range of the tape
      */
@@ -68,7 +73,6 @@ public class stateslist {
 
         }
     };
-
     /***
      * state uses the light sensor to strafe towards the tape line
      */
@@ -89,7 +93,6 @@ public class stateslist {
 
         }
     };
-
     /***
      * state makes robot drive forward until touch sensor is touching beacon
      */
@@ -110,7 +113,6 @@ public class stateslist {
 
         }
     };
-
     /***
      * state makes robot use color sensor and servo to try to press the button on the beacon
      */
@@ -131,7 +133,6 @@ public class stateslist {
 
         }
     };
-
     /***
      * state makes robot back away from beacon slightly to avoid running into anything during next state
      */
@@ -152,7 +153,6 @@ public class stateslist {
 
         }
     };
-
     /***
      * state makes robot strafe towards the next beacon
      */
@@ -173,7 +173,6 @@ public class stateslist {
 
         }
     };
-
     /***
      * state makes the robot attempt to knock over the capt ball
      */
@@ -194,7 +193,6 @@ public class stateslist {
 
         }
     };
-
     /***
      * state makes robot move backwards to try to park partially on the center vortex
      */
@@ -216,24 +214,18 @@ public class stateslist {
         }
     };
 
-    /***
-     * state simply stops the robot
-     */
-    public state stop = new state("stop the robot") {
-        public void firstTime() {
-
+    public stateslist(LinearOpMode op, int color) {
+        this.color = color;
+        if (color == 1) {
+            robotconfig.addlog(dl, "stateslist", "selected color red");
+            robot = refactoredRedAutonomous.redRobot;
+            currentState = refactoredRedAutonomous.currentRedState;
+        } else if (color == -1) {
+            robotconfig.addlog(dl, "stateslist", "selected color blue");
+            robot = refactoredBlueAutonomous.blueRobot;
+            currentState = refactoredBlueAutonomous.currentBlueState;
+        } else {
+            robotconfig.addlog(dl, "error", "color is undefined");
         }
-
-        public void everyTime() {
-
-        }
-
-        public boolean conditionsToCheck() {
-            return true;
-        }
-
-        public void onCompletion() {
-
-        }
-    };
+    }
 }
