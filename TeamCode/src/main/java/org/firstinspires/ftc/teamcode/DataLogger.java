@@ -6,6 +6,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by Olavi Kamppari on 9/9/2015.
@@ -20,10 +24,13 @@ public class DataLogger {
     private StringBuffer lineBuffer;
     private long msBase;
     private long nsBase;
+    static private final boolean ENABLE_LOGGING = true;
+    static private final boolean ENABLE_MULTIPLE_LOGS = true;
 
     public DataLogger(String dirName, String fileName) {
 
-        // return;
+
+        if(!ENABLE_LOGGING) {return;}
 
         //    telemetry.addData("00:DataLogger","Invoked...");
 
@@ -32,6 +39,13 @@ public class DataLogger {
             //        telemetry.addData("00:DataLogger","ExternalStorage is writeable");
         } else {
             //        telemetry.addData("00:DataLogger","ExternalStorage is NOT writeable");
+        }
+
+        if(ENABLE_MULTIPLE_LOGS) {
+            Date now = Calendar.getInstance().getTime();
+            // (2) create a date "formatter" (the date and time format we want)
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss", Locale.US);
+            fileName = fileName + "-" + formatter.format(now);
         }
 
         File logdir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), dirName);
@@ -60,6 +74,9 @@ public class DataLogger {
     private void flushLineBuffer() {
         long milliTime, nanoTime;
 
+
+        if(!ENABLE_LOGGING) {return;}
+
         try {
             lineBuffer.append('\n');
             writer.write(lineBuffer.toString());
@@ -69,12 +86,15 @@ public class DataLogger {
         }
         milliTime = System.currentTimeMillis();
         nanoTime = System.nanoTime();
-        addField(String.format("%.3f", (milliTime - msBase) / 1.0E3));
-        addField(String.format("%.3f", (nanoTime - nsBase) / 1.0E6));
+        addField(String.format(Locale.US, "%.3f", (milliTime - msBase) / 1.0E3));
+        addField(String.format(Locale.US, "%.3f", (nanoTime - nsBase) / 1.0E6));
         nsBase = nanoTime;
     }
 
     public void closeDataLogger() {
+
+        if(!ENABLE_LOGGING) {return;}
+
         try {
             writer.close();
         } catch (IOException e) {
@@ -82,6 +102,9 @@ public class DataLogger {
     }
 
     public void addField(String s) {
+
+        if(!ENABLE_LOGGING) {return;}
+
         if (lineBuffer.length() > 0) {
             lineBuffer.append(',');
         }
@@ -89,6 +112,9 @@ public class DataLogger {
     }
 
     public void addField(char c) {
+
+        if(!ENABLE_LOGGING) {return;}
+
         if (lineBuffer.length() > 0) {
             lineBuffer.append(',');
         }
