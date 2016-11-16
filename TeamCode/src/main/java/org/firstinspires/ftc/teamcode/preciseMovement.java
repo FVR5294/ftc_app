@@ -67,11 +67,11 @@ class preciseMovement {
     /***
      * function takes measurements in mm to move the robot
      *
-     * @param forward amount to move forward in mm
-     * @param right amount to move right in mm
-     * @param spin amount to spin degrees clockwise
-     * @param timeout time to take doing movement
-     * @param robot just make it robot, for getting the configuration
+     * @param forward   amount to move forward in mm
+     * @param right     amount to move right in mm
+     * @param spin      amount to spin degrees clockwise
+     * @param timeout   time to take doing movement
+     * @param robot     just make it robot, for getting the configuration
      * @param telemetry just leave it as telemetry to allow program to write telemetry
      */
     public void move(double forward, double right, double spin, double timeout, robotconfig robot, Telemetry telemetry) {
