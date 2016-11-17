@@ -22,13 +22,12 @@ public class refactoredRedAutonomous extends LinearOpMode {
     @Override
     public void runOpMode() {
         robot.init(this);  // send whole LinearOpMode object and context
-        robotconfig.addlog(dl, "autonomous", "Done with robot.init --- starting p.init");
-        p.init(robot, this);
-        robotconfig.addlog(dl, "autonomous", "Done with pm.init --- waiting for start");
+        robotconfig.addlog(dl, "autonomous", "Done with robot.init --- waiting for start");
         state.color = 1;
         telemetry.addData("Say", "Hello Driver");
         telemetry.update();
         waitForStart();
+        sleep(1000);
         robotconfig.addlog(dl, "autonomous", "Started");
 
         while (opModeIsActive()) {
@@ -58,24 +57,21 @@ public class refactoredRedAutonomous extends LinearOpMode {
                     state.backAwayFromBeacon.run();
                     break;
                 case 7:
-                    state.driveToNextBeacon.run();
-                    break;
-                case 8:
                     state.scanForLine.run();
                     break;
-                case 9:
+                case 8:
                     state.driveTowardsBeacon.run();
                     break;
-                case 10:
+                case 9:
                     state.pushBeaconButton.run();
                     break;
-                case 11:
+                case 10:
                     state.backAwayFromBeacon.run();
                     break;
-                case 12:
+                case 11:
                     state.retreatToCenter.run();
                     break;
-                case 13:
+                case 12:
                     state.driveOnToWood.run();
                     break;
                 case 14:

@@ -50,7 +50,7 @@ class preciseMovement {
      * @param degrees amount of degrees to spin clockwise, negative if backwards
      * @return distance a wheel will spin in mm
      */
-    private double spin2mm(double degrees) {
+    public double spin2mm(double degrees) {
         return (degrees / 360) * (measurements.wheelDiagonal * measurements.pi);
     }
 
@@ -60,18 +60,18 @@ class preciseMovement {
      * @param mm a distance in millimeters
      * @return number of pulses generated
      */
-    private int mm2pulses(double mm) {
+    public int mm2pulses(double mm) {
         return (int) ((measurements.ppr / (measurements.pi * measurements.wheelDiameter)) * mm);
     }
 
     /***
      * function takes measurements in mm to move the robot
      *
-     * @param forward amount to move forward in mm
-     * @param right amount to move right in mm
-     * @param spin amount to spin degrees clockwise
-     * @param timeout time to take doing movement
-     * @param robot just make it robot, for getting the configuration
+     * @param forward   amount to move forward in mm
+     * @param right     amount to move right in mm
+     * @param spin      amount to spin degrees clockwise
+     * @param timeout   time to take doing movement
+     * @param robot     just make it robot, for getting the configuration
      * @param telemetry just leave it as telemetry to allow program to write telemetry
      */
     public void move(double forward, double right, double spin, double timeout, robotconfig robot, Telemetry telemetry) {
@@ -79,6 +79,21 @@ class preciseMovement {
         robotconfig.addlog(dl, "pm.move", "called with right:" + String.format(Locale.ENGLISH, "%.2f", right) + " and spin:" + String.format(Locale.ENGLISH, "%.2f", spin));
         robot.setMotorTargets(mm2pulses(forward), mm2pulses(right), mm2pulses(spin2mm(spin)));
         waitForMotors(robot, telemetry, forward, right, spin, timeout);
+    }
+
+    /***
+     * function takes measurements in mm to move the robot
+     *
+     * @param forward amount to move forward in mm
+     * @param right   amount to move right in mm
+     * @param spin    amount to spin degrees clockwise
+     * @param timeout time to take doing movement
+     * @param robot   just make it robot, for getting the configuration
+     */
+    public void move(double forward, double right, double spin, double timeout, robotconfig robot) {
+        robotconfig.addlog(dl, "pm.move", "called with right:" + String.format(Locale.ENGLISH, "%.2f", right) + " and spin:" + String.format(Locale.ENGLISH, "%.2f", spin));
+        robot.setMotorTargets(mm2pulses(forward), mm2pulses(right), mm2pulses(spin2mm(spin)));
+        waitForMotors(robot, forward, right, spin, timeout);
     }
 
     public void movesegments(double forward, double right, double spin, double timeout, int segments, robotconfig robot, Telemetry telemetry) {
@@ -110,6 +125,24 @@ class preciseMovement {
         }
     }
 
+    private void waitForMotors(robotconfig robot, double forward, double right, double spin, double timeout) {
+        runtime.reset();
+        while (robot.isMotorBusy() && (runtime.seconds() < timeout) && linearOpMode.opModeIsActive()) {
+            robotconfig.addlog(dl, "pm.waitforMotors", "called with right:" + String.format(Locale.ENGLISH, "%.2f", right) + " and spin:" + String.format(Locale.ENGLISH, "%.2f", spin) + " and forward:" + String.format(Locale.ENGLISH, "%.2f", forward));
+            Thread.yield();
+        }
+        // Need to gracefully exit loop here as we have either timed out or a stop has been requested
+
+        if (runtime.seconds() >= timeout) {
+            robotconfig.addlog(dl, "pm.waitforMotors", "timed out: " + String.format(Locale.ENGLISH, "%.2f", runtime.seconds()));
+        } else if (!linearOpMode.opModeIsActive()) {
+            robot.resetMotorEncoders();
+            robotconfig.addlog(dl, "pm.waitforMotors", "Stop of opmode was requested");
+        } else {
+            robotconfig.addlog(dl, "pm.waitforMotors", "exited move normally");
+        }
+    }
+
     /***
      * is supposed to square up the robot to the nearest 45 degrees
      *
@@ -118,6 +151,15 @@ class preciseMovement {
      */
     void automaticSquareUp(robotconfig robot, Telemetry telemetry) {
         this.move(0, 0, (robot.getCurrentAngle() - (Math.round(robot.getCurrentAngle() / 45) * 45)), 1, robot, telemetry);
+    }
+
+    /***
+     * is supposed to square up the robot to the nearest 45 degrees
+     *
+     * @param robot     should be robot
+     */
+    void automaticSquareUp(robotconfig robot) {
+        this.move(0, 0, (robot.getCurrentAngle() - (Math.round(robot.getCurrentAngle() / 45) * 45)), 1, robot);
     }
 
 }

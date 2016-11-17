@@ -111,17 +111,17 @@ public class testOp extends OpMode {
             robot.pushButton(robot.detectColor() * -1);
         }
 
-//        if (gamepad1.left_bumper || gamepad2.left_bumper) {
-//            robot.spinner.setPower(1);
-//        }
-//
-//        if (gamepad1.right_bumper || gamepad2.right_bumper) {
-//            robot.spinner.setPower(-1);
-//        }
-//
-//        if (gamepad1.right_trigger > 0.1 || gamepad2.right_trigger > 0.1 || gamepad1.left_trigger > 0.1 || gamepad2.left_trigger > 0.1) {
-//            robot.spinner.setPower(0);
-//        }
+        if (gamepad1.left_bumper || gamepad2.left_bumper) {
+            robot.spinner.setPower(1);
+        }
+
+        if (gamepad1.right_bumper || gamepad2.right_bumper) {
+            robot.spinner.setPower(-1);
+        }
+
+        if (gamepad1.right_trigger > 0.1 || gamepad2.right_trigger > 0.1 || gamepad1.left_trigger > 0.1 || gamepad2.left_trigger > 0.1) {
+            robot.spinner.setPower(0);
+        }
 
         // Send telemetry message to signify robot running;
         telemetry.addData("forward", "%.2f", forward);
