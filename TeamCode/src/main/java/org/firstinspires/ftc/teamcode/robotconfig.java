@@ -40,13 +40,13 @@ public class robotconfig {
     // State used for updating telemetry
     Orientation angles;
     Acceleration gravity;
-    //public DcMotor spinner = null;
+    DcMotor spinner;
     private Servo buttonPusher;
     private DeviceInterfaceModule cdim;
     private HardwareMap hwMap = null;
     private LinearOpMode linearOpMode;
     private OpMode opMode;
-    private boolean debugMode = true;
+    private boolean debugMode = false;
     //color sensor code with multiplexor
     private int colorSensorLineThreashold = 3000;
     // The IMU sensor object
@@ -125,7 +125,7 @@ public class robotconfig {
     /***
      * makes the drive train motors use the RUN_USING_ENCODER mode
      */
-    private void enableMotorEncoders() {
+    void enableMotorEncoders() {
         addlog(dl, "robot", "enableMotorEncoders was called");
         if (debugMode) {
             return;
@@ -208,6 +208,16 @@ public class robotconfig {
         return !debugMode && (fLeftMotor.isBusy() || fRightMotor.isBusy() || bLeftMotor.isBusy() || bRightMotor.isBusy());
     }
 
+    /***
+     * gets the average of the 4 drivetrain motor encoders
+     *
+     * @return the average of the encoders as an int
+     */
+    int getMotorEncoderAverage() {
+        addlog(dl, "robot", "motorEncoderAverage was called, positions: " + String.format(Locale.ENGLISH, "%d, %d, %d, %d", fLeftMotor.getCurrentPosition(), fRightMotor.getCurrentPosition(), bLeftMotor.getCurrentPosition(), bRightMotor.getCurrentPosition()));
+        return (fLeftMotor.getCurrentPosition() + fRightMotor.getCurrentPosition() + bLeftMotor.getCurrentPosition() + bRightMotor.getCurrentPosition()) / 4;
+    }
+
     /* Initialize standard Hardware interfaces - LinearOpMode */
 
     public void init(LinearOpMode linearOpMode) {
@@ -276,9 +286,9 @@ public class robotconfig {
             bLeftMotor.setPower(0);
             bRightMotor.setPower(0);
 
-            setMaxMotorSpeed();
+            //setMaxMotorSpeed();
 
-            //spinner.setPower(0);
+            spinner.setPower(0);
         }
         //and check servo power
         this.pushButton(0);
@@ -312,7 +322,7 @@ public class robotconfig {
             bLeftMotor = hwMap.dcMotor.get("bl_drive");
             bRightMotor = hwMap.dcMotor.get("br_drive");
 
-            //spinner = hwMap.dcMotor.get("spinner");
+            spinner = hwMap.dcMotor.get("spinner");
 
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
