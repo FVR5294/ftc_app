@@ -21,6 +21,8 @@ interface substate {
 class state implements substate {
     public String name;
     private boolean isFirstTime = true;
+    public boolean isFirstTimeDebug = false;
+
 
     public state(String name) {
         this.name = name;
@@ -63,23 +65,23 @@ class state implements substate {
     public void run() {
         if (this.isFirstTime) {
             this.firstTime();
-            robotconfig.addlog(dl, "StateMachine", "Execution of " + this.name + " has started");
+            robotconfig.addlog(dl, this.name + "StateMachine", "Execution of " + this.name + " has started");
             this.isFirstTime = false;
-            robotconfig.addlog(dl, "StateMachine", "after this.isFirstTime = false");
+            robotconfig.addlog(dl, this.name + "StateMachine", "after this.isFirstTime = false");
         }
-        robotconfig.addlog(dl, "StateMachine", "before if(conditionsToCheck");
+        robotconfig.addlog(dl,this.name +  "StateMachine", "before if(conditionsToCheck");
         if (this.conditionsToCheck()) {
-            robotconfig.addlog(dl, "StateMachine", "before this.onCompletion");
+            robotconfig.addlog(dl, this.name + "StateMachine", "before this.onCompletion");
             this.onCompletion();
-            robotconfig.addlog(dl, "StateMachine", "after this.onCompletion");
+            robotconfig.addlog(dl, this.name + "StateMachine", "after this.onCompletion");
             currentState++;
-            robotconfig.addlog(dl, "StateMachine", "currentState++");
-            robotconfig.addlog(dl, "StateMachine", "Execution of " + this.name + " has been completed");
+            robotconfig.addlog(dl, this.name + "StateMachine", "currentState++");
+            robotconfig.addlog(dl, this.name + "StateMachine", "Execution of " + this.name + " has been completed");
         } else {
-            robotconfig.addlog(dl, "StateMachine", "before this.everyTime");
+            robotconfig.addlog(dl, this.name + "StateMachine", "before this.everyTime");
             everyTime();
-            robotconfig.addlog(dl, "StateMachine", "after this.everyTime");
+            robotconfig.addlog(dl, this.name + "StateMachine", "after this.everyTime");
         }
-        robotconfig.addlog(dl, "StateMachine", "run completed");
+        robotconfig.addlog(dl, this.name + "StateMachine", "run completed");
     }
 }

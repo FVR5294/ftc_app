@@ -18,6 +18,9 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 import java.util.Locale;
 
+import static org.firstinspires.ftc.teamcode.measurements.mmPerInch;
+import static org.firstinspires.ftc.teamcode.measurements.pi;
+
 /***
  * robotconfig is a simple and effective way to import the robot configuration information into every program.
  * To enable it, simply add the code
@@ -44,13 +47,14 @@ public class robotconfig {
     private Servo buttonPusher;
     private DeviceInterfaceModule cdim;
     private HardwareMap hwMap = null;
-    private LinearOpMode linearOpMode;
+    public static LinearOpMode theLinearOpMode;
     private OpMode opMode;
-    private boolean debugMode = false;
+    public static boolean debugMode = false;
     //color sensor code with multiplexor
     private int colorSensorLineThreashold = 3000;
     // The IMU sensor object
     private BNO055IMU imu;
+    private boolean lineIsFirstTimeDebug = true;
 
 
     /* Constructor */
@@ -204,8 +208,8 @@ public class robotconfig {
      * @return true if any one of the motors are busy
      */
     boolean isMotorBusy() {
-        addlog(dl, "robot", "isMotorBusy was called");
-        return !debugMode && (fLeftMotor.isBusy() || fRightMotor.isBusy() || bLeftMotor.isBusy() || bRightMotor.isBusy());
+        addlog(dl, "robot", "isMotorBusy was called, returning " + String.valueOf(!debugMode && (fLeftMotor.isBusy() || fRightMotor.isBusy() || bLeftMotor.isBusy() || bRightMotor.isBusy())));
+        return (!debugMode && (fLeftMotor.isBusy() || fRightMotor.isBusy() || bLeftMotor.isBusy() || bRightMotor.isBusy()));
     }
 
     /***
@@ -214,22 +218,29 @@ public class robotconfig {
      * @return the average of the encoders as an int
      */
     int getMotorEncoderAverage() {
-        addlog(dl, "robot", "motorEncoderAverage was called, positions: " + String.format(Locale.ENGLISH, "%d, %d, %d, %d", fLeftMotor.getCurrentPosition(), fRightMotor.getCurrentPosition(), bLeftMotor.getCurrentPosition(), bRightMotor.getCurrentPosition()));
-        return (fLeftMotor.getCurrentPosition() + fRightMotor.getCurrentPosition() + bLeftMotor.getCurrentPosition() + bRightMotor.getCurrentPosition()) / 4;
+
+        if (debugMode) {
+            addlog(dl, "robot", "motorEncoderAverage was called, positions unknown ");
+            return (0);
+        } else {
+            addlog(dl, "robot", "motorEncoderAverage was called, positions: " + String.format(Locale.ENGLISH, "%d, %d, %d, %d", fLeftMotor.getCurrentPosition(), fRightMotor.getCurrentPosition(), bLeftMotor.getCurrentPosition(), bRightMotor.getCurrentPosition()));
+            return (fLeftMotor.getCurrentPosition() + fRightMotor.getCurrentPosition() + bLeftMotor.getCurrentPosition() + bRightMotor.getCurrentPosition()) / 4;
+        }
     }
 
     /* Initialize standard Hardware interfaces - LinearOpMode */
 
     public void init(LinearOpMode linearOpMode) {
 
-        this.linearOpMode = linearOpMode;
+        theLinearOpMode = linearOpMode;
 
         // Save reference to Hardware map in class variable
 
         hwMap = linearOpMode.hardwareMap;
 
-        dl = new DataLogger("10635", "autonomousTest",this.linearOpMode.telemetry);
+        dl = new DataLogger("10635", "autonomousTest", theLinearOpMode.telemetry);
         addlog(dl, "r.init", "r.init was invoked (a)");
+        addlog(dl, "r.init", "debug mode is " + debugMode);
 
         // Define and Initialize Motors
         if (!debugMode) {
@@ -335,7 +346,8 @@ public class robotconfig {
 //            cdim.setDigitalChannelState(1, bLedOn);
 
             // Set up the parameters with which we will use our IMU. Note that integration
-            // algorithm here just reports accelerations to the logcat log; it doesn't actually
+            // algorithm here just reports accelerations to
+            // the logcat log; it doesn't actually
             // provide positional information.
             BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
             parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
@@ -387,6 +399,11 @@ public class robotconfig {
      * @return imu.getAngularOrientation().toAxesReference(AxesReference.INTRINSIC).toAxesOrder(AxesOrder.ZYX).firstAngle;
      */
     double getCurrentAngle() {
+        addlog(dl, "robot", "getCurrentAngle was invoked, returning 45");
+        if (debugMode) {
+            return (45);
+        }
+
         return imu.getAngularOrientation().toAxesReference(AxesReference.INTRINSIC).toAxesOrder(AxesOrder.ZYX).firstAngle;
     }
 
@@ -423,7 +440,7 @@ public class robotconfig {
 
         addlog(dl, "robot", "detectColor was called");
         if (debugMode) {
-            return(0);
+            return (0);
         }
         if (muxColor.getCRGB(ports[0])[1] > muxColor.getCRGB(ports[0])[3]) {
             return 1;
@@ -440,7 +457,23 @@ public class robotconfig {
      * @return true if line is detected
      */
     boolean detectLine() {
-        return muxColor.getCRGB(ports[1])[2] > colorSensorLineThreashold;
+
+        addlog(dl, "robot", "detectLine was called");
+
+        if (robotconfig.debugMode) {
+            if (lineIsFirstTimeDebug) {
+                robotconfig.addlog(dl, "in detectLine", "returning true");
+                return (true);
+            } else {
+                lineIsFirstTimeDebug = true;
+                robotconfig.addlog(dl, "in detectLine", "returning false");
+                return (false);
+            }
+        } else {
+            robotconfig.addlog(dl, "in detectLine", "returning " + (muxColor.getCRGB(ports[1])[2] > colorSensorLineThreashold));
+            return (muxColor.getCRGB(ports[1])[2] > colorSensorLineThreashold);
+        }
+
     }
 
     /***

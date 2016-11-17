@@ -76,7 +76,7 @@ public class DataLogger {
         msBase = System.currentTimeMillis();
         nsBase = System.nanoTime();
         addField("sec");
-//        addField("d ms");
+        addField("d ms");
     }
 
     private void flushLineBuffer() {
