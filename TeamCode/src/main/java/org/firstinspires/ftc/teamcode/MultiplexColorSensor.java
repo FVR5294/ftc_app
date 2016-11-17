@@ -30,6 +30,10 @@ import com.qualcomm.robotcore.hardware.I2cDevice;
 import com.qualcomm.robotcore.hardware.I2cDeviceSynch;
 import com.qualcomm.robotcore.hardware.I2cDeviceSynchImpl;
 
+import java.util.Locale;
+
+import static org.firstinspires.ftc.teamcode.robotconfig.dl;
+
 /**
  * Created by Chris D on 10/5/2016.
  * <p>
@@ -152,6 +156,8 @@ public class MultiplexColorSensor {
         for (int i = 0; i < 4; i++) {
             crgb[i] = (adaCache[2 * i] & 0xFF) + (adaCache[2 * i + 1] & 0xFF) * 256;
         }
+
+        robotconfig.addlog(dl, "read color sensor port: crgb", String.format(Locale.ENGLISH, "%d: %d %d %d %d", port, crgb[0], crgb[1], crgb[2], crgb[3]));
         return crgb;
     }
 }

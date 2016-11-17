@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import static org.firstinspires.ftc.teamcode.robotconfig.dl;
@@ -9,10 +10,7 @@ import static org.firstinspires.ftc.teamcode.robotconfig.dl;
  * Created by mail2 on 10/31/2016.
  */
 @Autonomous(name = "master autonomous program?", group = "2016")
-
-/***
- * for this file, position robot flat against wall facing center vortex
- */
+@Disabled
 public class autonomous extends LinearOpMode {
     public static int color = 1;
     public robotconfig robot = new robotconfig();

@@ -66,11 +66,13 @@ class state implements substate {
             robotconfig.addlog(dl, "StateMachine", "Execution of " + this.name + " has started");
             this.isFirstTime = false;
         }
-        everyTime();
+
         if (conditionsToCheck()) {
             this.onCompletion();
             currentState++;
             robotconfig.addlog(dl, "StateMachine", "Execution of " + this.name + " has been completed");
+        } else {
+            everyTime();
         }
     }
 }

@@ -46,7 +46,7 @@ public class robotconfig {
     private HardwareMap hwMap = null;
     private LinearOpMode linearOpMode;
     private OpMode opMode;
-    private boolean debugMode = false;
+    private boolean debugMode = true;
     //color sensor code with multiplexor
     private int colorSensorLineThreashold = 3000;
     // The IMU sensor object
@@ -218,7 +218,7 @@ public class robotconfig {
 
         hwMap = linearOpMode.hardwareMap;
 
-        dl = new DataLogger("10635", "autonomousTest");
+        dl = new DataLogger("10635", "autonomousTest",this.linearOpMode.telemetry);
         addlog(dl, "r.init", "r.init was invoked (a)");
 
         // Define and Initialize Motors
@@ -301,7 +301,7 @@ public class robotconfig {
 
         hwMap = opMode.hardwareMap;
 
-        dl = new DataLogger("10635", "autonomousTest");
+        dl = new DataLogger("10635", "autonomousTest", opMode.telemetry);
         addlog(dl, "r.init", "r.init was invoked (a)");
 
         // Define and Initialize Motors
@@ -387,6 +387,10 @@ public class robotconfig {
      */
     void pushButton(int button) {
         addlog(dl, "robot", "pushButton was invoked");
+        if (debugMode) {
+            return;
+        }
+
         switch (button) {
             case 1:
                 buttonPusher.setPosition(1);//0.72);//right button
@@ -408,7 +412,9 @@ public class robotconfig {
     int detectColor() {
 
         addlog(dl, "robot", "detectColor was called");
-
+        if (debugMode) {
+            return(0);
+        }
         if (muxColor.getCRGB(ports[0])[1] > muxColor.getCRGB(ports[0])[3]) {
             return 1;
         } else if (muxColor.getCRGB(ports[0])[3] > muxColor.getCRGB(ports[0])[1]) {
