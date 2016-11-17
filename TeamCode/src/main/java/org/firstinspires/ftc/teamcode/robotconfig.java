@@ -18,9 +18,6 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 import java.util.Locale;
 
-import static org.firstinspires.ftc.teamcode.measurements.mmPerInch;
-import static org.firstinspires.ftc.teamcode.measurements.pi;
-
 /***
  * robotconfig is a simple and effective way to import the robot configuration information into every program.
  * To enable it, simply add the code
@@ -32,6 +29,8 @@ import static org.firstinspires.ftc.teamcode.measurements.pi;
 public class robotconfig {
 
     static public DataLogger dl;
+    static LinearOpMode theLinearOpMode;
+    static boolean debugMode = false;
     DcMotor fLeftMotor;
     DcMotor fRightMotor;
     DcMotor bLeftMotor;
@@ -47,9 +46,7 @@ public class robotconfig {
     private Servo buttonPusher;
     private DeviceInterfaceModule cdim;
     private HardwareMap hwMap = null;
-    public static LinearOpMode theLinearOpMode;
     private OpMode opMode;
-    public static boolean debugMode = false;
     //color sensor code with multiplexor
     private int colorSensorLineThreashold = 3000;
     // The IMU sensor object
@@ -250,7 +247,7 @@ public class robotconfig {
             bLeftMotor = hwMap.dcMotor.get("bl_drive");
             bRightMotor = hwMap.dcMotor.get("br_drive");
 
-            //spinner = hwMap.dcMotor.get("spinner");
+            spinner = hwMap.dcMotor.get("spinner");
 
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
@@ -297,8 +294,7 @@ public class robotconfig {
             bLeftMotor.setPower(0);
             bRightMotor.setPower(0);
 
-            //setMaxMotorSpeed();
-
+            spinner.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             spinner.setPower(0);
         }
         //and check servo power
@@ -379,7 +375,8 @@ public class robotconfig {
             bLeftMotor.setPower(0);
             bRightMotor.setPower(0);
 
-            //spinner.setPower(0);
+            spinner.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+            spinner.setPower(0);
         }
         //and check servo power
         this.pushButton(0);
