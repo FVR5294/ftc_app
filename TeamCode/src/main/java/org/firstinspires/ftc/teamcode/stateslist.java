@@ -198,7 +198,7 @@ class stateslist {
     /***
      * state makes robot use color sensor and servo to try to press the button on the beacon
      */
-    state pushBeaconButton = new state("driveTowardsBeacon") {
+    state pushBeaconButton = new state("pushBeaconButton") {
         public void firstTime() {
             robot.pushButton(robot.detectColor() * color);
             try {
