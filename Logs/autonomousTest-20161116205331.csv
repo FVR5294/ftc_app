@@ -1,0 +1,3043 @@
+sec,r.init,r.init was invoked (a)
+0.000,0.682,robot,pushButton was invoked
+0.001,1.141,robot,resetMotorEncoders was called
+0.002,0.729,robot,enableMotorEncoders was called
+0.003,0.647,r.init,r.init finished (a)
+0.004,1.418,autonomous,Done with robot.init --- waiting for start
+0.005,0.634,autonomous,Started
+1.694,1688.881,Mainline,Begining state machine pass
+1.695,0.868,robot,move was called - f:r:s: 1.00 : 0.00 : 0.00
+1.697,2.455,StateMachine,Execution of clear el wall has started
+1.698,1.279,StateMachine,after this.isFirstTime = false
+1.699,1.055,StateMachine,before if(conditionsToCheck
+1.700,0.867,StateMachine,before this.everyTime
+1.701,0.892,StateMachine,after this.everyTime
+1.702,0.682,StateMachine,run completed
+1.702,0.642,Mainline,Ending state machine pass
+1.703,0.721,Mainline,Begining state machine pass
+1.704,0.741,StateMachine,before if(conditionsToCheck
+1.705,1.357,StateMachine,before this.everyTime
+1.706,1.236,StateMachine,after this.everyTime
+1.707,0.949,StateMachine,run completed
+1.708,0.976,Mainline,Ending state machine pass
+1.709,0.868,Mainline,Begining state machine pass
+1.710,0.804,StateMachine,before if(conditionsToCheck
+1.711,1.205,StateMachine,before this.everyTime
+1.713,1.257,StateMachine,after this.everyTime
+1.713,0.686,StateMachine,run completed
+1.714,0.825,Mainline,Ending state machine pass
+1.715,0.904,Mainline,Begining state machine pass
+1.716,0.686,StateMachine,before if(conditionsToCheck
+1.717,1.086,StateMachine,before this.everyTime
+1.719,1.828,StateMachine,after this.everyTime
+1.719,0.664,StateMachine,run completed
+1.720,0.841,Mainline,Ending state machine pass
+1.721,0.600,Mainline,Begining state machine pass
+1.721,0.745,StateMachine,before if(conditionsToCheck
+1.722,0.759,StateMachine,before this.everyTime
+1.723,0.729,StateMachine,after this.everyTime
+1.723,0.510,StateMachine,run completed
+1.724,0.737,Mainline,Ending state machine pass
+1.725,0.826,Mainline,Begining state machine pass
+1.726,0.658,StateMachine,before if(conditionsToCheck
+1.727,1.697,StateMachine,before this.everyTime
+1.728,1.163,StateMachine,after this.everyTime
+1.729,0.901,StateMachine,run completed
+1.730,1.081,Mainline,Ending state machine pass
+1.731,0.757,Mainline,Begining state machine pass
+1.732,0.730,StateMachine,before if(conditionsToCheck
+1.733,1.388,StateMachine,before this.everyTime
+1.734,0.829,StateMachine,after this.everyTime
+1.735,0.441,StateMachine,run completed
+1.735,0.718,Mainline,Ending state machine pass
+1.736,0.593,Mainline,Begining state machine pass
+1.737,0.724,StateMachine,before if(conditionsToCheck
+1.738,1.671,StateMachine,before this.everyTime
+1.739,0.668,StateMachine,after this.everyTime
+1.740,0.767,StateMachine,run completed
+1.740,0.474,Mainline,Ending state machine pass
+1.741,0.640,Mainline,Begining state machine pass
+1.741,0.485,StateMachine,before if(conditionsToCheck
+1.742,0.731,StateMachine,before this.everyTime
+1.743,0.524,StateMachine,after this.everyTime
+1.743,0.481,StateMachine,run completed
+1.744,1.408,Mainline,Ending state machine pass
+1.745,0.826,Mainline,Begining state machine pass
+1.746,0.772,StateMachine,before if(conditionsToCheck
+1.747,1.344,StateMachine,before this.everyTime
+1.748,0.754,StateMachine,after this.everyTime
+1.750,1.355,StateMachine,run completed
+1.750,0.634,Mainline,Ending state machine pass
+1.751,0.762,Mainline,Begining state machine pass
+1.752,0.608,StateMachine,before if(conditionsToCheck
+1.752,0.853,StateMachine,before this.everyTime
+1.753,0.623,StateMachine,after this.everyTime
+1.754,0.654,StateMachine,run completed
+1.755,1.065,Mainline,Ending state machine pass
+1.755,0.755,Mainline,Begining state machine pass
+1.758,2.653,StateMachine,before if(conditionsToCheck
+1.759,0.980,StateMachine,before this.everyTime
+1.760,1.171,StateMachine,after this.everyTime
+1.761,0.876,StateMachine,run completed
+1.762,0.540,Mainline,Ending state machine pass
+1.762,0.793,Mainline,Begining state machine pass
+1.763,0.594,StateMachine,before if(conditionsToCheck
+1.764,0.878,StateMachine,before this.everyTime
+1.765,0.587,StateMachine,after this.everyTime
+1.766,1.239,StateMachine,run completed
+1.767,1.043,Mainline,Ending state machine pass
+1.768,0.809,Mainline,Begining state machine pass
+1.768,0.636,StateMachine,before if(conditionsToCheck
+1.769,0.985,StateMachine,before this.everyTime
+1.770,0.564,StateMachine,after this.everyTime
+1.770,0.509,StateMachine,run completed
+1.771,0.921,Mainline,Ending state machine pass
+1.772,0.867,Mainline,Begining state machine pass
+1.773,0.646,StateMachine,before if(conditionsToCheck
+1.774,0.881,StateMachine,before this.everyTime
+1.774,0.540,StateMachine,after this.everyTime
+1.775,0.695,StateMachine,run completed
+1.775,0.544,Mainline,Ending state machine pass
+1.777,1.653,Mainline,Begining state machine pass
+1.778,0.655,StateMachine,before if(conditionsToCheck
+1.779,1.022,StateMachine,before this.everyTime
+1.779,0.582,StateMachine,after this.everyTime
+1.780,0.790,StateMachine,run completed
+1.781,0.559,Mainline,Ending state machine pass
+1.781,0.623,Mainline,Begining state machine pass
+1.782,1.084,StateMachine,before if(conditionsToCheck
+1.783,1.012,StateMachine,before this.everyTime
+1.784,0.530,StateMachine,after this.everyTime
+1.785,0.686,StateMachine,run completed
+1.785,0.558,Mainline,Ending state machine pass
+1.786,1.152,Mainline,Begining state machine pass
+1.787,0.651,StateMachine,before if(conditionsToCheck
+1.789,2.470,StateMachine,before this.everyTime
+1.790,0.633,StateMachine,after this.everyTime
+1.792,1.483,StateMachine,run completed
+1.792,0.562,Mainline,Ending state machine pass
+1.793,0.935,Mainline,Begining state machine pass
+1.795,1.510,StateMachine,before if(conditionsToCheck
+1.796,1.069,StateMachine,before this.everyTime
+1.798,1.878,StateMachine,after this.everyTime
+1.798,0.782,StateMachine,run completed
+1.799,0.778,Mainline,Ending state machine pass
+1.800,0.582,Mainline,Begining state machine pass
+1.800,0.797,StateMachine,before if(conditionsToCheck
+1.801,0.739,StateMachine,before this.everyTime
+1.802,0.609,StateMachine,after this.everyTime
+1.803,0.735,StateMachine,run completed
+1.803,0.818,Mainline,Ending state machine pass
+1.804,0.597,Mainline,Begining state machine pass
+1.805,0.690,StateMachine,before if(conditionsToCheck
+1.805,0.737,StateMachine,before this.everyTime
+1.806,0.928,StateMachine,after this.everyTime
+1.807,0.573,StateMachine,run completed
+1.807,0.594,Mainline,Ending state machine pass
+1.808,0.475,Mainline,Begining state machine pass
+1.809,0.986,StateMachine,before if(conditionsToCheck
+1.810,0.723,StateMachine,before this.everyTime
+1.810,0.788,StateMachine,after this.everyTime
+1.811,0.554,StateMachine,run completed
+1.812,0.758,Mainline,Ending state machine pass
+1.812,0.643,Mainline,Begining state machine pass
+1.813,0.850,StateMachine,before if(conditionsToCheck
+1.814,0.683,StateMachine,before this.everyTime
+1.815,0.764,StateMachine,after this.everyTime
+1.815,0.582,StateMachine,run completed
+1.817,1.626,Mainline,Ending state machine pass
+1.818,1.135,Mainline,Begining state machine pass
+1.819,0.648,StateMachine,before if(conditionsToCheck
+1.820,0.859,StateMachine,before this.everyTime
+1.820,0.565,StateMachine,after this.everyTime
+1.821,0.447,StateMachine,run completed
+1.821,0.381,Mainline,Ending state machine pass
+1.822,0.844,Mainline,Begining state machine pass
+1.822,0.544,StateMachine,before if(conditionsToCheck
+1.824,2.019,StateMachine,before this.everyTime
+1.825,0.641,StateMachine,after this.everyTime
+1.826,0.898,StateMachine,run completed
+1.826,0.530,Mainline,Ending state machine pass
+1.828,1.149,Mainline,Begining state machine pass
+1.828,0.637,StateMachine,before if(conditionsToCheck
+1.829,0.623,StateMachine,before this.everyTime
+1.830,0.671,StateMachine,after this.everyTime
+1.830,0.545,StateMachine,run completed
+1.831,0.480,Mainline,Ending state machine pass
+1.831,0.495,Mainline,Begining state machine pass
+1.832,0.776,StateMachine,before if(conditionsToCheck
+1.833,1.186,StateMachine,before this.everyTime
+1.834,0.597,StateMachine,after this.everyTime
+1.834,0.767,StateMachine,run completed
+1.835,0.565,Mainline,Ending state machine pass
+1.836,0.628,Mainline,Begining state machine pass
+1.836,0.623,StateMachine,before if(conditionsToCheck
+1.837,0.656,StateMachine,before this.everyTime
+1.838,0.917,StateMachine,after this.everyTime
+1.839,1.662,StateMachine,run completed
+1.840,0.485,Mainline,Ending state machine pass
+1.840,0.492,Mainline,Begining state machine pass
+1.841,0.576,StateMachine,before if(conditionsToCheck
+1.842,0.725,StateMachine,before this.everyTime
+1.842,0.540,StateMachine,after this.everyTime
+1.843,0.430,StateMachine,run completed
+1.843,0.446,Mainline,Ending state machine pass
+1.844,0.485,Mainline,Begining state machine pass
+1.845,1.147,StateMachine,before if(conditionsToCheck
+1.846,0.866,StateMachine,before this.everyTime
+1.846,0.787,StateMachine,after this.everyTime
+1.847,0.630,StateMachine,run completed
+1.848,0.516,Mainline,Ending state machine pass
+1.848,0.528,Mainline,Begining state machine pass
+1.849,0.478,StateMachine,before if(conditionsToCheck
+1.849,0.621,StateMachine,before this.everyTime
+1.850,1.181,StateMachine,after this.everyTime
+1.851,0.614,StateMachine,run completed
+1.851,0.479,Mainline,Ending state machine pass
+1.852,0.499,Mainline,Begining state machine pass
+1.852,0.565,StateMachine,before if(conditionsToCheck
+1.853,0.693,StateMachine,before this.everyTime
+1.854,0.507,StateMachine,after this.everyTime
+1.854,0.508,StateMachine,run completed
+1.855,0.446,Mainline,Ending state machine pass
+1.856,1.129,Mainline,Begining state machine pass
+1.856,0.679,StateMachine,before if(conditionsToCheck
+1.857,0.752,StateMachine,before this.everyTime
+1.858,0.578,StateMachine,after this.everyTime
+1.858,0.541,StateMachine,run completed
+1.859,0.430,Mainline,Ending state machine pass
+1.859,0.590,Mainline,Begining state machine pass
+1.860,0.623,StateMachine,before if(conditionsToCheck
+1.861,1.164,StateMachine,before this.everyTime
+1.862,0.634,StateMachine,after this.everyTime
+1.863,0.786,StateMachine,run completed
+1.863,0.586,Mainline,Ending state machine pass
+1.864,0.514,Mainline,Begining state machine pass
+1.865,1.396,StateMachine,before if(conditionsToCheck
+1.867,1.832,StateMachine,before this.everyTime
+1.867,0.517,StateMachine,after this.everyTime
+1.868,0.531,StateMachine,run completed
+1.868,0.441,Mainline,Ending state machine pass
+1.869,0.451,Mainline,Begining state machine pass
+1.869,0.493,StateMachine,before if(conditionsToCheck
+1.870,0.544,StateMachine,before this.everyTime
+1.870,0.518,StateMachine,after this.everyTime
+1.871,0.383,StateMachine,run completed
+1.871,0.434,Mainline,Ending state machine pass
+1.872,0.960,Mainline,Begining state machine pass
+1.873,0.398,StateMachine,before if(conditionsToCheck
+1.873,0.526,StateMachine,before this.everyTime
+1.874,0.423,StateMachine,after this.everyTime
+1.874,0.428,StateMachine,run completed
+1.874,0.387,Mainline,Ending state machine pass
+1.875,0.357,Mainline,Begining state machine pass
+1.875,0.430,StateMachine,before if(conditionsToCheck
+1.876,0.746,StateMachine,before this.everyTime
+1.876,0.432,StateMachine,after this.everyTime
+1.877,0.918,StateMachine,run completed
+1.880,2.345,Mainline,Ending state machine pass
+1.881,1.297,Mainline,Begining state machine pass
+1.882,1.426,StateMachine,before if(conditionsToCheck
+1.884,1.308,StateMachine,before this.everyTime
+1.884,0.838,StateMachine,after this.everyTime
+1.885,0.908,StateMachine,run completed
+1.886,0.746,Mainline,Ending state machine pass
+1.887,0.794,Mainline,Begining state machine pass
+1.888,1.000,StateMachine,before if(conditionsToCheck
+1.889,1.386,StateMachine,before this.everyTime
+1.890,0.567,StateMachine,after this.everyTime
+1.891,0.781,StateMachine,run completed
+1.891,0.738,Mainline,Ending state machine pass
+1.892,0.585,Mainline,Begining state machine pass
+1.893,0.740,StateMachine,before if(conditionsToCheck
+1.894,1.163,StateMachine,before this.everyTime
+1.894,0.656,StateMachine,after this.everyTime
+1.895,0.763,StateMachine,run completed
+1.896,1.024,Mainline,Ending state machine pass
+1.897,1.088,Mainline,Begining state machine pass
+1.898,0.803,StateMachine,before if(conditionsToCheck
+1.899,0.626,StateMachine,before this.everyTime
+1.899,0.620,StateMachine,after this.everyTime
+1.901,1.151,StateMachine,run completed
+1.901,0.634,Mainline,Ending state machine pass
+1.902,0.935,Mainline,Begining state machine pass
+1.903,1.199,StateMachine,before if(conditionsToCheck
+1.904,0.794,StateMachine,before this.everyTime
+1.905,0.583,StateMachine,after this.everyTime
+1.905,0.772,StateMachine,run completed
+1.906,0.638,Mainline,Ending state machine pass
+1.907,0.716,Mainline,Begining state machine pass
+1.908,1.041,StateMachine,before if(conditionsToCheck
+1.909,0.812,StateMachine,before this.everyTime
+1.909,0.615,StateMachine,after this.everyTime
+1.910,0.629,StateMachine,run completed
+1.911,0.766,Mainline,Ending state machine pass
+1.911,0.644,Mainline,Begining state machine pass
+1.912,0.725,StateMachine,before if(conditionsToCheck
+1.913,0.738,StateMachine,before this.everyTime
+1.913,0.637,StateMachine,after this.everyTime
+1.914,0.799,StateMachine,run completed
+1.915,0.542,Mainline,Ending state machine pass
+1.915,0.678,Mainline,Begining state machine pass
+1.916,0.821,StateMachine,before if(conditionsToCheck
+1.917,0.741,StateMachine,before this.everyTime
+1.918,0.613,StateMachine,after this.everyTime
+1.918,0.801,StateMachine,run completed
+1.919,0.861,Mainline,Ending state machine pass
+1.920,0.682,Mainline,Begining state machine pass
+1.921,0.563,StateMachine,before if(conditionsToCheck
+1.921,0.775,StateMachine,before this.everyTime
+1.922,0.740,StateMachine,after this.everyTime
+1.923,0.720,StateMachine,run completed
+1.923,0.634,Mainline,Ending state machine pass
+1.924,0.595,Mainline,Begining state machine pass
+1.925,0.700,StateMachine,before if(conditionsToCheck
+1.926,0.891,StateMachine,before this.everyTime
+1.926,0.585,StateMachine,after this.everyTime
+1.927,0.702,StateMachine,run completed
+1.927,0.455,Mainline,Ending state machine pass
+1.928,0.557,Mainline,Begining state machine pass
+1.928,0.476,StateMachine,before if(conditionsToCheck
+1.929,0.879,StateMachine,before this.everyTime
+1.930,0.480,StateMachine,after this.everyTime
+1.930,0.637,StateMachine,run completed
+1.931,0.348,Mainline,Ending state machine pass
+1.931,0.613,Mainline,Begining state machine pass
+1.932,0.467,StateMachine,before if(conditionsToCheck
+1.933,0.755,StateMachine,before this.everyTime
+1.933,0.436,StateMachine,after this.everyTime
+1.934,0.564,StateMachine,run completed
+1.934,0.435,Mainline,Ending state machine pass
+1.935,0.611,Mainline,Begining state machine pass
+1.935,0.403,StateMachine,before if(conditionsToCheck
+1.936,0.757,StateMachine,before this.everyTime
+1.936,0.569,StateMachine,after this.everyTime
+1.937,0.655,StateMachine,run completed
+1.937,0.453,Mainline,Ending state machine pass
+1.938,0.669,Mainline,Begining state machine pass
+1.939,0.454,StateMachine,before if(conditionsToCheck
+1.939,0.808,StateMachine,before this.everyTime
+1.940,0.505,StateMachine,after this.everyTime
+1.941,0.647,StateMachine,run completed
+1.941,0.372,Mainline,Ending state machine pass
+1.941,0.580,Mainline,Begining state machine pass
+1.942,0.471,StateMachine,before if(conditionsToCheck
+1.943,0.774,StateMachine,before this.everyTime
+1.943,0.437,StateMachine,after this.everyTime
+1.944,0.620,StateMachine,run completed
+1.944,0.440,Mainline,Ending state machine pass
+1.945,0.723,Mainline,Begining state machine pass
+1.945,0.414,StateMachine,before if(conditionsToCheck
+1.946,0.865,StateMachine,before this.everyTime
+1.947,0.466,StateMachine,after this.everyTime
+1.947,0.687,StateMachine,run completed
+1.948,0.452,Mainline,Ending state machine pass
+1.949,0.720,Mainline,Begining state machine pass
+1.949,0.552,StateMachine,before if(conditionsToCheck
+1.950,0.906,StateMachine,before this.everyTime
+1.950,0.509,StateMachine,after this.everyTime
+1.951,0.723,StateMachine,run completed
+1.952,0.424,Mainline,Ending state machine pass
+1.952,0.713,Mainline,Begining state machine pass
+1.953,0.490,StateMachine,before if(conditionsToCheck
+1.954,0.735,StateMachine,before this.everyTime
+1.954,0.472,StateMachine,after this.everyTime
+1.955,0.531,StateMachine,run completed
+1.955,0.395,Mainline,Ending state machine pass
+1.955,0.448,Mainline,Begining state machine pass
+1.956,0.623,StateMachine,before if(conditionsToCheck
+1.957,1.010,StateMachine,before this.everyTime
+1.958,0.546,StateMachine,after this.everyTime
+1.959,0.911,StateMachine,run completed
+1.959,0.422,Mainline,Ending state machine pass
+1.960,0.753,Mainline,Begining state machine pass
+1.960,0.544,StateMachine,before if(conditionsToCheck
+1.961,0.876,StateMachine,before this.everyTime
+1.962,0.675,StateMachine,after this.everyTime
+1.962,0.698,StateMachine,run completed
+1.963,0.645,Mainline,Ending state machine pass
+1.964,0.487,Mainline,Begining state machine pass
+1.964,0.490,StateMachine,before if(conditionsToCheck
+1.965,0.821,StateMachine,before this.everyTime
+1.965,0.453,StateMachine,after this.everyTime
+1.966,0.774,StateMachine,run completed
+1.967,0.450,Mainline,Ending state machine pass
+1.967,0.465,Mainline,Begining state machine pass
+1.967,0.404,StateMachine,before if(conditionsToCheck
+1.968,0.492,StateMachine,before this.everyTime
+1.968,0.429,StateMachine,after this.everyTime
+1.969,0.379,StateMachine,run completed
+1.969,0.404,Mainline,Ending state machine pass
+1.970,0.544,Mainline,Begining state machine pass
+1.972,2.716,StateMachine,before if(conditionsToCheck
+1.973,0.797,StateMachine,before this.everyTime
+1.974,0.458,StateMachine,after this.everyTime
+1.975,1.199,StateMachine,run completed
+1.975,0.403,Mainline,Ending state machine pass
+1.977,1.537,Mainline,Begining state machine pass
+1.977,0.546,StateMachine,before if(conditionsToCheck
+1.978,0.677,StateMachine,before this.everyTime
+1.979,0.600,StateMachine,after this.everyTime
+1.979,0.402,StateMachine,run completed
+1.979,0.362,Mainline,Ending state machine pass
+1.980,0.750,Mainline,Begining state machine pass
+1.981,0.419,StateMachine,before if(conditionsToCheck
+1.981,0.503,StateMachine,before this.everyTime
+1.981,0.380,StateMachine,after this.everyTime
+1.982,0.373,StateMachine,run completed
+1.982,0.353,Mainline,Ending state machine pass
+1.983,0.369,Mainline,Begining state machine pass
+1.983,0.396,StateMachine,before if(conditionsToCheck
+1.983,0.485,StateMachine,before this.everyTime
+1.984,0.400,StateMachine,after this.everyTime
+1.984,0.454,StateMachine,run completed
+1.985,0.312,Mainline,Ending state machine pass
+1.985,0.334,Mainline,Begining state machine pass
+1.985,0.429,StateMachine,before if(conditionsToCheck
+1.986,0.657,StateMachine,before this.everyTime
+1.986,0.416,StateMachine,after this.everyTime
+1.987,0.409,StateMachine,run completed
+1.987,0.383,Mainline,Ending state machine pass
+1.988,0.415,Mainline,Begining state machine pass
+1.988,0.442,StateMachine,before if(conditionsToCheck
+1.989,0.592,StateMachine,before this.everyTime
+1.989,0.561,StateMachine,after this.everyTime
+1.990,0.422,StateMachine,run completed
+1.990,0.401,Mainline,Ending state machine pass
+1.990,0.377,Mainline,Begining state machine pass
+1.991,0.448,StateMachine,before if(conditionsToCheck
+1.991,0.539,StateMachine,before this.everyTime
+1.992,0.517,StateMachine,after this.everyTime
+1.992,0.376,StateMachine,run completed
+1.993,0.322,Mainline,Ending state machine pass
+1.993,0.411,Mainline,Begining state machine pass
+1.994,1.125,StateMachine,before if(conditionsToCheck
+1.995,0.492,StateMachine,before this.everyTime
+1.995,0.434,StateMachine,after this.everyTime
+1.996,0.453,StateMachine,run completed
+1.996,0.517,Mainline,Ending state machine pass
+1.997,0.491,Mainline,Begining state machine pass
+1.997,0.434,StateMachine,before if(conditionsToCheck
+1.998,0.517,StateMachine,before this.everyTime
+1.998,0.479,StateMachine,after this.everyTime
+1.998,0.398,StateMachine,run completed
+1.999,0.321,Mainline,Ending state machine pass
+1.999,0.428,Mainline,Begining state machine pass
+2.000,0.461,StateMachine,before if(conditionsToCheck
+2.000,0.525,StateMachine,before this.everyTime
+2.000,0.341,StateMachine,after this.everyTime
+2.001,0.348,StateMachine,run completed
+2.001,0.351,Mainline,Ending state machine pass
+2.002,0.363,Mainline,Begining state machine pass
+2.002,0.417,StateMachine,before if(conditionsToCheck
+2.002,0.491,StateMachine,before this.everyTime
+2.003,0.374,StateMachine,after this.everyTime
+2.003,0.399,StateMachine,run completed
+2.004,0.365,Mainline,Ending state machine pass
+2.004,0.441,Mainline,Begining state machine pass
+2.005,0.553,StateMachine,before if(conditionsToCheck
+2.005,0.519,StateMachine,before this.everyTime
+2.006,0.525,StateMachine,after this.everyTime
+2.006,0.457,StateMachine,run completed
+2.006,0.350,Mainline,Ending state machine pass
+2.007,0.414,Mainline,Begining state machine pass
+2.007,0.407,StateMachine,before if(conditionsToCheck
+2.008,0.516,StateMachine,before this.everyTime
+2.008,0.418,StateMachine,after this.everyTime
+2.009,0.325,StateMachine,run completed
+2.009,0.300,Mainline,Ending state machine pass
+2.009,0.335,Mainline,Begining state machine pass
+2.010,0.407,StateMachine,before if(conditionsToCheck
+2.010,0.524,StateMachine,before this.everyTime
+2.010,0.367,StateMachine,after this.everyTime
+2.011,0.309,StateMachine,run completed
+2.011,0.367,Mainline,Ending state machine pass
+2.012,0.402,Mainline,Begining state machine pass
+2.012,0.450,StateMachine,before if(conditionsToCheck
+2.013,0.554,StateMachine,before this.everyTime
+2.013,0.399,StateMachine,after this.everyTime
+2.013,0.380,StateMachine,run completed
+2.014,0.371,Mainline,Ending state machine pass
+2.015,0.876,Mainline,Begining state machine pass
+2.015,0.455,StateMachine,before if(conditionsToCheck
+2.016,0.607,StateMachine,before this.everyTime
+2.016,0.524,StateMachine,after this.everyTime
+2.016,0.350,StateMachine,run completed
+2.017,0.303,Mainline,Ending state machine pass
+2.017,0.404,Mainline,Begining state machine pass
+2.018,0.426,StateMachine,before if(conditionsToCheck
+2.018,0.548,StateMachine,before this.everyTime
+2.019,0.343,StateMachine,after this.everyTime
+2.019,0.324,StateMachine,run completed
+2.019,0.356,Mainline,Ending state machine pass
+2.020,0.612,Mainline,Begining state machine pass
+2.020,0.366,StateMachine,before if(conditionsToCheck
+2.021,0.418,StateMachine,before this.everyTime
+2.021,0.403,StateMachine,after this.everyTime
+2.022,0.598,StateMachine,run completed
+2.022,0.425,Mainline,Ending state machine pass
+2.022,0.423,Mainline,Begining state machine pass
+2.023,0.368,StateMachine,before if(conditionsToCheck
+2.023,0.475,StateMachine,before this.everyTime
+2.024,0.595,StateMachine,after this.everyTime
+2.024,0.419,StateMachine,run completed
+2.025,0.326,Mainline,Ending state machine pass
+2.025,0.429,Mainline,Begining state machine pass
+2.026,0.835,StateMachine,before if(conditionsToCheck
+2.026,0.581,StateMachine,before this.everyTime
+2.028,1.099,StateMachine,after this.everyTime
+2.028,0.491,StateMachine,run completed
+2.028,0.359,Mainline,Ending state machine pass
+2.029,0.430,Mainline,Begining state machine pass
+2.030,0.696,StateMachine,before if(conditionsToCheck
+2.031,1.390,StateMachine,before this.everyTime
+2.032,1.026,StateMachine,after this.everyTime
+2.032,0.409,StateMachine,run completed
+2.033,0.424,Mainline,Ending state machine pass
+2.033,0.485,Mainline,Begining state machine pass
+2.034,0.452,StateMachine,before if(conditionsToCheck
+2.034,0.476,StateMachine,before this.everyTime
+2.035,0.324,StateMachine,after this.everyTime
+2.035,0.341,StateMachine,run completed
+2.035,0.357,Mainline,Ending state machine pass
+2.036,0.494,Mainline,Begining state machine pass
+2.036,0.478,StateMachine,before if(conditionsToCheck
+2.037,0.472,StateMachine,before this.everyTime
+2.037,0.391,StateMachine,after this.everyTime
+2.037,0.429,StateMachine,run completed
+2.038,0.386,Mainline,Ending state machine pass
+2.038,0.364,Mainline,Begining state machine pass
+2.039,0.323,StateMachine,before if(conditionsToCheck
+2.039,0.485,StateMachine,before this.everyTime
+2.039,0.404,StateMachine,after this.everyTime
+2.040,0.398,StateMachine,run completed
+2.040,0.340,Mainline,Ending state machine pass
+2.041,0.344,Mainline,Begining state machine pass
+2.041,0.384,StateMachine,before if(conditionsToCheck
+2.041,0.531,StateMachine,before this.everyTime
+2.042,0.467,StateMachine,after this.everyTime
+2.042,0.408,StateMachine,run completed
+2.043,0.334,Mainline,Ending state machine pass
+2.043,0.435,Mainline,Begining state machine pass
+2.044,0.459,StateMachine,before if(conditionsToCheck
+2.045,0.985,StateMachine,before this.everyTime
+2.045,0.463,StateMachine,after this.everyTime
+2.045,0.404,StateMachine,run completed
+2.046,0.863,Mainline,Ending state machine pass
+2.047,0.422,Mainline,Begining state machine pass
+2.047,0.453,StateMachine,before if(conditionsToCheck
+2.048,0.523,StateMachine,before this.everyTime
+2.048,0.433,StateMachine,after this.everyTime
+2.048,0.335,StateMachine,run completed
+2.049,0.322,Mainline,Ending state machine pass
+2.049,0.452,Mainline,Begining state machine pass
+2.050,0.445,StateMachine,before if(conditionsToCheck
+2.050,0.543,StateMachine,before this.everyTime
+2.051,0.358,StateMachine,after this.everyTime
+2.051,0.386,StateMachine,run completed
+2.051,0.358,Mainline,Ending state machine pass
+2.052,0.452,Mainline,Begining state machine pass
+2.052,0.455,StateMachine,before if(conditionsToCheck
+2.053,0.485,StateMachine,before this.everyTime
+2.053,0.408,StateMachine,after this.everyTime
+2.053,0.404,StateMachine,run completed
+2.054,0.380,Mainline,Ending state machine pass
+2.054,0.390,Mainline,Begining state machine pass
+2.055,0.369,StateMachine,before if(conditionsToCheck
+2.055,0.528,StateMachine,before this.everyTime
+2.056,0.445,StateMachine,after this.everyTime
+2.056,0.464,StateMachine,run completed
+2.056,0.336,Mainline,Ending state machine pass
+2.057,0.307,Mainline,Begining state machine pass
+2.057,0.379,StateMachine,before if(conditionsToCheck
+2.058,0.477,StateMachine,before this.everyTime
+2.058,0.414,StateMachine,after this.everyTime
+2.058,0.327,StateMachine,run completed
+2.059,0.296,Mainline,Ending state machine pass
+2.059,0.400,Mainline,Begining state machine pass
+2.059,0.421,StateMachine,before if(conditionsToCheck
+2.060,0.539,StateMachine,before this.everyTime
+2.060,0.359,StateMachine,after this.everyTime
+2.061,0.297,StateMachine,run completed
+2.061,0.331,Mainline,Ending state machine pass
+2.061,0.401,Mainline,Begining state machine pass
+2.062,0.443,StateMachine,before if(conditionsToCheck
+2.062,0.493,StateMachine,before this.everyTime
+2.063,0.336,StateMachine,after this.everyTime
+2.063,0.390,StateMachine,run completed
+2.063,0.361,Mainline,Ending state machine pass
+2.064,0.387,Mainline,Begining state machine pass
+2.064,0.441,StateMachine,before if(conditionsToCheck
+2.065,0.557,StateMachine,before this.everyTime
+2.065,0.475,StateMachine,after this.everyTime
+2.066,0.698,StateMachine,run completed
+2.066,0.382,Mainline,Ending state machine pass
+2.067,0.406,Mainline,Begining state machine pass
+2.067,0.463,StateMachine,before if(conditionsToCheck
+2.068,0.542,StateMachine,before this.everyTime
+2.068,0.469,StateMachine,after this.everyTime
+2.069,0.345,StateMachine,run completed
+2.069,0.354,Mainline,Ending state machine pass
+2.069,0.386,Mainline,Begining state machine pass
+2.070,0.423,StateMachine,before if(conditionsToCheck
+2.070,0.558,StateMachine,before this.everyTime
+2.071,0.398,StateMachine,after this.everyTime
+2.071,0.414,StateMachine,run completed
+2.071,0.359,Mainline,Ending state machine pass
+2.072,0.401,Mainline,Begining state machine pass
+2.072,0.453,StateMachine,before if(conditionsToCheck
+2.073,0.538,StateMachine,before this.everyTime
+2.073,0.430,StateMachine,after this.everyTime
+2.074,0.354,StateMachine,run completed
+2.074,0.350,Mainline,Ending state machine pass
+2.074,0.356,Mainline,Begining state machine pass
+2.075,0.350,StateMachine,before if(conditionsToCheck
+2.075,0.541,StateMachine,before this.everyTime
+2.076,0.510,StateMachine,after this.everyTime
+2.076,0.425,StateMachine,run completed
+2.076,0.309,Mainline,Ending state machine pass
+2.077,0.315,Mainline,Begining state machine pass
+2.077,0.380,StateMachine,before if(conditionsToCheck
+2.078,0.540,StateMachine,before this.everyTime
+2.078,0.420,StateMachine,after this.everyTime
+2.078,0.328,StateMachine,run completed
+2.079,0.346,Mainline,Ending state machine pass
+2.079,0.417,Mainline,Begining state machine pass
+2.080,0.803,StateMachine,before if(conditionsToCheck
+2.081,0.515,StateMachine,before this.everyTime
+2.081,0.407,StateMachine,after this.everyTime
+2.081,0.423,StateMachine,run completed
+2.082,0.449,Mainline,Ending state machine pass
+2.082,0.408,Mainline,Begining state machine pass
+2.083,0.500,StateMachine,before if(conditionsToCheck
+2.084,1.317,StateMachine,before this.everyTime
+2.084,0.424,StateMachine,after this.everyTime
+2.085,0.336,StateMachine,run completed
+2.085,0.433,Mainline,Ending state machine pass
+2.086,0.519,Mainline,Begining state machine pass
+2.086,0.540,StateMachine,before if(conditionsToCheck
+2.087,1.006,StateMachine,before this.everyTime
+2.088,0.467,StateMachine,after this.everyTime
+2.088,0.446,StateMachine,run completed
+2.089,0.412,Mainline,Ending state machine pass
+2.089,0.595,Mainline,Begining state machine pass
+2.090,0.871,StateMachine,before if(conditionsToCheck
+2.091,1.003,StateMachine,before this.everyTime
+2.092,0.471,StateMachine,after this.everyTime
+2.092,0.451,StateMachine,run completed
+2.092,0.363,Mainline,Ending state machine pass
+2.093,0.858,Mainline,Begining state machine pass
+2.094,0.777,StateMachine,before if(conditionsToCheck
+2.095,0.572,StateMachine,before this.everyTime
+2.095,0.372,StateMachine,after this.everyTime
+2.095,0.398,StateMachine,run completed
+2.096,0.780,Mainline,Ending state machine pass
+2.097,0.656,Mainline,Begining state machine pass
+2.097,0.579,StateMachine,before if(conditionsToCheck
+2.098,0.517,StateMachine,before this.everyTime
+2.098,0.356,StateMachine,after this.everyTime
+2.099,0.329,StateMachine,run completed
+2.099,0.334,Mainline,Ending state machine pass
+2.099,0.378,Mainline,Begining state machine pass
+2.100,0.377,StateMachine,before if(conditionsToCheck
+2.101,1.768,StateMachine,before this.everyTime
+2.102,0.476,StateMachine,after this.everyTime
+2.102,0.360,StateMachine,run completed
+2.103,0.311,Mainline,Ending state machine pass
+2.103,0.331,Mainline,Begining state machine pass
+2.103,0.378,StateMachine,before if(conditionsToCheck
+2.104,0.451,StateMachine,before this.everyTime
+2.104,0.435,StateMachine,after this.everyTime
+2.105,0.364,StateMachine,run completed
+2.105,0.349,Mainline,Ending state machine pass
+2.105,0.369,Mainline,Begining state machine pass
+2.106,0.550,StateMachine,before if(conditionsToCheck
+2.106,0.518,StateMachine,before this.everyTime
+2.107,0.397,StateMachine,after this.everyTime
+2.107,0.686,StateMachine,run completed
+2.108,0.500,Mainline,Ending state machine pass
+2.108,0.436,Mainline,Begining state machine pass
+2.109,0.371,StateMachine,before if(conditionsToCheck
+2.109,0.527,StateMachine,before this.everyTime
+2.110,0.415,StateMachine,after this.everyTime
+2.110,0.364,StateMachine,run completed
+2.110,0.309,Mainline,Ending state machine pass
+2.111,0.290,Mainline,Begining state machine pass
+2.111,0.358,StateMachine,before if(conditionsToCheck
+2.114,3.081,StateMachine,before this.everyTime
+2.116,1.882,StateMachine,after this.everyTime
+2.117,0.821,StateMachine,run completed
+2.119,1.820,Mainline,Ending state machine pass
+2.120,0.998,Mainline,Begining state machine pass
+2.120,0.740,StateMachine,before if(conditionsToCheck
+2.121,0.852,StateMachine,before this.everyTime
+2.122,0.917,StateMachine,after this.everyTime
+2.123,0.481,StateMachine,run completed
+2.123,0.883,Mainline,Ending state machine pass
+2.124,0.471,Mainline,Begining state machine pass
+2.125,0.663,StateMachine,before if(conditionsToCheck
+2.125,0.806,StateMachine,before this.everyTime
+2.126,0.716,StateMachine,after this.everyTime
+2.127,0.644,StateMachine,run completed
+2.128,1.138,Mainline,Ending state machine pass
+2.129,0.641,Mainline,Begining state machine pass
+2.130,1.040,StateMachine,before if(conditionsToCheck
+2.130,0.769,StateMachine,before this.everyTime
+2.131,0.748,StateMachine,after this.everyTime
+2.132,0.690,StateMachine,run completed
+2.132,0.504,Mainline,Ending state machine pass
+2.133,0.649,Mainline,Begining state machine pass
+2.134,1.100,StateMachine,before if(conditionsToCheck
+2.135,0.758,StateMachine,before this.everyTime
+2.136,0.772,StateMachine,after this.everyTime
+2.136,0.665,StateMachine,run completed
+2.137,0.678,Mainline,Ending state machine pass
+2.138,0.886,Mainline,Begining state machine pass
+2.139,1.343,StateMachine,before if(conditionsToCheck
+2.140,1.145,StateMachine,before this.everyTime
+2.141,1.127,StateMachine,after this.everyTime
+2.142,0.774,StateMachine,run completed
+2.143,0.974,Mainline,Ending state machine pass
+2.146,2.942,Mainline,Begining state machine pass
+2.148,1.543,StateMachine,before if(conditionsToCheck
+2.149,1.614,StateMachine,before this.everyTime
+2.151,1.819,StateMachine,after this.everyTime
+2.152,0.961,StateMachine,run completed
+2.153,0.589,Mainline,Ending state machine pass
+2.153,0.651,Mainline,Begining state machine pass
+2.154,0.590,StateMachine,before if(conditionsToCheck
+2.155,0.692,StateMachine,before this.everyTime
+2.155,0.478,StateMachine,after this.everyTime
+2.156,0.581,StateMachine,run completed
+2.157,1.436,Mainline,Ending state machine pass
+2.158,1.148,Mainline,Begining state machine pass
+2.159,0.599,StateMachine,before if(conditionsToCheck
+2.160,1.102,StateMachine,before this.everyTime
+2.161,1.005,StateMachine,after this.everyTime
+2.162,0.704,StateMachine,run completed
+2.162,0.724,Mainline,Ending state machine pass
+2.163,0.774,Mainline,Begining state machine pass
+2.164,1.066,StateMachine,before if(conditionsToCheck
+2.165,0.806,StateMachine,before this.everyTime
+2.166,1.208,StateMachine,after this.everyTime
+2.167,0.524,StateMachine,run completed
+2.167,0.525,Mainline,Ending state machine pass
+2.168,0.416,Mainline,Begining state machine pass
+2.168,0.537,StateMachine,before if(conditionsToCheck
+2.169,0.646,StateMachine,before this.everyTime
+2.170,1.063,StateMachine,after this.everyTime
+2.170,0.557,StateMachine,run completed
+2.173,2.701,Mainline,Ending state machine pass
+2.175,2.284,Mainline,Begining state machine pass
+2.177,1.682,StateMachine,before if(conditionsToCheck
+2.178,1.215,StateMachine,before this.everyTime
+2.179,0.976,StateMachine,after this.everyTime
+2.180,0.570,StateMachine,run completed
+2.180,0.483,Mainline,Ending state machine pass
+2.181,0.479,Mainline,Begining state machine pass
+2.182,0.794,StateMachine,before if(conditionsToCheck
+2.183,1.282,StateMachine,before this.everyTime
+2.184,1.436,StateMachine,after this.everyTime
+2.185,0.784,StateMachine,run completed
+2.186,1.172,Mainline,Ending state machine pass
+2.187,0.617,Mainline,Begining state machine pass
+2.188,0.983,StateMachine,before if(conditionsToCheck
+2.189,0.823,StateMachine,before this.everyTime
+2.189,0.737,StateMachine,after this.everyTime
+2.190,0.544,StateMachine,run completed
+2.191,0.869,Mainline,Ending state machine pass
+2.192,0.642,Mainline,Begining state machine pass
+2.224,32.657,StateMachine,before if(conditionsToCheck
+2.226,1.663,StateMachine,before this.everyTime
+2.227,0.853,StateMachine,after this.everyTime
+2.228,1.464,StateMachine,run completed
+2.229,0.847,Mainline,Ending state machine pass
+2.229,0.462,Mainline,Begining state machine pass
+2.230,0.893,StateMachine,before if(conditionsToCheck
+2.232,1.218,StateMachine,before this.everyTime
+2.232,0.898,StateMachine,after this.everyTime
+2.233,0.731,StateMachine,run completed
+2.234,0.787,Mainline,Ending state machine pass
+2.234,0.413,Mainline,Begining state machine pass
+2.236,1.368,StateMachine,before if(conditionsToCheck
+2.236,0.604,StateMachine,before this.everyTime
+2.238,1.386,StateMachine,after this.everyTime
+2.238,0.498,StateMachine,run completed
+2.239,1.159,Mainline,Ending state machine pass
+2.240,0.473,Mainline,Begining state machine pass
+2.240,0.503,StateMachine,before if(conditionsToCheck
+2.241,0.952,StateMachine,before this.everyTime
+2.242,0.672,StateMachine,after this.everyTime
+2.242,0.361,StateMachine,run completed
+2.243,1.121,Mainline,Ending state machine pass
+2.244,0.543,Mainline,Begining state machine pass
+2.245,1.062,StateMachine,before if(conditionsToCheck
+2.247,1.461,StateMachine,before this.everyTime
+2.248,1.476,StateMachine,after this.everyTime
+2.249,0.638,StateMachine,run completed
+2.250,1.536,Mainline,Ending state machine pass
+2.251,0.528,Mainline,Begining state machine pass
+2.251,0.661,StateMachine,before if(conditionsToCheck
+2.252,0.764,StateMachine,before this.everyTime
+2.253,0.356,StateMachine,after this.everyTime
+2.253,0.636,StateMachine,run completed
+2.254,0.466,Mainline,Ending state machine pass
+2.254,0.686,Mainline,Begining state machine pass
+2.255,0.456,StateMachine,before if(conditionsToCheck
+2.255,0.678,StateMachine,before this.everyTime
+2.256,0.735,StateMachine,after this.everyTime
+2.257,0.682,StateMachine,run completed
+2.258,0.804,Mainline,Ending state machine pass
+2.258,0.765,Mainline,Begining state machine pass
+2.259,0.388,StateMachine,before if(conditionsToCheck
+2.260,0.742,StateMachine,before this.everyTime
+2.260,0.489,StateMachine,after this.everyTime
+2.261,0.506,StateMachine,run completed
+2.261,0.437,Mainline,Ending state machine pass
+2.261,0.482,Mainline,Begining state machine pass
+2.262,0.418,StateMachine,before if(conditionsToCheck
+2.263,0.753,StateMachine,before this.everyTime
+2.263,0.420,StateMachine,after this.everyTime
+2.264,0.577,StateMachine,run completed
+2.264,0.395,Mainline,Ending state machine pass
+2.265,0.800,Mainline,Begining state machine pass
+2.265,0.459,StateMachine,before if(conditionsToCheck
+2.266,0.969,StateMachine,before this.everyTime
+2.267,0.384,StateMachine,after this.everyTime
+2.267,0.630,StateMachine,run completed
+2.268,0.431,Mainline,Ending state machine pass
+2.268,0.545,Mainline,Begining state machine pass
+2.269,0.375,StateMachine,before if(conditionsToCheck
+2.269,0.661,StateMachine,before this.everyTime
+2.270,0.420,StateMachine,after this.everyTime
+2.270,0.668,StateMachine,run completed
+2.271,0.404,Mainline,Ending state machine pass
+2.271,0.528,Mainline,Begining state machine pass
+2.272,0.495,StateMachine,before if(conditionsToCheck
+2.272,0.607,StateMachine,before this.everyTime
+2.273,0.400,StateMachine,after this.everyTime
+2.273,0.532,StateMachine,run completed
+2.274,0.411,Mainline,Ending state machine pass
+2.274,0.566,Mainline,Begining state machine pass
+2.275,0.414,StateMachine,before if(conditionsToCheck
+2.275,0.644,StateMachine,before this.everyTime
+2.276,0.575,StateMachine,after this.everyTime
+2.277,0.566,StateMachine,run completed
+2.277,0.387,Mainline,Ending state machine pass
+2.277,0.577,Mainline,Begining state machine pass
+2.278,0.468,StateMachine,before if(conditionsToCheck
+2.279,0.614,StateMachine,before this.everyTime
+2.279,0.427,StateMachine,after this.everyTime
+2.280,0.529,StateMachine,run completed
+2.280,0.438,Mainline,Ending state machine pass
+2.280,0.513,Mainline,Begining state machine pass
+2.281,0.397,StateMachine,before if(conditionsToCheck
+2.282,0.634,StateMachine,before this.everyTime
+2.282,0.456,StateMachine,after this.everyTime
+2.282,0.520,StateMachine,run completed
+2.283,0.385,Mainline,Ending state machine pass
+2.283,0.546,Mainline,Begining state machine pass
+2.284,0.434,StateMachine,before if(conditionsToCheck
+2.284,0.604,StateMachine,before this.everyTime
+2.285,0.347,StateMachine,after this.everyTime
+2.285,0.533,StateMachine,run completed
+2.286,0.518,Mainline,Ending state machine pass
+2.287,0.682,Mainline,Begining state machine pass
+2.287,0.436,StateMachine,before if(conditionsToCheck
+2.288,0.708,StateMachine,before this.everyTime
+2.288,0.423,StateMachine,after this.everyTime
+2.289,0.633,StateMachine,run completed
+2.289,0.415,Mainline,Ending state machine pass
+2.290,0.572,Mainline,Begining state machine pass
+2.290,0.424,StateMachine,before if(conditionsToCheck
+2.291,0.709,StateMachine,before this.everyTime
+2.291,0.409,StateMachine,after this.everyTime
+2.292,0.599,StateMachine,run completed
+2.292,0.425,Mainline,Ending state machine pass
+2.293,0.665,Mainline,Begining state machine pass
+2.293,0.438,StateMachine,before if(conditionsToCheck
+2.294,0.854,StateMachine,before this.everyTime
+2.295,0.426,StateMachine,after this.everyTime
+2.295,0.606,StateMachine,run completed
+2.296,0.548,Mainline,Ending state machine pass
+2.297,0.777,Mainline,Begining state machine pass
+2.297,0.409,StateMachine,before if(conditionsToCheck
+2.298,0.666,StateMachine,before this.everyTime
+2.298,0.471,StateMachine,after this.everyTime
+2.299,0.572,StateMachine,run completed
+2.299,0.417,Mainline,Ending state machine pass
+2.300,0.547,Mainline,Begining state machine pass
+2.300,0.432,StateMachine,before if(conditionsToCheck
+2.301,0.588,StateMachine,before this.everyTime
+2.301,0.381,StateMachine,after this.everyTime
+2.302,0.492,StateMachine,run completed
+2.302,0.430,Mainline,Ending state machine pass
+2.302,0.473,Mainline,Begining state machine pass
+2.303,0.560,StateMachine,before if(conditionsToCheck
+2.304,0.696,StateMachine,before this.everyTime
+2.304,0.450,StateMachine,after this.everyTime
+2.305,0.634,StateMachine,run completed
+2.305,0.374,Mainline,Ending state machine pass
+2.306,1.184,Mainline,Begining state machine pass
+2.307,0.977,StateMachine,before if(conditionsToCheck
+2.309,1.325,StateMachine,before this.everyTime
+2.309,0.611,StateMachine,after this.everyTime
+2.310,0.497,StateMachine,run completed
+2.311,0.767,Mainline,Ending state machine pass
+2.311,0.445,Mainline,Begining state machine pass
+2.311,0.379,StateMachine,before if(conditionsToCheck
+2.312,0.438,StateMachine,before this.everyTime
+2.312,0.333,StateMachine,after this.everyTime
+2.312,0.303,StateMachine,run completed
+2.313,0.311,Mainline,Ending state machine pass
+2.313,0.327,Mainline,Begining state machine pass
+2.313,0.396,StateMachine,before if(conditionsToCheck
+2.314,0.472,StateMachine,before this.everyTime
+2.314,0.392,StateMachine,after this.everyTime
+2.315,0.383,StateMachine,run completed
+2.315,0.383,Mainline,Ending state machine pass
+2.315,0.357,Mainline,Begining state machine pass
+2.316,0.509,StateMachine,before if(conditionsToCheck
+2.316,0.422,StateMachine,before this.everyTime
+2.317,0.335,StateMachine,after this.everyTime
+2.317,0.357,StateMachine,run completed
+2.318,0.606,Mainline,Ending state machine pass
+2.318,0.425,Mainline,Begining state machine pass
+2.318,0.360,StateMachine,before if(conditionsToCheck
+2.319,0.427,StateMachine,before this.everyTime
+2.319,0.367,StateMachine,after this.everyTime
+2.320,0.370,StateMachine,run completed
+2.320,0.371,Mainline,Ending state machine pass
+2.320,0.364,Mainline,Begining state machine pass
+2.321,0.377,StateMachine,before if(conditionsToCheck
+2.321,0.479,StateMachine,before this.everyTime
+2.322,0.378,StateMachine,after this.everyTime
+2.322,0.384,StateMachine,run completed
+2.322,0.341,Mainline,Ending state machine pass
+2.323,0.334,Mainline,Begining state machine pass
+2.323,0.374,StateMachine,before if(conditionsToCheck
+2.324,0.478,StateMachine,before this.everyTime
+2.324,0.369,StateMachine,after this.everyTime
+2.324,0.326,StateMachine,run completed
+2.325,0.344,Mainline,Ending state machine pass
+2.325,0.372,Mainline,Begining state machine pass
+2.325,0.429,StateMachine,before if(conditionsToCheck
+2.326,0.624,StateMachine,before this.everyTime
+2.326,0.367,StateMachine,after this.everyTime
+2.327,0.335,StateMachine,run completed
+2.327,0.369,Mainline,Ending state machine pass
+2.327,0.357,Mainline,Begining state machine pass
+2.328,0.389,StateMachine,before if(conditionsToCheck
+2.328,0.449,StateMachine,before this.everyTime
+2.329,0.409,StateMachine,after this.everyTime
+2.329,0.649,StateMachine,run completed
+2.330,0.472,Mainline,Ending state machine pass
+2.330,0.383,Mainline,Begining state machine pass
+2.331,0.409,StateMachine,before if(conditionsToCheck
+2.331,0.519,StateMachine,before this.everyTime
+2.332,0.458,StateMachine,after this.everyTime
+2.332,0.399,StateMachine,run completed
+2.332,0.355,Mainline,Ending state machine pass
+2.333,0.320,Mainline,Begining state machine pass
+2.333,0.407,StateMachine,before if(conditionsToCheck
+2.334,0.509,StateMachine,before this.everyTime
+2.334,0.406,StateMachine,after this.everyTime
+2.334,0.372,StateMachine,run completed
+2.335,0.334,Mainline,Ending state machine pass
+2.335,0.365,Mainline,Begining state machine pass
+2.335,0.401,StateMachine,before if(conditionsToCheck
+2.336,0.653,StateMachine,before this.everyTime
+2.336,0.408,StateMachine,after this.everyTime
+2.337,0.357,StateMachine,run completed
+2.337,0.397,Mainline,Ending state machine pass
+2.338,0.413,Mainline,Begining state machine pass
+2.338,0.375,StateMachine,before if(conditionsToCheck
+2.338,0.406,StateMachine,before this.everyTime
+2.339,0.327,StateMachine,after this.everyTime
+2.339,0.388,StateMachine,run completed
+2.340,0.377,Mainline,Ending state machine pass
+2.340,0.395,Mainline,Begining state machine pass
+2.340,0.374,StateMachine,before if(conditionsToCheck
+2.341,0.426,StateMachine,before this.everyTime
+2.341,0.397,StateMachine,after this.everyTime
+2.342,0.615,StateMachine,run completed
+2.342,0.467,Mainline,Ending state machine pass
+2.343,0.351,Mainline,Begining state machine pass
+2.343,0.400,StateMachine,before if(conditionsToCheck
+2.343,0.514,StateMachine,before this.everyTime
+2.344,0.461,StateMachine,after this.everyTime
+2.344,0.375,StateMachine,run completed
+2.345,0.323,Mainline,Ending state machine pass
+2.345,0.392,Mainline,Begining state machine pass
+2.345,0.381,StateMachine,before if(conditionsToCheck
+2.346,0.623,StateMachine,before this.everyTime
+2.346,0.429,StateMachine,after this.everyTime
+2.347,0.415,StateMachine,run completed
+2.347,0.396,Mainline,Ending state machine pass
+2.348,0.400,Mainline,Begining state machine pass
+2.348,0.428,StateMachine,before if(conditionsToCheck
+2.349,0.486,StateMachine,before this.everyTime
+2.349,0.438,StateMachine,after this.everyTime
+2.349,0.409,StateMachine,run completed
+2.350,0.388,Mainline,Ending state machine pass
+2.350,0.368,Mainline,Begining state machine pass
+2.351,0.376,StateMachine,before if(conditionsToCheck
+2.351,0.537,StateMachine,before this.everyTime
+2.352,0.624,StateMachine,after this.everyTime
+2.352,0.465,StateMachine,run completed
+2.353,0.405,Mainline,Ending state machine pass
+2.353,0.452,Mainline,Begining state machine pass
+2.353,0.418,StateMachine,before if(conditionsToCheck
+2.354,0.582,StateMachine,before this.everyTime
+2.354,0.419,StateMachine,after this.everyTime
+2.355,0.446,StateMachine,run completed
+2.355,0.391,Mainline,Ending state machine pass
+2.356,0.649,Mainline,Begining state machine pass
+2.356,0.424,StateMachine,before if(conditionsToCheck
+2.357,0.546,StateMachine,before this.everyTime
+2.357,0.576,StateMachine,after this.everyTime
+2.358,0.455,StateMachine,run completed
+2.358,0.436,Mainline,Ending state machine pass
+2.359,0.396,Mainline,Begining state machine pass
+2.359,0.402,StateMachine,before if(conditionsToCheck
+2.360,0.461,StateMachine,before this.everyTime
+2.360,0.366,StateMachine,after this.everyTime
+2.360,0.344,StateMachine,run completed
+2.361,0.298,Mainline,Ending state machine pass
+2.361,0.315,Mainline,Begining state machine pass
+2.362,0.569,StateMachine,before if(conditionsToCheck
+2.362,0.505,StateMachine,before this.everyTime
+2.362,0.451,StateMachine,after this.everyTime
+2.363,0.393,StateMachine,run completed
+2.363,0.441,Mainline,Ending state machine pass
+2.364,0.517,Mainline,Begining state machine pass
+2.364,0.536,StateMachine,before if(conditionsToCheck
+2.365,0.605,StateMachine,before this.everyTime
+2.365,0.428,StateMachine,after this.everyTime
+2.366,0.467,StateMachine,run completed
+2.366,0.384,Mainline,Ending state machine pass
+2.367,0.357,Mainline,Begining state machine pass
+2.367,0.398,StateMachine,before if(conditionsToCheck
+2.368,0.508,StateMachine,before this.everyTime
+2.368,0.427,StateMachine,after this.everyTime
+2.368,0.380,StateMachine,run completed
+2.369,0.370,Mainline,Ending state machine pass
+2.369,0.348,Mainline,Begining state machine pass
+2.369,0.414,StateMachine,before if(conditionsToCheck
+2.370,0.496,StateMachine,before this.everyTime
+2.370,0.380,StateMachine,after this.everyTime
+2.371,0.390,StateMachine,run completed
+2.371,0.441,Mainline,Ending state machine pass
+2.372,0.612,Mainline,Begining state machine pass
+2.372,0.463,StateMachine,before if(conditionsToCheck
+2.373,0.462,StateMachine,before this.everyTime
+2.373,0.386,StateMachine,after this.everyTime
+2.374,0.421,StateMachine,run completed
+2.374,0.339,Mainline,Ending state machine pass
+2.374,0.342,Mainline,Begining state machine pass
+2.375,0.343,StateMachine,before if(conditionsToCheck
+2.375,0.493,StateMachine,before this.everyTime
+2.375,0.415,StateMachine,after this.everyTime
+2.376,0.842,StateMachine,run completed
+2.377,0.478,Mainline,Ending state machine pass
+2.377,0.664,Mainline,Begining state machine pass
+2.378,0.666,StateMachine,before if(conditionsToCheck
+2.379,0.533,StateMachine,before this.everyTime
+2.379,0.474,StateMachine,after this.everyTime
+2.380,0.447,StateMachine,run completed
+2.380,0.447,Mainline,Ending state machine pass
+2.380,0.448,Mainline,Begining state machine pass
+2.381,0.635,StateMachine,before if(conditionsToCheck
+2.382,0.556,StateMachine,before this.everyTime
+2.382,0.419,StateMachine,after this.everyTime
+2.382,0.369,StateMachine,run completed
+2.383,0.345,Mainline,Ending state machine pass
+2.383,0.393,Mainline,Begining state machine pass
+2.384,0.395,StateMachine,before if(conditionsToCheck
+2.384,0.509,StateMachine,before this.everyTime
+2.384,0.374,StateMachine,after this.everyTime
+2.385,0.341,StateMachine,run completed
+2.385,0.394,Mainline,Ending state machine pass
+2.386,0.455,Mainline,Begining state machine pass
+2.386,0.517,StateMachine,before if(conditionsToCheck
+2.387,0.505,StateMachine,before this.everyTime
+2.387,0.442,StateMachine,after this.everyTime
+2.387,0.414,StateMachine,run completed
+2.388,0.420,Mainline,Ending state machine pass
+2.388,0.433,Mainline,Begining state machine pass
+2.389,0.488,StateMachine,before if(conditionsToCheck
+2.389,0.580,StateMachine,before this.everyTime
+2.390,0.493,StateMachine,after this.everyTime
+2.391,0.659,StateMachine,run completed
+2.391,0.455,Mainline,Ending state machine pass
+2.391,0.408,Mainline,Begining state machine pass
+2.392,0.411,StateMachine,before if(conditionsToCheck
+2.392,0.476,StateMachine,before this.everyTime
+2.393,0.329,StateMachine,after this.everyTime
+2.393,0.354,StateMachine,run completed
+2.393,0.348,Mainline,Ending state machine pass
+2.394,0.365,Mainline,Begining state machine pass
+2.394,0.409,StateMachine,before if(conditionsToCheck
+2.395,0.637,StateMachine,before this.everyTime
+2.395,0.461,StateMachine,after this.everyTime
+2.396,0.501,StateMachine,run completed
+2.396,0.450,Mainline,Ending state machine pass
+2.397,0.391,Mainline,Begining state machine pass
+2.397,0.426,StateMachine,before if(conditionsToCheck
+2.398,0.685,StateMachine,before this.everyTime
+2.398,0.505,StateMachine,after this.everyTime
+2.399,0.382,StateMachine,run completed
+2.399,0.359,Mainline,Ending state machine pass
+2.399,0.387,Mainline,Begining state machine pass
+2.400,0.375,StateMachine,before if(conditionsToCheck
+2.400,0.540,StateMachine,before this.everyTime
+2.401,0.410,StateMachine,after this.everyTime
+2.401,0.401,StateMachine,run completed
+2.401,0.374,Mainline,Ending state machine pass
+2.402,0.364,Mainline,Begining state machine pass
+2.402,0.418,StateMachine,before if(conditionsToCheck
+2.403,0.479,StateMachine,before this.everyTime
+2.403,0.429,StateMachine,after this.everyTime
+2.403,0.381,StateMachine,run completed
+2.404,0.410,Mainline,Ending state machine pass
+2.404,0.423,Mainline,Begining state machine pass
+2.405,0.351,StateMachine,before if(conditionsToCheck
+2.405,0.476,StateMachine,before this.everyTime
+2.406,0.443,StateMachine,after this.everyTime
+2.406,0.475,StateMachine,run completed
+2.406,0.411,Mainline,Ending state machine pass
+2.407,0.334,Mainline,Begining state machine pass
+2.407,0.390,StateMachine,before if(conditionsToCheck
+2.408,0.535,StateMachine,before this.everyTime
+2.408,0.466,StateMachine,after this.everyTime
+2.409,0.401,StateMachine,run completed
+2.409,0.389,Mainline,Ending state machine pass
+2.409,0.392,Mainline,Begining state machine pass
+2.410,0.380,StateMachine,before if(conditionsToCheck
+2.410,0.467,StateMachine,before this.everyTime
+2.411,0.319,StateMachine,after this.everyTime
+2.411,0.308,StateMachine,run completed
+2.411,0.381,Mainline,Ending state machine pass
+2.412,0.377,Mainline,Begining state machine pass
+2.412,0.399,StateMachine,before if(conditionsToCheck
+2.412,0.437,StateMachine,before this.everyTime
+2.413,0.365,StateMachine,after this.everyTime
+2.413,0.396,StateMachine,run completed
+2.414,0.397,Mainline,Ending state machine pass
+2.414,0.374,Mainline,Begining state machine pass
+2.414,0.359,StateMachine,before if(conditionsToCheck
+2.415,0.413,StateMachine,before this.everyTime
+2.415,0.416,StateMachine,after this.everyTime
+2.416,0.413,StateMachine,run completed
+2.416,0.488,Mainline,Ending state machine pass
+2.416,0.354,Mainline,Begining state machine pass
+2.417,0.310,StateMachine,before if(conditionsToCheck
+2.417,0.477,StateMachine,before this.everyTime
+2.418,0.434,StateMachine,after this.everyTime
+2.418,0.381,StateMachine,run completed
+2.419,0.533,Mainline,Ending state machine pass
+2.419,0.410,Mainline,Begining state machine pass
+2.419,0.395,StateMachine,before if(conditionsToCheck
+2.420,0.579,StateMachine,before this.everyTime
+2.420,0.397,StateMachine,after this.everyTime
+2.421,0.312,StateMachine,run completed
+2.421,0.435,Mainline,Ending state machine pass
+2.422,0.562,Mainline,Begining state machine pass
+2.422,0.442,StateMachine,before if(conditionsToCheck
+2.423,0.530,StateMachine,before this.everyTime
+2.423,0.486,StateMachine,after this.everyTime
+2.423,0.377,StateMachine,run completed
+2.424,0.400,Mainline,Ending state machine pass
+2.424,0.383,Mainline,Begining state machine pass
+2.425,0.545,StateMachine,before if(conditionsToCheck
+2.425,0.562,StateMachine,before this.everyTime
+2.426,0.513,StateMachine,after this.everyTime
+2.426,0.392,StateMachine,run completed
+2.427,0.296,Mainline,Ending state machine pass
+2.427,0.293,Mainline,Begining state machine pass
+2.427,0.352,StateMachine,before if(conditionsToCheck
+2.428,0.485,StateMachine,before this.everyTime
+2.428,0.440,StateMachine,after this.everyTime
+2.428,0.349,StateMachine,run completed
+2.429,0.352,Mainline,Ending state machine pass
+2.429,0.411,Mainline,Begining state machine pass
+2.430,0.414,StateMachine,before if(conditionsToCheck
+2.430,0.580,StateMachine,before this.everyTime
+2.431,0.421,StateMachine,after this.everyTime
+2.431,0.437,StateMachine,run completed
+2.431,0.357,Mainline,Ending state machine pass
+2.432,0.365,Mainline,Begining state machine pass
+2.432,0.396,StateMachine,before if(conditionsToCheck
+2.433,0.423,StateMachine,before this.everyTime
+2.433,0.385,StateMachine,after this.everyTime
+2.433,0.412,StateMachine,run completed
+2.434,0.394,Mainline,Ending state machine pass
+2.434,0.389,Mainline,Begining state machine pass
+2.435,0.370,StateMachine,before if(conditionsToCheck
+2.435,0.530,StateMachine,before this.everyTime
+2.436,0.580,StateMachine,after this.everyTime
+2.437,0.831,StateMachine,run completed
+2.437,0.642,Mainline,Ending state machine pass
+2.438,0.527,Mainline,Begining state machine pass
+2.438,0.613,StateMachine,before if(conditionsToCheck
+2.439,0.997,StateMachine,before this.everyTime
+2.441,1.323,StateMachine,after this.everyTime
+2.442,1.296,StateMachine,run completed
+2.443,1.228,Mainline,Ending state machine pass
+2.444,0.831,Mainline,Begining state machine pass
+2.445,0.763,StateMachine,before if(conditionsToCheck
+2.446,1.676,StateMachine,before this.everyTime
+2.447,0.737,StateMachine,after this.everyTime
+2.448,0.581,StateMachine,run completed
+2.448,0.626,Mainline,Ending state machine pass
+2.449,0.356,Mainline,Begining state machine pass
+2.449,0.798,StateMachine,before if(conditionsToCheck
+2.451,1.012,StateMachine,before this.everyTime
+2.451,0.536,StateMachine,after this.everyTime
+2.452,0.514,StateMachine,run completed
+2.452,0.796,Mainline,Ending state machine pass
+2.453,0.429,Mainline,Begining state machine pass
+2.453,0.441,StateMachine,before if(conditionsToCheck
+2.454,0.783,StateMachine,before this.everyTime
+2.454,0.418,StateMachine,after this.everyTime
+2.455,0.419,StateMachine,run completed
+2.455,0.386,Mainline,Ending state machine pass
+2.456,0.632,Mainline,Begining state machine pass
+2.457,0.639,StateMachine,before if(conditionsToCheck
+2.457,0.584,StateMachine,before this.everyTime
+2.458,0.518,StateMachine,after this.everyTime
+2.458,0.541,StateMachine,run completed
+2.458,0.305,Mainline,Ending state machine pass
+2.459,0.283,Mainline,Begining state machine pass
+2.459,0.568,StateMachine,before if(conditionsToCheck
+2.460,0.528,StateMachine,before this.everyTime
+2.461,0.699,StateMachine,after this.everyTime
+2.461,0.392,StateMachine,run completed
+2.462,0.710,Mainline,Ending state machine pass
+2.462,0.716,Mainline,Begining state machine pass
+2.463,0.520,StateMachine,before if(conditionsToCheck
+2.463,0.587,StateMachine,before this.everyTime
+2.464,0.472,StateMachine,after this.everyTime
+2.464,0.534,StateMachine,run completed
+2.465,0.403,Mainline,Ending state machine pass
+2.465,0.402,Mainline,Begining state machine pass
+2.466,0.583,StateMachine,before if(conditionsToCheck
+2.467,0.950,StateMachine,before this.everyTime
+2.467,0.498,StateMachine,after this.everyTime
+2.468,0.362,StateMachine,run completed
+2.468,0.354,Mainline,Ending state machine pass
+2.468,0.416,Mainline,Begining state machine pass
+2.469,0.666,StateMachine,before if(conditionsToCheck
+2.470,0.769,StateMachine,before this.everyTime
+2.471,0.707,StateMachine,after this.everyTime
+2.471,0.535,StateMachine,run completed
+2.472,0.781,Mainline,Ending state machine pass
+2.472,0.394,Mainline,Begining state machine pass
+2.473,0.419,StateMachine,before if(conditionsToCheck
+2.473,0.506,StateMachine,before this.everyTime
+2.474,0.457,StateMachine,after this.everyTime
+2.474,0.441,StateMachine,run completed
+2.474,0.356,Mainline,Ending state machine pass
+2.475,0.373,Mainline,Begining state machine pass
+2.475,0.415,StateMachine,before if(conditionsToCheck
+2.476,0.585,StateMachine,before this.everyTime
+2.476,0.428,StateMachine,after this.everyTime
+2.477,0.330,StateMachine,run completed
+2.477,0.373,Mainline,Ending state machine pass
+2.478,0.633,Mainline,Begining state machine pass
+2.478,0.609,StateMachine,before if(conditionsToCheck
+2.479,0.685,StateMachine,before this.everyTime
+2.479,0.460,StateMachine,after this.everyTime
+2.480,0.400,StateMachine,run completed
+2.480,0.418,Mainline,Ending state machine pass
+2.481,0.399,Mainline,Begining state machine pass
+2.481,0.425,StateMachine,before if(conditionsToCheck
+2.481,0.473,StateMachine,before this.everyTime
+2.482,0.408,StateMachine,after this.everyTime
+2.482,0.595,StateMachine,run completed
+2.483,0.420,Mainline,Ending state machine pass
+2.483,0.409,Mainline,Begining state machine pass
+2.484,0.414,StateMachine,before if(conditionsToCheck
+2.485,1.124,StateMachine,before this.everyTime
+2.485,0.472,StateMachine,after this.everyTime
+2.486,0.524,StateMachine,run completed
+2.486,0.456,Mainline,Ending state machine pass
+2.487,0.346,Mainline,Begining state machine pass
+2.487,0.408,StateMachine,before if(conditionsToCheck
+2.488,0.476,StateMachine,before this.everyTime
+2.488,0.428,StateMachine,after this.everyTime
+2.488,0.388,StateMachine,run completed
+2.489,0.396,Mainline,Ending state machine pass
+2.489,0.404,Mainline,Begining state machine pass
+2.490,0.375,StateMachine,before if(conditionsToCheck
+2.490,0.518,StateMachine,before this.everyTime
+2.490,0.435,StateMachine,after this.everyTime
+2.491,0.378,StateMachine,run completed
+2.491,0.401,Mainline,Ending state machine pass
+2.492,0.369,Mainline,Begining state machine pass
+2.492,0.448,StateMachine,before if(conditionsToCheck
+2.493,0.498,StateMachine,before this.everyTime
+2.493,0.452,StateMachine,after this.everyTime
+2.493,0.369,StateMachine,run completed
+2.494,0.341,Mainline,Ending state machine pass
+2.494,0.418,Mainline,Begining state machine pass
+2.495,0.389,StateMachine,before if(conditionsToCheck
+2.495,0.467,StateMachine,before this.everyTime
+2.495,0.378,StateMachine,after this.everyTime
+2.496,0.545,StateMachine,run completed
+2.496,0.407,Mainline,Ending state machine pass
+2.497,0.345,Mainline,Begining state machine pass
+2.497,0.405,StateMachine,before if(conditionsToCheck
+2.498,0.478,StateMachine,before this.everyTime
+2.498,0.453,StateMachine,after this.everyTime
+2.498,0.391,StateMachine,run completed
+2.499,0.341,Mainline,Ending state machine pass
+2.499,0.407,Mainline,Begining state machine pass
+2.500,0.379,StateMachine,before if(conditionsToCheck
+2.500,0.517,StateMachine,before this.everyTime
+2.500,0.407,StateMachine,after this.everyTime
+2.501,0.429,StateMachine,run completed
+2.501,0.421,Mainline,Ending state machine pass
+2.502,0.350,Mainline,Begining state machine pass
+2.502,0.404,StateMachine,before if(conditionsToCheck
+2.503,0.476,StateMachine,before this.everyTime
+2.503,0.433,StateMachine,after this.everyTime
+2.503,0.482,StateMachine,run completed
+2.504,0.372,Mainline,Ending state machine pass
+2.504,0.380,Mainline,Begining state machine pass
+2.505,0.373,StateMachine,before if(conditionsToCheck
+2.505,0.512,StateMachine,before this.everyTime
+2.507,1.463,StateMachine,after this.everyTime
+2.507,0.629,StateMachine,run completed
+2.508,0.579,Mainline,Ending state machine pass
+2.508,0.662,Mainline,Begining state machine pass
+2.509,0.467,StateMachine,before if(conditionsToCheck
+2.509,0.496,StateMachine,before this.everyTime
+2.510,0.426,StateMachine,after this.everyTime
+2.510,0.418,StateMachine,run completed
+2.511,0.413,Mainline,Ending state machine pass
+2.511,0.445,Mainline,Begining state machine pass
+2.511,0.390,StateMachine,before if(conditionsToCheck
+2.512,0.503,StateMachine,before this.everyTime
+2.512,0.479,StateMachine,after this.everyTime
+2.513,0.371,StateMachine,run completed
+2.513,0.381,Mainline,Ending state machine pass
+2.514,0.451,Mainline,Begining state machine pass
+2.514,0.406,StateMachine,before if(conditionsToCheck
+2.515,0.480,StateMachine,before this.everyTime
+2.515,0.474,StateMachine,after this.everyTime
+2.515,0.416,StateMachine,run completed
+2.516,0.482,Mainline,Ending state machine pass
+2.516,0.412,Mainline,Begining state machine pass
+2.517,0.395,StateMachine,before if(conditionsToCheck
+2.518,0.988,StateMachine,before this.everyTime
+2.518,0.493,StateMachine,after this.everyTime
+2.519,0.550,StateMachine,run completed
+2.519,0.436,Mainline,Ending state machine pass
+2.520,0.454,Mainline,Begining state machine pass
+2.520,0.395,StateMachine,before if(conditionsToCheck
+2.521,0.490,StateMachine,before this.everyTime
+2.521,0.402,StateMachine,after this.everyTime
+2.522,0.554,StateMachine,run completed
+2.522,0.371,Mainline,Ending state machine pass
+2.522,0.394,Mainline,Begining state machine pass
+2.523,0.437,StateMachine,before if(conditionsToCheck
+2.523,0.530,StateMachine,before this.everyTime
+2.524,0.349,StateMachine,after this.everyTime
+2.524,0.334,StateMachine,run completed
+2.524,0.368,Mainline,Ending state machine pass
+2.525,0.391,Mainline,Begining state machine pass
+2.525,0.423,StateMachine,before if(conditionsToCheck
+2.526,0.598,StateMachine,before this.everyTime
+2.526,0.422,StateMachine,after this.everyTime
+2.527,0.381,StateMachine,run completed
+2.527,0.379,Mainline,Ending state machine pass
+2.527,0.330,Mainline,Begining state machine pass
+2.528,0.306,StateMachine,before if(conditionsToCheck
+2.528,0.455,StateMachine,before this.everyTime
+2.528,0.420,StateMachine,after this.everyTime
+2.529,0.357,StateMachine,run completed
+2.529,0.375,Mainline,Ending state machine pass
+2.530,0.374,Mainline,Begining state machine pass
+2.530,0.420,StateMachine,before if(conditionsToCheck
+2.530,0.452,StateMachine,before this.everyTime
+2.531,0.479,StateMachine,after this.everyTime
+2.531,0.367,StateMachine,run completed
+2.532,0.309,Mainline,Ending state machine pass
+2.532,0.339,Mainline,Begining state machine pass
+2.532,0.413,StateMachine,before if(conditionsToCheck
+2.533,0.511,StateMachine,before this.everyTime
+2.533,0.441,StateMachine,after this.everyTime
+2.534,0.390,StateMachine,run completed
+2.534,0.376,Mainline,Ending state machine pass
+2.534,0.366,Mainline,Begining state machine pass
+2.535,0.449,StateMachine,before if(conditionsToCheck
+2.535,0.533,StateMachine,before this.everyTime
+2.536,0.566,StateMachine,after this.everyTime
+2.536,0.393,StateMachine,run completed
+2.537,0.375,Mainline,Ending state machine pass
+2.537,0.401,Mainline,Begining state machine pass
+2.537,0.370,StateMachine,before if(conditionsToCheck
+2.538,0.528,StateMachine,before this.everyTime
+2.538,0.419,StateMachine,after this.everyTime
+2.539,0.439,StateMachine,run completed
+2.539,0.408,Mainline,Ending state machine pass
+2.540,0.328,Mainline,Begining state machine pass
+2.540,0.380,StateMachine,before if(conditionsToCheck
+2.540,0.460,StateMachine,before this.everyTime
+2.541,0.354,StateMachine,after this.everyTime
+2.541,0.401,StateMachine,run completed
+2.542,0.365,Mainline,Ending state machine pass
+2.542,0.364,Mainline,Begining state machine pass
+2.542,0.377,StateMachine,before if(conditionsToCheck
+2.543,0.436,StateMachine,before this.everyTime
+2.543,0.386,StateMachine,after this.everyTime
+2.543,0.347,StateMachine,run completed
+2.544,0.335,Mainline,Ending state machine pass
+2.544,0.393,Mainline,Begining state machine pass
+2.545,0.397,StateMachine,before if(conditionsToCheck
+2.545,0.471,StateMachine,before this.everyTime
+2.546,0.570,StateMachine,after this.everyTime
+2.546,0.404,StateMachine,run completed
+2.546,0.374,Mainline,Ending state machine pass
+2.547,0.340,Mainline,Begining state machine pass
+2.547,0.346,StateMachine,before if(conditionsToCheck
+2.548,0.489,StateMachine,before this.everyTime
+2.548,0.382,StateMachine,after this.everyTime
+2.548,0.328,StateMachine,run completed
+2.549,0.287,Mainline,Ending state machine pass
+2.549,0.306,Mainline,Begining state machine pass
+2.549,0.341,StateMachine,before if(conditionsToCheck
+2.550,0.480,StateMachine,before this.everyTime
+2.550,0.417,StateMachine,after this.everyTime
+2.550,0.387,StateMachine,run completed
+2.551,0.342,Mainline,Ending state machine pass
+2.551,0.329,Mainline,Begining state machine pass
+2.552,0.359,StateMachine,before if(conditionsToCheck
+2.552,0.495,StateMachine,before this.everyTime
+2.552,0.399,StateMachine,after this.everyTime
+2.553,0.406,StateMachine,run completed
+2.553,0.335,Mainline,Ending state machine pass
+2.553,0.297,Mainline,Begining state machine pass
+2.554,0.298,StateMachine,before if(conditionsToCheck
+2.554,0.465,StateMachine,before this.everyTime
+2.555,0.420,StateMachine,after this.everyTime
+2.555,0.391,StateMachine,run completed
+2.555,0.384,Mainline,Ending state machine pass
+2.556,0.503,Mainline,Begining state machine pass
+2.556,0.416,StateMachine,before if(conditionsToCheck
+2.557,0.512,StateMachine,before this.everyTime
+2.557,0.425,StateMachine,after this.everyTime
+2.558,0.658,StateMachine,run completed
+2.558,0.448,Mainline,Ending state machine pass
+2.559,0.392,Mainline,Begining state machine pass
+2.559,0.378,StateMachine,before if(conditionsToCheck
+2.560,0.400,StateMachine,before this.everyTime
+2.560,0.332,StateMachine,after this.everyTime
+2.560,0.329,StateMachine,run completed
+2.561,0.337,Mainline,Ending state machine pass
+2.561,0.427,Mainline,Begining state machine pass
+2.561,0.401,StateMachine,before if(conditionsToCheck
+2.562,0.476,StateMachine,before this.everyTime
+2.562,0.396,StateMachine,after this.everyTime
+2.563,0.390,StateMachine,run completed
+2.563,0.373,Mainline,Ending state machine pass
+2.563,0.314,Mainline,Begining state machine pass
+2.564,0.314,StateMachine,before if(conditionsToCheck
+2.564,0.462,StateMachine,before this.everyTime
+2.564,0.373,StateMachine,after this.everyTime
+2.565,0.359,StateMachine,run completed
+2.565,0.387,Mainline,Ending state machine pass
+2.566,0.404,Mainline,Begining state machine pass
+2.566,0.494,StateMachine,before if(conditionsToCheck
+2.567,0.531,StateMachine,before this.everyTime
+2.567,0.435,StateMachine,after this.everyTime
+2.567,0.339,StateMachine,run completed
+2.568,0.302,Mainline,Ending state machine pass
+2.568,0.359,Mainline,Begining state machine pass
+2.568,0.383,StateMachine,before if(conditionsToCheck
+2.569,0.516,StateMachine,before this.everyTime
+2.569,0.405,StateMachine,after this.everyTime
+2.570,0.404,StateMachine,run completed
+2.570,0.433,Mainline,Ending state machine pass
+2.571,0.405,Mainline,Begining state machine pass
+2.571,0.388,StateMachine,before if(conditionsToCheck
+2.571,0.432,StateMachine,before this.everyTime
+2.572,0.368,StateMachine,after this.everyTime
+2.572,0.405,StateMachine,run completed
+2.573,0.406,Mainline,Ending state machine pass
+2.573,0.420,Mainline,Begining state machine pass
+2.573,0.335,StateMachine,before if(conditionsToCheck
+2.574,0.391,StateMachine,before this.everyTime
+2.574,0.374,StateMachine,after this.everyTime
+2.575,0.386,StateMachine,run completed
+2.575,0.405,Mainline,Ending state machine pass
+2.575,0.338,Mainline,Begining state machine pass
+2.576,0.394,StateMachine,before if(conditionsToCheck
+2.576,0.468,StateMachine,before this.everyTime
+2.577,0.410,StateMachine,after this.everyTime
+2.577,0.389,StateMachine,run completed
+2.577,0.390,Mainline,Ending state machine pass
+2.578,0.333,Mainline,Begining state machine pass
+2.578,0.389,StateMachine,before if(conditionsToCheck
+2.579,0.494,StateMachine,before this.everyTime
+2.579,0.441,StateMachine,after this.everyTime
+2.579,0.339,StateMachine,run completed
+2.580,0.301,Mainline,Ending state machine pass
+2.580,0.305,Mainline,Begining state machine pass
+2.580,0.573,StateMachine,before if(conditionsToCheck
+2.581,0.550,StateMachine,before this.everyTime
+2.581,0.399,StateMachine,after this.everyTime
+2.582,0.320,StateMachine,run completed
+2.582,0.379,Mainline,Ending state machine pass
+2.583,0.381,Mainline,Begining state machine pass
+2.583,0.415,StateMachine,before if(conditionsToCheck
+2.583,0.438,StateMachine,before this.everyTime
+2.584,0.339,StateMachine,after this.everyTime
+2.584,0.396,StateMachine,run completed
+2.584,0.358,Mainline,Ending state machine pass
+2.585,0.401,Mainline,Begining state machine pass
+2.585,0.447,StateMachine,before if(conditionsToCheck
+2.586,0.546,StateMachine,before this.everyTime
+2.586,0.423,StateMachine,after this.everyTime
+2.587,0.395,StateMachine,run completed
+2.587,0.667,Mainline,Ending state machine pass
+2.588,0.402,Mainline,Begining state machine pass
+2.588,0.443,StateMachine,before if(conditionsToCheck
+2.589,0.559,StateMachine,before this.everyTime
+2.589,0.530,StateMachine,after this.everyTime
+2.590,0.383,StateMachine,run completed
+2.590,0.491,Mainline,Ending state machine pass
+2.591,0.358,Mainline,Begining state machine pass
+2.591,0.462,StateMachine,before if(conditionsToCheck
+2.591,0.449,StateMachine,before this.everyTime
+2.592,0.369,StateMachine,after this.everyTime
+2.592,0.384,StateMachine,run completed
+2.593,0.364,Mainline,Ending state machine pass
+2.593,0.414,Mainline,Begining state machine pass
+2.593,0.450,StateMachine,before if(conditionsToCheck
+2.594,0.476,StateMachine,before this.everyTime
+2.594,0.426,StateMachine,after this.everyTime
+2.595,0.399,StateMachine,run completed
+2.595,0.397,Mainline,Ending state machine pass
+2.595,0.322,Mainline,Begining state machine pass
+2.596,0.446,StateMachine,before if(conditionsToCheck
+2.596,0.527,StateMachine,before this.everyTime
+2.597,0.413,StateMachine,after this.everyTime
+2.597,0.371,StateMachine,run completed
+2.598,0.545,Mainline,Ending state machine pass
+2.598,0.420,Mainline,Begining state machine pass
+2.599,0.413,StateMachine,before if(conditionsToCheck
+2.599,0.542,StateMachine,before this.everyTime
+2.599,0.373,StateMachine,after this.everyTime
+2.600,0.329,StateMachine,run completed
+2.600,0.378,Mainline,Ending state machine pass
+2.601,0.399,Mainline,Begining state machine pass
+2.601,0.407,StateMachine,before if(conditionsToCheck
+2.601,0.439,StateMachine,before this.everyTime
+2.602,0.332,StateMachine,after this.everyTime
+2.602,0.364,StateMachine,run completed
+2.603,0.386,Mainline,Ending state machine pass
+2.603,0.384,Mainline,Begining state machine pass
+2.603,0.327,StateMachine,before if(conditionsToCheck
+2.604,0.364,StateMachine,before this.everyTime
+2.604,0.361,StateMachine,after this.everyTime
+2.604,0.362,StateMachine,run completed
+2.605,0.370,Mainline,Ending state machine pass
+2.605,0.380,Mainline,Begining state machine pass
+2.606,0.474,StateMachine,before if(conditionsToCheck
+2.606,0.721,StateMachine,before this.everyTime
+2.607,0.435,StateMachine,after this.everyTime
+2.607,0.415,StateMachine,run completed
+2.607,0.382,Mainline,Ending state machine pass
+2.608,0.329,Mainline,Begining state machine pass
+2.608,0.411,StateMachine,before if(conditionsToCheck
+2.609,0.507,StateMachine,before this.everyTime
+2.609,0.382,StateMachine,after this.everyTime
+2.609,0.335,StateMachine,run completed
+2.610,0.435,Mainline,Ending state machine pass
+2.610,0.405,Mainline,Begining state machine pass
+2.611,0.418,StateMachine,before if(conditionsToCheck
+2.611,0.680,StateMachine,before this.everyTime
+2.612,0.425,StateMachine,after this.everyTime
+2.612,0.459,StateMachine,run completed
+2.613,0.457,Mainline,Ending state machine pass
+2.613,0.421,Mainline,Begining state machine pass
+2.614,0.542,StateMachine,before if(conditionsToCheck
+2.615,1.168,StateMachine,before this.everyTime
+2.615,0.505,StateMachine,after this.everyTime
+2.616,0.623,StateMachine,run completed
+2.616,0.492,Mainline,Ending state machine pass
+2.617,0.360,Mainline,Begining state machine pass
+2.617,0.315,StateMachine,before if(conditionsToCheck
+2.618,0.376,StateMachine,before this.everyTime
+2.618,0.330,StateMachine,after this.everyTime
+2.618,0.615,StateMachine,run completed
+2.619,0.361,Mainline,Ending state machine pass
+2.619,0.341,Mainline,Begining state machine pass
+2.620,0.344,StateMachine,before if(conditionsToCheck
+2.620,0.450,StateMachine,before this.everyTime
+2.620,0.417,StateMachine,after this.everyTime
+2.621,0.401,StateMachine,run completed
+2.621,0.379,Mainline,Ending state machine pass
+2.621,0.312,Mainline,Begining state machine pass
+2.622,0.317,StateMachine,before if(conditionsToCheck
+2.622,0.471,StateMachine,before this.everyTime
+2.623,0.445,StateMachine,after this.everyTime
+2.623,0.450,StateMachine,run completed
+2.623,0.332,Mainline,Ending state machine pass
+2.624,0.335,Mainline,Begining state machine pass
+2.624,0.368,StateMachine,before if(conditionsToCheck
+2.625,0.488,StateMachine,before this.everyTime
+2.625,0.429,StateMachine,after this.everyTime
+2.625,0.350,StateMachine,run completed
+2.626,0.421,Mainline,Ending state machine pass
+2.626,0.394,Mainline,Begining state machine pass
+2.627,0.415,StateMachine,before if(conditionsToCheck
+2.627,0.493,StateMachine,before this.everyTime
+2.628,0.342,StateMachine,after this.everyTime
+2.628,0.533,StateMachine,run completed
+2.628,0.465,Mainline,Ending state machine pass
+2.629,0.537,Mainline,Begining state machine pass
+2.629,0.421,StateMachine,before if(conditionsToCheck
+2.630,0.522,StateMachine,before this.everyTime
+2.630,0.431,StateMachine,after this.everyTime
+2.631,0.399,StateMachine,run completed
+2.631,0.348,Mainline,Ending state machine pass
+2.632,0.331,Mainline,Begining state machine pass
+2.632,0.367,StateMachine,before if(conditionsToCheck
+2.632,0.430,StateMachine,before this.everyTime
+2.633,0.405,StateMachine,after this.everyTime
+2.633,0.361,StateMachine,run completed
+2.633,0.328,Mainline,Ending state machine pass
+2.634,0.326,Mainline,Begining state machine pass
+2.634,0.367,StateMachine,before if(conditionsToCheck
+2.635,0.450,StateMachine,before this.everyTime
+2.635,0.386,StateMachine,after this.everyTime
+2.635,0.349,StateMachine,run completed
+2.636,0.387,Mainline,Ending state machine pass
+2.636,0.338,Mainline,Begining state machine pass
+2.637,0.582,StateMachine,before if(conditionsToCheck
+2.637,0.488,StateMachine,before this.everyTime
+2.638,0.582,StateMachine,after this.everyTime
+2.638,0.416,StateMachine,run completed
+2.638,0.383,Mainline,Ending state machine pass
+2.639,0.392,Mainline,Begining state machine pass
+2.639,0.367,StateMachine,before if(conditionsToCheck
+2.640,0.402,StateMachine,before this.everyTime
+2.640,0.376,StateMachine,after this.everyTime
+2.640,0.363,StateMachine,run completed
+2.641,0.405,Mainline,Ending state machine pass
+2.641,0.368,Mainline,Begining state machine pass
+2.641,0.342,StateMachine,before if(conditionsToCheck
+2.642,0.423,StateMachine,before this.everyTime
+2.642,0.381,StateMachine,after this.everyTime
+2.643,0.414,StateMachine,run completed
+2.643,0.433,Mainline,Ending state machine pass
+2.643,0.336,Mainline,Begining state machine pass
+2.644,0.315,StateMachine,before if(conditionsToCheck
+2.644,0.492,StateMachine,before this.everyTime
+2.645,0.579,StateMachine,after this.everyTime
+2.645,0.444,StateMachine,run completed
+2.646,0.412,Mainline,Ending state machine pass
+2.646,0.393,Mainline,Begining state machine pass
+2.646,0.393,StateMachine,before if(conditionsToCheck
+2.647,0.494,StateMachine,before this.everyTime
+2.647,0.355,StateMachine,after this.everyTime
+2.648,0.367,StateMachine,run completed
+2.648,0.387,Mainline,Ending state machine pass
+2.649,0.402,Mainline,Begining state machine pass
+2.649,0.388,StateMachine,before if(conditionsToCheck
+2.649,0.407,StateMachine,before this.everyTime
+2.650,0.298,StateMachine,after this.everyTime
+2.650,0.325,StateMachine,run completed
+2.650,0.362,Mainline,Ending state machine pass
+2.651,0.350,Mainline,Begining state machine pass
+2.651,0.377,StateMachine,before if(conditionsToCheck
+2.651,0.476,StateMachine,before this.everyTime
+2.652,0.390,StateMachine,after this.everyTime
+2.652,0.373,StateMachine,run completed
+2.653,0.393,Mainline,Ending state machine pass
+2.654,1.599,Mainline,Begining state machine pass
+2.656,1.305,StateMachine,before if(conditionsToCheck
+2.659,3.211,StateMachine,before this.everyTime
+2.660,1.483,StateMachine,after this.everyTime
+2.662,1.474,StateMachine,run completed
+2.664,1.869,Mainline,Ending state machine pass
+2.664,0.752,Mainline,Begining state machine pass
+2.665,0.842,StateMachine,before if(conditionsToCheck
+2.666,0.961,StateMachine,before this.everyTime
+2.667,0.811,StateMachine,after this.everyTime
+2.667,0.463,StateMachine,run completed
+2.668,0.408,Mainline,Ending state machine pass
+2.668,0.441,Mainline,Begining state machine pass
+2.669,0.528,StateMachine,before if(conditionsToCheck
+2.669,0.697,StateMachine,before this.everyTime
+2.670,0.596,StateMachine,after this.everyTime
+2.671,0.489,StateMachine,run completed
+2.671,0.757,Mainline,Ending state machine pass
+2.672,0.515,Mainline,Begining state machine pass
+2.672,0.415,StateMachine,before if(conditionsToCheck
+2.674,1.976,StateMachine,before this.everyTime
+2.675,0.750,StateMachine,after this.everyTime
+2.676,1.052,StateMachine,run completed
+2.677,0.544,Mainline,Ending state machine pass
+2.677,0.660,Mainline,Begining state machine pass
+2.678,0.752,StateMachine,before if(conditionsToCheck
+2.679,0.990,StateMachine,before this.everyTime
+2.680,1.169,StateMachine,after this.everyTime
+2.681,1.031,StateMachine,run completed
+2.682,0.556,Mainline,Ending state machine pass
+2.682,0.498,Mainline,Begining state machine pass
+2.683,0.867,StateMachine,before if(conditionsToCheck
+2.684,0.727,StateMachine,before this.everyTime
+2.684,0.430,StateMachine,after this.everyTime
+2.686,1.335,StateMachine,run completed
+2.686,0.640,Mainline,Ending state machine pass
+2.687,0.906,Mainline,Begining state machine pass
+2.688,0.575,StateMachine,before if(conditionsToCheck
+2.689,1.716,StateMachine,before this.everyTime
+2.690,0.553,StateMachine,after this.everyTime
+2.690,0.473,StateMachine,run completed
+2.691,0.468,Mainline,Ending state machine pass
+2.691,0.440,Mainline,Begining state machine pass
+2.692,0.579,StateMachine,before if(conditionsToCheck
+2.693,0.651,StateMachine,before this.everyTime
+2.693,0.545,StateMachine,after this.everyTime
+2.694,0.590,StateMachine,run completed
+2.694,0.458,Mainline,Ending state machine pass
+2.695,0.579,Mainline,Begining state machine pass
+2.695,0.492,StateMachine,before if(conditionsToCheck
+2.697,1.712,StateMachine,before this.everyTime
+2.698,0.975,StateMachine,after this.everyTime
+2.730,32.186,StateMachine,run completed
+2.731,1.193,Mainline,Ending state machine pass
+2.732,0.767,Mainline,Begining state machine pass
+2.733,1.128,StateMachine,before if(conditionsToCheck
+2.734,0.948,StateMachine,before this.everyTime
+2.735,1.085,StateMachine,after this.everyTime
+2.736,0.985,StateMachine,run completed
+2.737,0.802,Mainline,Ending state machine pass
+2.738,0.677,Mainline,Begining state machine pass
+2.739,0.805,StateMachine,before if(conditionsToCheck
+2.739,0.832,StateMachine,before this.everyTime
+2.740,0.723,StateMachine,after this.everyTime
+2.741,0.691,StateMachine,run completed
+2.741,0.561,Mainline,Ending state machine pass
+2.742,0.817,Mainline,Begining state machine pass
+2.743,0.774,StateMachine,before if(conditionsToCheck
+2.744,0.819,StateMachine,before this.everyTime
+2.745,0.967,StateMachine,after this.everyTime
+2.745,0.701,StateMachine,run completed
+2.746,0.909,Mainline,Ending state machine pass
+2.747,0.641,Mainline,Begining state machine pass
+2.748,0.565,StateMachine,before if(conditionsToCheck
+2.748,0.863,StateMachine,before this.everyTime
+2.749,0.621,StateMachine,after this.everyTime
+2.750,0.647,StateMachine,run completed
+2.750,0.729,Mainline,Ending state machine pass
+2.751,0.700,Mainline,Begining state machine pass
+2.752,0.883,StateMachine,before if(conditionsToCheck
+2.753,0.753,StateMachine,before this.everyTime
+2.753,0.749,StateMachine,after this.everyTime
+2.754,0.768,StateMachine,run completed
+2.755,0.617,Mainline,Ending state machine pass
+2.756,0.676,Mainline,Begining state machine pass
+2.756,0.846,StateMachine,before if(conditionsToCheck
+2.767,10.646,StateMachine,before this.everyTime
+2.774,7.322,StateMachine,after this.everyTime
+2.775,0.802,StateMachine,run completed
+2.776,1.132,Mainline,Ending state machine pass
+2.777,0.762,Mainline,Begining state machine pass
+2.777,0.450,StateMachine,before if(conditionsToCheck
+2.779,1.042,StateMachine,before this.everyTime
+2.779,0.496,StateMachine,after this.everyTime
+2.779,0.378,StateMachine,run completed
+2.780,0.343,Mainline,Ending state machine pass
+2.781,0.882,Mainline,Begining state machine pass
+2.781,0.471,StateMachine,before if(conditionsToCheck
+2.782,0.440,StateMachine,before this.everyTime
+2.782,0.378,StateMachine,after this.everyTime
+2.783,0.964,StateMachine,run completed
+2.783,0.405,Mainline,Ending state machine pass
+2.784,0.331,Mainline,Begining state machine pass
+2.784,0.363,StateMachine,before if(conditionsToCheck
+2.785,0.564,StateMachine,before this.everyTime
+2.785,0.408,StateMachine,after this.everyTime
+2.785,0.363,StateMachine,run completed
+2.786,0.686,Mainline,Ending state machine pass
+2.787,0.551,Mainline,Begining state machine pass
+2.787,0.495,StateMachine,before if(conditionsToCheck
+2.788,0.657,StateMachine,before this.everyTime
+2.789,0.826,StateMachine,after this.everyTime
+2.789,0.523,StateMachine,run completed
+2.789,0.380,Mainline,Ending state machine pass
+2.790,0.351,Mainline,Begining state machine pass
+2.790,0.448,StateMachine,before if(conditionsToCheck
+2.791,0.692,StateMachine,before this.everyTime
+2.791,0.543,StateMachine,after this.everyTime
+2.792,0.431,StateMachine,run completed
+2.792,0.489,Mainline,Ending state machine pass
+2.793,0.611,Mainline,Begining state machine pass
+2.793,0.420,StateMachine,before if(conditionsToCheck
+2.794,0.489,StateMachine,before this.everyTime
+2.794,0.483,StateMachine,after this.everyTime
+2.795,0.551,StateMachine,run completed
+2.795,0.378,Mainline,Ending state machine pass
+2.796,0.466,Mainline,Begining state machine pass
+2.796,0.497,StateMachine,before if(conditionsToCheck
+2.797,0.616,StateMachine,before this.everyTime
+2.798,1.262,StateMachine,after this.everyTime
+2.799,0.499,StateMachine,run completed
+2.799,0.468,Mainline,Ending state machine pass
+2.800,0.385,Mainline,Begining state machine pass
+2.800,0.398,StateMachine,before if(conditionsToCheck
+2.800,0.526,StateMachine,before this.everyTime
+2.801,0.499,StateMachine,after this.everyTime
+2.801,0.421,StateMachine,run completed
+2.802,0.353,Mainline,Ending state machine pass
+2.802,0.363,Mainline,Begining state machine pass
+2.802,0.394,StateMachine,before if(conditionsToCheck
+2.803,0.554,StateMachine,before this.everyTime
+2.804,0.501,StateMachine,after this.everyTime
+2.804,0.407,StateMachine,run completed
+2.804,0.407,Mainline,Ending state machine pass
+2.805,0.393,Mainline,Begining state machine pass
+2.805,0.383,StateMachine,before if(conditionsToCheck
+2.806,0.530,StateMachine,before this.everyTime
+2.806,0.530,StateMachine,after this.everyTime
+2.807,0.455,StateMachine,run completed
+2.807,0.440,Mainline,Ending state machine pass
+2.807,0.399,Mainline,Begining state machine pass
+2.808,0.362,StateMachine,before if(conditionsToCheck
+2.808,0.600,StateMachine,before this.everyTime
+2.809,0.588,StateMachine,after this.everyTime
+2.810,0.620,StateMachine,run completed
+2.810,0.526,Mainline,Ending state machine pass
+2.811,0.470,Mainline,Begining state machine pass
+2.811,0.546,StateMachine,before if(conditionsToCheck
+2.812,0.500,StateMachine,before this.everyTime
+2.812,0.414,StateMachine,after this.everyTime
+2.813,0.459,StateMachine,run completed
+2.813,0.413,Mainline,Ending state machine pass
+2.813,0.343,Mainline,Begining state machine pass
+2.814,0.359,StateMachine,before if(conditionsToCheck
+2.814,0.641,StateMachine,before this.everyTime
+2.815,0.461,StateMachine,after this.everyTime
+2.815,0.448,StateMachine,run completed
+2.816,0.546,Mainline,Ending state machine pass
+2.816,0.534,Mainline,Begining state machine pass
+2.817,0.449,StateMachine,before if(conditionsToCheck
+2.817,0.480,StateMachine,before this.everyTime
+2.818,0.355,StateMachine,after this.everyTime
+2.818,0.385,StateMachine,run completed
+2.818,0.385,Mainline,Ending state machine pass
+2.819,0.430,Mainline,Begining state machine pass
+2.819,0.375,StateMachine,before if(conditionsToCheck
+2.820,0.689,StateMachine,before this.everyTime
+2.821,0.715,StateMachine,after this.everyTime
+2.821,0.380,StateMachine,run completed
+2.821,0.314,Mainline,Ending state machine pass
+2.822,0.286,Mainline,Begining state machine pass
+2.822,0.326,StateMachine,before if(conditionsToCheck
+2.822,0.470,StateMachine,before this.everyTime
+2.823,0.416,StateMachine,after this.everyTime
+2.823,0.333,StateMachine,run completed
+2.823,0.281,Mainline,Ending state machine pass
+2.824,0.278,Mainline,Begining state machine pass
+2.824,0.338,StateMachine,before if(conditionsToCheck
+2.824,0.486,StateMachine,before this.everyTime
+2.825,0.463,StateMachine,after this.everyTime
+2.825,0.366,StateMachine,run completed
+2.826,0.433,Mainline,Ending state machine pass
+2.826,0.418,Mainline,Begining state machine pass
+2.827,0.498,StateMachine,before if(conditionsToCheck
+2.827,0.747,StateMachine,before this.everyTime
+2.828,0.811,StateMachine,after this.everyTime
+2.829,0.744,StateMachine,run completed
+2.829,0.512,Mainline,Ending state machine pass
+2.832,2.105,Mainline,Begining state machine pass
+2.832,0.807,StateMachine,before if(conditionsToCheck
+2.833,0.736,StateMachine,before this.everyTime
+2.834,0.716,StateMachine,after this.everyTime
+2.835,0.879,StateMachine,run completed
+2.836,0.890,Mainline,Ending state machine pass
+2.836,0.537,Mainline,Begining state machine pass
+2.837,1.331,StateMachine,before if(conditionsToCheck
+2.838,0.630,StateMachine,before this.everyTime
+2.839,1.016,StateMachine,after this.everyTime
+2.840,0.397,StateMachine,run completed
+2.840,0.872,Mainline,Ending state machine pass
+2.841,0.492,Mainline,Begining state machine pass
+2.841,0.542,StateMachine,before if(conditionsToCheck
+2.842,0.531,StateMachine,before this.everyTime
+2.842,0.542,StateMachine,after this.everyTime
+2.843,0.434,StateMachine,run completed
+2.843,0.580,Mainline,Ending state machine pass
+2.844,0.346,Mainline,Begining state machine pass
+2.844,0.634,StateMachine,before if(conditionsToCheck
+2.845,0.545,StateMachine,before this.everyTime
+2.846,0.658,StateMachine,after this.everyTime
+2.846,0.435,StateMachine,run completed
+2.847,0.575,Mainline,Ending state machine pass
+2.847,0.683,Mainline,Begining state machine pass
+2.848,0.886,StateMachine,before if(conditionsToCheck
+2.849,0.562,StateMachine,before this.everyTime
+2.850,0.731,StateMachine,after this.everyTime
+2.850,0.385,StateMachine,run completed
+2.851,0.626,Mainline,Ending state machine pass
+2.851,0.426,Mainline,Begining state machine pass
+2.852,0.511,StateMachine,before if(conditionsToCheck
+2.852,0.477,StateMachine,before this.everyTime
+2.853,0.669,StateMachine,after this.everyTime
+2.853,0.438,StateMachine,run completed
+2.854,0.605,Mainline,Ending state machine pass
+2.854,0.364,Mainline,Begining state machine pass
+2.855,0.632,StateMachine,before if(conditionsToCheck
+2.855,0.484,StateMachine,before this.everyTime
+2.856,0.901,StateMachine,after this.everyTime
+2.857,0.471,StateMachine,run completed
+2.857,0.496,Mainline,Ending state machine pass
+2.857,0.367,Mainline,Begining state machine pass
+2.858,0.733,StateMachine,before if(conditionsToCheck
+2.859,0.617,StateMachine,before this.everyTime
+2.859,0.653,StateMachine,after this.everyTime
+2.860,0.371,StateMachine,run completed
+2.860,0.550,Mainline,Ending state machine pass
+2.861,0.412,Mainline,Begining state machine pass
+2.861,0.556,StateMachine,before if(conditionsToCheck
+2.862,0.515,StateMachine,before this.everyTime
+2.863,0.728,StateMachine,after this.everyTime
+2.863,0.535,StateMachine,run completed
+2.864,0.645,Mainline,Ending state machine pass
+2.864,0.469,Mainline,Begining state machine pass
+2.865,0.673,StateMachine,before if(conditionsToCheck
+2.865,0.533,StateMachine,before this.everyTime
+2.867,1.110,StateMachine,after this.everyTime
+2.867,0.653,StateMachine,run completed
+2.868,0.543,Mainline,Ending state machine pass
+2.868,0.429,Mainline,Begining state machine pass
+2.869,0.834,StateMachine,before if(conditionsToCheck
+2.870,0.580,StateMachine,before this.everyTime
+2.870,0.514,StateMachine,after this.everyTime
+2.871,0.708,StateMachine,run completed
+2.871,0.380,Mainline,Ending state machine pass
+2.872,0.498,Mainline,Begining state machine pass
+2.872,0.384,StateMachine,before if(conditionsToCheck
+2.873,0.797,StateMachine,before this.everyTime
+2.873,0.405,StateMachine,after this.everyTime
+2.874,0.393,StateMachine,run completed
+2.874,0.411,Mainline,Ending state machine pass
+2.875,0.708,Mainline,Begining state machine pass
+2.875,0.418,StateMachine,before if(conditionsToCheck
+2.876,0.532,StateMachine,before this.everyTime
+2.876,0.426,StateMachine,after this.everyTime
+2.877,0.446,StateMachine,run completed
+2.877,0.396,Mainline,Ending state machine pass
+2.877,0.511,Mainline,Begining state machine pass
+2.878,0.339,StateMachine,before if(conditionsToCheck
+2.878,0.521,StateMachine,before this.everyTime
+2.879,0.470,StateMachine,after this.everyTime
+2.879,0.450,StateMachine,run completed
+2.880,0.421,Mainline,Ending state machine pass
+2.880,0.438,Mainline,Begining state machine pass
+2.881,0.433,StateMachine,before if(conditionsToCheck
+2.881,0.496,StateMachine,before this.everyTime
+2.881,0.375,StateMachine,after this.everyTime
+2.882,0.346,StateMachine,run completed
+2.882,0.361,Mainline,Ending state machine pass
+2.882,0.363,Mainline,Begining state machine pass
+2.883,0.349,StateMachine,before if(conditionsToCheck
+2.883,0.380,StateMachine,before this.everyTime
+2.884,0.283,StateMachine,after this.everyTime
+2.884,0.290,StateMachine,run completed
+2.884,0.323,Mainline,Ending state machine pass
+2.884,0.343,Mainline,Begining state machine pass
+2.885,0.401,StateMachine,before if(conditionsToCheck
+2.885,0.478,StateMachine,before this.everyTime
+2.886,0.445,StateMachine,after this.everyTime
+2.886,0.362,StateMachine,run completed
+2.886,0.353,Mainline,Ending state machine pass
+2.887,0.394,Mainline,Begining state machine pass
+2.887,0.341,StateMachine,before if(conditionsToCheck
+2.888,0.418,StateMachine,before this.everyTime
+2.888,0.314,StateMachine,after this.everyTime
+2.888,0.336,StateMachine,run completed
+2.889,0.362,Mainline,Ending state machine pass
+2.889,0.409,Mainline,Begining state machine pass
+2.889,0.336,StateMachine,before if(conditionsToCheck
+2.890,0.419,StateMachine,before this.everyTime
+2.890,0.399,StateMachine,after this.everyTime
+2.891,0.410,StateMachine,run completed
+2.891,0.388,Mainline,Ending state machine pass
+2.891,0.364,Mainline,Begining state machine pass
+2.892,0.331,StateMachine,before if(conditionsToCheck
+2.892,0.448,StateMachine,before this.everyTime
+2.893,0.402,StateMachine,after this.everyTime
+2.893,0.415,StateMachine,run completed
+2.893,0.322,Mainline,Ending state machine pass
+2.894,0.303,Mainline,Begining state machine pass
+2.894,0.356,StateMachine,before if(conditionsToCheck
+2.894,0.515,StateMachine,before this.everyTime
+2.895,0.433,StateMachine,after this.everyTime
+2.895,0.373,StateMachine,run completed
+2.896,0.425,Mainline,Ending state machine pass
+2.896,0.422,Mainline,Begining state machine pass
+2.897,0.409,StateMachine,before if(conditionsToCheck
+2.897,0.429,StateMachine,before this.everyTime
+2.897,0.353,StateMachine,after this.everyTime
+2.898,0.325,StateMachine,run completed
+2.898,0.323,Mainline,Ending state machine pass
+2.898,0.348,Mainline,Begining state machine pass
+2.899,0.421,StateMachine,before if(conditionsToCheck
+2.899,0.476,StateMachine,before this.everyTime
+2.900,0.330,StateMachine,after this.everyTime
+2.900,0.327,StateMachine,run completed
+2.900,0.367,Mainline,Ending state machine pass
+2.901,0.375,Mainline,Begining state machine pass
+2.901,0.406,StateMachine,before if(conditionsToCheck
+2.901,0.459,StateMachine,before this.everyTime
+2.902,0.382,StateMachine,after this.everyTime
+2.902,0.395,StateMachine,run completed
+2.903,0.409,Mainline,Ending state machine pass
+2.903,0.371,Mainline,Begining state machine pass
+2.903,0.369,StateMachine,before if(conditionsToCheck
+2.904,0.404,StateMachine,before this.everyTime
+2.904,0.372,StateMachine,after this.everyTime
+2.905,0.385,StateMachine,run completed
+2.905,0.388,Mainline,Ending state machine pass
+2.905,0.317,Mainline,Begining state machine pass
+2.906,0.452,StateMachine,before if(conditionsToCheck
+2.906,0.492,StateMachine,before this.everyTime
+2.907,0.652,StateMachine,after this.everyTime
+2.907,0.379,StateMachine,run completed
+2.908,0.303,Mainline,Ending state machine pass
+2.908,0.332,Mainline,Begining state machine pass
+2.908,0.371,StateMachine,before if(conditionsToCheck
+2.909,0.494,StateMachine,before this.everyTime
+2.909,0.361,StateMachine,after this.everyTime
+2.909,0.307,StateMachine,run completed
+2.910,0.317,Mainline,Ending state machine pass
+2.910,0.357,Mainline,Begining state machine pass
+2.910,0.405,StateMachine,before if(conditionsToCheck
+2.911,0.435,StateMachine,before this.everyTime
+2.911,0.352,StateMachine,after this.everyTime
+2.912,0.340,StateMachine,run completed
+2.912,0.335,Mainline,Ending state machine pass
+2.912,0.383,Mainline,Begining state machine pass
+2.913,0.396,StateMachine,before if(conditionsToCheck
+2.913,0.482,StateMachine,before this.everyTime
+2.914,0.357,StateMachine,after this.everyTime
+2.914,0.356,StateMachine,run completed
+2.914,0.386,Mainline,Ending state machine pass
+2.915,0.394,Mainline,Begining state machine pass
+2.915,0.344,StateMachine,before if(conditionsToCheck
+2.915,0.377,StateMachine,before this.everyTime
+2.916,0.517,StateMachine,after this.everyTime
+2.916,0.449,StateMachine,run completed
+2.917,0.377,Mainline,Ending state machine pass
+2.917,0.359,Mainline,Begining state machine pass
+2.918,0.482,StateMachine,before if(conditionsToCheck
+2.918,0.559,StateMachine,before this.everyTime
+2.919,0.442,StateMachine,after this.everyTime
+2.919,0.372,StateMachine,run completed
+2.919,0.343,Mainline,Ending state machine pass
+2.920,0.310,Mainline,Begining state machine pass
+2.920,0.385,StateMachine,before if(conditionsToCheck
+2.920,0.471,StateMachine,before this.everyTime
+2.921,0.402,StateMachine,after this.everyTime
+2.921,0.331,StateMachine,run completed
+2.922,0.288,Mainline,Ending state machine pass
+2.922,0.288,Mainline,Begining state machine pass
+2.922,0.364,StateMachine,before if(conditionsToCheck
+2.923,0.503,StateMachine,before this.everyTime
+2.923,0.430,StateMachine,after this.everyTime
+2.923,0.374,StateMachine,run completed
+2.924,0.402,Mainline,Ending state machine pass
+2.924,0.394,Mainline,Begining state machine pass
+2.925,0.393,StateMachine,before if(conditionsToCheck
+2.925,0.454,StateMachine,before this.everyTime
+2.925,0.344,StateMachine,after this.everyTime
+2.926,0.411,StateMachine,run completed
+2.926,0.375,Mainline,Ending state machine pass
+2.927,0.394,Mainline,Begining state machine pass
+2.927,0.377,StateMachine,before if(conditionsToCheck
+2.927,0.390,StateMachine,before this.everyTime
+2.928,0.296,StateMachine,after this.everyTime
+2.928,0.369,StateMachine,run completed
+2.928,0.389,Mainline,Ending state machine pass
+2.929,0.490,Mainline,Begining state machine pass
+2.929,0.449,StateMachine,before if(conditionsToCheck
+2.930,0.488,StateMachine,before this.everyTime
+2.930,0.433,StateMachine,after this.everyTime
+2.931,0.399,StateMachine,run completed
+2.931,0.342,Mainline,Ending state machine pass
+2.931,0.291,Mainline,Begining state machine pass
+2.932,0.288,StateMachine,before if(conditionsToCheck
+2.932,0.444,StateMachine,before this.everyTime
+2.932,0.408,StateMachine,after this.everyTime
+2.933,0.410,StateMachine,run completed
+2.933,0.337,Mainline,Ending state machine pass
+2.934,0.311,Mainline,Begining state machine pass
+2.934,0.331,StateMachine,before if(conditionsToCheck
+2.934,0.498,StateMachine,before this.everyTime
+2.935,0.441,StateMachine,after this.everyTime
+2.935,0.343,StateMachine,run completed
+2.935,0.284,Mainline,Ending state machine pass
+2.936,0.384,Mainline,Begining state machine pass
+2.936,0.388,StateMachine,before if(conditionsToCheck
+2.937,0.508,StateMachine,before this.everyTime
+2.937,0.608,StateMachine,after this.everyTime
+2.938,0.408,StateMachine,run completed
+2.938,0.403,Mainline,Ending state machine pass
+2.939,0.373,Mainline,Begining state machine pass
+2.939,0.418,StateMachine,before if(conditionsToCheck
+2.940,0.686,StateMachine,before this.everyTime
+2.940,0.476,StateMachine,after this.everyTime
+2.940,0.384,StateMachine,run completed
+2.941,0.392,Mainline,Ending state machine pass
+2.941,0.354,Mainline,Begining state machine pass
+2.942,0.498,StateMachine,before if(conditionsToCheck
+2.942,0.470,StateMachine,before this.everyTime
+2.943,0.402,StateMachine,after this.everyTime
+2.943,0.414,StateMachine,run completed
+2.943,0.312,Mainline,Ending state machine pass
+2.944,0.284,Mainline,Begining state machine pass
+2.944,0.331,StateMachine,before if(conditionsToCheck
+2.944,0.505,StateMachine,before this.everyTime
+2.945,0.517,StateMachine,after this.everyTime
+2.945,0.440,StateMachine,run completed
+2.946,0.521,Mainline,Ending state machine pass
+2.946,0.475,Mainline,Begining state machine pass
+2.947,0.389,StateMachine,before if(conditionsToCheck
+2.947,0.465,StateMachine,before this.everyTime
+2.948,0.316,StateMachine,after this.everyTime
+2.948,0.319,StateMachine,run completed
+2.948,0.362,Mainline,Ending state machine pass
+2.949,0.379,Mainline,Begining state machine pass
+2.949,0.397,StateMachine,before if(conditionsToCheck
+2.949,0.419,StateMachine,before this.everyTime
+2.950,0.330,StateMachine,after this.everyTime
+2.950,0.355,StateMachine,run completed
+2.951,0.403,Mainline,Ending state machine pass
+2.951,0.404,Mainline,Begining state machine pass
+2.951,0.362,StateMachine,before if(conditionsToCheck
+2.952,0.395,StateMachine,before this.everyTime
+2.952,0.368,StateMachine,after this.everyTime
+2.952,0.382,StateMachine,run completed
+2.953,0.389,Mainline,Ending state machine pass
+2.953,0.346,Mainline,Begining state machine pass
+2.954,0.319,StateMachine,before if(conditionsToCheck
+2.954,0.449,StateMachine,before this.everyTime
+2.954,0.389,StateMachine,after this.everyTime
+2.955,0.410,StateMachine,run completed
+2.955,0.373,Mainline,Ending state machine pass
+2.955,0.328,Mainline,Begining state machine pass
+2.956,0.512,StateMachine,before if(conditionsToCheck
+2.956,0.521,StateMachine,before this.everyTime
+2.957,0.456,StateMachine,after this.everyTime
+2.957,0.408,StateMachine,run completed
+2.958,0.365,Mainline,Ending state machine pass
+2.958,0.417,Mainline,Begining state machine pass
+2.959,0.414,StateMachine,before if(conditionsToCheck
+2.959,0.481,StateMachine,before this.everyTime
+2.959,0.340,StateMachine,after this.everyTime
+2.960,0.352,StateMachine,run completed
+2.960,0.372,Mainline,Ending state machine pass
+2.960,0.408,Mainline,Begining state machine pass
+2.961,0.394,StateMachine,before if(conditionsToCheck
+2.961,0.469,StateMachine,before this.everyTime
+2.962,0.414,StateMachine,after this.everyTime
+2.962,0.430,StateMachine,run completed
+2.963,0.429,Mainline,Ending state machine pass
+2.963,0.423,Mainline,Begining state machine pass
+2.963,0.415,StateMachine,before if(conditionsToCheck
+2.964,0.457,StateMachine,before this.everyTime
+2.964,0.402,StateMachine,after this.everyTime
+2.965,0.384,StateMachine,run completed
+2.965,0.354,Mainline,Ending state machine pass
+2.965,0.313,Mainline,Begining state machine pass
+2.966,0.530,StateMachine,before if(conditionsToCheck
+2.966,0.476,StateMachine,before this.everyTime
+2.967,0.687,StateMachine,after this.everyTime
+2.968,0.526,StateMachine,run completed
+2.968,0.464,Mainline,Ending state machine pass
+2.969,0.475,Mainline,Begining state machine pass
+2.969,0.513,StateMachine,before if(conditionsToCheck
+2.970,0.662,StateMachine,before this.everyTime
+2.970,0.447,StateMachine,after this.everyTime
+2.971,0.392,StateMachine,run completed
+2.971,0.391,Mainline,Ending state machine pass
+2.971,0.378,Mainline,Begining state machine pass
+2.972,0.349,StateMachine,before if(conditionsToCheck
+2.972,0.451,StateMachine,before this.everyTime
+2.973,0.431,StateMachine,after this.everyTime
+2.973,0.395,StateMachine,run completed
+2.973,0.378,Mainline,Ending state machine pass
+2.974,0.351,Mainline,Begining state machine pass
+2.974,0.403,StateMachine,before if(conditionsToCheck
+2.975,0.486,StateMachine,before this.everyTime
+2.975,0.434,StateMachine,after this.everyTime
+2.975,0.345,StateMachine,run completed
+2.976,0.542,Mainline,Ending state machine pass
+2.976,0.431,Mainline,Begining state machine pass
+2.977,0.438,StateMachine,before if(conditionsToCheck
+2.977,0.556,StateMachine,before this.everyTime
+2.978,0.428,StateMachine,after this.everyTime
+2.978,0.682,StateMachine,run completed
+2.979,0.436,Mainline,Ending state machine pass
+2.979,0.390,Mainline,Begining state machine pass
+2.980,0.375,StateMachine,before if(conditionsToCheck
+2.980,0.458,StateMachine,before this.everyTime
+2.980,0.358,StateMachine,after this.everyTime
+2.981,0.341,StateMachine,run completed
+2.981,0.326,Mainline,Ending state machine pass
+2.981,0.307,Mainline,Begining state machine pass
+2.982,0.293,StateMachine,before if(conditionsToCheck
+2.982,0.446,StateMachine,before this.everyTime
+2.983,0.356,StateMachine,after this.everyTime
+2.983,0.374,StateMachine,run completed
+2.983,0.397,Mainline,Ending state machine pass
+2.984,0.323,Mainline,Begining state machine pass
+2.984,0.350,StateMachine,before if(conditionsToCheck
+2.984,0.494,StateMachine,before this.everyTime
+2.985,0.429,StateMachine,after this.everyTime
+2.985,0.344,StateMachine,run completed
+2.986,0.363,Mainline,Ending state machine pass
+2.986,0.396,Mainline,Begining state machine pass
+2.986,0.409,StateMachine,before if(conditionsToCheck
+2.987,0.495,StateMachine,before this.everyTime
+2.987,0.364,StateMachine,after this.everyTime
+2.988,0.309,StateMachine,run completed
+2.988,0.325,Mainline,Ending state machine pass
+2.988,0.369,Mainline,Begining state machine pass
+2.989,0.404,StateMachine,before if(conditionsToCheck
+2.989,0.507,StateMachine,before this.everyTime
+2.990,0.411,StateMachine,after this.everyTime
+2.990,0.402,StateMachine,run completed
+2.990,0.379,Mainline,Ending state machine pass
+2.991,0.349,Mainline,Begining state machine pass
+2.991,0.351,StateMachine,before if(conditionsToCheck
+2.991,0.411,StateMachine,before this.everyTime
+2.992,0.370,StateMachine,after this.everyTime
+2.992,0.387,StateMachine,run completed
+2.993,0.379,Mainline,Ending state machine pass
+2.993,0.377,Mainline,Begining state machine pass
+2.993,0.331,StateMachine,before if(conditionsToCheck
+2.994,0.422,StateMachine,before this.everyTime
+2.994,0.403,StateMachine,after this.everyTime
+2.995,0.427,StateMachine,run completed
+2.995,0.432,Mainline,Ending state machine pass
+2.995,0.343,Mainline,Begining state machine pass
+2.996,0.447,StateMachine,before if(conditionsToCheck
+2.996,0.507,StateMachine,before this.everyTime
+2.997,0.396,StateMachine,after this.everyTime
+2.997,0.388,StateMachine,run completed
+2.997,0.351,Mainline,Ending state machine pass
+2.998,0.372,Mainline,Begining state machine pass
+2.998,0.422,StateMachine,before if(conditionsToCheck
+2.999,0.492,StateMachine,before this.everyTime
+2.999,0.368,StateMachine,after this.everyTime
+2.999,0.369,StateMachine,run completed
+3.000,0.350,Mainline,Ending state machine pass
+3.000,0.406,Mainline,Begining state machine pass
+3.001,0.392,StateMachine,before if(conditionsToCheck
+3.001,0.487,StateMachine,before this.everyTime
+3.001,0.332,StateMachine,after this.everyTime
+3.002,0.297,StateMachine,run completed
+3.002,0.348,Mainline,Ending state machine pass
+3.002,0.371,Mainline,Begining state machine pass
+3.003,0.399,StateMachine,before if(conditionsToCheck
+3.003,0.453,StateMachine,before this.everyTime
+3.004,0.334,StateMachine,after this.everyTime
+3.004,0.324,StateMachine,run completed
+3.004,0.361,Mainline,Ending state machine pass
+3.005,0.389,Mainline,Begining state machine pass
+3.005,0.444,StateMachine,before if(conditionsToCheck
+3.006,0.499,StateMachine,before this.everyTime
+3.006,0.418,StateMachine,after this.everyTime
+3.006,0.411,StateMachine,run completed
+3.007,0.403,Mainline,Ending state machine pass
+3.007,0.396,Mainline,Begining state machine pass
+3.008,0.418,StateMachine,before if(conditionsToCheck
+3.008,0.515,StateMachine,before this.everyTime
+3.009,0.407,StateMachine,after this.everyTime
+3.009,0.375,StateMachine,run completed
+3.009,0.345,Mainline,Ending state machine pass
+3.010,0.326,Mainline,Begining state machine pass
+3.010,0.377,StateMachine,before if(conditionsToCheck
+3.011,0.480,StateMachine,before this.everyTime
+3.011,0.430,StateMachine,after this.everyTime
+3.011,0.397,StateMachine,run completed
+3.012,0.344,Mainline,Ending state machine pass
+3.012,0.336,Mainline,Begining state machine pass
+3.012,0.426,StateMachine,before if(conditionsToCheck
+3.013,0.677,StateMachine,before this.everyTime
+3.013,0.350,StateMachine,after this.everyTime
+3.014,0.318,StateMachine,run completed
+3.014,0.340,Mainline,Ending state machine pass
+3.015,0.396,Mainline,Begining state machine pass
+3.015,0.390,StateMachine,before if(conditionsToCheck
+3.015,0.479,StateMachine,before this.everyTime
+3.016,0.514,StateMachine,after this.everyTime
+3.016,0.406,StateMachine,run completed
+3.017,0.417,Mainline,Ending state machine pass
+3.017,0.383,Mainline,Begining state machine pass
+3.017,0.363,StateMachine,before if(conditionsToCheck
+3.018,0.402,StateMachine,before this.everyTime
+3.018,0.394,StateMachine,after this.everyTime
+3.019,0.379,StateMachine,run completed
+3.019,0.388,Mainline,Ending state machine pass
+3.019,0.340,Mainline,Begining state machine pass
+3.020,0.326,StateMachine,before if(conditionsToCheck
+3.020,0.476,StateMachine,before this.everyTime
+3.021,0.443,StateMachine,after this.everyTime
+3.021,0.416,StateMachine,run completed
+3.021,0.396,Mainline,Ending state machine pass
+3.022,0.384,Mainline,Begining state machine pass
+3.022,0.396,StateMachine,before if(conditionsToCheck
+3.023,0.497,StateMachine,before this.everyTime
+3.023,0.398,StateMachine,after this.everyTime
+3.023,0.317,StateMachine,run completed
+3.024,0.354,Mainline,Ending state machine pass
+3.024,0.367,Mainline,Begining state machine pass
+3.025,0.409,StateMachine,before if(conditionsToCheck
+3.025,0.489,StateMachine,before this.everyTime
+3.025,0.340,StateMachine,after this.everyTime
+3.026,0.432,StateMachine,run completed
+3.026,0.377,Mainline,Ending state machine pass
+3.027,0.383,Mainline,Begining state machine pass
+3.027,0.409,StateMachine,before if(conditionsToCheck
+3.027,0.455,StateMachine,before this.everyTime
+3.028,0.352,StateMachine,after this.everyTime
+3.028,0.379,StateMachine,run completed
+3.029,0.364,Mainline,Ending state machine pass
+3.029,0.389,Mainline,Begining state machine pass
+3.029,0.436,StateMachine,before if(conditionsToCheck
+3.030,0.502,StateMachine,before this.everyTime
+3.030,0.406,StateMachine,after this.everyTime
+3.031,0.377,StateMachine,run completed
+3.031,0.328,Mainline,Ending state machine pass
+3.031,0.287,Mainline,Begining state machine pass
+3.032,0.279,StateMachine,before if(conditionsToCheck
+3.032,0.428,StateMachine,before this.everyTime
+3.032,0.363,StateMachine,after this.everyTime
+3.033,0.422,StateMachine,run completed
+3.033,0.389,Mainline,Ending state machine pass
+3.033,0.318,Mainline,Begining state machine pass
+3.034,0.308,StateMachine,before if(conditionsToCheck
+3.034,0.488,StateMachine,before this.everyTime
+3.035,0.427,StateMachine,after this.everyTime
+3.035,0.379,StateMachine,run completed
+3.035,0.313,Mainline,Ending state machine pass
+3.036,0.398,Mainline,Begining state machine pass
+3.036,0.415,StateMachine,before if(conditionsToCheck
+3.037,0.506,StateMachine,before this.everyTime
+3.037,0.378,StateMachine,after this.everyTime
+3.037,0.315,StateMachine,run completed
+3.038,0.351,Mainline,Ending state machine pass
+3.038,0.392,Mainline,Begining state machine pass
+3.039,0.391,StateMachine,before if(conditionsToCheck
+3.039,0.546,StateMachine,before this.everyTime
+3.039,0.436,StateMachine,after this.everyTime
+3.040,0.395,StateMachine,run completed
+3.040,0.371,Mainline,Ending state machine pass
+3.041,0.363,Mainline,Begining state machine pass
+3.041,0.387,StateMachine,before if(conditionsToCheck
+3.041,0.431,StateMachine,before this.everyTime
+3.042,0.326,StateMachine,after this.everyTime
+3.042,0.374,StateMachine,run completed
+3.042,0.360,Mainline,Ending state machine pass
+3.043,0.375,Mainline,Begining state machine pass
+3.043,0.402,StateMachine,before if(conditionsToCheck
+3.044,0.450,StateMachine,before this.everyTime
+3.044,0.419,StateMachine,after this.everyTime
+3.045,0.393,StateMachine,run completed
+3.045,0.403,Mainline,Ending state machine pass
+3.045,0.344,Mainline,Begining state machine pass
+3.046,0.446,StateMachine,before if(conditionsToCheck
+3.046,0.474,StateMachine,before this.everyTime
+3.047,0.434,StateMachine,after this.everyTime
+3.047,0.402,StateMachine,run completed
+3.048,0.546,Mainline,Ending state machine pass
+3.048,0.358,Mainline,Begining state machine pass
+3.048,0.366,StateMachine,before if(conditionsToCheck
+3.049,0.485,StateMachine,before this.everyTime
+3.049,0.436,StateMachine,after this.everyTime
+3.050,0.400,StateMachine,run completed
+3.050,0.395,Mainline,Ending state machine pass
+3.050,0.391,Mainline,Begining state machine pass
+3.051,0.427,StateMachine,before if(conditionsToCheck
+3.051,0.476,StateMachine,before this.everyTime
+3.052,0.327,StateMachine,after this.everyTime
+3.052,0.328,StateMachine,run completed
+3.052,0.327,Mainline,Ending state machine pass
+3.053,0.330,Mainline,Begining state machine pass
+3.053,0.377,StateMachine,before if(conditionsToCheck
+3.053,0.411,StateMachine,before this.everyTime
+3.054,0.348,StateMachine,after this.everyTime
+3.054,0.382,StateMachine,run completed
+3.054,0.338,Mainline,Ending state machine pass
+3.055,0.385,Mainline,Begining state machine pass
+3.055,0.365,StateMachine,before if(conditionsToCheck
+3.056,0.500,StateMachine,before this.everyTime
+3.056,0.350,StateMachine,after this.everyTime
+3.056,0.378,StateMachine,run completed
+3.057,0.399,Mainline,Ending state machine pass
+3.057,0.361,Mainline,Begining state machine pass
+3.058,0.332,StateMachine,before if(conditionsToCheck
+3.058,0.454,StateMachine,before this.everyTime
+3.058,0.393,StateMachine,after this.everyTime
+3.059,0.372,StateMachine,run completed
+3.059,0.370,Mainline,Ending state machine pass
+3.060,0.382,Mainline,Begining state machine pass
+3.060,0.397,StateMachine,before if(conditionsToCheck
+3.060,0.489,StateMachine,before this.everyTime
+3.061,0.373,StateMachine,after this.everyTime
+3.061,0.327,StateMachine,run completed
+3.061,0.281,Mainline,Ending state machine pass
+3.062,0.273,Mainline,Begining state machine pass
+3.062,0.333,StateMachine,before if(conditionsToCheck
+3.062,0.478,StateMachine,before this.everyTime
+3.063,0.388,StateMachine,after this.everyTime
+3.063,0.370,StateMachine,run completed
+3.064,0.307,Mainline,Ending state machine pass
+3.064,0.305,Mainline,Begining state machine pass
+3.064,0.357,StateMachine,before if(conditionsToCheck
+3.065,0.502,StateMachine,before this.everyTime
+3.065,0.465,StateMachine,after this.everyTime
+3.066,0.444,StateMachine,run completed
+3.066,0.470,Mainline,Ending state machine pass
+3.066,0.363,Mainline,Begining state machine pass
+3.067,0.321,StateMachine,before if(conditionsToCheck
+3.067,0.496,StateMachine,before this.everyTime
+3.068,0.400,StateMachine,after this.everyTime
+3.068,0.392,StateMachine,run completed
+3.068,0.355,Mainline,Ending state machine pass
+3.069,0.343,Mainline,Begining state machine pass
+3.069,0.397,StateMachine,before if(conditionsToCheck
+3.070,0.515,StateMachine,before this.everyTime
+3.070,0.435,StateMachine,after this.everyTime
+3.071,0.433,StateMachine,run completed
+3.071,0.390,Mainline,Ending state machine pass
+3.071,0.395,Mainline,Begining state machine pass
+3.072,0.339,StateMachine,before if(conditionsToCheck
+3.072,0.422,StateMachine,before this.everyTime
+3.072,0.385,StateMachine,after this.everyTime
+3.073,0.399,StateMachine,run completed
+3.073,0.381,Mainline,Ending state machine pass
+3.074,0.363,Mainline,Begining state machine pass
+3.074,0.391,StateMachine,before if(conditionsToCheck
+3.074,0.471,StateMachine,before this.everyTime
+3.075,0.381,StateMachine,after this.everyTime
+3.075,0.391,StateMachine,run completed
+3.076,0.534,Mainline,Ending state machine pass
+3.076,0.504,Mainline,Begining state machine pass
+3.077,0.453,StateMachine,before if(conditionsToCheck
+3.077,0.502,StateMachine,before this.everyTime
+3.078,0.397,StateMachine,after this.everyTime
+3.078,0.414,StateMachine,run completed
+3.078,0.361,Mainline,Ending state machine pass
+3.079,0.350,Mainline,Begining state machine pass
+3.079,0.388,StateMachine,before if(conditionsToCheck
+3.080,0.449,StateMachine,before this.everyTime
+3.080,0.424,StateMachine,after this.everyTime
+3.080,0.366,StateMachine,run completed
+3.081,0.369,Mainline,Ending state machine pass
+3.081,0.416,Mainline,Begining state machine pass
+3.082,0.350,StateMachine,before if(conditionsToCheck
+3.082,0.492,StateMachine,before this.everyTime
+3.083,0.579,StateMachine,after this.everyTime
+3.083,0.463,StateMachine,run completed
+3.083,0.428,Mainline,Ending state machine pass
+3.084,0.429,Mainline,Begining state machine pass
+3.084,0.379,StateMachine,before if(conditionsToCheck
+3.085,0.446,StateMachine,before this.everyTime
+3.085,0.375,StateMachine,after this.everyTime
+3.085,0.354,StateMachine,run completed
+3.086,0.501,Mainline,Ending state machine pass
+3.086,0.376,Mainline,Begining state machine pass
+3.087,0.407,StateMachine,before if(conditionsToCheck
+3.087,0.467,StateMachine,before this.everyTime
+3.088,0.327,StateMachine,after this.everyTime
+3.088,0.344,StateMachine,run completed
+3.088,0.379,Mainline,Ending state machine pass
+3.089,0.377,Mainline,Begining state machine pass
+3.089,0.453,StateMachine,before if(conditionsToCheck
+3.090,0.481,StateMachine,before this.everyTime
+3.090,0.434,StateMachine,after this.everyTime
+3.090,0.376,StateMachine,run completed
+3.091,0.367,Mainline,Ending state machine pass
+3.091,0.361,Mainline,Begining state machine pass
+3.092,0.405,StateMachine,before if(conditionsToCheck
+3.092,0.739,StateMachine,before this.everyTime
+3.093,0.463,StateMachine,after this.everyTime
+3.093,0.392,StateMachine,run completed
+3.094,0.391,Mainline,Ending state machine pass
+3.094,0.402,Mainline,Begining state machine pass
+3.094,0.399,StateMachine,before if(conditionsToCheck
+3.095,0.452,StateMachine,before this.everyTime
+3.095,0.377,StateMachine,after this.everyTime
+3.096,0.438,StateMachine,run completed
+3.096,0.492,Mainline,Ending state machine pass
+3.096,0.384,Mainline,Begining state machine pass
+3.097,0.461,StateMachine,before if(conditionsToCheck
+3.097,0.502,StateMachine,before this.everyTime
+3.098,0.427,StateMachine,after this.everyTime
+3.098,0.395,StateMachine,run completed
+3.099,0.345,Mainline,Ending state machine pass
+3.099,0.325,Mainline,Begining state machine pass
+3.099,0.342,StateMachine,before if(conditionsToCheck
+3.100,0.378,StateMachine,before this.everyTime
+3.100,0.330,StateMachine,after this.everyTime
+3.100,0.344,StateMachine,run completed
+3.101,0.372,Mainline,Ending state machine pass
+3.101,0.403,Mainline,Begining state machine pass
+3.101,0.336,StateMachine,before if(conditionsToCheck
+3.102,0.412,StateMachine,before this.everyTime
+3.102,0.328,StateMachine,after this.everyTime
+3.103,0.359,StateMachine,run completed
+3.103,0.395,Mainline,Ending state machine pass
+3.103,0.444,Mainline,Begining state machine pass
+3.104,0.406,StateMachine,before if(conditionsToCheck
+3.104,0.491,StateMachine,before this.everyTime
+3.105,0.357,StateMachine,after this.everyTime
+3.105,0.338,StateMachine,run completed
+3.105,0.356,Mainline,Ending state machine pass
+3.106,0.465,Mainline,Begining state machine pass
+3.106,0.436,StateMachine,before if(conditionsToCheck
+3.107,0.441,StateMachine,before this.everyTime
+3.107,0.353,StateMachine,after this.everyTime
+3.107,0.365,StateMachine,run completed
+3.108,0.334,Mainline,Ending state machine pass
+3.108,0.353,Mainline,Begining state machine pass
+3.108,0.381,StateMachine,before if(conditionsToCheck
+3.109,0.528,StateMachine,before this.everyTime
+3.109,0.429,StateMachine,after this.everyTime
+3.110,0.421,StateMachine,run completed
+3.110,0.419,Mainline,Ending state machine pass
+3.111,0.370,Mainline,Begining state machine pass
+3.111,0.373,StateMachine,before if(conditionsToCheck
+3.111,0.487,StateMachine,before this.everyTime
+3.112,0.456,StateMachine,after this.everyTime
+3.112,0.463,StateMachine,run completed
+3.113,0.441,Mainline,Ending state machine pass
+3.113,0.416,Mainline,Begining state machine pass
+3.114,0.463,StateMachine,before if(conditionsToCheck
+3.114,0.549,StateMachine,before this.everyTime
+3.115,0.445,StateMachine,after this.everyTime
+3.115,0.438,StateMachine,run completed
+3.116,0.461,Mainline,Ending state machine pass
+3.116,0.431,Mainline,Begining state machine pass
+3.116,0.408,StateMachine,before if(conditionsToCheck
+3.117,0.470,StateMachine,before this.everyTime
+3.117,0.369,StateMachine,after this.everyTime
+3.118,0.382,StateMachine,run completed
+3.118,0.360,Mainline,Ending state machine pass
+3.119,0.502,Mainline,Begining state machine pass
+3.119,0.372,StateMachine,before if(conditionsToCheck
+3.119,0.499,StateMachine,before this.everyTime
+3.120,0.424,StateMachine,after this.everyTime
+3.120,0.359,StateMachine,run completed
+3.120,0.306,Mainline,Ending state machine pass
+3.121,0.295,Mainline,Begining state machine pass
+3.121,0.373,StateMachine,before if(conditionsToCheck
+3.122,0.449,StateMachine,before this.everyTime
+3.122,0.381,StateMachine,after this.everyTime
+3.122,0.336,StateMachine,run completed
+3.123,0.283,Mainline,Ending state machine pass
+3.123,0.332,Mainline,Begining state machine pass
+3.123,0.364,StateMachine,before if(conditionsToCheck
+3.124,0.501,StateMachine,before this.everyTime
+3.124,0.389,StateMachine,after this.everyTime
+3.125,0.370,StateMachine,run completed
+3.125,0.383,Mainline,Ending state machine pass
+3.125,0.375,Mainline,Begining state machine pass
+3.126,0.460,StateMachine,before if(conditionsToCheck
+3.126,0.473,StateMachine,before this.everyTime
+3.127,0.386,StateMachine,after this.everyTime
+3.127,0.386,StateMachine,run completed
+3.127,0.329,Mainline,Ending state machine pass
+3.128,0.282,Mainline,Begining state machine pass
+3.128,0.306,StateMachine,before if(conditionsToCheck
+3.128,0.478,StateMachine,before this.everyTime
+3.129,0.445,StateMachine,after this.everyTime
+3.129,0.387,StateMachine,run completed
+3.130,0.349,Mainline,Ending state machine pass
+3.130,0.378,Mainline,Begining state machine pass
+3.130,0.404,StateMachine,before if(conditionsToCheck
+3.131,0.527,StateMachine,before this.everyTime
+3.131,0.452,StateMachine,after this.everyTime
+3.132,0.362,StateMachine,run completed
+3.132,0.387,Mainline,Ending state machine pass
+3.132,0.368,Mainline,Begining state machine pass
+3.133,0.415,StateMachine,before if(conditionsToCheck
+3.133,0.458,StateMachine,before this.everyTime
+3.134,0.379,StateMachine,after this.everyTime
+3.134,0.354,StateMachine,run completed
+3.134,0.322,Mainline,Ending state machine pass
+3.135,0.297,Mainline,Begining state machine pass
+3.135,0.340,StateMachine,before if(conditionsToCheck
+3.135,0.432,StateMachine,before this.everyTime
+3.136,0.471,StateMachine,after this.everyTime
+3.136,0.376,StateMachine,run completed
+3.137,0.351,Mainline,Ending state machine pass
+3.137,0.330,Mainline,Begining state machine pass
+3.137,0.363,StateMachine,before if(conditionsToCheck
+3.138,0.432,StateMachine,before this.everyTime
+3.138,0.320,StateMachine,after this.everyTime
+3.138,0.288,StateMachine,run completed
+3.139,0.268,Mainline,Ending state machine pass
+3.139,0.320,Mainline,Begining state machine pass
+3.139,0.329,StateMachine,before if(conditionsToCheck
+3.140,0.370,StateMachine,before this.everyTime
+3.140,0.324,StateMachine,after this.everyTime
+3.140,0.368,StateMachine,run completed
+3.141,0.563,Mainline,Ending state machine pass
+3.143,1.805,Mainline,Begining state machine pass
+3.143,0.686,StateMachine,before if(conditionsToCheck
+3.144,0.766,StateMachine,before this.everyTime
+3.145,0.877,StateMachine,after this.everyTime
+3.146,0.825,StateMachine,run completed
+3.147,1.115,Mainline,Ending state machine pass
+3.148,0.790,Mainline,Begining state machine pass
+3.149,1.109,StateMachine,before if(conditionsToCheck
+3.150,0.750,StateMachine,before this.everyTime
+3.150,0.457,StateMachine,after this.everyTime
+3.151,0.833,StateMachine,run completed
+3.151,0.422,Mainline,Ending state machine pass
+3.152,0.899,Mainline,Begining state machine pass
+3.153,0.362,StateMachine,before if(conditionsToCheck
+3.153,0.766,StateMachine,before this.everyTime
+3.154,0.444,StateMachine,after this.everyTime
+3.154,0.599,StateMachine,run completed
+3.155,0.429,Mainline,Ending state machine pass
+3.156,0.874,Mainline,Begining state machine pass
+3.156,0.554,StateMachine,before if(conditionsToCheck
+3.157,0.786,StateMachine,before this.everyTime
+3.158,0.957,StateMachine,after this.everyTime
+3.159,0.651,StateMachine,run completed
+3.159,0.480,Mainline,Ending state machine pass
+3.160,0.796,Mainline,Begining state machine pass
+3.160,0.374,StateMachine,before if(conditionsToCheck
+3.161,0.694,StateMachine,before this.everyTime
+3.162,1.360,StateMachine,after this.everyTime
+3.164,1.343,StateMachine,run completed
+3.164,0.579,Mainline,Ending state machine pass
+3.165,1.051,Mainline,Begining state machine pass
+3.166,0.760,StateMachine,before if(conditionsToCheck
+3.167,1.129,StateMachine,before this.everyTime
+3.168,0.722,StateMachine,after this.everyTime
+3.170,1.609,StateMachine,run completed
+3.170,0.695,Mainline,Ending state machine pass
+3.171,1.072,Mainline,Begining state machine pass
+3.172,0.673,StateMachine,before if(conditionsToCheck
+3.173,0.990,StateMachine,before this.everyTime
+3.174,1.214,StateMachine,after this.everyTime
+3.175,0.700,StateMachine,run completed
+3.175,0.541,Mainline,Ending state machine pass
+3.177,1.056,Mainline,Begining state machine pass
+3.177,0.603,StateMachine,before if(conditionsToCheck
+3.178,1.362,StateMachine,before this.everyTime
+3.179,0.979,StateMachine,after this.everyTime
+3.180,0.914,StateMachine,run completed
+3.181,0.531,Mainline,Ending state machine pass
+3.182,0.710,Mainline,Begining state machine pass
+3.182,0.568,StateMachine,before if(conditionsToCheck
+3.183,0.869,StateMachine,before this.everyTime
+3.184,0.536,StateMachine,after this.everyTime
+3.184,0.780,StateMachine,run completed
+3.185,1.087,Mainline,Ending state machine pass
+3.186,0.781,Mainline,Begining state machine pass
+3.187,0.675,StateMachine,before if(conditionsToCheck
+3.188,0.911,StateMachine,before this.everyTime
+3.188,0.628,StateMachine,after this.everyTime
+3.189,0.936,StateMachine,run completed
+3.191,1.196,Mainline,Ending state machine pass
+3.192,1.051,Mainline,Begining state machine pass
+3.193,1.312,StateMachine,before if(conditionsToCheck
+3.194,1.361,StateMachine,before this.everyTime
+3.195,0.756,StateMachine,after this.everyTime
+3.197,1.930,StateMachine,run completed
+3.198,0.814,Mainline,Ending state machine pass
+3.198,0.611,Mainline,Begining state machine pass
+3.199,0.658,StateMachine,before if(conditionsToCheck
+3.200,1.076,StateMachine,before this.everyTime
+3.202,1.445,StateMachine,after this.everyTime
+3.204,2.217,StateMachine,run completed
+3.205,1.484,Mainline,Ending state machine pass
+3.206,1.069,Mainline,Begining state machine pass
+3.208,1.487,StateMachine,before if(conditionsToCheck
+3.210,1.966,StateMachine,before this.everyTime
+3.211,0.721,StateMachine,after this.everyTime
+3.211,0.848,StateMachine,run completed
+3.212,0.493,Mainline,Ending state machine pass
+3.242,30.363,Mainline,Begining state machine pass
+3.244,1.518,StateMachine,before if(conditionsToCheck
+3.245,0.760,StateMachine,before this.everyTime
+3.245,0.493,StateMachine,after this.everyTime
+3.246,0.640,StateMachine,run completed
+3.246,0.518,Mainline,Ending state machine pass
+3.247,0.869,Mainline,Begining state machine pass
+3.248,1.091,StateMachine,before if(conditionsToCheck
+3.249,0.592,StateMachine,before this.everyTime
+3.249,0.741,StateMachine,after this.everyTime
+3.250,0.440,StateMachine,run completed
+3.250,0.578,Mainline,Ending state machine pass
+3.251,0.486,Mainline,Begining state machine pass
+3.252,0.636,StateMachine,before if(conditionsToCheck
+3.252,0.563,StateMachine,before this.everyTime
+3.253,0.697,StateMachine,after this.everyTime
+3.253,0.417,StateMachine,run completed
+3.254,0.542,Mainline,Ending state machine pass
+3.254,0.439,Mainline,Begining state machine pass
+3.255,0.662,StateMachine,before if(conditionsToCheck
+3.255,0.487,StateMachine,before this.everyTime
+3.256,0.867,StateMachine,after this.everyTime
+3.257,0.398,StateMachine,run completed
+3.257,0.496,Mainline,Ending state machine pass
+3.258,0.380,Mainline,Begining state machine pass
+3.258,0.677,StateMachine,before if(conditionsToCheck
+3.259,0.449,StateMachine,before this.everyTime
+3.259,0.584,StateMachine,after this.everyTime
+3.260,0.417,StateMachine,run completed
+3.260,0.774,Mainline,Ending state machine pass
+3.261,0.412,Mainline,Begining state machine pass
+3.261,0.505,StateMachine,before if(conditionsToCheck
+3.262,0.469,StateMachine,before this.everyTime
+3.262,0.545,StateMachine,after this.everyTime
+3.263,0.434,StateMachine,run completed
+3.263,0.528,Mainline,Ending state machine pass
+3.264,0.401,Mainline,Begining state machine pass
+3.264,0.744,StateMachine,before if(conditionsToCheck
+3.265,0.562,StateMachine,before this.everyTime
+3.266,0.622,StateMachine,after this.everyTime
+3.266,0.482,StateMachine,run completed
+3.267,0.658,Mainline,Ending state machine pass
+3.267,0.444,Mainline,Begining state machine pass
+3.268,0.704,StateMachine,before if(conditionsToCheck
+3.269,0.540,StateMachine,before this.everyTime
+3.269,0.727,StateMachine,after this.everyTime
+3.270,0.439,StateMachine,run completed
+3.270,0.670,Mainline,Ending state machine pass
+3.271,0.405,Mainline,Begining state machine pass
+3.271,0.697,StateMachine,before if(conditionsToCheck
+3.272,0.541,StateMachine,before this.everyTime
+3.273,0.668,StateMachine,after this.everyTime
+3.273,0.436,StateMachine,run completed
+3.274,0.676,Mainline,Ending state machine pass
+3.274,0.430,Mainline,Begining state machine pass
+3.275,0.652,StateMachine,before if(conditionsToCheck
+3.275,0.462,StateMachine,before this.everyTime
+3.276,0.754,StateMachine,after this.everyTime
+3.277,0.478,StateMachine,run completed
+3.277,0.528,Mainline,Ending state machine pass
+3.278,0.554,Mainline,Begining state machine pass
+3.278,0.443,StateMachine,before if(conditionsToCheck
+3.279,0.499,StateMachine,before this.everyTime
+3.279,0.382,StateMachine,after this.everyTime
+3.279,0.350,StateMachine,run completed
+3.280,0.345,Mainline,Ending state machine pass
+3.280,0.344,Mainline,Begining state machine pass
+3.280,0.308,StateMachine,before if(conditionsToCheck
+3.281,0.363,StateMachine,before this.everyTime
+3.281,0.334,StateMachine,after this.everyTime
+3.281,0.353,StateMachine,run completed
+3.282,0.371,Mainline,Ending state machine pass
+3.282,0.396,Mainline,Begining state machine pass
+3.283,0.387,StateMachine,before if(conditionsToCheck
+3.283,0.454,StateMachine,before this.everyTime
+3.283,0.348,StateMachine,after this.everyTime
+3.284,0.327,StateMachine,run completed
+3.284,0.338,Mainline,Ending state machine pass
+3.284,0.329,Mainline,Begining state machine pass
+3.285,0.313,StateMachine,before if(conditionsToCheck
+3.285,0.436,StateMachine,before this.everyTime
+3.285,0.356,StateMachine,after this.everyTime
+3.286,0.484,StateMachine,run completed
+3.286,0.376,Mainline,Ending state machine pass
+3.287,0.379,Mainline,Begining state machine pass
+3.287,0.406,StateMachine,before if(conditionsToCheck
+3.288,0.524,StateMachine,before this.everyTime
+3.288,0.472,StateMachine,after this.everyTime
+3.288,0.401,StateMachine,run completed
+3.289,0.389,Mainline,Ending state machine pass
+3.289,0.378,Mainline,Begining state machine pass
+3.290,0.410,StateMachine,before if(conditionsToCheck
+3.290,0.494,StateMachine,before this.everyTime
+3.291,0.405,StateMachine,after this.everyTime
+3.291,0.375,StateMachine,run completed
+3.291,0.372,Mainline,Ending state machine pass
+3.292,0.366,Mainline,Begining state machine pass
+3.292,0.409,StateMachine,before if(conditionsToCheck
+3.292,0.432,StateMachine,before this.everyTime
+3.293,0.386,StateMachine,after this.everyTime
+3.293,0.442,StateMachine,run completed
+3.294,0.395,Mainline,Ending state machine pass
+3.294,0.388,Mainline,Begining state machine pass
+3.294,0.354,StateMachine,before if(conditionsToCheck
+3.295,0.467,StateMachine,before this.everyTime
+3.295,0.369,StateMachine,after this.everyTime
+3.296,0.500,StateMachine,run completed
+3.296,0.438,Mainline,Ending state machine pass
+3.297,0.383,Mainline,Begining state machine pass
+3.297,0.402,StateMachine,before if(conditionsToCheck
+3.297,0.460,StateMachine,before this.everyTime
+3.298,0.402,StateMachine,after this.everyTime
+3.298,0.415,StateMachine,run completed
+3.299,0.347,Mainline,Ending state machine pass
+3.299,0.325,Mainline,Begining state machine pass
+3.299,0.367,StateMachine,before if(conditionsToCheck
+3.300,0.502,StateMachine,before this.everyTime
+3.300,0.347,StateMachine,after this.everyTime
+3.300,0.297,StateMachine,run completed
+3.301,0.322,Mainline,Ending state machine pass
+3.301,0.360,Mainline,Begining state machine pass
+3.302,0.408,StateMachine,before if(conditionsToCheck
+3.302,0.510,StateMachine,before this.everyTime
+3.302,0.329,StateMachine,after this.everyTime
+3.303,0.537,StateMachine,run completed
+3.303,0.425,Mainline,Ending state machine pass
+3.304,0.398,Mainline,Begining state machine pass
+3.304,0.387,StateMachine,before if(conditionsToCheck
+3.305,0.422,StateMachine,before this.everyTime
+3.305,0.374,StateMachine,after this.everyTime
+3.305,0.384,StateMachine,run completed
+3.306,0.444,Mainline,Ending state machine pass
+3.306,0.346,Mainline,Begining state machine pass
+3.306,0.321,StateMachine,before if(conditionsToCheck
+3.307,0.427,StateMachine,before this.everyTime
+3.307,0.393,StateMachine,after this.everyTime
+3.308,0.379,StateMachine,run completed
+3.308,0.338,Mainline,Ending state machine pass
+3.308,0.310,Mainline,Begining state machine pass
+3.309,0.311,StateMachine,before if(conditionsToCheck
+3.309,0.462,StateMachine,before this.everyTime
+3.309,0.411,StateMachine,after this.everyTime
+3.310,0.427,StateMachine,run completed
+3.310,0.338,Mainline,Ending state machine pass
+3.311,0.331,Mainline,Begining state machine pass
+3.311,0.344,StateMachine,before if(conditionsToCheck
+3.311,0.513,StateMachine,before this.everyTime
+3.312,0.391,StateMachine,after this.everyTime
+3.312,0.346,StateMachine,run completed
+3.312,0.311,Mainline,Ending state machine pass
+3.313,0.328,Mainline,Begining state machine pass
+3.313,0.374,StateMachine,before if(conditionsToCheck
+3.314,0.445,StateMachine,before this.everyTime
+3.314,0.349,StateMachine,after this.everyTime
+3.314,0.351,StateMachine,run completed
+3.315,0.351,Mainline,Ending state machine pass
+3.315,0.398,Mainline,Begining state machine pass
+3.315,0.397,StateMachine,before if(conditionsToCheck
+3.316,0.590,StateMachine,before this.everyTime
+3.316,0.348,StateMachine,after this.everyTime
+3.317,0.317,StateMachine,run completed
+3.317,0.345,Mainline,Ending state machine pass
+3.317,0.372,Mainline,Begining state machine pass
+3.318,0.410,StateMachine,before if(conditionsToCheck
+3.318,0.420,StateMachine,before this.everyTime
+3.319,0.298,StateMachine,after this.everyTime
+3.319,0.302,StateMachine,run completed
+3.319,0.355,Mainline,Ending state machine pass
+3.320,0.394,Mainline,Begining state machine pass
+3.320,0.414,StateMachine,before if(conditionsToCheck
+3.320,0.459,StateMachine,before this.everyTime
+3.321,0.404,StateMachine,after this.everyTime
+3.321,0.374,StateMachine,run completed
+3.322,0.342,Mainline,Ending state machine pass
+3.322,0.323,Mainline,Begining state machine pass
+3.322,0.297,StateMachine,before if(conditionsToCheck
+3.323,0.364,StateMachine,before this.everyTime
+3.323,0.351,StateMachine,after this.everyTime
+3.323,0.360,StateMachine,run completed
+3.324,0.388,Mainline,Ending state machine pass
+3.324,0.372,Mainline,Begining state machine pass
+3.324,0.342,StateMachine,before if(conditionsToCheck
+3.325,0.449,StateMachine,before this.everyTime
+3.325,0.370,StateMachine,after this.everyTime
+3.326,0.463,StateMachine,run completed
+3.326,0.369,Mainline,Ending state machine pass
+3.326,0.328,Mainline,Begining state machine pass
+3.327,0.369,StateMachine,before if(conditionsToCheck
+3.327,0.507,StateMachine,before this.everyTime
+3.328,0.408,StateMachine,after this.everyTime
+3.328,0.383,StateMachine,run completed
+3.328,0.340,Mainline,Ending state machine pass
+3.329,0.318,Mainline,Begining state machine pass
+3.329,0.388,StateMachine,before if(conditionsToCheck
+3.330,0.446,StateMachine,before this.everyTime
+3.330,0.423,StateMachine,after this.everyTime
+3.330,0.395,StateMachine,run completed
+3.331,0.370,Mainline,Ending state machine pass
+3.331,0.414,Mainline,Begining state machine pass
+3.332,0.405,StateMachine,before if(conditionsToCheck
+3.332,0.528,StateMachine,before this.everyTime
+3.332,0.399,StateMachine,after this.everyTime
+3.333,0.368,StateMachine,run completed
+3.333,0.370,Mainline,Ending state machine pass
+3.334,0.352,Mainline,Begining state machine pass
+3.334,0.376,StateMachine,before if(conditionsToCheck
+3.334,0.455,StateMachine,before this.everyTime
+3.335,0.367,StateMachine,after this.everyTime
+3.335,0.399,StateMachine,run completed
+3.336,0.417,Mainline,Ending state machine pass
+3.336,0.446,Mainline,Begining state machine pass
+3.336,0.393,StateMachine,before if(conditionsToCheck
+3.337,0.771,StateMachine,before this.everyTime
+3.338,0.422,StateMachine,after this.everyTime
+3.338,0.392,StateMachine,run completed
+3.338,0.368,Mainline,Ending state machine pass
+3.339,0.344,Mainline,Begining state machine pass
+3.339,0.406,StateMachine,before if(conditionsToCheck
+3.340,0.586,StateMachine,before this.everyTime
+3.340,0.449,StateMachine,after this.everyTime
+3.340,0.335,StateMachine,run completed
+3.341,0.345,Mainline,Ending state machine pass
+3.341,0.383,Mainline,Begining state machine pass
+3.342,0.465,StateMachine,before if(conditionsToCheck
+3.342,0.554,StateMachine,before this.everyTime
+3.343,0.436,StateMachine,after this.everyTime
+3.343,0.436,StateMachine,run completed
+3.343,0.373,Mainline,Ending state machine pass
+3.344,0.373,Mainline,Begining state machine pass
+3.344,0.388,StateMachine,before if(conditionsToCheck
+3.345,0.485,StateMachine,before this.everyTime
+3.345,0.460,StateMachine,after this.everyTime
+3.346,0.487,StateMachine,run completed
+3.347,1.251,Mainline,Ending state machine pass
+3.348,0.588,Mainline,Begining state machine pass
+3.348,0.980,StateMachine,before if(conditionsToCheck
+3.350,1.074,StateMachine,before this.everyTime
+3.351,1.141,StateMachine,after this.everyTime
+3.351,0.727,StateMachine,run completed
+3.352,1.010,Mainline,Ending state machine pass
+3.355,2.181,Mainline,Begining state machine pass
+3.356,1.054,StateMachine,before if(conditionsToCheck
+3.356,0.606,StateMachine,before this.everyTime
+3.357,0.426,StateMachine,after this.everyTime
+3.357,0.404,StateMachine,run completed
+3.357,0.384,Mainline,Ending state machine pass
+3.358,0.399,Mainline,Begining state machine pass
+3.358,0.433,StateMachine,before if(conditionsToCheck
+3.359,0.466,StateMachine,before this.everyTime
+3.359,0.488,StateMachine,after this.everyTime
+3.360,0.361,StateMachine,run completed
+3.360,0.423,Mainline,Ending state machine pass
+3.360,0.329,Mainline,Begining state machine pass
+3.361,0.331,StateMachine,before if(conditionsToCheck
+3.361,0.465,StateMachine,before this.everyTime
+3.362,0.348,StateMachine,after this.everyTime
+3.362,0.437,StateMachine,run completed
+3.362,0.361,Mainline,Ending state machine pass
+3.363,0.333,Mainline,Begining state machine pass
+3.363,0.375,StateMachine,before if(conditionsToCheck
+3.365,2.111,StateMachine,before this.everyTime
+3.366,0.610,StateMachine,after this.everyTime
+3.366,0.488,StateMachine,run completed
+3.367,0.376,Mainline,Ending state machine pass
+3.367,0.401,Mainline,Begining state machine pass
+3.367,0.361,StateMachine,before if(conditionsToCheck
+3.368,0.456,StateMachine,before this.everyTime
+3.368,0.384,StateMachine,after this.everyTime
+3.369,0.333,StateMachine,run completed
+3.369,0.356,Mainline,Ending state machine pass
+3.369,0.397,Mainline,Begining state machine pass
+3.370,0.426,StateMachine,before if(conditionsToCheck
+3.370,0.513,StateMachine,before this.everyTime
+3.371,0.374,StateMachine,after this.everyTime
+3.371,0.343,StateMachine,run completed
+3.371,0.336,Mainline,Ending state machine pass
+3.372,0.319,Mainline,Begining state machine pass
+3.372,0.395,StateMachine,before if(conditionsToCheck
+3.372,0.451,StateMachine,before this.everyTime
+3.373,0.369,StateMachine,after this.everyTime
+3.373,0.354,StateMachine,run completed
+3.374,0.419,Mainline,Ending state machine pass
+3.374,0.384,Mainline,Begining state machine pass
+3.374,0.416,StateMachine,before if(conditionsToCheck
+3.375,0.531,StateMachine,before this.everyTime
+3.375,0.410,StateMachine,after this.everyTime
+3.376,0.505,StateMachine,run completed
+3.376,0.441,Mainline,Ending state machine pass
+3.377,0.364,Mainline,Begining state machine pass
+3.377,0.380,StateMachine,before if(conditionsToCheck
+3.378,0.488,StateMachine,before this.everyTime
+3.378,0.442,StateMachine,after this.everyTime
+3.378,0.431,StateMachine,run completed
+3.379,0.399,Mainline,Ending state machine pass
+3.379,0.479,Mainline,Begining state machine pass
+3.380,0.900,StateMachine,before if(conditionsToCheck
+3.381,0.585,StateMachine,before this.everyTime
+3.381,0.566,StateMachine,after this.everyTime
+3.382,0.442,StateMachine,run completed
+3.382,0.495,Mainline,Ending state machine pass
+3.383,0.558,Mainline,Begining state machine pass
+3.383,0.445,StateMachine,before if(conditionsToCheck
+3.384,0.587,StateMachine,before this.everyTime
+3.384,0.439,StateMachine,after this.everyTime
+3.385,0.389,StateMachine,run completed
+3.385,0.395,Mainline,Ending state machine pass
+3.386,0.459,Mainline,Begining state machine pass
+3.386,0.524,StateMachine,before if(conditionsToCheck
+3.387,0.496,StateMachine,before this.everyTime
+3.387,0.446,StateMachine,after this.everyTime
+3.387,0.374,StateMachine,run completed
+3.388,0.341,Mainline,Ending state machine pass
+3.388,0.376,Mainline,Begining state machine pass
+3.389,0.411,StateMachine,before if(conditionsToCheck
+3.389,0.530,StateMachine,before this.everyTime
+3.389,0.396,StateMachine,after this.everyTime
+3.390,0.389,StateMachine,run completed
+3.391,0.865,Mainline,Ending state machine pass
+3.391,0.514,Mainline,Begining state machine pass
+3.392,0.428,StateMachine,before if(conditionsToCheck
+3.392,0.531,StateMachine,before this.everyTime
+3.393,0.412,StateMachine,after this.everyTime
+3.393,0.413,StateMachine,run completed
+3.393,0.370,Mainline,Ending state machine pass
+3.394,0.483,Mainline,Begining state machine pass
+3.394,0.397,StateMachine,before if(conditionsToCheck
+3.395,0.434,StateMachine,before this.everyTime
+3.395,0.422,StateMachine,after this.everyTime
+3.396,0.892,StateMachine,run completed
+3.397,0.673,Mainline,Ending state machine pass
+3.397,0.828,Mainline,Begining state machine pass
+3.398,0.692,StateMachine,before if(conditionsToCheck
+3.399,0.465,StateMachine,before this.everyTime
+3.399,0.743,StateMachine,after this.everyTime
+3.400,0.515,StateMachine,run completed
+3.400,0.393,Mainline,Ending state machine pass
+3.401,0.313,Mainline,Begining state machine pass
+3.401,0.366,StateMachine,before if(conditionsToCheck
+3.403,2.062,StateMachine,before this.everyTime
+3.404,0.465,StateMachine,after this.everyTime
+3.404,0.528,StateMachine,run completed
+3.404,0.411,Mainline,Ending state machine pass
+3.405,0.498,Mainline,Begining state machine pass
+3.406,0.819,StateMachine,before if(conditionsToCheck
+3.406,0.552,StateMachine,before this.everyTime
+3.407,0.869,StateMachine,after this.everyTime
+3.408,0.469,StateMachine,run completed
+3.408,0.538,Mainline,Ending state machine pass
+3.409,0.325,Mainline,Begining state machine pass
+3.409,0.359,StateMachine,before if(conditionsToCheck
+3.409,0.476,StateMachine,before this.everyTime
+3.410,0.395,StateMachine,after this.everyTime
+3.410,0.422,StateMachine,run completed
+3.411,0.418,Mainline,Ending state machine pass
+3.411,0.435,Mainline,Begining state machine pass
+3.411,0.476,StateMachine,before if(conditionsToCheck
+3.413,1.623,StateMachine,before this.everyTime
+3.414,0.559,StateMachine,after this.everyTime
+3.414,0.559,StateMachine,run completed
+3.415,0.402,Mainline,Ending state machine pass
+3.415,0.376,Mainline,Begining state machine pass
+3.415,0.351,StateMachine,before if(conditionsToCheck
+3.416,0.615,StateMachine,before this.everyTime
+3.416,0.437,StateMachine,after this.everyTime
+3.417,0.330,StateMachine,run completed
+3.419,1.786,Mainline,Ending state machine pass
+3.419,0.917,robot,setMotorPower was called - power: 0.00
+3.421,1.144,robot,pushButton was invoked
+3.422,1.708,autonomous,Done with opmode, exited based on OpmodeIsActive false

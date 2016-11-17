@@ -1,0 +1,19 @@
+sec,r.init,r.init was invoked (a)
+0.001,0.696,robot,pushButton was invoked
+0.003,1.606,robot,resetMotorEncoders was called
+0.004,1.292,robot,enableMotorEncoders was called
+0.005,0.834,r.init,r.init finished (a)
+0.006,0.770,autonomous,Done with robot.init --- starting p.init
+0.007,1.190,pm.init,pm.init was invoked
+0.009,1.896,robot,enableEncodersToPosition was called
+0.010,1.321,robot,resetMotorEncoders was called
+0.011,0.569,robot,setMotorTargets was called - f:r:s: 0 : 0 : 0
+0.012,1.131,robot,enableEncodersToPosition was called
+0.012,0.513,robot,setMotorPower was called - power: 1.00
+0.014,1.654,pm.init,pm.init finished
+0.015,1.172,autonomous,Done with pm.init --- waiting for start
+0.016,0.549,autonomous,Started
+1.037,1021.553,Mainline,Begining state machine pass
+1.038,0.858,robot,move was called - f:r:s: 1.00 : 0.00 : 0.00
+1.039,1.214,StateMachine,Execution of clear el wall has started
+1.040,1.277,StateMachine,this.isFirstTime = false
