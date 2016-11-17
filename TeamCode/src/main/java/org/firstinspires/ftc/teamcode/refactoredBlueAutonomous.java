@@ -40,7 +40,7 @@ public class refactoredBlueAutonomous extends LinearOpMode {
                     state.clearWall.run();
                     break;
                 case 1:
-                    state.arcTorwardsBeacon.run();
+                    state.arcTowardsBeacon.run();
                     break;
                 case 2:
                     state.getCloserToWall.run();

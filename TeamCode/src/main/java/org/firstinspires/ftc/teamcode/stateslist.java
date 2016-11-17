@@ -1,8 +1,11 @@
 package org.firstinspires.ftc.teamcode;
 
+import java.util.Locale;
+
 import static java.lang.Thread.sleep;
 import static org.firstinspires.ftc.teamcode.measurements.mmPerInch;
 import static org.firstinspires.ftc.teamcode.measurements.pi;
+import static org.firstinspires.ftc.teamcode.robotconfig.dl;
 
 /**
  * Created by mail2 on 11/15/2016.
@@ -20,9 +23,10 @@ class stateslist {
     /***
      * state makes robot drive forward slightly
      */
-    state clearWall = new state("clear el wall") {
+    state clearWall = new state("clearWall") {
 
         public void firstTime() {
+
             robot.move(1, 0, 0);
         }
 
@@ -31,7 +35,22 @@ class stateslist {
         }
 
         public boolean conditionsToCheck() {
-            return robot.getMotorEncoderAverage() > p.mm2pulses(3 * mmPerInch) + startEncoderPos;
+
+            robotconfig.addlog(dl, "in clearWall", "checking against p.mm2pulses(3 * mmPerInch) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in clearWall", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in clearWall", "returning false");
+                    return (false);
+                }
+            } else {
+                robotconfig.addlog(dl, "in clearWall", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
+                return robot.getMotorEncoderAverage() > p.mm2pulses(3 * mmPerInch) + startEncoderPos;
+            }
         }
 
         public void onCompletion() {
@@ -42,7 +61,7 @@ class stateslist {
     /***
      * state makes robot arc 90 degrees so it ends up pointed towards the beacon
      */
-    state arcTorwardsBeacon = new state("arc twards beacon") {
+    state arcTowardsBeacon = new state("arcTowardsBeacon") {
 
 
         public void firstTime() {
@@ -58,7 +77,21 @@ class stateslist {
         }
 
         public boolean conditionsToCheck() {
-            return robot.getMotorEncoderAverage() > p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos;
+            robotconfig.addlog(dl, "in arcTowardsBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in arcTowardsBeacon", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in arcTowardsBeacon", "returning false");
+                    return (false);
+                }
+            } else {
+                robotconfig.addlog(dl, "in arcTowardsBeacon", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
+                return robot.getMotorEncoderAverage() > p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos;
+            }
         }
 
         public void onCompletion() {
@@ -71,7 +104,7 @@ class stateslist {
     /***
      * state makes robot drive closer to the wall so the sensor is in range of the tape
      */
-    state getCloserToWall = new state("move robot slightly closer to wall") {
+    state getCloserToWall = new state("getCloserToWall") {
         public void firstTime() {
             robot.move(1, 0, 0);
         }
@@ -81,7 +114,23 @@ class stateslist {
         }
 
         public boolean conditionsToCheck() {
-            return robot.getMotorEncoderAverage() > p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos;
+
+            robotconfig.addlog(dl, "in getCloserToWall", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in getCloserToWall", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in getCloserToWall", "returning false");
+                    return (false);
+                }
+            } else {
+                robotconfig.addlog(dl, "in getCloserToWall", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
+                return robot.getMotorEncoderAverage() > p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos;
+            }
+
         }
 
         public void onCompletion() {
@@ -92,7 +141,7 @@ class stateslist {
     /***
      * state uses the light sensor to strafe towards the tape line
      */
-    state scanForLine = new state("use light sensor to move twards line") {
+    state scanForLine = new state("scanForLine") {
         public void firstTime() {
             robot.enableMotorBreak();
             robot.move(0, color, 0);
@@ -113,7 +162,7 @@ class stateslist {
     /***
      * state makes robot drive forward until touch sensor is touching beacon
      */
-    state driveTowardsBeacon = new state("stab beacon with touch sensor") {
+    state driveTowardsBeacon = new state("driveTowardsBeacon") {
         public void firstTime() {
             robot.disableMotorBreak();
             robot.move(0.5, 0, 0);
@@ -124,7 +173,22 @@ class stateslist {
         }
 
         public boolean conditionsToCheck() {
-            return robot.touchBeacon.isPressed();
+
+            robotconfig.addlog(dl, "in driveTowardsBeacon", "checking against robot.touchBeacon.isPressed()");
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in driveTowardsBeacon", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in driveTowardsBeacon", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.touchBeacon.isPressed();
+            }
+
         }
 
         public void onCompletion() {
@@ -134,7 +198,7 @@ class stateslist {
     /***
      * state makes robot use color sensor and servo to try to press the button on the beacon
      */
-    state pushBeaconButton = new state("use servo to select color") {
+    state pushBeaconButton = new state("driveTowardsBeacon") {
         public void firstTime() {
             robot.pushButton(robot.detectColor() * color);
             try {
@@ -159,7 +223,7 @@ class stateslist {
     /***
      * state makes robot back away from beacon slightly to avoid running into anything during next state
      */
-    state backAwayFromBeacon = new state("back away from the beacon") {
+    state backAwayFromBeacon = new state("backAwayFromBeacon") {
         public void firstTime() {
             robot.enableMotorBreak();
             robot.move(-1, 0, 0);
@@ -171,7 +235,23 @@ class stateslist {
         }
 
         public boolean conditionsToCheck() {
-            return robot.getMotorEncoderAverage() < -p.mm2pulses(3 * mmPerInch);
+
+            robotconfig.addlog(dl, "in backAwayFromBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in backAwayFromBeacon", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in backAwayFromBeacon", "returning false");
+                    return (false);
+                }
+            } else {
+                robotconfig.addlog(dl, "in backAwayFromBeacon", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
+                return robot.getMotorEncoderAverage() > p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos;
+            }
+
         }
 
         public void onCompletion() {
@@ -186,9 +266,9 @@ class stateslist {
     };
 
     /***
-     * state makes the robot attempt to knock over the capt ball
+     * state makes the robot attempt to knock over the cap ball
      */
-    state retreatToCenter = new state("drive twards the center goal") {
+    state retreatToCenter = new state("retreatToCenter") {
 
         public void firstTime() {
             robot.disableMotorBreak();
@@ -201,7 +281,23 @@ class stateslist {
         }
 
         public boolean conditionsToCheck() {
-            return (robot.getMotorEncoderAverage() - startEncoderPos) * 2 < -p.mm2pulses(55 * mmPerInch);
+
+            robotconfig.addlog(dl, "in retreatToCenter", "checking against robot.getMotorEncoderAverage() - startEncoderPos) * 2 < -p.mm2pulses(55 * mmPerInch ");
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in retreatToCenter", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in retreatToCenter", "returning false");
+                    return (false);
+                }
+            } else {
+                robotconfig.addlog(dl, "in retreatToCenter", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
+                return robot.getMotorEncoderAverage() > p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos;
+            }
+
         }
 
         public void onCompletion() {
@@ -211,7 +307,7 @@ class stateslist {
     /***
      * state makes robot move backwards to try to park partially on the center vortex
      */
-    state driveOnToWood = new state("drive backwards onto the wood of the center goal") {
+    state driveOnToWood = new state("driveOnToWood ") {
         public void firstTime() {
             robot.enableMotorBreak();
             robot.move(-1, 0, 0);
@@ -223,7 +319,23 @@ class stateslist {
         }
 
         public boolean conditionsToCheck() {
-            return (robot.getMotorEncoderAverage() - startEncoderPos) * 2 < -p.mm2pulses(4 * mmPerInch);
+
+            robotconfig.addlog(dl, "in driveOnToWood", "checking against robot.getMotorEncoderAverage() - startEncoderPos) * 2 < -p.mm2pulses(4 * mmPerInch ");
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in driveOnToWood", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in driveOnToWood", "returning false");
+                    return (false);
+                }
+            } else {
+                robotconfig.addlog(dl, "in driveOnToWood", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
+                return (robot.getMotorEncoderAverage() - startEncoderPos) * 2 < -p.mm2pulses(4 * mmPerInch);
+            }
+
         }
 
         public void onCompletion() {

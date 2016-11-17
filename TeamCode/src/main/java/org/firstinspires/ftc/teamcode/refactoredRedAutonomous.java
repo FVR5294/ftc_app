@@ -22,9 +22,9 @@ public class refactoredRedAutonomous extends LinearOpMode {
     @Override
     public void runOpMode() {
         robot.init(this);  // send whole LinearOpMode object and context
-        robotconfig.addlog(dl, "autonomous", "Done with robot.init --- waiting for start");
+        robotconfig.addlog(dl, "autonomous", "Done with robot.init --- waiting for start in " + this.getClass().getSimpleName());
         state.color = 1;
-        telemetry.addData("Say", "Hello Driver");
+        telemetry.addData("Say", "Hello Driver - debug mode is " + robotconfig.debugMode);
         telemetry.update();
         waitForStart();
         sleep(1000);
@@ -39,7 +39,7 @@ public class refactoredRedAutonomous extends LinearOpMode {
                     state.clearWall.run();
                     break;
                 case 1:
-                    state.arcTorwardsBeacon.run();
+                    state.arcTowardsBeacon.run();
                     break;
                 case 2:
                     state.getCloserToWall.run();
@@ -74,9 +74,9 @@ public class refactoredRedAutonomous extends LinearOpMode {
                 case 12:
                     state.driveOnToWood.run();
                     break;
-                case 14:
-                    requestOpModeStop();
+                case 13:
                     robotconfig.addlog(dl, "StateMachine", "stop requested");
+                    requestOpModeStop();
                     break;
                 default:
                     robotconfig.addlog(dl, "error", "state not defined");
