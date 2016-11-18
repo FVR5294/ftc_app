@@ -3,6 +3,8 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
+import java.util.Locale;
+
 import static org.firstinspires.ftc.teamcode.robotconfig.dl;
 import static org.firstinspires.ftc.teamcode.stateslist.currentState;
 import static org.firstinspires.ftc.teamcode.stateslist.robot;
@@ -24,15 +26,15 @@ public class refactoredRedAutonomous extends LinearOpMode {
         robot.init(this);  // send whole LinearOpMode object and context
         robotconfig.addlog(dl, "autonomous", "Done with robot.init --- waiting for start in " + this.getClass().getSimpleName());
         state.color = 1;
+        currentState = 0;
         telemetry.addData("Say", "Hello Driver - debug mode is " + robotconfig.debugMode);
         telemetry.update();
         waitForStart();
-        sleep(1000);
         robotconfig.addlog(dl, "autonomous", "Started");
 
         while (opModeIsActive()) {
 
-            robotconfig.addlog(dl, "Mainline", "Begining state machine pass");
+            robotconfig.addlog(dl, "Mainline", "Beginning state machine pass " + String.format(Locale.ENGLISH, "%d", currentState));
 
             switch (currentState) {
                 case 0:
