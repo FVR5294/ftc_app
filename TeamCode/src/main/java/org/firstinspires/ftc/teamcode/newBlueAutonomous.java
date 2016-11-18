@@ -1,17 +1,17 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import static org.firstinspires.ftc.teamcode.robotconfig.dl;
 
 /**
  * Created by mail2 on 11/3/2016.
+ * Project: ftc_app_for_2016_robot
  */
 
 @Autonomous(name = "blue autonomous program", group = "2016")
-@Disabled
+//@Disabled
 public class newBlueAutonomous extends LinearOpMode {
     public static int color = -1;
     public robotconfig robot = new robotconfig();

@@ -482,48 +482,20 @@ public class robotconfig {
      */
     public void move(double forward, double right, double spin) {
 
-        addlog(dl, "robot", "move was called - f:r:s: " + String.format(Locale.ENGLISH, "%.2f", forward) + " : " + String.format(Locale.ENGLISH, "%.2f", right) + " : " + String.format(Locale.ENGLISH, "%.2f", spin));
+        addlog(dl, "robot", "move was called - f:r:s:, " + String.format(Locale.ENGLISH, "%.2f", forward) + ", " + String.format(Locale.ENGLISH, "%.2f", right) + ", " + String.format(Locale.ENGLISH, "%.2f", spin));
+
 
         if (debugMode) {
             return;
         }
 
-        fLeftMotor.setPower(scale(forward) + scale(right) + scale(spin));
-        fRightMotor.setPower(scale(forward) - scale(right) - scale(spin));
-        bLeftMotor.setPower(scale(forward) - scale(right) + scale(spin));
-        bRightMotor.setPower(scale(forward) + scale(right) - scale(spin));
+        fLeftMotor.setPower(forward + right + spin);
+        fRightMotor.setPower(forward - right - spin);
+        bLeftMotor.setPower(forward - right + spin);
+        bRightMotor.setPower(forward + right - spin);
 
-    }
+        addlog(dl, "robot", "move powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
 
-    /***
-     * function to scale the output of the joystick
-     *
-     * @param input unscaled joystick values
-     * @return scaled joystick values
-     */
-    private double scale(double input) {
-
-        double sign = 1.0;
-        double output;
-
-        if (input < 0.0) {
-            sign = -1.0;    // remember incoming joystick direction, -1 is fully up
-        }
-
-        input = input * input;  // power transfer curve, adjust sign handling if sign is preserved by this function
-
-        double DEAD_ZONE = 0.02;
-        if (input < (DEAD_ZONE * DEAD_ZONE)) { // need to square DEAD_ZONE since input is already squared
-            return (0);
-        }
-
-        output = (input - (DEAD_ZONE * DEAD_ZONE));             // shift so that range is from 0 to 1.0-DEAD_ZONE^2 instead of DEAD_ZONE^2 to 1.0
-        output = output / (1.0 - (DEAD_ZONE * DEAD_ZONE));     // scale so 0 to 1.0-DEAD_ZONE^2 is now 0 to 1
-        double MAX_POWER = 1.00;
-        double MIN_POWER = 0.05;
-        output = output * (MAX_POWER - MIN_POWER);              // scale so range is now 0 to (MAX-MIN)
-        output = output + MIN_POWER;                            // shift so range is now MIN_POWER to MAX_POWER
-        return (output * sign);         // don't forget to restore the sign of the input
     }
 
 }
