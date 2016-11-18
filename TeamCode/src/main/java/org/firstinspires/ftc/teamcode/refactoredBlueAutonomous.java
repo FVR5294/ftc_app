@@ -33,7 +33,7 @@ public class refactoredBlueAutonomous extends LinearOpMode {
 
         while (opModeIsActive()) {
 
-            robotconfig.addlog(dl, "Mainline", "Beginning state machine pass");
+            //robotconfig.addlog(dl, "Mainline", "Beginning state machine pass");
 
             switch (currentState) {
                 case 0:
@@ -84,7 +84,7 @@ public class refactoredBlueAutonomous extends LinearOpMode {
                     break;
             }
 
-            robotconfig.addlog(dl, "Mainline", "Ending state machine pass");
+            //robotconfig.addlog(dl, "Mainline", "Ending state machine pass");
 
         }
 

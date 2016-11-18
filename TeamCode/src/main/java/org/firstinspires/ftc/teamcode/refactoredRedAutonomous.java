@@ -3,8 +3,6 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import java.util.Locale;
-
 import static org.firstinspires.ftc.teamcode.robotconfig.dl;
 import static org.firstinspires.ftc.teamcode.stateslist.currentState;
 import static org.firstinspires.ftc.teamcode.stateslist.robot;
@@ -34,7 +32,7 @@ public class refactoredRedAutonomous extends LinearOpMode {
 
         while (opModeIsActive()) {
 
-            robotconfig.addlog(dl, "Mainline", "Beginning state machine pass " + String.format(Locale.ENGLISH, "%d", currentState));
+            //robotconfig.addlog(dl, "Mainline", "Beginning state machine pass " + String.format(Locale.ENGLISH, "%d", currentState));
 
             switch (currentState) {
                 case 0:
@@ -85,7 +83,7 @@ public class refactoredRedAutonomous extends LinearOpMode {
                     break;
             }
 
-            robotconfig.addlog(dl, "Mainline", "Ending state machine pass");
+            //robotconfig.addlog(dl, "Mainline", "Ending state machine pass");
 
         }
 
