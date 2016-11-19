@@ -128,14 +128,14 @@ class preciseMovement {
         robotconfig.addlog(dl, "pm.waitforMotors", "called with right:" + String.format(Locale.ENGLISH, "%.2f", right) + " and spin:" + String.format(Locale.ENGLISH, "%.2f", spin) + " and forward:" + String.format(Locale.ENGLISH, "%.2f", forward));
         runtime.reset();
         while (robot.isMotorBusy() && (runtime.seconds() < timeout) && robotconfig.theLinearOpMode.opModeIsActive()) {
-            robotconfig.addlog(dl, "pm.waitforMotors", "looping");
+            //robotconfig.addlog(dl, "pm.waitforMotors", "looping");
             Thread.yield();
         }
         // Need to gracefully exit loop here as we have either timed out or a stop has been requested
 
-        robotconfig.addlog(dl, "pm.waitforMotors", "done looping");
-        robotconfig.addlog(dl, "pm.waitforMotors", "runtime.seconds() is " + String.format(Locale.ENGLISH, "%.2f", runtime.seconds()));
-        robotconfig.addlog(dl, "pm.waitforMotors", "timeout is " + String.format(Locale.ENGLISH, "%.2f", timeout));
+        //robotconfig.addlog(dl, "pm.waitforMotors", "done looping");
+        //robotconfig.addlog(dl, "pm.waitforMotors", "runtime.seconds() is " + String.format(Locale.ENGLISH, "%.2f", runtime.seconds()));
+        //robotconfig.addlog(dl, "pm.waitforMotors", "timeout is " + String.format(Locale.ENGLISH, "%.2f", timeout));
 
         if (runtime.seconds() >= timeout) {
             robotconfig.addlog(dl, "pm.waitforMotors", "timed out: " + String.format(Locale.ENGLISH, "%.2f", runtime.seconds()));

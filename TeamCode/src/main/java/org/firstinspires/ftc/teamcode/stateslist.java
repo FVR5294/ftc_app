@@ -100,24 +100,21 @@ class stateslist {
 
         }
     };
-    private int startEncoderPos = 0;
     /***
      * state makes robot drive forward slightly
      */
     state clearWall = new state("clearWall") {
 
         public void firstTime() {
-
-            robot.move(1.00, 0.00, 0.00);
+            //robot.setMyMotorTargets(p.mm2pulses(3 * mmPerInch), 0, 0);
         }
 
         public void everyTime() {
-
+            //robotconfig.addlog(dl, "in clearWall", "error at, " + robot.getErrors());
+            //robot.bettermove();
         }
 
         public boolean conditionsToCheck() {
-
-            robotconfig.addlog(dl, "in clearWall", "checking against p.mm2pulses(3 * mmPerInch) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch) + startEncoderPos));
 
             if (robotconfig.debugMode) {
                 if (this.isFirstTimeDebug) {
@@ -129,8 +126,8 @@ class stateslist {
                     return (false);
                 }
             } else {
-                robotconfig.addlog(dl, "in clearWall", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
-                return robot.getMotorEncoderAverage() > p.mm2pulses(3 * mmPerInch) + startEncoderPos;
+                return true;
+                //return robot.bettermoving();
             }
         }
 
@@ -153,25 +150,20 @@ class stateslist {
             //Mid radius 56.25"
             //Mid arc length 56.25*pi/2
 
-            //move( (mid length)/(mid length + mid length - inner length), 0, (mid length - outer length)/(mid length + mid length - inner length)
-
-            //robot.move((mmPerInch * 56.25 * pi / 2) / (mmPerInch * 56.25 * pi - 49.25 * pi / 2), 0, (mmPerInch * 56.25 * pi / 2 - mmPerInch * 63.25 * pi / 2) / (mmPerInch * 56.25 * pi - 49.25 * pi / 2));
-
-            //robot.move((mmPerInch * 56.25 * pi / 2) / (mmPerInch * 56.25 * pi - 49.25 * pi / 2), 0, (mmPerInch * 56.25 * pi / 2 - mmPerInch * 49.25 * pi / 2) / (mmPerInch * 56.25 * pi - 49.25 * pi / 2));
-
             if (color == 1)
-                robot.move((mmPerInch * 56.25 * pi / 2) / (mmPerInch * 56.25 * pi / 2 + Math.abs(mmPerInch * 56.25 * pi / 2 - mmPerInch * 49.25 * pi / 2)), 0, -1 * Math.abs(mmPerInch * 56.25 * pi / 2 - mmPerInch * 49.25 * pi / 2) / (mmPerInch * 56.25 * pi / 2 + Math.abs(mmPerInch * 56.25 * pi / 2 - mmPerInch * 49.25 * pi / 2)));
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * 31 * pi / 2 + 3 * mmPerInch), p.mm2pulses(mmPerInch * 60 * pi / 2));
             else
-                robot.move((mmPerInch * 56.25 * pi / 2) / (mmPerInch * 56.25 * pi / 2 + Math.abs(mmPerInch * 56.25 * pi / 2 - mmPerInch * 49.25 * pi / 2)), 0, Math.abs(mmPerInch * 56.25 * pi / 2 - mmPerInch * 49.25 * pi / 2) / (mmPerInch * 56.25 * pi / 2 + Math.abs(mmPerInch * 56.25 * pi / 2 - mmPerInch * 49.25 * pi / 2)));
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * 60 * pi / 2 + 3 * mmPerInch), p.mm2pulses(mmPerInch * 31 * pi / 2));
 
         }
 
         public void everyTime() {
-
+            robot.bettermove();
+            robotconfig.addlog(dl, "in arcTowardsBeacon", "error at " + robot.getErrors());
         }
 
         public boolean conditionsToCheck() {
-            robotconfig.addlog(dl, "in arcTowardsBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos));
+            //robotconfig.addlog(dl, "in arcTowardsBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos));
 
             if (robotconfig.debugMode) {
                 if (this.isFirstTimeDebug) {
@@ -183,15 +175,16 @@ class stateslist {
                     return (false);
                 }
             } else {
-                robotconfig.addlog(dl, "in arcTowardsBeacon", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
-                return robot.getMotorEncoderAverage() > p.mm2pulses(3 * mmPerInch + 56.25 / 2 * mmPerInch * pi) + startEncoderPos;
+                return robot.bettermoving();
             }
         }
 
         public void onCompletion() {
-            robot.enableEncodersToPosition();
-            p.automaticSquareUp(robot);
-            robot.enableMotorEncoders();
+//            robot.enableEncodersToPosition();
+//            robot.setMotorPower(1);
+//            p.automaticSquareUp(robot);
+//            robot.setMotorPower(0);
+//            robot.enableMotorEncoders();
         }
     };
     /***
@@ -199,7 +192,10 @@ class stateslist {
      */
     state getCloserToWall = new state("getCloserToWall") {
         public void firstTime() {
-            robot.move(1, 0, 0);
+            if (color == 1)
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * 31 * pi / 2 + 3 * mmPerInch + 3 * mmPerInch), p.mm2pulses(mmPerInch * 60 * pi / 2 + 3 * mmPerInch));
+            else
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * 60 * pi / 2 + 3 * mmPerInch + 3 * mmPerInch), p.mm2pulses(mmPerInch * 31 * pi / 2 + 3 * mmPerInch));
         }
 
         public void everyTime() {
@@ -208,7 +204,7 @@ class stateslist {
 
         public boolean conditionsToCheck() {
 
-            robotconfig.addlog(dl, "in getCloserToWall", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos));
+            //robotconfig.addlog(dl, "in getCloserToWall", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos));
 
             if (robotconfig.debugMode) {
                 if (this.isFirstTimeDebug) {
@@ -220,8 +216,9 @@ class stateslist {
                     return (false);
                 }
             } else {
-                robotconfig.addlog(dl, "in getCloserToWall", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
-                return robot.getMotorEncoderAverage() > p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos;
+                return true;
+//                robotconfig.addlog(dl, "in getCloserToWall", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
+//                return robot.getMotorEncoderAverage() > p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos;
             }
 
         }
@@ -230,6 +227,7 @@ class stateslist {
 
         }
     };
+    private int startEncoderPos = 0;
     /***
      * state makes robot back away from beacon slightly to avoid running into anything during next state
      */

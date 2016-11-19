@@ -31,6 +31,11 @@ public class robotconfig {
     static public DataLogger dl;
     static LinearOpMode theLinearOpMode;
     static boolean debugMode = false;
+    public int fLeftMotorTarget = 0;
+    public int fRightMotorTarget = 0;
+    public int bLeftMotorTarget = 0;
+    public int bRightMotorTarget = 0;
+    public int bettermovedeadzone = 50;
     DcMotor fLeftMotor;
     DcMotor fRightMotor;
     DcMotor bLeftMotor;
@@ -181,6 +186,35 @@ public class robotconfig {
         fRightMotor.setTargetPosition(fRightMotor.getCurrentPosition() + forward - right - spin);
         bLeftMotor.setTargetPosition(bLeftMotor.getCurrentPosition() + forward - right + spin);
         bRightMotor.setTargetPosition(bRightMotor.getCurrentPosition() + forward + right - spin);
+    }
+
+    /***
+     * sets the target position of all the motors in pulses. probably won't work as expected if less than 2 values are equal to zero
+     *
+     * @param forward pulses in the forward direction
+     * @param right   pulses in sliding to the right (or left if negative)
+     * @param spin    pulses in spinning clockwise
+     */
+    void setMyMotorTargets(int forward, int right, int spin) {
+        addlog(dl, "robot", "setMotorTargets was called - f:r:s: " + String.format(Locale.ENGLISH, "%d", forward) + " : " + String.format(Locale.ENGLISH, "%d", right) + " : " + String.format(Locale.ENGLISH, "%d", spin));
+        if (debugMode) {
+            return;
+        }
+        fLeftMotorTarget = (fLeftMotor.getCurrentPosition() + forward + right + spin);
+        fRightMotorTarget = (fRightMotor.getCurrentPosition() + forward - right - spin);
+        bLeftMotorTarget = (bLeftMotor.getCurrentPosition() + forward - right + spin);
+        bRightMotorTarget = (bRightMotor.getCurrentPosition() + forward + right - spin);
+    }
+
+    void setMyMotorTankTargets(int left, int right) {
+        addlog(dl, "robot", "setMotorTankTargets was called - L:r: " + String.format(Locale.ENGLISH, "%d", left) + " : " + String.format(Locale.ENGLISH, "%d", right));
+        if (debugMode) {
+            return;
+        }
+        fLeftMotorTarget = left;
+        fRightMotorTarget = right;
+        bLeftMotorTarget = left;
+        bRightMotorTarget = right;
     }
 
     /***
@@ -496,6 +530,57 @@ public class robotconfig {
 
         addlog(dl, "robot", "move powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
 
+    }
+
+    /***
+     * move is a function to efficiently set the power values of all 4 drive train motors in one quick line.
+     */
+    public void bettermove() {
+
+
+        if (debugMode) {
+            return;
+        }
+
+        double fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition());
+        double fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());
+        double bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition());
+        double bRightMotorPower = (bRightMotorTarget - bRightMotor.getCurrentPosition());
+        double max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower)));
+
+        if (Math.abs(fLeftMotorPower) < bettermovedeadzone)
+            fLeftMotorPower = 0;
+        if (Math.abs(fRightMotorPower) < bettermovedeadzone)
+            fRightMotorPower = 0;
+        if (Math.abs(bRightMotorPower) < bettermovedeadzone)
+            bRightMotorPower = 0;
+        if (Math.abs(bLeftMotorPower) < bettermovedeadzone)
+            bLeftMotorPower = 0;
+
+        fLeftMotor.setPower(fLeftMotorPower / max);
+        fRightMotor.setPower(fRightMotorPower / max);
+        bLeftMotor.setPower(bLeftMotorPower / max);
+        bRightMotor.setPower(bRightMotorPower / max);
+
+        addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
+
+    }
+
+    public boolean bettermoving() {
+        int fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition());
+        int fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());
+        int bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition());
+        int bRightMotorPower = (bRightMotorTarget - bRightMotor.getCurrentPosition());
+        return Math.abs(fLeftMotorPower) < bettermovedeadzone && Math.abs(fRightMotorPower) < bettermovedeadzone && Math.abs(bLeftMotorPower) < bettermovedeadzone && Math.abs(bRightMotorPower) < bettermovedeadzone;
+    }
+
+    public String getErrors() {
+        int fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition());
+        int fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());
+        int bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition());
+        int bRightMotorPower = (bRightMotorTarget - bRightMotor.getCurrentPosition());
+        int max = Math.max(Math.max(fLeftMotorPower, bLeftMotorPower), Math.max(fRightMotorPower, bRightMotorPower));
+        return String.format(Locale.ENGLISH, "%d, %d, %d, %d", fLeftMotorPower, fRightMotorPower, bLeftMotorPower, bRightMotorPower);
     }
 
 }

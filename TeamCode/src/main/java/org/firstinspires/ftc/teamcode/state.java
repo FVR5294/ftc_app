@@ -77,7 +77,7 @@ class state implements substate {
             this.runCount = 0;
             //robotconfig.addlog(dl, this.name + "StateMachine", "after this.isFirstTime = false");
         }
-        robotconfig.addlog(dl,this.name +  "StateMachine", "before if(conditionsToCheck");
+        robotconfig.addlog(dl, this.name + "StateMachine", "before if(conditionsToCheck");
         if (this.conditionsToCheck()) {
             //robotconfig.addlog(dl, this.name + "StateMachine", "before this.onCompletion");
             this.onCompletion();
