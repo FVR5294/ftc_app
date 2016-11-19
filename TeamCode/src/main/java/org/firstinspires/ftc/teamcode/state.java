@@ -1,5 +1,9 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.util.ElapsedTime;
+
+import java.util.Locale;
+
 import static org.firstinspires.ftc.teamcode.robotconfig.dl;
 import static org.firstinspires.ftc.teamcode.stateslist.currentState;
 
@@ -20,8 +24,10 @@ interface substate {
 
 class state implements substate {
     public String name;
-    private boolean isFirstTime = true;
     public boolean isFirstTimeDebug = false;
+    public int runCount = 0;
+    public ElapsedTime runtimecounter = new ElapsedTime();
+    private boolean isFirstTime = true;
 
 
     public state(String name) {
@@ -67,20 +73,23 @@ class state implements substate {
             this.firstTime();
             robotconfig.addlog(dl, this.name + "StateMachine", "Execution of " + this.name + " has started");
             this.isFirstTime = false;
-            robotconfig.addlog(dl, this.name + "StateMachine", "after this.isFirstTime = false");
+            this.runtimecounter.reset();
+            this.runCount = 0;
+            //robotconfig.addlog(dl, this.name + "StateMachine", "after this.isFirstTime = false");
         }
-        robotconfig.addlog(dl,this.name +  "StateMachine", "before if(conditionsToCheck");
+        robotconfig.addlog(dl, this.name + "StateMachine", "before if(conditionsToCheck");
         if (this.conditionsToCheck()) {
-            robotconfig.addlog(dl, this.name + "StateMachine", "before this.onCompletion");
+            //robotconfig.addlog(dl, this.name + "StateMachine", "before this.onCompletion");
             this.onCompletion();
-            robotconfig.addlog(dl, this.name + "StateMachine", "after this.onCompletion");
+            //robotconfig.addlog(dl, this.name + "StateMachine", "after this.onCompletion");
             currentState++;
-            robotconfig.addlog(dl, this.name + "StateMachine", "currentState++");
-            robotconfig.addlog(dl, this.name + "StateMachine", "Execution of " + this.name + " has been completed");
+            //robotconfig.addlog(dl, this.name + "StateMachine", "currentState++");
+            robotconfig.addlog(dl, this.name + "StateMachine", String.format(Locale.ENGLISH, "Execution of %s has been completed in, %d, intervals over a time of, %f.3, seconds", this.name, this.runCount, this.runtimecounter.seconds()));
         } else {
-            robotconfig.addlog(dl, this.name + "StateMachine", "before this.everyTime");
+            //robotconfig.addlog(dl, this.name + "StateMachine", "before this.everyTime");
             everyTime();
-            robotconfig.addlog(dl, this.name + "StateMachine", "after this.everyTime");
+            this.runCount++;
+            //robotconfig.addlog(dl, this.name + "StateMachine", "after this.everyTime");
         }
         robotconfig.addlog(dl, this.name + "StateMachine", "run completed");
     }

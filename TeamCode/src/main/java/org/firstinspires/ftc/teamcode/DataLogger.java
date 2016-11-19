@@ -22,12 +22,12 @@ import java.util.Locale;
  */
 
 public class DataLogger {
+    static private final boolean ENABLE_LOGGING = true;
+    static private final boolean ENABLE_MULTIPLE_LOGS = true;
     private Writer writer;
     private StringBuffer lineBuffer;
     private long msBase;
     private long nsBase;
-    static private final boolean ENABLE_LOGGING = true;
-    static private final boolean ENABLE_MULTIPLE_LOGS = true;
 
     public DataLogger(String dirName, String fileName, Telemetry telemetry) {
 
@@ -48,7 +48,7 @@ public class DataLogger {
         if(ENABLE_MULTIPLE_LOGS) {
             Date now = Calendar.getInstance().getTime();
             // (2) create a date "formatter" (the date and time format we want)
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss", Locale.US);
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.US);
             fileName = fileName + "-" + formatter.format(now);
         }
 
