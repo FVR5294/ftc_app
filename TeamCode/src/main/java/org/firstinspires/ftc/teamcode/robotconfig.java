@@ -508,6 +508,46 @@ public class robotconfig {
     }
 
     /***
+     * possibly more responsive function is used to find the line on the field
+     *
+     * @return true if line is detected
+     */
+    boolean detectLineResponsive() {
+
+        int currentColorVal;
+        long endTime;
+
+        endTime = System.nanoTime() + 3 * 1000000;
+
+        addlog(dl, "robot", "detectLineResponsive was called");
+
+        if (robotconfig.debugMode) {
+            if (lineIsFirstTimeDebug) {
+                robotconfig.addlog(dl, "in detectLineResponsive", "returning true");
+                return (true);
+            } else {
+                lineIsFirstTimeDebug = true;
+                robotconfig.addlog(dl, "in detectLineResponsive", "returning false");
+                return (false);
+            }
+        } else {
+
+            while (System.nanoTime() <  endTime) {
+                currentColorVal = muxColor.getCRGB(ports[1])[2];
+                robotconfig.addlog(dl, "in detectLineResponsive", "found value " + currentColorVal);
+                if (currentColorVal > colorSensorLineThreashold) {
+                    // robot.move(0, 0, 0);     // maybe turn motors off here for quickest response?
+                    return (true);
+                }
+            }
+            // timed out here, so give up - maybe we'll get the next one
+            // robot.move(0, 0, 0);     // and maybe turn motors off here as well?
+            return(true);
+        }
+
+    }
+
+    /***
      * move is a function to efficiently set the power values of all 4 drive train motors in one quick line.
      *
      * @param forward double: ranges from 1=forward to -1=backward
