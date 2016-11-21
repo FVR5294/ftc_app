@@ -285,7 +285,7 @@ public class robotconfig {
 
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
-            int milliSeconds = 48;
+            int milliSeconds = 1;       // should set to minimum, which is 2.4 ms - needs testing
             muxColor = new MultiplexColorSensor(hwMap, "mux", "ada", ports, milliSeconds, MultiplexColorSensor.GAIN_16X);
             muxColor.startPolling();
 

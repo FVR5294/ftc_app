@@ -68,6 +68,7 @@ public class MultiplexColorSensor {
     private I2cDevice ada;
     private I2cDeviceSynch adaReader;
     private int[] sensorPorts;
+    private int lastPort;
 
     /**
      * Initializes Adafruit color sensors on the specified ports of the I2C
@@ -146,7 +147,10 @@ public class MultiplexColorSensor {
      */
     public int[] getCRGB(int port) {
         // Write to I2C port on the multiplexer
-        muxReader.write8(0x0, 1 << port, true);
+        if (port!= lastPort) {      // might speed things up a tad, as we only set the mux when changing between sensors
+            muxReader.write8(0x0, 1 << port, true);
+            lastPort = port;        // not on consecutive reads of the same sensor
+        }
 
         // Read color registers
         adaCache = adaReader.read(CDATAL, 8);
