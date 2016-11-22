@@ -546,6 +546,44 @@ public class robotconfig {
         }
 
     }
+    boolean detectLineResponsive2() {
+
+        int currentColorVal;
+        long endTime;
+        long count = 0;
+
+        endTime = System.nanoTime() + 3 * 1000000;
+
+        addlog(dl, "robot", "detectLineResponsive2 was called");
+
+        if (robotconfig.debugMode) {
+            if (lineIsFirstTimeDebug) {
+                robotconfig.addlog(dl, "in detectLineResponsive2", "returning true");
+                return (true);
+            } else {
+                lineIsFirstTimeDebug = true;
+                robotconfig.addlog(dl, "in detectLineResponsive2", "returning false");
+                return (false);
+            }
+        } else {
+
+            while (System.nanoTime() <  endTime) {
+                count++;
+                currentColorVal = muxColor.getCRGB(ports[1])[2];
+                // robotconfig.addlog(dl, "in detectLineResponsive2", "found value " + currentColorVal);
+                if (currentColorVal > colorSensorLineThreashold) {
+                    robotconfig.addlog(dl, "in detectLineResponsive2", "iteration count was " + count);
+                    // robot.move(0, 0, 0);     // maybe turn motors off here for quickest response?
+                    return (true);
+                }
+            }
+            robotconfig.addlog(dl, "in detectLineResponsive2", "timed out - iteration count was " + count);
+            // timed out here, so give up - maybe we'll get the next one
+            // robot.move(0, 0, 0);     // and maybe turn motors off here as well?
+            return(true);
+        }
+
+    }
 
     /***
      * move is a function to efficiently set the power values of all 4 drive train motors in one quick line.
