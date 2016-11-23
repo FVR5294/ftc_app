@@ -29,6 +29,7 @@ import java.util.Locale;
 public class robotconfig {
 
     static public DataLogger dl;
+    static public DataLogger colorsensors;
     static LinearOpMode theLinearOpMode;
     static boolean debugMode = false;
     public int fLeftMotorTarget = 0;
@@ -53,7 +54,7 @@ public class robotconfig {
     private HardwareMap hwMap = null;
     private OpMode opMode;
     //color sensor code with multiplexor
-    private int colorSensorLineThreashold = 3000;
+    private int colorSensorLineThreashold = 100;
     // The IMU sensor object
     private BNO055IMU imu;
     private boolean lineIsFirstTimeDebug = true;
@@ -269,7 +270,14 @@ public class robotconfig {
 
         hwMap = linearOpMode.hardwareMap;
 
+        try {
+            fLeftMotor = hwMap.dcMotor.get("fl_drive");
+        } catch (Exception err) {
+            debugMode = false;
+        }
+
         dl = new DataLogger("10635", "autonomousTest", theLinearOpMode.telemetry);
+        colorsensors = new DataLogger("10635", "colorsensors", theLinearOpMode.telemetry);
         addlog(dl, "r.init", "r.init was invoked (a)");
         addlog(dl, "r.init", "debug mode is " + debugMode);
 
@@ -352,8 +360,16 @@ public class robotconfig {
 
         hwMap = opMode.hardwareMap;
 
-        dl = new DataLogger("10635", "autonomousTest", opMode.telemetry);
+        try {
+            fLeftMotor = hwMap.dcMotor.get("fl_drive");
+        } catch (Exception err) {
+            debugMode = false;
+        }
+
+        dl = new DataLogger("10635", "teleopTest", opMode.telemetry);
+        colorsensors = new DataLogger("10635", "colorsensors", opMode.telemetry);
         addlog(dl, "r.init", "r.init was invoked (a)");
+        addlog(dl, "r.init", "debug mode is " + debugMode);
 
         // Define and Initialize Motors
         if (!debugMode) {
@@ -367,7 +383,7 @@ public class robotconfig {
 
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
-            int milliSeconds = 24;
+            int milliSeconds = 1;       // should set to minimum, which is 2.4 ms - needs testing
             muxColor = new MultiplexColorSensor(hwMap, "mux", "ada", ports, milliSeconds, MultiplexColorSensor.GAIN_16X);
             muxColor.startPolling();
 
@@ -376,8 +392,7 @@ public class robotconfig {
 //            cdim.setDigitalChannelState(1, bLedOn);
 
             // Set up the parameters with which we will use our IMU. Note that integration
-            // algorithm here just reports accelerations to
-            // the logcat log; it doesn't actually
+            // algorithm here just reports accelerations to the logcat log; it doesn't actually
             // provide positional information.
             BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
             parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
@@ -402,6 +417,8 @@ public class robotconfig {
             bLeftMotor.setDirection(DcMotor.Direction.FORWARD); //forward for andymark motor in drivetrain
             fRightMotor.setDirection(DcMotor.Direction.REVERSE); //reverse for andymark motor in drivetrain
             bRightMotor.setDirection(DcMotor.Direction.REVERSE); //reverse for andymark motor in drivetrain
+
+            //spinner.setDirection(DcMotor.Direction.REVERSE);
 
             // Set all motors to zero power
             fLeftMotor.setPower(0);
@@ -501,8 +518,10 @@ public class robotconfig {
                 return (false);
             }
         } else {
-            robotconfig.addlog(dl, "in detectLine", "returning " + (muxColor.getCRGB(ports[1])[2] > colorSensorLineThreashold));
-            return (muxColor.getCRGB(ports[1])[2] > colorSensorLineThreashold);
+            int colorvalue = muxColor.getCRGB(ports[1])[2];
+            robotconfig.addlog(colorsensors, "in detectLine", "returning, " + colorvalue);
+            robotconfig.addlog(dl, "in detectLine", "returning, " + (colorvalue > colorSensorLineThreashold));
+            return (colorvalue > colorSensorLineThreashold);
         }
 
     }
@@ -532,9 +551,10 @@ public class robotconfig {
             }
         } else {
 
-            while (System.nanoTime() <  endTime) {
+            while (System.nanoTime() < endTime) {
                 currentColorVal = muxColor.getCRGB(ports[1])[2];
-                robotconfig.addlog(dl, "in detectLineResponsive", "found value " + currentColorVal);
+                robotconfig.addlog(colorsensors, "in detectLineResponsive", "found value, " + currentColorVal);
+                robotconfig.addlog(dl, "in detectLineResponsive", "found value, " + currentColorVal);
                 if (currentColorVal > colorSensorLineThreashold) {
                     // robot.move(0, 0, 0);     // maybe turn motors off here for quickest response?
                     return (true);
@@ -542,7 +562,7 @@ public class robotconfig {
             }
             // timed out here, so give up - maybe we'll get the next one
             // robot.move(0, 0, 0);     // and maybe turn motors off here as well?
-            return(true);
+            return (true);
         }
 
     }
@@ -586,7 +606,7 @@ public class robotconfig {
         double fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());
         double bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition());
         double bRightMotorPower = (bRightMotorTarget - bRightMotor.getCurrentPosition());
-        double max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower)));
+        double max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower))) / 0.7;
 
         if (Math.abs(fLeftMotorPower) < bettermovedeadzone)
             fLeftMotorPower = 0;

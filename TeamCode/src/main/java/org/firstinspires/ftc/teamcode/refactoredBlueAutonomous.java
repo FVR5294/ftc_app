@@ -22,18 +22,17 @@ public class refactoredBlueAutonomous extends LinearOpMode {
     @Override
     public void runOpMode() {
         robot.init(this);  // send whole LinearOpMode object and context
-        robotconfig.addlog(dl, "autonomous", "Done with robot.init --- starting p.init");
-        //p.init(robot, this);//don't enable
-        robotconfig.addlog(dl, "autonomous", "Done with pm.init --- waiting for start");
+        robotconfig.addlog(dl, "autonomous", "Done with robot.init --- waiting for start in " + this.getClass().getSimpleName());
         state.color = -1;
-        telemetry.addData("Say", "Hello Driver");
+        currentState = 0;
+        telemetry.addData("Say", "Hello Driver - debug mode is " + robotconfig.debugMode);
         telemetry.update();
         waitForStart();
         robotconfig.addlog(dl, "autonomous", "Started");
 
         while (opModeIsActive()) {
 
-            //robotconfig.addlog(dl, "Mainline", "Beginning state machine pass");
+            //robotconfig.addlog(dl, "Mainline", "Beginning state machine pass " + String.format(Locale.ENGLISH, "%d", currentState));
 
             switch (currentState) {
                 case 0:
@@ -43,19 +42,19 @@ public class refactoredBlueAutonomous extends LinearOpMode {
                     state.arcTowardsBeacon.run();
                     break;
                 case 2:
-                    state.getCloserToWall.run();
-                    break;
-                case 3:
                     state.scanForLine.run();
                     break;
-                case 4:
+                case 3:
                     state.driveTowardsBeacon.run();
                     break;
-                case 5:
+                case 4:
                     state.pushBeaconButton.run();
                     break;
-                case 6:
+                case 5:
                     state.backAwayFromBeacon.run();
+                    break;
+                case 6:
+                    state.slideToTheRight.run();
                     break;
                 case 7:
                     state.scanForLine.run();
@@ -69,18 +68,26 @@ public class refactoredBlueAutonomous extends LinearOpMode {
                 case 10:
                     state.backAwayFromBeacon.run();
                     break;
-                case 11:
-                    state.retreatToCenter.run();
-                    break;
-                case 12:
-                    state.driveOnToWood.run();
-                    break;
-                case 14:
-                    requestOpModeStop();
-                    robotconfig.addlog(dl, "StateMachine", "stop requested");
-                    break;
+//                case 12:
+//                    state.retreatToCenter.run();
+//                    break;
+//                case 13:
+//                    state.driveOnToWood.run();
+//                    break;
                 default:
-                    robotconfig.addlog(dl, "error", "state not defined");
+                    robot.move(0, 0, 0);
+//                    idle();
+//                    robot.enableEncodersToPosition();
+//                    idle();
+//                    robot.setMotorPower(1);
+//                    idle();
+//                    p.move(0, 0, 90, 5, robot, telemetry);
+//                    idle();
+//                    robot.spinner.setPower(1);
+//                    idle();
+//                    sleep(1000);
+                    robotconfig.addlog(dl, "StateMachine", "stop requested");
+                    requestOpModeStop();
                     break;
             }
 
