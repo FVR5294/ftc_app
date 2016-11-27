@@ -32,11 +32,6 @@ public class robotconfig {
     static public DataLogger colorsensors;
     static LinearOpMode theLinearOpMode;
     static boolean debugMode = false;
-    public int fLeftMotorTarget = 0;
-    public int fRightMotorTarget = 0;
-    public int bLeftMotorTarget = 0;
-    public int bRightMotorTarget = 0;
-    public int bettermovedeadzone = 50;
     DcMotor fLeftMotor;
     DcMotor fRightMotor;
     DcMotor bLeftMotor;
@@ -49,7 +44,16 @@ public class robotconfig {
     Orientation angles;
     Acceleration gravity;
     DcMotor spinner;
-    private Servo buttonPusher;
+    DcMotor reeler;
+    Servo tilt;
+    Servo capLeft;
+    Servo capRight;
+    Servo buttonPusher;
+    private int fLeftMotorTarget = 0;
+    private int fRightMotorTarget = 0;
+    private int bLeftMotorTarget = 0;
+    private int bRightMotorTarget = 0;
+    private int bettermovedeadzone = 50;
     private DeviceInterfaceModule cdim;
     private HardwareMap hwMap = null;
     private OpMode opMode;
@@ -288,8 +292,11 @@ public class robotconfig {
             fRightMotor = hwMap.dcMotor.get("fr_drive");
             bLeftMotor = hwMap.dcMotor.get("bl_drive");
             bRightMotor = hwMap.dcMotor.get("br_drive");
-
+            reeler = hwMap.dcMotor.get("Reeler");
             spinner = hwMap.dcMotor.get("spinner");
+            tilt = hwMap.servo.get("Tilt");
+            capLeft = hwMap.servo.get("capLeft");
+            capRight = hwMap.servo.get("capRight");
 
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
@@ -338,6 +345,11 @@ public class robotconfig {
 
             spinner.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             spinner.setPower(0);
+            tilt.setDirection(Servo.Direction.REVERSE);
+            tilt.setPosition(0.5);
+            capLeft.setPosition(0);
+            capRight.setDirection(Servo.Direction.REVERSE);
+            capRight.setPosition(0);
         }
         //and check servo power
         this.pushButton(0);
@@ -378,8 +390,11 @@ public class robotconfig {
             fRightMotor = hwMap.dcMotor.get("fr_drive");
             bLeftMotor = hwMap.dcMotor.get("bl_drive");
             bRightMotor = hwMap.dcMotor.get("br_drive");
-
+            reeler = hwMap.dcMotor.get("Reeler");
             spinner = hwMap.dcMotor.get("spinner");
+            tilt = hwMap.servo.get("Tilt");
+            capLeft = hwMap.servo.get("capLeft");
+            capRight = hwMap.servo.get("capRight");
 
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
@@ -428,6 +443,11 @@ public class robotconfig {
 
             spinner.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             spinner.setPower(0);
+            tilt.setDirection(Servo.Direction.REVERSE);
+            tilt.setPosition(0.5);
+            capLeft.setPosition(0);
+            capRight.setDirection(Servo.Direction.REVERSE);
+            capRight.setPosition(0);
         }
         //and check servo power
         this.pushButton(0);
@@ -474,7 +494,7 @@ public class robotconfig {
                 buttonPusher.setPosition(0);//0.42);//left
                 break;
             default:
-                buttonPusher.setPosition(0.54);
+                buttonPusher.setPosition(0.56);
                 break;
         }//*/
     }

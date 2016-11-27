@@ -82,12 +82,11 @@ public class testOp extends OpMode {
         double spin;
 
         //get values from joystick
-        forward = -scale(gamepad1.left_stick_y);// + -scale(gamepad2.left_stick_y);
-        right = scale(gamepad1.left_stick_x);// + scale(gamepad2.left_stick_x);
-        spin = scale(gamepad1.right_stick_x);// + scale(gamepad2.right_stick_x);
+        forward = -scale(gamepad1.left_stick_y);
+        right = scale(gamepad1.left_stick_x);
+        spin = scale(gamepad1.right_stick_x);
 
-        //look at the beautiful simplicity of my code, thanks to the robotconfig class
-        robot.move(forward, right, spin);//all it takes is one line to set the power for all 4 motors
+        robot.move(forward, right, spin);
 
         if (gamepad1.x || gamepad2.x) {
             robot.pushButton(-1);
