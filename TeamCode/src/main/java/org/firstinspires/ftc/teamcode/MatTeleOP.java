@@ -33,7 +33,7 @@ public class MatTeleOP extends OpMode {
     private double spin;
     private double spinner;
     private double reeler;
-    private boolean mattmap = true;
+    private double vexes;
 
     @Override
     public void init() {
@@ -78,42 +78,10 @@ public class MatTeleOP extends OpMode {
             buttonPusherPosition += buttonPusherDelta;
         }
 
-
-        if (mattmap) {
-
-            if (gamepad2.back) {
-                mattmap = false;
-            }
-
-            if (gamepad2.y) {
-                tiltPosition += tiltDelta;
-            }
-
             if (gamepad2.a) {
-                tiltPosition -= tiltDelta;
+                spinner = -gamepad2.left_stick_y;
             }
-
-            if (gamepad2.x) {
-                capRightPosition += capRightDelta;
-            }
-
-            if (gamepad2.b) {
-                capRightPosition -= capRightDelta;
-            }
-
-            if (gamepad2.dpad_right) {
-                capLeftPosition += capLeftDelta;
-            }
-
-            if (gamepad2.dpad_left) {
-                capLeftPosition -= capLeftDelta;
-            }
-
-            spinner = -gamepad2.left_stick_y;
-            reeler = -gamepad2.right_stick_y;
-
-        } else {
-
+        
             if (gamepad2.b) {
                 spinner = -gamepad2.left_stick_y;
             }
@@ -136,18 +104,15 @@ public class MatTeleOP extends OpMode {
                 capRightPosition -= capRightDelta;
             }
 
-            if (gamepad2.a) {
-
-                if (gamepad2.dpad_right) {
-                    capLeftPosition += capLeftDelta;
-                }
-
-                if (gamepad2.dpad_left) {
-                    capLeftPosition -= capLeftDelta;
-                }
-
-                capRightPosition = capLeftPosition;
+            if (gamepad2.dpad_right) {
+                capLeftPosition += capLeftDelta;
             }
+            
+            if (gamepad2.dpad_left) {
+                capLeftPosition -= capLeftDelta;
+            }
+            
+            capRightPosition = capLeftPosition;
 
             if (gamepad2.dpad_down) {
                 tiltPosition -= tiltDelta;
@@ -156,7 +121,6 @@ public class MatTeleOP extends OpMode {
             if (gamepad2.dpad_up) {
                 tiltPosition += tiltDelta;
             }
-        }
 
         buttonPusherPosition = Range.clip(buttonPusherPosition, buttonPusher_MIN_RANGE, buttonPusher_MAX_RANGE);
         tiltPosition = Range.clip(tiltPosition, Tilt_MIN_RANGE, Tilt_MAX_RANGE);
