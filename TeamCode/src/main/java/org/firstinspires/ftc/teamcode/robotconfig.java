@@ -49,6 +49,11 @@ public class robotconfig {
     Servo capLeft;
     Servo capRight;
     Servo buttonPusher;
+    
+    Servo lvex;
+    Servo rvex;
+    DcMotor cam;
+    
     private int fLeftMotorTarget = 0;
     private int fRightMotorTarget = 0;
     private int bLeftMotorTarget = 0;
@@ -279,6 +284,14 @@ public class robotconfig {
         } catch (Exception err) {
             debugMode = false;
         }
+        
+        try {
+            cam = hwMap.dcMotor.get("cam");
+            lvex = hwMap.dcMotor.get("lvex");
+            rvex = hwMap.dcMotor.get("rvex");
+        } catch (Exception err) {
+            theLinearOpMode.telemetry.addData("wiring", "connect servos lvex and rvex, and motor cam; reverse the 2 wire poliarity of the servo moving in the wrond direction");
+        }
 
         dl = new DataLogger("10635", "autonomousTest", theLinearOpMode.telemetry);
         colorsensors = new DataLogger("10635", "colorsensors", theLinearOpMode.telemetry);
@@ -377,7 +390,15 @@ public class robotconfig {
         } catch (Exception err) {
             debugMode = false;
         }
-
+        
+        try {
+            cam = hwMap.dcMotor.get("cam");
+            lvex = hwMap.dcMotor.get("lvex");
+            rvex = hwMap.dcMotor.get("rvex");
+        } catch (Exception err) {
+            opMode.telemetry.addData("wiring", "connect servos lvex and rvex, and motor cam; reverse the 2 wire poliarity of the servo moving in the wrond direction");
+        }
+        
         dl = new DataLogger("10635", "teleopTest", opMode.telemetry);
         colorsensors = new DataLogger("10635", "colorsensors", opMode.telemetry);
         addlog(dl, "r.init", "r.init was invoked (a)");
