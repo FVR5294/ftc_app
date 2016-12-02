@@ -291,7 +291,7 @@ public class robotconfig {
             lvex = hwMap.servo.get("lvex");
             rvex = hwMap.servo.get("rvex");
         } catch (Exception err) {
-            theLinearOpMode.telemetry.addData("wiring", "connect servos lvex and rvex, and motor cam; reverse the 2 wire polarity of the servo moving in the wrond direction");
+            theLinearOpMode.telemetry.addData("wiring", "connect servos lvex and rvex, and motor cam; reverse the 2 wire polarity of the servo moving in the wrong direction");
         }
 
         dl = new DataLogger("10635", "autonomousTest", theLinearOpMode.telemetry);
@@ -359,7 +359,6 @@ public class robotconfig {
 
             spinner.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             spinner.setPower(0);
-            tilt.setDirection(Servo.Direction.REVERSE);
             tilt.setPosition(0.5);
             capLeft.setPosition(0);
             capRight.setDirection(Servo.Direction.REVERSE);
@@ -398,7 +397,7 @@ public class robotconfig {
             lvex = hwMap.servo.get("lvex");
             rvex = hwMap.servo.get("rvex");
         } catch (Exception err) {
-            opMode.telemetry.addData("wiring", "connect servos lvex and rvex, and motor cam; reverse the 2 wire polarity of the servo moving in the wrond direction");
+            opMode.telemetry.addData("wiring", "connect servos lvex and rvex, and motor cam; reverse the 2 wire polarity of the servo moving in the wrong direction");
         }
         
         dl = new DataLogger("10635", "teleopTest", opMode.telemetry);
@@ -466,7 +465,6 @@ public class robotconfig {
 
             spinner.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             spinner.setPower(0);
-            tilt.setDirection(Servo.Direction.REVERSE);
             tilt.setPosition(0.5);
             capLeft.setPosition(0);
             capRight.setDirection(Servo.Direction.REVERSE);

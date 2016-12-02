@@ -12,7 +12,7 @@ import static org.firstinspires.ftc.teamcode.stateslist.robot;
  * Project: ftc_app_for_2016_robot
  */
 
-@Autonomous(name = "red autonomous", group = "refactored")
+@Autonomous(name = "no launch red", group = "red")
 
 public class refactoredRedAutonomous extends LinearOpMode {
 
