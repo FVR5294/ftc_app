@@ -389,7 +389,7 @@ class stateslist {
 
         public void firstTime() {
             try {
-                robot.cam.setPower(1);
+                robot.cam.setPower(1 / 3.0);
                 endpulses = robot.cam.getCurrentPosition() + pulses;
                 robot.lvex.setPosition(1);
                 robot.rvex.setPosition(1);

@@ -110,7 +110,7 @@ public class MatTeleOP extends OpMode {
         }
 
         if (gamepad2.right_bumper) {
-            cam = Math.abs(gamepad2.left_stick_y);
+            cam = Math.abs(gamepad2.left_stick_y) * 0.5;
             try {
                 robot.cam.setPower(cam);
                 //not exactly sure how to set power of continuous rotation servo
