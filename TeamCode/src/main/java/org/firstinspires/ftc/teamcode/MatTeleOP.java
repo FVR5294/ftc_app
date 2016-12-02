@@ -4,6 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
+import static org.firstinspires.ftc.teamcode.robotconfig.dl;
+
 /**
  * Created by Matthew Hotham on 11/5/2016.
  */
@@ -11,37 +13,37 @@ import com.qualcomm.robotcore.util.Range;
 @TeleOp(name = "MattTeleOP", group = "2016")
 
 public class MatTeleOP extends OpMode {
-    
+
     private final static double buttonPusher_MIN_RANGE = 0.40;
     private final static double buttonPusher_MAX_RANGE = 0.80;
-    
+
     private final static double Tilt_MAX_RANGE = 1.00;
     private final static double Tilt_MIN_RANGE = 0.00;
-    
+
     private final static double capRight_MAX_RANGE = 1.00;
     private final static double capRight_MIN_RANGE = 0.00;
-    
+
     private final static double capLeft_MAX_RANGE = 1.00;
     private final static double capLeft_MIN_RANGE = 0.00;
-    
+
     robotconfig robot = new robotconfig();
-    
+
     private double buttonPusherPosition;
     private double tiltPosition;
     private double capLeftPosition;
     private double capRightPosition;
-    
+
     private double buttonPusherDelta = 0.02;
     private double tiltDelta = 0.02;
     private double capLeftDelta = 0.01;
     private double capRightDelta = 0.01;
-    
+
     private double forward;
     private double right;
     private double spin;
     private double spinner;
     private double reeler;
-    
+
     private double vexes;
     private double cam;
 
@@ -81,7 +83,7 @@ public class MatTeleOP extends OpMode {
 
         robot.spinner.setPower(spinner);
         robot.reeler.setPower(reeler);
-        
+
 
         if (gamepad1.dpad_left) {
             buttonPusherPosition -= buttonPusherDelta;
@@ -90,33 +92,44 @@ public class MatTeleOP extends OpMode {
         if (gamepad1.dpad_right) {
             buttonPusherPosition += buttonPusherDelta;
         }
-        
+
         if (gamepad2.a) {
             spinner = -gamepad2.left_stick_y;
         }
-        
+
         if (gamepad2.b) {
-            vexes = -gamepad2.left_stick_y;
-            //note the program is probably going to run into an error HERE if servo is not connected and button pressed
-            robot.lvex.setPower(vexes);
-            robot.rvex.setPower(vexes);
-            //not exactly sure how to set power of continous rotation servo
+            vexes = -gamepad2.left_stick_y * 0.5 + 0.5;
+            try {
+                robot.lvex.setPosition(vexes);
+                robot.rvex.setPosition(vexes);
+                //not exactly sure how to set power of continuous rotation servo
+            } catch (Exception err) {
+                robotconfig.addlog(dl, "error", "failed to set powers of vex servos");
+                vexes = -1;
+            }
         }
-        
+
         if (gamepad2.right_bumper) {
-            cam = -gamepad2.left_stick_y;
-            robot.cam.setPower(cam);
+            cam = Math.abs(gamepad2.left_stick_y);
+            try {
+                robot.cam.setPower(cam);
+                //not exactly sure how to set power of continuous rotation servo
+            } catch (Exception err) {
+                robotconfig.addlog(dl, "error", "failed to set power of cam");
+                cam = -1;
+            }
         }
+
         reeler = -gamepad2.right_stick_y;
-        
+
         if (gamepad2.dpad_right) {
             capLeftPosition += capLeftDelta;
         }
-            
+
         if (gamepad2.dpad_left) {
             capLeftPosition -= capLeftDelta;
         }
-            
+
         capRightPosition = capLeftPosition;
 
         if (gamepad2.dpad_down) {
@@ -126,7 +139,7 @@ public class MatTeleOP extends OpMode {
         if (gamepad2.dpad_up) {
             tiltPosition += tiltDelta;
         }
-        
+
         buttonPusherPosition = Range.clip(buttonPusherPosition, buttonPusher_MIN_RANGE, buttonPusher_MAX_RANGE);
         tiltPosition = Range.clip(tiltPosition, Tilt_MIN_RANGE, Tilt_MAX_RANGE);
         capRightPosition = Range.clip(capRightPosition, capRight_MIN_RANGE, capRight_MAX_RANGE);

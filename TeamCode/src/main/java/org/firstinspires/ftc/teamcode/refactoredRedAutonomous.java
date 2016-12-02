@@ -36,59 +36,40 @@ public class refactoredRedAutonomous extends LinearOpMode {
 
             switch (currentState) {
                 case 0:
-                    state.clearWall.run();
-                    break;
-                case 1:
                     state.arcTowardsBeacon.run();
                     break;
-                case 2:
+                case 1:
                     state.scanForLine.run();
+                    break;
+                case 2:
+                    state.driveTowardsBeacon.run();
                     break;
                 case 3:
-                    state.driveTowardsBeacon.run();
+                    state.pushBeaconButton.run();
                     break;
                 case 4:
-                    state.pushBeaconButton.run();
+                    state.backAwayFromBeacon.run();
                     break;
                 case 5:
-                    state.backAwayFromBeacon.run();
-                    break;
-                case 6:
                     state.slideToTheRight.run();
                     break;
-                case 7:
+                case 6:
                     state.backAwayFromBeacon.run();
                     break;
-                case 8:
+                case 7:
                     state.scanForLine.run();
                     break;
-                case 9:
+                case 8:
                     state.driveTowardsBeacon.run();
                     break;
-                case 10:
+                case 9:
                     state.pushBeaconButton.run();
                     break;
-                case 11:
+                case 10:
                     state.backAwayFromBeacon.run();
                     break;
-//                case 12:
-//                    state.retreatToCenter.run();
-//                    break;
-//                case 13:
-//                    state.driveOnToWood.run();
-//                    break;
                 default:
                     robot.move(0, 0, 0);
-//                    idle();
-//                    robot.enableEncodersToPosition();
-//                    idle();
-//                    robot.setMotorPower(1);
-//                    idle();
-//                    p.move(0, 0, 90, 5, robot, telemetry);
-//                    idle();
-//                    robot.spinner.setPower(1);
-//                    idle();
-//                    sleep(1000);
                     robotconfig.addlog(dl, "StateMachine", "stop requested");
                     requestOpModeStop();
                     break;

@@ -1,7 +1,5 @@
 package org.firstinspires.ftc.teamcode;
 
-import java.util.Locale;
-
 import static java.lang.Thread.sleep;
 import static org.firstinspires.ftc.teamcode.measurements.mmPerInch;
 import static org.firstinspires.ftc.teamcode.measurements.pi;
@@ -271,6 +269,157 @@ class stateslist {
 
         }
     };
+    /***
+     * rotates robot 45 degrees clockwise if red, counter if blue
+     */
+    state rotate45 = new state("rotate45") {
+        public void firstTime() {
+            robot.enableMotorBreak();
+            robot.setMyMotorTargets(0, 0, p.mm2pulses(p.spin2mm(45 * color)));
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+        }
+
+        public boolean conditionsToCheck() {
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in rotate45", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in rotate45", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
+        }
+    };
+    /***
+     * backs up closer to te center vortex
+     */
+    state backuptovortex = new state("backuptovortex") {
+        public void firstTime() {
+            robot.enableMotorBreak();
+            robot.setMyMotorTargets(p.mm2pulses(-20 * mmPerInch), 0, 0);
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+        }
+
+        public boolean conditionsToCheck() {
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in backuptovortex", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in backuptovortex", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+        }
+    };
+    state noscope = new state("noscope") {
+        public void firstTime() {
+            robot.enableMotorBreak();
+            robot.setMyMotorTargets(0, 0, p.mm2pulses(p.spin2mm(360 * color)));
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+        }
+
+        public boolean conditionsToCheck() {
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in noscope", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in noscope", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
+        }
+    };
+    /***
+     * spins cam 360 degrees and runs vex motors
+     */
+    state shootball = new state("shootball") {
+        int pulses = 2240;
+        int endpulses = 0;
+
+        public void firstTime() {
+            try {
+                robot.cam.setPower(1);
+                endpulses = robot.cam.getCurrentPosition() + pulses;
+                robot.lvex.setPosition(1);
+                robot.rvex.setPosition(1);
+            } catch (Error error) {
+                robotconfig.addlog(dl, error.toString(), error.getLocalizedMessage());
+            }
+        }
+
+        public void everyTime() {
+        }
+
+        public boolean conditionsToCheck() {
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in shootball", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in shootball", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.cam.getCurrentPosition() > endpulses;
+            }
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+        }
+    };
     private int startEncoderPos = 0;
     /***
      * state makes robot back away from beacon slightly to avoid running into anything during next state
@@ -324,84 +473,6 @@ class stateslist {
             Thread.yield();
             robot.enableMotorEncoders();
             Thread.yield();
-        }
-    };
-
-    /***
-     * state makes the robot attempt to knock over the cap ball
-     */
-    state retreatToCenter = new state("retreatToCenter") {
-
-        public void firstTime() {
-            robot.disableMotorBreak();
-            startEncoderPos = robot.getMotorEncoderAverage();
-            robot.move(-1, -color, 0);
-        }
-
-        public void everyTime() {
-
-        }
-
-        public boolean conditionsToCheck() {
-
-            robotconfig.addlog(dl, "in retreatToCenter", "checking against robot.getMotorEncoderAverage() - startEncoderPos) * 2 < -p.mm2pulses(55 * mmPerInch ");
-
-            if (robotconfig.debugMode) {
-                if (this.isFirstTimeDebug) {
-                    robotconfig.addlog(dl, "in retreatToCenter", "returning true");
-                    return (true);
-                } else {
-                    this.isFirstTimeDebug = true;
-                    robotconfig.addlog(dl, "in retreatToCenter", "returning false");
-                    return (false);
-                }
-            } else {
-                robotconfig.addlog(dl, "in retreatToCenter", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
-                return robot.getMotorEncoderAverage() > p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos;
-            }
-
-        }
-
-        public void onCompletion() {
-
-        }
-    };
-    /***
-     * state makes robot move backwards to try to park partially on the center vortex
-     */
-    state driveOnToWood = new state("driveOnToWood ") {
-        public void firstTime() {
-            robot.enableMotorBreak();
-            robot.move(-1, 0, 0);
-            startEncoderPos = robot.getMotorEncoderAverage();
-        }
-
-        public void everyTime() {
-
-        }
-
-        public boolean conditionsToCheck() {
-
-            robotconfig.addlog(dl, "in driveOnToWood", "checking against robot.getMotorEncoderAverage() - startEncoderPos) * 2 < -p.mm2pulses(4 * mmPerInch ");
-
-            if (robotconfig.debugMode) {
-                if (this.isFirstTimeDebug) {
-                    robotconfig.addlog(dl, "in driveOnToWood", "returning true");
-                    return (true);
-                } else {
-                    this.isFirstTimeDebug = true;
-                    robotconfig.addlog(dl, "in driveOnToWood", "returning false");
-                    return (false);
-                }
-            } else {
-                robotconfig.addlog(dl, "in driveOnToWood", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
-                return (robot.getMotorEncoderAverage() - startEncoderPos) * 2 < -p.mm2pulses(4 * mmPerInch);
-            }
-
-        }
-
-        public void onCompletion() {
-            robot.move(0, 0, 0);
         }
     };
 }

@@ -287,10 +287,11 @@ public class robotconfig {
         
         try {
             cam = hwMap.dcMotor.get("cam");
-            lvex = hwMap.dcMotor.get("lvex");
-            rvex = hwMap.dcMotor.get("rvex");
+            cam.setDirection(DcMotor.Direction.REVERSE);
+            lvex = hwMap.servo.get("lvex");
+            rvex = hwMap.servo.get("rvex");
         } catch (Exception err) {
-            theLinearOpMode.telemetry.addData("wiring", "connect servos lvex and rvex, and motor cam; reverse the 2 wire poliarity of the servo moving in the wrond direction");
+            theLinearOpMode.telemetry.addData("wiring", "connect servos lvex and rvex, and motor cam; reverse the 2 wire polarity of the servo moving in the wrond direction");
         }
 
         dl = new DataLogger("10635", "autonomousTest", theLinearOpMode.telemetry);
@@ -393,10 +394,11 @@ public class robotconfig {
         
         try {
             cam = hwMap.dcMotor.get("cam");
-            lvex = hwMap.dcMotor.get("lvex");
-            rvex = hwMap.dcMotor.get("rvex");
+            cam.setDirection(DcMotor.Direction.REVERSE);
+            lvex = hwMap.servo.get("lvex");
+            rvex = hwMap.servo.get("rvex");
         } catch (Exception err) {
-            opMode.telemetry.addData("wiring", "connect servos lvex and rvex, and motor cam; reverse the 2 wire poliarity of the servo moving in the wrond direction");
+            opMode.telemetry.addData("wiring", "connect servos lvex and rvex, and motor cam; reverse the 2 wire polarity of the servo moving in the wrond direction");
         }
         
         dl = new DataLogger("10635", "teleopTest", opMode.telemetry);
