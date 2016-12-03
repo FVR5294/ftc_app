@@ -4,8 +4,6 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
-import static org.firstinspires.ftc.teamcode.robotconfig.dl;
-
 /**
  * Created by Matthew Hotham on 11/5/2016.
  */
@@ -38,14 +36,14 @@ public class MatTeleOP extends OpMode {
     private double capLeftDelta = 0.01;
     private double capRightDelta = 0.01;
 
-    private double forward;
-    private double right;
-    private double spin;
-    private double spinner;
-    private double reeler;
+    private double forward = 0;
+    private double right = 0;
+    private double spin = 0;
+    //private double spinner = 0;
+    private double reeler = 0;
 
-    private double vexes;
-    private double cam;
+//    private double vexes;
+//    private double cam;
 
     @Override
     public void init() {
@@ -74,14 +72,14 @@ public class MatTeleOP extends OpMode {
         forward = Range.clip(forward, -1, 1);
         right = Range.clip(right, -1, 1);
         spin = Range.clip(spin, -1, 1);
-        spinner = Range.clip(spinner, -1, 1);
+        //spinner = Range.clip(spinner, -1, 1);
         reeler = Range.clip(reeler, -1, 1);
-        vexes = Range.clip(vexes, -1, 1);
-        cam = Range.clip(cam, -1, 1);
+//        vexes = Range.clip(vexes, -1, 1);
+//        cam = Range.clip(cam, -1, 1);
 
         robot.move(forward, right, spin);
 
-        robot.spinner.setPower(spinner);
+        //robot.spinner.setPower(spinner);
         robot.reeler.setPower(reeler);
 
 
@@ -93,32 +91,32 @@ public class MatTeleOP extends OpMode {
             buttonPusherPosition += buttonPusherDelta;
         }
 
-        if (gamepad2.a) {
+       /* if (gamepad2.a) {
             spinner = -gamepad2.left_stick_y;
-        }
+        } */
 
-        if (gamepad2.b) {
-            vexes = -gamepad2.left_stick_y * 0.5 + 0.5;
-            try {
-                robot.lvex.setPosition(vexes);
-                robot.rvex.setPosition(vexes);
-                //not exactly sure how to set power of continuous rotation servo
-            } catch (Exception err) {
-                robotconfig.addlog(dl, "error", "failed to set powers of vex servos");
-                vexes = -1;
-            }
-        }
-
-        if (gamepad2.right_bumper) {
-            cam = Math.abs(gamepad2.left_stick_y) * 0.5;
-            try {
-                robot.cam.setPower(cam);
-                //not exactly sure how to set power of continuous rotation servo
-            } catch (Exception err) {
-                robotconfig.addlog(dl, "error", "failed to set power of cam");
-                cam = -1;
-            }
-        }
+//        if (gamepad2.b) {
+//            vexes = -gamepad2.left_stick_y * 0.5 + 0.5;
+//            try {
+//                robot.lvex.setPosition(vexes);
+//                robot.rvex.setPosition(vexes);
+//                //not exactly sure how to set power of continuous rotation servo
+//            } catch (Exception err) {
+//                robotconfig.addlog(dl, "error", "failed to set powers of vex servos");
+//                vexes = -1;
+//            }
+//        }
+//
+//        if (gamepad2.right_bumper) {
+//            cam = Math.abs(gamepad2.left_stick_y) * 0.5;
+//            try {
+//                robot.cam.setPower(cam);
+//                //not exactly sure how to set power of continuous rotation servo
+//            } catch (Exception err) {
+//                robotconfig.addlog(dl, "error", "failed to set power of cam");
+//                cam = -1;
+//            }
+//        }
 
         reeler = -gamepad2.right_stick_y;
 
@@ -132,11 +130,11 @@ public class MatTeleOP extends OpMode {
 
         capRightPosition = capLeftPosition;
 
-        if (gamepad2.dpad_down) {
+        if (gamepad2.a) {
             tiltPosition -= tiltDelta;
         }
 
-        if (gamepad2.dpad_up) {
+        if (gamepad2.y) {
             tiltPosition += tiltDelta;
         }
 
@@ -156,8 +154,8 @@ public class MatTeleOP extends OpMode {
         telemetry.addData("ButtonPusher", "%.2f", buttonPusherPosition);
         telemetry.addData("Tilt", "%.2f", tiltPosition);
         telemetry.addData("capLeft", "%.2f", capLeftPosition);
-        telemetry.addData("vexes", "%.2f", vexes);
-        telemetry.addData("cam", "%.2f", cam);
+//        telemetry.addData("vexes", "%.2f", vexes);
+//        telemetry.addData("cam", "%.2f", cam);
 
     }
 

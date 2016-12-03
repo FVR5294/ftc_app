@@ -420,6 +420,43 @@ class stateslist {
             robot.move(0, 0, 0);
         }
     };
+    /***
+     * state corrects for error in robot strafing
+     */
+    state correctStrafe = new state("correctStrafe") {
+        public void firstTime() {
+
+        }
+
+        public void everyTime() {
+
+        }
+
+        public boolean conditionsToCheck() {
+
+            //robotconfig.addlog(dl, "in backAwayFromBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in correctStrafe", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in correctStrafe", "returning false");
+                    return (false);
+                }
+            } else {
+                //robotconfig.addlog(dl, "in backAwayFromBeacon", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
+                //return robot.getMotorEncoderAverage() < p.mm2pulses(-3 * mmPerInch) + startEncoderPos;
+                return true;
+            }
+
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+        }
+    };
     private int startEncoderPos = 0;
     /***
      * state makes robot back away from beacon slightly to avoid running into anything during next state

@@ -62,12 +62,15 @@ public class single_blue extends LinearOpMode {
                     state.scanForLine.run();
                     break;
                 case 9:
-                    state.driveTowardsBeacon.run();
+                    state.correctStrafe.run();
                     break;
                 case 10:
-                    state.pushBeaconButton.run();
+                    state.driveTowardsBeacon.run();
                     break;
                 case 11:
+                    state.pushBeaconButton.run();
+                    break;
+                case 12:
                     state.backAwayFromBeacon.run();
                     break;
                 default:

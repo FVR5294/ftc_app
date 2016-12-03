@@ -58,7 +58,7 @@ public class dank_blue extends LinearOpMode {
                 state.slideToTheRight.run();
                 break;
             case 9:
-                state.backAwayFromBeacon.run();
+                state.correctStrafe.run();
                 break;
             case 10:
                 state.scanForLine.run();

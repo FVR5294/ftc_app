@@ -59,7 +59,7 @@ public class double_red extends LinearOpMode {
                     state.slideToTheRight.run();
                     break;
                 case 8:
-                    state.backAwayFromBeacon.run();
+                    state.correctStrafe.run();
                     break;
                 case 9:
                     state.scanForLine.run();

@@ -56,7 +56,7 @@ public class single_red extends LinearOpMode {
                     state.slideToTheRight.run();
                     break;
                 case 7:
-                    state.backAwayFromBeacon.run();
+                    state.correctStrafe.run();
                     break;
                 case 8:
                     state.scanForLine.run();

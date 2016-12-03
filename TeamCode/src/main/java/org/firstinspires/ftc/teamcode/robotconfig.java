@@ -309,6 +309,7 @@ public class robotconfig {
             reeler = hwMap.dcMotor.get("Reeler");
             spinner = hwMap.dcMotor.get("spinner");
             tilt = hwMap.servo.get("Tilt");
+            tilt.setDirection(Servo.Direction.REVERSE);
             capLeft = hwMap.servo.get("capLeft");
             capRight = hwMap.servo.get("capRight");
 
@@ -415,6 +416,7 @@ public class robotconfig {
             reeler = hwMap.dcMotor.get("Reeler");
             spinner = hwMap.dcMotor.get("spinner");
             tilt = hwMap.servo.get("Tilt");
+            tilt.setDirection(Servo.Direction.REVERSE);
             capLeft = hwMap.servo.get("capLeft");
             capRight = hwMap.servo.get("capRight");
 
