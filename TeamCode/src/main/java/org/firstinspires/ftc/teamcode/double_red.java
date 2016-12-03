@@ -8,14 +8,13 @@ import static org.firstinspires.ftc.teamcode.stateslist.currentState;
 import static org.firstinspires.ftc.teamcode.stateslist.robot;
 
 /**
- * Created by mail2 on 11/15/2016.
+ * Created by mail2 on 12/1/2016.
  * Project: ftc_app_for_2016_robot
  */
 
-@Autonomous(name = "no launch blue", group = "blue")
+@Autonomous(name = "double red", group = "red")
 
-public class refactoredBlueAutonomous extends LinearOpMode {
-
+public class double_red extends LinearOpMode {
     private preciseMovement p = new preciseMovement();
     private stateslist state = new stateslist();
 
@@ -23,7 +22,7 @@ public class refactoredBlueAutonomous extends LinearOpMode {
     public void runOpMode() {
         robot.init(this);  // send whole LinearOpMode object and context
         robotconfig.addlog(dl, "autonomous", "Done with robot.init --- waiting for start in " + this.getClass().getSimpleName());
-        state.color = -1;
+        state.color = 1;
         currentState = 0;
         telemetry.addData("Say", "Hello Driver - debug mode is " + robotconfig.debugMode);
         telemetry.update();
@@ -51,18 +50,27 @@ public class refactoredBlueAutonomous extends LinearOpMode {
                     state.backAwayFromBeacon.run();
                     break;
                 case 5:
-                    state.slideToTheRight.run();
+                    state.shootball.run();
                     break;
                 case 6:
-                    state.scanForLine.run();
+                    state.shootball.run();
                     break;
                 case 7:
-                    state.driveTowardsBeacon.run();
+                    state.slideToTheRight.run();
                     break;
                 case 8:
-                    state.pushBeaconButton.run();
+                    state.correctStrafe.run();
                     break;
                 case 9:
+                    state.scanForLine.run();
+                    break;
+                case 10:
+                    state.driveTowardsBeacon.run();
+                    break;
+                case 11:
+                    state.pushBeaconButton.run();
+                    break;
+                case 12:
                     state.backAwayFromBeacon.run();
                     break;
                 default:
@@ -82,4 +90,5 @@ public class refactoredBlueAutonomous extends LinearOpMode {
         robotconfig.addlog(dl, "autonomous", "Done with opmode, exited based on OpmodeIsActive false");
 
     }
+
 }
