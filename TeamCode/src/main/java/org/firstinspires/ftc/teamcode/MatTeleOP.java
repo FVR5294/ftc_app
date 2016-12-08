@@ -51,7 +51,7 @@ public class MatTeleOP extends OpMode {
         robot.init(this);
         robot.move(0, 0, 0);
         robot.disableMotorEncoders();
-        robot.cam.setMode(DcMotor.mode.RUN_TO_POSITION);
+        robot.cam.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Say", "Hello Driver");
         updateTelemetry(telemetry);
@@ -109,8 +109,8 @@ public class MatTeleOP extends OpMode {
 
         if (gamepad2.right_bumper) {
             try {
-                robot.cam.setPower(0.3);
-                robot.cam.setTarget(robot.cam.getTarget() + 2240);
+                robot.cam.setPower(0.3333333333333333333333333333333333333333333333333333);
+                robot.cam.setTarget(robot.cam.getCurrentPosition() + 2240);
             } catch (Exception err) {
                 robotconfig.addlog(dl, "error", "failed to set power of cam");
             }
@@ -160,8 +160,6 @@ public class MatTeleOP extends OpMode {
         telemetry.addData("Tilt", "%.2f", tiltPosition);
         telemetry.addData("capLeft", "%.2f", capLeftPosition);
         telemetry.addData("vexes", "%.2f", vexes);
-        telemetry.addData("cam", "%.2f", cam);
-
     }
 
 }
