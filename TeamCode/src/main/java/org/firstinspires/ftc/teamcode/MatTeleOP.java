@@ -39,11 +39,11 @@ public class MatTeleOP extends OpMode {
     private double forward = 0;
     private double right = 0;
     private double spin = 0;
-    //private double spinner = 0;
+    private double spinner = 0;
     private double reeler = 0;
 
-//    private double vexes;
-//    private double cam;
+    private double vexes;
+    private double cam;
 
     @Override
     public void init() {
@@ -51,6 +51,7 @@ public class MatTeleOP extends OpMode {
         robot.init(this);
         robot.move(0, 0, 0);
         robot.disableMotorEncoders();
+        robot.cam.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Say", "Hello Driver");
         updateTelemetry(telemetry);
@@ -72,14 +73,14 @@ public class MatTeleOP extends OpMode {
         forward = Range.clip(forward, -1, 1);
         right = Range.clip(right, -1, 1);
         spin = Range.clip(spin, -1, 1);
-        //spinner = Range.clip(spinner, -1, 1);
+        spinner = Range.clip(spinner, -1, 1);
         reeler = Range.clip(reeler, -1, 1);
-//        vexes = Range.clip(vexes, -1, 1);
-//        cam = Range.clip(cam, -1, 1);
+        vexes = Range.clip(vexes, -1, 1);
+        cam = Range.clip(cam, -1, 1);
 
         robot.move(forward, right, spin);
 
-        //robot.spinner.setPower(spinner);
+        robot.spinner.setPower(spinner);
         robot.reeler.setPower(reeler);
 
 
@@ -91,51 +92,55 @@ public class MatTeleOP extends OpMode {
             buttonPusherPosition += buttonPusherDelta;
         }
 
-       /* if (gamepad2.a) {
+        if (gamepad2.a) {
             spinner = -gamepad2.left_stick_y;
-        } */
+        }
 
-//        if (gamepad2.b) {
-//            vexes = -gamepad2.left_stick_y * 0.5 + 0.5;
-//            try {
-//                robot.lvex.setPosition(vexes);
-//                robot.rvex.setPosition(vexes);
-//                //not exactly sure how to set power of continuous rotation servo
-//            } catch (Exception err) {
-//                robotconfig.addlog(dl, "error", "failed to set powers of vex servos");
-//                vexes = -1;
-//            }
-//        }
-//
-//        if (gamepad2.right_bumper) {
-//            cam = Math.abs(gamepad2.left_stick_y) * 0.5;
-//            try {
-//                robot.cam.setPower(cam);
-//                //not exactly sure how to set power of continuous rotation servo
-//            } catch (Exception err) {
-//                robotconfig.addlog(dl, "error", "failed to set power of cam");
-//                cam = -1;
-//            }
-//        }
+        if (gamepad2.b) {
+            vexes = -gamepad2.left_stick_y * 0.5 + 0.5;
+            try {
+                robot.lvex.setPosition(vexes);
+                robot.rvex.setPosition(vexes);
+                //not exactly sure how to set power of continuous rotation servo
+            } catch (Exception err) {
+                robotconfig.addlog(dl, "error", "failed to set powers of vex servos");
+            }
+        }
+
+        if (gamepad2.right_bumper) {
+            try {
+                robot.cam.setPower(0.3333333333333333333333333333333333333333333333333333);
+                robot.cam.setTarget(robot.cam.getCurrentPosition() + 2240);
+            } catch (Exception err) {
+                robotconfig.addlog(dl, "error", "failed to set power of cam");
+            }
+        }
 
         reeler = -gamepad2.right_stick_y;
 
+        if (gamepad2.dpad_up) {
+            capLeftPosition = 0.66;
+            tiltPosition = 1.00;
+        }
+
         if (gamepad2.dpad_right) {
-            capLeftPosition += capLeftDelta;
+            capLeftPosition = 0.90;
+            tiltPosition = 1.00;
+        }
+        
+        if (gamepad2.dpad_down) {
+            capLeftPosition = 0.90;
+            tiltPosition = 0.50;
         }
 
         if (gamepad2.dpad_left) {
-            capLeftPosition -= capLeftDelta;
+            capLeftPosition = 0.66;
+            tiltPosition = 0.50;
         }
-
-        capRightPosition = capLeftPosition;
-
-        if (gamepad2.a) {
-            tiltPosition -= tiltDelta;
-        }
-
-        if (gamepad2.y) {
-            tiltPosition += tiltDelta;
+        
+        if (gamepad2.back) {
+            capLeftPosition = 0;
+            tiltPosition = 0.50;
         }
 
         buttonPusherPosition = Range.clip(buttonPusherPosition, buttonPusher_MIN_RANGE, buttonPusher_MAX_RANGE);
@@ -154,9 +159,7 @@ public class MatTeleOP extends OpMode {
         telemetry.addData("ButtonPusher", "%.2f", buttonPusherPosition);
         telemetry.addData("Tilt", "%.2f", tiltPosition);
         telemetry.addData("capLeft", "%.2f", capLeftPosition);
-//        telemetry.addData("vexes", "%.2f", vexes);
-//        telemetry.addData("cam", "%.2f", cam);
-
+        telemetry.addData("vexes", "%.2f", vexes);
     }
 
 }
