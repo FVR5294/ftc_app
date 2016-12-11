@@ -504,7 +504,7 @@ public class robotconfig {
      * @param button input 1 for the left button, 2 for the right button, and any other number to reset it back to center
      */
     void pushButton(int button) {
-        addlog(dl, "robot", "pushButton was invoked");
+        addlog(dl, "robot", String.format(Locale.ENGLISH, "pushButton was invoked with button %d", button));
         if (debugMode) {
             return;
         }

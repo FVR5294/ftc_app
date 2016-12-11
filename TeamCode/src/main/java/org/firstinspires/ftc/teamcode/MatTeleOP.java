@@ -4,6 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
+import static org.firstinspires.ftc.teamcode.robotconfig.dl;
+
 /**
  * Created by Matthew Hotham on 11/5/2016.
  */
@@ -50,8 +52,6 @@ public class MatTeleOP extends OpMode {
 
         robot.init(this);
         robot.move(0, 0, 0);
-        robot.disableMotorEncoders();
-        robot.cam.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Say", "Hello Driver");
         updateTelemetry(telemetry);
@@ -66,9 +66,14 @@ public class MatTeleOP extends OpMode {
     @Override
     public void loop() {
 
-        forward = -gamepad1.left_stick_y * Math.abs(gamepad1.left_stick_y);
-        right = gamepad1.left_stick_x * Math.abs(gamepad1.left_stick_x);
-        spin = gamepad1.right_stick_x * Math.abs(gamepad1.right_stick_x);
+        forward = -gamepad1.left_stick_y;
+        right = gamepad1.left_stick_x;
+        spin = gamepad1.right_stick_x;
+
+        if (gamepad1.right_bumper) {
+            forward *= -1;
+            right *= -1;
+        }
 
         forward = Range.clip(forward, -1, 1);
         right = Range.clip(right, -1, 1);
@@ -109,8 +114,7 @@ public class MatTeleOP extends OpMode {
 
         if (gamepad2.right_bumper) {
             try {
-                robot.cam.setPower(0.3333333333333333333333333333333333333333333333333333);
-                robot.cam.setTarget(robot.cam.getCurrentPosition() + 2240);
+                robot.cam.setPower(Math.abs(-gamepad2.left_stick_y * 0.5));
             } catch (Exception err) {
                 robotconfig.addlog(dl, "error", "failed to set power of cam");
             }
@@ -151,7 +155,7 @@ public class MatTeleOP extends OpMode {
         robot.buttonPusher.setPosition(buttonPusherPosition);
         robot.tilt.setPosition(tiltPosition);
         robot.capLeft.setPosition(capLeftPosition);
-        robot.capRight.setPosition(capRightPosition);
+        robot.capRight.setPosition(capLeftPosition);
 
         telemetry.addData("Forward", "%.2f", forward);
         telemetry.addData("Right", "%.2f", right);
