@@ -49,11 +49,11 @@ public class robotconfig {
     Servo capLeft;
     Servo capRight;
     Servo buttonPusher;
-    
+
     Servo lvex;
     Servo rvex;
     DcMotor cam;
-    
+
     private int fLeftMotorTarget = 0;
     private int fRightMotorTarget = 0;
     private int bLeftMotorTarget = 0;
@@ -284,14 +284,12 @@ public class robotconfig {
         } catch (Exception err) {
             debugMode = false;
         }
-        
+
         try {
             cam = hwMap.dcMotor.get("cam");
             cam.setDirection(DcMotor.Direction.REVERSE);
-            lvex = hwMap.servo.get("lvex");
-            rvex = hwMap.servo.get("rvex");
         } catch (Exception err) {
-            theLinearOpMode.telemetry.addData("wiring", "connect servos lvex and rvex, and motor cam; reverse the 2 wire polarity of the servo moving in the wrong direction");
+            theLinearOpMode.telemetry.addData("wiring", "connect motor cam");
         }
 
         dl = new DataLogger("10635", "autonomousTest", theLinearOpMode.telemetry);
@@ -312,6 +310,9 @@ public class robotconfig {
             tilt.setDirection(Servo.Direction.REVERSE);
             capLeft = hwMap.servo.get("capLeft");
             capRight = hwMap.servo.get("capRight");
+
+            lvex = hwMap.servo.get("lvex");
+            rvex = hwMap.servo.get("rvex");
 
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
@@ -391,16 +392,14 @@ public class robotconfig {
         } catch (Exception err) {
             debugMode = false;
         }
-        
+
         try {
             cam = hwMap.dcMotor.get("cam");
             cam.setDirection(DcMotor.Direction.REVERSE);
-            lvex = hwMap.servo.get("lvex");
-            rvex = hwMap.servo.get("rvex");
         } catch (Exception err) {
-            opMode.telemetry.addData("wiring", "connect servos lvex and rvex, and motor cam; reverse the 2 wire polarity of the servo moving in the wrong direction");
+            opMode.telemetry.addData("wiring", "connect motor cam");
         }
-        
+
         dl = new DataLogger("10635", "teleopTest", opMode.telemetry);
         colorsensors = new DataLogger("10635", "colorsensors", opMode.telemetry);
         addlog(dl, "r.init", "r.init was invoked (a)");
@@ -419,6 +418,9 @@ public class robotconfig {
             tilt.setDirection(Servo.Direction.REVERSE);
             capLeft = hwMap.servo.get("capLeft");
             capRight = hwMap.servo.get("capRight");
+
+            lvex = hwMap.servo.get("lvex");
+            rvex = hwMap.servo.get("rvex");
 
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
