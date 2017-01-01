@@ -314,6 +314,9 @@ public class robotconfig {
             lvex = hwMap.servo.get("lvex");
             rvex = hwMap.servo.get("rvex");
 
+            lvex.setDirection(Servo.Direction.REVERSE);
+            rvex.setDirection(Servo.Direction.REVERSE);
+
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
             int milliSeconds = 1;       // should set to minimum, which is 2.4 ms - needs testing
@@ -422,6 +425,9 @@ public class robotconfig {
             lvex = hwMap.servo.get("lvex");
             rvex = hwMap.servo.get("rvex");
 
+            lvex.setDirection(Servo.Direction.REVERSE);
+            rvex.setDirection(Servo.Direction.REVERSE);
+
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
             int milliSeconds = 1;       // should set to minimum, which is 2.4 ms - needs testing
@@ -517,6 +523,31 @@ public class robotconfig {
                 break;
             case -1:
                 buttonPusher.setPosition(0);//0.42);//left
+                break;
+            default:
+                buttonPusher.setPosition(0.56);
+                break;
+        }//*/
+    }
+
+    /***
+     * pushSoftButton is a function to move the button pusher servo to press either one of the buttons, or reset its position.
+     * like the name says, it is softer than pushButton and less likely to burn out a servo if left on for long periods of time.
+     *
+     * @param button input 1 for the left button, 2 for the right button, and any other number to reset it back to center
+     */
+    void pushSoftButton(int button) {
+        addlog(dl, "robot", String.format(Locale.ENGLISH, "pushButton was invoked with button %d", button));
+        if (debugMode) {
+            return;
+        }
+
+        switch (button) {
+            case 1:
+                buttonPusher.setPosition(0.72);//right button
+                break;
+            case -1:
+                buttonPusher.setPosition(0.42);//left
                 break;
             default:
                 buttonPusher.setPosition(0.56);
