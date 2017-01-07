@@ -380,6 +380,7 @@ class stateslist {
             Thread.yield();
         }
     };
+
     /***
      * spins cam 360 degrees and runs vex motors
      */
@@ -389,7 +390,7 @@ class stateslist {
 
         public void firstTime() {
             try {
-                robot.cam.setPower(1 / 3.0);
+                robot.cam.setPower(1);
                 endpulses = robot.cam.getCurrentPosition() + pulses;
                 robot.lvex.setPosition(1);
                 robot.rvex.setPosition(1);

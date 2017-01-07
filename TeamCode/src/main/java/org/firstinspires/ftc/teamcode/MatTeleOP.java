@@ -105,7 +105,13 @@ public class MatTeleOP extends OpMode {
 
         if (gamepad2.right_bumper) {
             try {
-                robot.cam.setPower(Math.abs(gamepad2.left_stick_y * 0.5));
+                robot.cam.setPower(1);
+            } catch (Exception err) {
+                robotconfig.addlog(dl, "error", "failed to set power of cam");
+            }
+        } else {
+            try {
+                robot.cam.setPower(0);
             } catch (Exception err) {
                 robotconfig.addlog(dl, "error", "failed to set power of cam");
             }
