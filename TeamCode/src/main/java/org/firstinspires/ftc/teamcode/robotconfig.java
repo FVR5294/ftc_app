@@ -52,7 +52,7 @@ public class robotconfig {
 
     Servo lvex;
     Servo rvex;
-    DcMotor cam;
+    DcMotor puncher;
 
     private int fLeftMotorTarget = 0;
     private int fRightMotorTarget = 0;
@@ -286,10 +286,10 @@ public class robotconfig {
         }
 
         try {
-            cam = hwMap.dcMotor.get("cam");
-            cam.setDirection(DcMotor.Direction.REVERSE);
+            puncher = hwMap.dcMotor.get("puncher");
+            puncher.setDirection(DcMotor.Direction.REVERSE);
         } catch (Exception err) {
-            theLinearOpMode.telemetry.addData("wiring", "connect motor cam");
+            theLinearOpMode.telemetry.addData("wiring", "connect motor puncher");
         }
 
         dl = new DataLogger("10635", "autonomousTest", theLinearOpMode.telemetry);
@@ -397,10 +397,10 @@ public class robotconfig {
         }
 
         try {
-            cam = hwMap.dcMotor.get("cam");
-            cam.setDirection(DcMotor.Direction.REVERSE);
+            puncher = hwMap.dcMotor.get("puncher");
+            puncher.setDirection(DcMotor.Direction.REVERSE);
         } catch (Exception err) {
-            opMode.telemetry.addData("wiring", "connect motor cam");
+            opMode.telemetry.addData("wiring", "connect motor puncher");
         }
 
         dl = new DataLogger("10635", "teleopTest", opMode.telemetry);

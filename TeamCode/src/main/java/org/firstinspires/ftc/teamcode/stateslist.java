@@ -382,7 +382,7 @@ class stateslist {
     };
 
     /***
-     * spins cam 360 degrees and runs vex motors
+     * spins puncher 360 degrees and runs vex motors
      */
     state shootball = new state("shootball") {
         int pulses = 2240;
@@ -390,8 +390,8 @@ class stateslist {
 
         public void firstTime() {
             try {
-                robot.cam.setPower(1);
-                endpulses = robot.cam.getCurrentPosition() + pulses;
+                robot.puncher.setPower(1);
+                endpulses = robot.puncher.getCurrentPosition() + pulses;
                 robot.lvex.setPosition(1);
                 robot.rvex.setPosition(1);
             } catch (Error error) {
@@ -413,7 +413,7 @@ class stateslist {
                     return (false);
                 }
             } else {
-                return robot.cam.getCurrentPosition() > endpulses;
+                return robot.puncher.getCurrentPosition() > endpulses;
             }
         }
 
