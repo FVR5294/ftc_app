@@ -52,7 +52,9 @@ public class TeleOp_Revised extends OpMode {
     int endpulses = 0;
 
     private boolean previousAState = false;
+    private boolean previousYState = false;
     private boolean spinnerState = false;
+    private boolean puncherState = false;
 
     @Override
     public void init() {
@@ -89,7 +91,7 @@ public class TeleOp_Revised extends OpMode {
         spin = Range.clip(spin, -1, 1);
         spinner = Range.clip(spinner, -1, 1);
         reeler = Range.clip(reeler, -1, 1);
-        vexes = Range.clip(vexes, -1, 1);
+        vexes = Range.clip(vexes, 0, 1);
         puncher = Range.clip(puncher, -1, 1);
 
         robot.move(forward, right, spin);
@@ -100,9 +102,19 @@ public class TeleOp_Revised extends OpMode {
             vexes = -gamepad2.left_stick_y * 0.5 + 0.5;
         }
 
-        if (gamepad1.y) {
-                robot.puncher.setPower(1);
-                endpulses = robot.puncher.getCurrentPosition() + pulses;
+        if (gamepad1.y && !previousYState) {
+            robot.puncher.setPower(1);
+            endpulses = robot.puncher.getCurrentPosition() + pulses;
+            puncherState = true;
+        }
+
+        previousYState = gamepad1.y;
+
+        if (puncherState) {
+            if (robot.puncher.getCurrentPosition() > endpulses) {
+                robot.puncher.setPower(0);
+                puncherState = false;
+            }
         }
 
         if (gamepad1.dpad_left) {
