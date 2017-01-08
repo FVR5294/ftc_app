@@ -101,15 +101,10 @@ public class TeleOp_Revised extends OpMode {
         }
 
         if (gamepad1.y) {
-            try {
                 robot.puncher.setPower(1);
                 endpulses = robot.puncher.getCurrentPosition() + pulses;
-            } catch (Error error) {
-                robotconfig.addlog(dl, error.toString(), error.getLocalizedMessage());
-            }
-            endpulses = 0;
-            robot.puncher.setPower(0);
         }
+
         if (gamepad1.dpad_left) {
             buttonPusherPosition -= buttonPusherDelta;
         }
