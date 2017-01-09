@@ -310,6 +310,7 @@ class stateslist {
             Thread.yield();
         }
     };
+
     /***
      * backs up closer to te center vortex
      */
@@ -342,6 +343,8 @@ class stateslist {
             robot.move(0, 0, 0);
         }
     };
+
+
     state noscope = new state("noscope") {
         public void firstTime() {
             robot.enableMotorBreak();
@@ -389,14 +392,10 @@ class stateslist {
         int endpulses = 0;
 
         public void firstTime() {
-            try {
                 robot.puncher.setPower(1);
                 endpulses = robot.puncher.getCurrentPosition() + pulses;
                 robot.lvex.setPosition(1);
                 robot.rvex.setPosition(1);
-            } catch (Error error) {
-                robotconfig.addlog(dl, error.toString(), error.getLocalizedMessage());
-            }
         }
 
         public void everyTime() {
@@ -418,7 +417,7 @@ class stateslist {
         }
 
         public void onCompletion() {
-            robot.move(0, 0, 0);
+            robot.puncher.setPower(0);
         }
     };
     /***
@@ -426,11 +425,12 @@ class stateslist {
      */
     state correctStrafe = new state("correctStrafe") {
         public void firstTime() {
-
+            robot.enableMotorBreak();
+            robot.setMyMotorTargets(p.mm2pulses(12 * mmPerInch), 0, 0);
         }
 
         public void everyTime() {
-
+            robot.bettermove();
         }
 
         public boolean conditionsToCheck() {
@@ -449,7 +449,7 @@ class stateslist {
             } else {
                 //robotconfig.addlog(dl, "in backAwayFromBeacon", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
                 //return robot.getMotorEncoderAverage() < p.mm2pulses(-3 * mmPerInch) + startEncoderPos;
-                return true;
+                return robot.bettermoving();
             }
 
         }
@@ -458,19 +458,17 @@ class stateslist {
             robot.move(0, 0, 0);
         }
     };
-    private int startEncoderPos = 0;
     /***
-     * state makes robot back away from beacon slightly to avoid running into anything during next state
+     * state makes robot back away from beacon slightly to avoid running into anything during next state and to aim
      */
     state backAwayFromBeacon = new state("backAwayFromBeacon") {
         public void firstTime() {
             robot.enableMotorBreak();
-            robot.move(-1, 0, 0);
-            startEncoderPos = robot.getMotorEncoderAverage();
+            robot.setMyMotorTargets(p.mm2pulses(-16 * mmPerInch), 0, 0);
         }
 
         public void everyTime() {
-
+            robot.bettermove();
         }
 
         public boolean conditionsToCheck() {
@@ -488,7 +486,7 @@ class stateslist {
                 }
             } else {
                 //robotconfig.addlog(dl, "in backAwayFromBeacon", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
-                return robot.getMotorEncoderAverage() < p.mm2pulses(-3 * mmPerInch) + startEncoderPos;
+                return robot.bettermoving();
             }
 
         }
@@ -513,4 +511,5 @@ class stateslist {
             Thread.yield();
         }
     };
+    private int startEncoderPos = 0;
 }
