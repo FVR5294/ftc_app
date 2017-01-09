@@ -43,7 +43,7 @@ class stateslist {
     state driveTowardsBeacon = new state("driveTowardsBeacon") {
         public void firstTime() {
             robot.disableMotorBreak();
-            robot.move(0.25, 0, 0);
+            robot.move(0.3, 0, 0);
         }
 
         public void everyTime() {
