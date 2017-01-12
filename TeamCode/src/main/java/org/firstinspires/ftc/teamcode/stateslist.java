@@ -409,7 +409,7 @@ class stateslist {
                     return (false);
                 }
             } else {
-                return !robot.larry.isPressed();
+                return !robot.garry.isPressed();
             }
         }
 

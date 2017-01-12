@@ -50,7 +50,7 @@ public class robotconfig {
     Servo capRight;
     Servo buttonPusher;
 
-    TouchSensor larry;
+    TouchSensor garry;
 
     Servo lvex;
     Servo rvex;
@@ -301,7 +301,7 @@ public class robotconfig {
             capLeft = hwMap.servo.get("capLeft");
             capRight = hwMap.servo.get("capRight");
 
-            larry = hwMap.touchSensor.get("punchLimit");
+            garry = hwMap.touchSensor.get("punchLimit");
 
             lvex = hwMap.servo.get("lvex");
             rvex = hwMap.servo.get("rvex");
@@ -415,7 +415,7 @@ public class robotconfig {
             capLeft = hwMap.servo.get("capLeft");
             capRight = hwMap.servo.get("capRight");
 
-            larry = hwMap.touchSensor.get("punchLimit");
+            garry = hwMap.touchSensor.get("punchLimit");
 
             lvex = hwMap.servo.get("lvex");
             rvex = hwMap.servo.get("rvex");

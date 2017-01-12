@@ -48,6 +48,7 @@ public class TeleOp_Revised extends OpMode {
     private boolean spinnerState = false;
     private boolean puncherState = false;
 
+
     @Override
     public void init() {
 
@@ -88,6 +89,15 @@ public class TeleOp_Revised extends OpMode {
             robot.lvex.setPosition(vexes);
         }
 
+        if (gamepad2.left_bumper) {
+            capLeftPosition = 1;
+            robot.capLeft.setPosition(capLeftPosition);
+            capRightPosition = 1;
+            robot.capRight.setPosition(capRightPosition);
+            tiltPosition = 1;
+            robot.tilt.setPosition(tiltPosition);
+        }
+
         if (gamepad1.y) {
             robot.puncher.setPower(1);
             previousYState = true;
@@ -95,7 +105,7 @@ public class TeleOp_Revised extends OpMode {
         }
 
         if (puncherState) {
-            if (!robot.larry.isPressed()) {
+            if (!robot.garry.isPressed()) {
                 robot.puncher.setPower(0);
                 puncherState = false;
             }
@@ -164,7 +174,7 @@ public class TeleOp_Revised extends OpMode {
         telemetry.addData("capLeft", "%.2f", capLeftPosition);
         telemetry.addData("vexes", "%.2f", vexes);
         telemetry.addData("puncher", "%.2f", puncher);
-        telemetry.addData("larry", "%b", !robot.larry.isPressed());
+        telemetry.addData("garry", "%b", !robot.garry.isPressed());
 
     }
 
