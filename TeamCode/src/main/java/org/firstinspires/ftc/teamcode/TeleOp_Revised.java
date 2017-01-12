@@ -23,7 +23,7 @@ public class TeleOp_Revised extends OpMode {
 
     private static double capLeft_MAX_RANGE = 1.00;
     private static double capLeft_MIN_RANGE = 0.00;
-    private static double buttonPusherDelta = 0.02;
+    private static double buttonPusherDelta = 0.1;
     private static double tiltDelta = 0.02;
     private static double capLeftDelta = 0.01;
     private static double capRightDelta = 0.01;
@@ -89,18 +89,13 @@ public class TeleOp_Revised extends OpMode {
         }
 
         if (gamepad1.y) {
-            if (!previousYState) {
-                robot.puncher.setPower(1);
-                endpulses += pulses;
-                previousYState = true;
-                puncherState = true;
-            }
-        } else {
-            previousYState = false;
+            robot.puncher.setPower(1);
+            previousYState = true;
+            puncherState = true;
         }
 
         if (puncherState) {
-            if (robot.puncher.getCurrentPosition() > endpulses) {
+            if (!robot.larry.isPressed()) {
                 robot.puncher.setPower(0);
                 puncherState = false;
             }
@@ -169,6 +164,7 @@ public class TeleOp_Revised extends OpMode {
         telemetry.addData("capLeft", "%.2f", capLeftPosition);
         telemetry.addData("vexes", "%.2f", vexes);
         telemetry.addData("puncher", "%.2f", puncher);
+        telemetry.addData("larry", "%b", !robot.larry.isPressed());
 
     }
 

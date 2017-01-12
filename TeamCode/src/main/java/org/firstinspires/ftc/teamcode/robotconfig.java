@@ -50,6 +50,8 @@ public class robotconfig {
     Servo capRight;
     Servo buttonPusher;
 
+    TouchSensor larry;
+
     Servo lvex;
     Servo rvex;
     DcMotor puncher;
@@ -275,6 +277,7 @@ public class robotconfig {
         try {
             puncher = hwMap.dcMotor.get("puncher");
             puncher.setDirection(DcMotor.Direction.REVERSE);
+            puncher.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         } catch (Exception err) {
             theLinearOpMode.telemetry.addData("wiring", "connect motor puncher");
         }
@@ -297,6 +300,8 @@ public class robotconfig {
             tilt.setDirection(Servo.Direction.REVERSE);
             capLeft = hwMap.servo.get("capLeft");
             capRight = hwMap.servo.get("capRight");
+
+            larry = hwMap.touchSensor.get("punchLimit");
 
             lvex = hwMap.servo.get("lvex");
             rvex = hwMap.servo.get("rvex");
@@ -386,6 +391,7 @@ public class robotconfig {
         try {
             puncher = hwMap.dcMotor.get("puncher");
             puncher.setDirection(DcMotor.Direction.REVERSE);
+            puncher.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         } catch (Exception err) {
             opMode.telemetry.addData("wiring", "connect motor puncher");
         }
@@ -408,6 +414,8 @@ public class robotconfig {
             tilt.setDirection(Servo.Direction.REVERSE);
             capLeft = hwMap.servo.get("capLeft");
             capRight = hwMap.servo.get("capRight");
+
+            larry = hwMap.touchSensor.get("punchLimit");
 
             lvex = hwMap.servo.get("lvex");
             rvex = hwMap.servo.get("rvex");

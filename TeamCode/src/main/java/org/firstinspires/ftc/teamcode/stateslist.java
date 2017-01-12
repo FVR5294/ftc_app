@@ -92,7 +92,7 @@ class stateslist {
         public void onCompletion() {
             robot.pushButton(robot.detectColor() * color);
             try {
-                sleep(500);
+                sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -388,12 +388,9 @@ class stateslist {
      * spins puncher 360 degrees and runs vex motors
      */
     state shootball = new state("shootball") {
-        int pulses = 2240;
-        int endpulses = 0;
 
         public void firstTime() {
                 robot.puncher.setPower(1);
-                endpulses = robot.puncher.getCurrentPosition() + pulses;
                 robot.lvex.setPosition(1);
                 robot.rvex.setPosition(1);
         }
@@ -412,7 +409,7 @@ class stateslist {
                     return (false);
                 }
             } else {
-                return robot.puncher.getCurrentPosition() > endpulses;
+                return !robot.larry.isPressed();
             }
         }
 
@@ -420,6 +417,7 @@ class stateslist {
             robot.puncher.setPower(0);
         }
     };
+
     /***
      * state corrects for error in robot strafing
      */
@@ -464,7 +462,7 @@ class stateslist {
     state backAwayFromBeacon = new state("backAwayFromBeacon") {
         public void firstTime() {
             robot.enableMotorBreak();
-            robot.setMyMotorTargets(p.mm2pulses(-16 * mmPerInch), 0, 0);
+            robot.setMyMotorTargets(p.mm2pulses(-22 * mmPerInch), 0, 0);
         }
 
         public void everyTime() {
