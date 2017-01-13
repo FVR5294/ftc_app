@@ -520,7 +520,7 @@ public class robotconfig {
                 buttonPusher.setPosition(0);//0.42);//left
                 break;
             default:
-                buttonPusher.setPosition(0.56);
+                buttonPusher.setPosition(0.5);
                 break;
         }//*/
     }
@@ -539,13 +539,13 @@ public class robotconfig {
 
         switch (button) {
             case 1:
-                buttonPusher.setPosition(0.72);//right button
+                buttonPusher.setPosition(0.75);//right button
                 break;
             case -1:
-                buttonPusher.setPosition(0.42);//left
+                buttonPusher.setPosition(0.25);//left
                 break;
             default:
-                buttonPusher.setPosition(0.56);
+                buttonPusher.setPosition(0.5);
                 break;
         }//*/
     }

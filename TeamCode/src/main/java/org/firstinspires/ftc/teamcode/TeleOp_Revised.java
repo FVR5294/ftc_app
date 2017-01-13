@@ -12,8 +12,8 @@ import com.qualcomm.robotcore.util.Range;
 
 public class TeleOp_Revised extends OpMode {
 
-    private static double buttonPusher_MIN_RANGE = 0.40;
-    private static double buttonPusher_MAX_RANGE = 0.80;
+    private static double buttonPusher_MIN_RANGE = 0.35;
+    private static double buttonPusher_MAX_RANGE = 0.75;
 
     private static double Tilt_MAX_RANGE = 1.00;
     private static double Tilt_MIN_RANGE = 0.00;
@@ -59,7 +59,7 @@ public class TeleOp_Revised extends OpMode {
         telemetry.addData("Say", "Hello Driver");
         updateTelemetry(telemetry);
 
-        buttonPusherPosition = 0.56;
+        buttonPusherPosition = 0.5;
         tiltPosition = 0.50;
         capLeftPosition = 0.00;
         capRightPosition = 0.00;
@@ -98,7 +98,7 @@ public class TeleOp_Revised extends OpMode {
             robot.tilt.setPosition(tiltPosition);
         }
 
-        if (gamepad1.y) {
+        if (gamepad1.a) {
             robot.puncher.setPower(1);
             puncherState = true;
         }
@@ -122,7 +122,7 @@ public class TeleOp_Revised extends OpMode {
             robot.buttonPusher.setPosition(buttonPusherPosition);
         }
 
-        if (gamepad1.a) {
+        if (gamepad1.left_bumper) {
             if (!previousAState) {
                 if (spinnerState) {
                     spinnerState = false;
