@@ -54,6 +54,7 @@ public class double_red extends LinearOpMode {
                     break;
                 case 6:
                     sleep(1000);
+                    currentState++;
                     break;
                 case 7:
                     state.shootball2.run();
