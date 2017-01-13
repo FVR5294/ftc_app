@@ -52,7 +52,7 @@ public class dank_blue extends LinearOpMode {
                 state.noscope.run();
                 break;
             case 7:
-                state.shootball.run();
+                state.shootball2.run();
                 break;
             case 8:
                 state.slideToTheRight.run();

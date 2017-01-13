@@ -389,13 +389,16 @@ class stateslist {
      */
     state shootball = new state("shootball") {
 
+        boolean previousGarry = false;
+
         public void firstTime() {
-                robot.puncher.setPower(1);
-                robot.lvex.setPosition(1);
-                robot.rvex.setPosition(1);
+            robot.puncher.setPower(1);
+            robot.lvex.setPosition(1);
+            robot.rvex.setPosition(1);
         }
 
         public void everyTime() {
+            previousGarry = robot.garry.isPressed();
         }
 
         public boolean conditionsToCheck() {
@@ -409,12 +412,49 @@ class stateslist {
                     return (false);
                 }
             } else {
-                return !robot.garry.isPressed();
+                return !robot.garry.isPressed() && previousGarry;
             }
         }
 
         public void onCompletion() {
             robot.puncher.setPower(0);
+        }
+    };
+
+    /***
+     * spins puncher 360 degrees and stops run vex motors
+     */
+    state shootball2 = new state("shootball2") {
+
+        boolean previousGarry = false;
+
+        public void firstTime() {
+            robot.puncher.setPower(1);
+        }
+
+        public void everyTime() {
+            previousGarry = robot.garry.isPressed();
+        }
+
+        public boolean conditionsToCheck() {
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in shootball", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in shootball", "returning false");
+                    return (false);
+                }
+            } else {
+                return !robot.garry.isPressed() && previousGarry;
+            }
+        }
+
+        public void onCompletion() {
+            robot.puncher.setPower(0);
+            robot.lvex.setPosition(0.5);
+            robot.rvex.setPosition(0.5);
         }
     };
 

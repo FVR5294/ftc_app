@@ -23,7 +23,7 @@ public class TeleOp_Revised extends OpMode {
 
     private static double capLeft_MAX_RANGE = 1.00;
     private static double capLeft_MIN_RANGE = 0.00;
-    private static double buttonPusherDelta = 0.1;
+    private static double buttonPusherDelta = 0.06;
     private static double tiltDelta = 0.02;
     private static double capLeftDelta = 0.01;
     private static double capRightDelta = 0.01;
@@ -44,7 +44,7 @@ public class TeleOp_Revised extends OpMode {
     private int endpulses = 0;
 
     private boolean previousAState = false;
-    private boolean previousYState = false;
+    private boolean previousGaryState = false;
     private boolean spinnerState = false;
     private boolean puncherState = false;
 
@@ -100,16 +100,17 @@ public class TeleOp_Revised extends OpMode {
 
         if (gamepad1.y) {
             robot.puncher.setPower(1);
-            previousYState = true;
             puncherState = true;
         }
 
         if (puncherState) {
-            if (!robot.garry.isPressed()) {
+            if (!robot.garry.isPressed() && previousGaryState) {
                 robot.puncher.setPower(0);
                 puncherState = false;
             }
         }
+
+        previousGaryState = robot.garry.isPressed();
 
         if (gamepad1.dpad_left) {
             buttonPusherPosition -= buttonPusherDelta;

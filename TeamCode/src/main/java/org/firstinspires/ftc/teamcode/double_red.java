@@ -53,7 +53,7 @@ public class double_red extends LinearOpMode {
                     state.shootball.run();
                     break;
                 case 6:
-                    state.shootball.run();
+                    state.shootball2.run();
                     break;
                 case 7:
                     state.slideToTheRight.run();
