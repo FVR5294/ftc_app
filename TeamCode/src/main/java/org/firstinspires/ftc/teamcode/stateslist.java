@@ -464,7 +464,7 @@ class stateslist {
     state correctStrafe = new state("correctStrafe") {
         public void firstTime() {
             robot.enableMotorBreak();
-            robot.setMyMotorTargets(p.mm2pulses(12 * mmPerInch), 0, 0);
+            robot.setMyMotorTargets(p.mm2pulses(16 * mmPerInch), 0, 0);
         }
 
         public void everyTime() {
@@ -502,7 +502,7 @@ class stateslist {
     state backAwayFromBeacon = new state("backAwayFromBeacon") {
         public void firstTime() {
             robot.enableMotorBreak();
-            robot.setMyMotorTargets(p.mm2pulses(-22 * mmPerInch), 0, 0);
+            robot.setMyMotorTargets(p.mm2pulses(-28 * mmPerInch), 0, 0);
         }
 
         public void everyTime() {
