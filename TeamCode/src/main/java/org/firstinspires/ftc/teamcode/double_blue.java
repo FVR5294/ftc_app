@@ -53,17 +53,17 @@ public class double_blue extends LinearOpMode {
                     state.shootball.run();
                     break;
                 case 6:
-                    sleep(1000);
+                    sleep(2000);
                     currentState++;
                     break;
                 case 7:
                     state.shootball2.run();
                     break;
                 case 8:
-                    state.slideToTheRight.run();
+                    state.correctStrafe.run();
                     break;
                 case 9:
-                    state.correctStrafe.run();
+                    state.slideToTheRight.run();
                     break;
                 case 10:
                     state.scanForLine.run();

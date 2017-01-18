@@ -710,7 +710,6 @@ public class robotconfig {
         int fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());
         int bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition());
         int bRightMotorPower = (bRightMotorTarget - bRightMotor.getCurrentPosition());
-        int max = Math.max(Math.max(fLeftMotorPower, bLeftMotorPower), Math.max(fRightMotorPower, bRightMotorPower));
         return String.format(Locale.ENGLISH, "%d, %d, %d, %d", fLeftMotorPower, fRightMotorPower, bLeftMotorPower, bRightMotorPower);
     }
 

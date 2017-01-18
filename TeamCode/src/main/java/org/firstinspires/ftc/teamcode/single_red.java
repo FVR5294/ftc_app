@@ -53,10 +53,10 @@ public class single_red extends LinearOpMode {
                     state.shootball2.run();
                     break;
                 case 6:
-                    state.slideToTheRight.run();
+                    state.correctStrafe.run();
                     break;
                 case 7:
-                    state.correctStrafe.run();
+                    state.slideToTheRight.run();
                     break;
                 case 8:
                     state.scanForLine.run();

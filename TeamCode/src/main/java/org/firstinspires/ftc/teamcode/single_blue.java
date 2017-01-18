@@ -53,10 +53,10 @@ public class single_blue extends LinearOpMode {
                     state.shootball2.run();
                     break;
                 case 6:
-                    state.slideToTheRight.run();
+                    state.backAwayFromBeacon.run();
                     break;
                 case 7:
-                    state.backAwayFromBeacon.run();
+                    state.slideToTheRight.run();
                     break;
                 case 8:
                     state.scanForLine.run();

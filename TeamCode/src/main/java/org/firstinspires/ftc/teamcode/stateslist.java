@@ -502,7 +502,7 @@ class stateslist {
     state backAwayFromBeacon = new state("backAwayFromBeacon") {
         public void firstTime() {
             robot.enableMotorBreak();
-            robot.setMyMotorTargets(p.mm2pulses(-28 * mmPerInch), 0, 0);
+            robot.setMyMotorTargets(p.mm2pulses(-25 * mmPerInch), 0, 0);
         }
 
         public void everyTime() {
