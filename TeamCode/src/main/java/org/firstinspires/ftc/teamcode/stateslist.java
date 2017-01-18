@@ -312,6 +312,39 @@ class stateslist {
     };
 
     /***
+     * rotates robot 60 degrees clockwise if red, counter if blue
+     */
+    state rotate60 = new state("rotate60") {
+        public void firstTime() {
+            robot.enableMotorBreak();
+            robot.setMyMotorTargets(0, 0, p.mm2pulses(p.spin2mm(60 * color)));
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+        }
+
+        public boolean conditionsToCheck() {
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in rotate60", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in rotate60", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+        }
+    };
+
+    /***
      * backs up closer to te center vortex
      */
     state backuptovortex = new state("backuptovortex") {
@@ -549,5 +582,4 @@ class stateslist {
             Thread.yield();
         }
     };
-    private int startEncoderPos = 0;
 }

@@ -309,6 +309,9 @@ public class robotconfig {
             lvex.setDirection(Servo.Direction.REVERSE);
             rvex.setDirection(Servo.Direction.REVERSE);
 
+            lvex.setPosition(0.5);
+            rvex.setPosition(0.5);
+
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
             int milliSeconds = 1;       // should set to minimum, which is 2.4 ms - needs testing
@@ -422,6 +425,9 @@ public class robotconfig {
 
             lvex.setDirection(Servo.Direction.REVERSE);
             rvex.setDirection(Servo.Direction.REVERSE);
+
+            lvex.setPosition(0.5);
+            rvex.setPosition(0.5);
 
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
