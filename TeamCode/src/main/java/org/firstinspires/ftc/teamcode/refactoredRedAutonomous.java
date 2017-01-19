@@ -54,7 +54,7 @@ public class refactoredRedAutonomous extends LinearOpMode {
                     state.slideToTheRight.run();
                     break;
                 case 6:
-                    state.backAwayFromBeacon.run();
+                    state.correctStrafe.run();
                     break;
                 case 7:
                     state.scanForLine.run();
@@ -67,6 +67,12 @@ public class refactoredRedAutonomous extends LinearOpMode {
                     break;
                 case 10:
                     state.backAwayFromBeacon.run();
+                    break;
+                case 11:
+                    state.rotate60.run();
+                    break;
+                case 12:
+                    state.backuptovortex.run();
                     break;
                 default:
                     robot.move(0, 0, 0);

@@ -54,16 +54,25 @@ public class refactoredBlueAutonomous extends LinearOpMode {
                     state.slideToTheRight.run();
                     break;
                 case 6:
-                    state.scanForLine.run();
+                    state.correctStrafe.run();
                     break;
                 case 7:
-                    state.driveTowardsBeacon.run();
+                    state.scanForLine.run();
                     break;
                 case 8:
-                    state.pushBeaconButton.run();
+                    state.driveTowardsBeacon.run();
                     break;
                 case 9:
+                    state.pushBeaconButton.run();
+                    break;
+                case 10:
                     state.backAwayFromBeacon.run();
+                    break;
+                case 11:
+                    state.rotate60.run();
+                    break;
+                case 12:
+                    state.backuptovortex.run();
                     break;
                 default:
                     robot.move(0, 0, 0);

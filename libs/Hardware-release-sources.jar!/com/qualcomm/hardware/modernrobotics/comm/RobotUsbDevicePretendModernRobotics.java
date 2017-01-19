@@ -30,7 +30,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
 TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-package com.qualcomm.hardware.modernrobotics;
+package com.qualcomm.hardware.modernrobotics.comm;
 
 import android.support.annotation.NonNull;
 
@@ -39,19 +39,22 @@ import com.qualcomm.robotcore.hardware.DeviceManager;
 import com.qualcomm.robotcore.hardware.usb.RobotUsbDevice;
 import com.qualcomm.robotcore.util.SerialNumber;
 
+import org.firstinspires.ftc.robotcore.internal.CircularByteBuffer;
+
 /**
  * This class implements a dummy RobotUsbDevice that will apparently successfully do reads and
  * writes but doesn't actually do anything.
  */
-public class PretendModernRoboticsUsbDevice implements RobotUsbDevice
+@SuppressWarnings("WeakerAccess")
+public class RobotUsbDevicePretendModernRobotics implements RobotUsbDevice
     {
-    protected FirmwareVersion firmwareVersion = null;
-    protected byte cbExpected = 0;
-    protected boolean interruptRequested = false;
-    protected SerialNumber serialNumber;
-    protected DeviceManager.DeviceType deviceType = DeviceManager.DeviceType.FTDI_USB_UNKNOWN_DEVICE;
+    protected FirmwareVersion           firmwareVersion = null;
+    protected CircularByteBuffer        circularByteBuffer = new CircularByteBuffer(0);
+    protected boolean                   interruptRequested = false;
+    protected SerialNumber              serialNumber;
+    protected DeviceManager.DeviceType  deviceType = DeviceManager.DeviceType.FTDI_USB_UNKNOWN_DEVICE;
 
-    public PretendModernRoboticsUsbDevice(SerialNumber serialNumber)
+    public RobotUsbDevicePretendModernRobotics(SerialNumber serialNumber)
         {
         this.serialNumber = serialNumber;
         }
@@ -95,16 +98,31 @@ public class PretendModernRoboticsUsbDevice implements RobotUsbDevice
         }
     @Override public void write(byte[] bytes) throws RobotCoreException
         {
-        // Write commands have zero-sized responses, read commands indicate their expected size
-        byte bCommand = bytes[2];
-        this.cbExpected = bCommand==0 ? 0/*write*/ : bytes[4] /*read*/;
-        }
-    @Override public int read(byte[] bytes, int cbReadExpected, int timeout) throws RobotCoreException, InterruptedException
-        {
-        return read(bytes, cbReadExpected, (long)timeout);
-        }
-    @Override public int read(byte[] bytes, int cbReadExpected, long timeout) throws RobotCoreException, InterruptedException
-        {
+        // Interpret the byte data. Note: this only works because higher levels only ever write
+        // whole requests in one fell swoop
+        ModernRoboticsRequest request = ModernRoboticsRequest.from(bytes);
+        if (0 != request.getFunction()) throw new IllegalArgumentException("undefined function: " + request.getFunction());
+
+        // Generate an appropriate response
+        ModernRoboticsResponse response;
+        if (request.isWrite())
+            {
+            response = new ModernRoboticsResponse(0);
+            response.setWrite(request.getFunction());
+            response.setAddress(request.getAddress());
+            }
+        else
+            {
+            response = new ModernRoboticsResponse(request.getPayloadLength());
+            response.setRead(request.getFunction());
+            response.setAddress(request.getAddress());
+            response.setPayloadLength(request.getPayloadLength());
+            // Payload data will already be initialized as zero
+            }
+
+        // Remember the response for a subsequent read
+        circularByteBuffer.write(response.data);
+
         // We have a bit of a dilemma: we don't actually need to take any time to, e.g.,
         // communicate with an actual piece of hardware like a non-pretend device does.
         // As a result, were we to do nothing, our ReadWriteRunnable would spin through its
@@ -117,16 +135,26 @@ public class PretendModernRoboticsUsbDevice implements RobotUsbDevice
         //
         // The constant used here (3.5ms) has been observed in a non-scientific study to roughly
         // approximate the time taken for a RobotUsbDevice write() followed by a read(). But only
-        // roughly. We could break that into two sleep()s, one in write() and the other here in
+        // roughly. We could break that into two sleep()s, one in write() and the other in
         // read(), but we don't care enough about verisimilitude to be bothered.
-        Thread.sleep(3, 500000);
+        try {
+            Thread.sleep(3, 500000);
+            }
+        catch (InterruptedException e)
+            {
+            Thread.currentThread().interrupt();
+            }
+        }
 
-        // We need to set the 'sync' bytes correctly, and set the sizes, or our
-        // read result will be rejected. We might consider zeroing the buffer here.
-        bytes[0]    = (byte)0x33;
-        bytes[1]    = (byte)0xCC;
-        bytes[4]    = (byte)cbExpected;
-        return cbReadExpected;
+    @Override public int read(byte[] bytes, int cbReadExpected, int timeout) throws RobotCoreException, InterruptedException
+        {
+        return read(bytes, cbReadExpected, (long)timeout);
+        }
+
+    @Override public int read(byte[] bytes, int cbReadExpected, long timeout) throws RobotCoreException
+        {
+        // Return what we can
+        return circularByteBuffer.read(bytes, 0, cbReadExpected);
         }
 
     @Override

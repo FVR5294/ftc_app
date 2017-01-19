@@ -28,9 +28,8 @@
  * THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.qualcomm.hardware.modernrobotics;
+package com.qualcomm.hardware.modernrobotics.comm;
 
-import com.qualcomm.modernrobotics.ReadWriteRunnableUsbHandler;
 import com.qualcomm.robotcore.eventloop.SyncdDevice;
 import com.qualcomm.robotcore.exception.RobotCoreException;
 import java.util.concurrent.ExecutorService;

@@ -50,19 +50,20 @@ public class single_blue extends LinearOpMode {
                     state.backAwayFromBeacon.run();
                     break;
                 case 5:
-                    state.shootball2.run();
+                    sleep(500);
+                    currentState++;
                     break;
                 case 6:
-                    state.backAwayFromBeacon.run();
+                    state.shootball2.run();
                     break;
                 case 7:
-                    state.slideToTheRight.run();
+                    state.correctStrafe.run();
                     break;
                 case 8:
-                    state.scanForLine.run();
+                    state.slideToTheRight.run();
                     break;
                 case 9:
-                    state.correctStrafe.run();
+                    state.scanForLine.run();
                     break;
                 case 10:
                     state.driveTowardsBeacon.run();
@@ -71,7 +72,10 @@ public class single_blue extends LinearOpMode {
                     state.pushBeaconButton.run();
                     break;
                 case 12:
-                    state.backAwayFromBeacon.run();
+                    state.pivotbeacon.run();
+                    break;
+                case 13:
+                    state.backuptovortex.run();
                     break;
                 default:
                     robot.move(0, 0, 0);

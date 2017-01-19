@@ -1,14 +1,13 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
 import static org.firstinspires.ftc.teamcode.robotconfig.dl;
 /**
  * Created by Matthew Hotham on 11/5/2016.
  */
-@TeleOp(name = "MattTeleOP", group = "2016")
+//@TeleOp(name = "MattTeleOP", group = "2016")
 
 public class MatTeleOP extends OpMode {
 

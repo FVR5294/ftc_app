@@ -165,7 +165,7 @@ class preciseMovement {
      */
     void automaticSquareUp(robotconfig robot) {
         robotconfig.addlog(dl, "pm.automaticSquareUp without telemetry", "called");
-        this.move(0, 0, (robot.getCurrentAngle() - (Math.round(robot.getCurrentAngle() / 45) * 45)), 1, robot);
+        this.move(0, 0, (robot.getCurrentAngle() - (Math.round(robot.getCurrentAngle() / 45) * 45)), 0.5, robot);
     }
 
 }

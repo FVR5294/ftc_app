@@ -50,32 +50,39 @@ public class double_blue extends LinearOpMode {
                     state.backAwayFromBeacon.run();
                     break;
                 case 5:
-                    state.shootball.run();
+                    sleep(500);
+                    currentState++;
                     break;
                 case 6:
+                    state.shootball.run();
+                    break;
+                case 7:
                     sleep(2000);
                     currentState++;
                     break;
-                case 7:
+                case 8:
                     state.shootball2.run();
                     break;
-                case 8:
+                case 9:
                     state.correctStrafe.run();
                     break;
-                case 9:
+                case 10:
                     state.slideToTheRight.run();
                     break;
-                case 10:
+                case 11:
                     state.scanForLine.run();
                     break;
-                case 11:
+                case 12:
                     state.driveTowardsBeacon.run();
                     break;
-                case 12:
+                case 13:
                     state.pushBeaconButton.run();
                     break;
-                case 13:
-                    state.backAwayFromBeacon.run();
+                case 14:
+                    state.pivotbeacon.run();
+                    break;
+                case 15:
+                    state.backuptovortex.run();
                     break;
                 default:
                     robot.move(0, 0, 0);

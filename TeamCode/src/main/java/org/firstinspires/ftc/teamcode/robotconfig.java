@@ -60,7 +60,7 @@ public class robotconfig {
     private int fRightMotorTarget = 0;
     private int bLeftMotorTarget = 0;
     private int bRightMotorTarget = 0;
-    private int bettermovedeadzone = 50;
+    private int bettermovedeadzone = 100;
     private DeviceInterfaceModule cdim;
     private HardwareMap hwMap = null;
     private OpMode opMode;
@@ -210,10 +210,10 @@ public class robotconfig {
         if (debugMode) {
             return;
         }
-        fLeftMotorTarget = left;
-        fRightMotorTarget = right;
-        bLeftMotorTarget = left;
-        bRightMotorTarget = right;
+        fLeftMotorTarget = fLeftMotor.getCurrentPosition() + left;
+        fRightMotorTarget = fRightMotor.getCurrentPosition() + right;
+        bLeftMotorTarget = bLeftMotor.getCurrentPosition() + left;
+        bRightMotorTarget = bRightMotor.getCurrentPosition() + right;
     }
 
     /***
@@ -545,10 +545,10 @@ public class robotconfig {
 
         switch (button) {
             case 1:
-                buttonPusher.setPosition(0.75);//right button
+                buttonPusher.setPosition(0.7);//right button
                 break;
             case -1:
-                buttonPusher.setPosition(0.25);//left
+                buttonPusher.setPosition(0.3);//left
                 break;
             default:
                 buttonPusher.setPosition(0.5);

@@ -192,6 +192,47 @@ class stateslist {
         }
     };
 
+    /***
+     * state pivots robot 45 degrees towards beacon
+     */
+    state pivotbeacon = new state("pivotbeacon") {
+
+
+        public void firstTime() {
+
+            if (color == 1)
+                robot.setMyMotorTankTargets(0, p.mm2pulses(mmPerInch * -30 * pi / 4));
+            else
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * -30 * pi / 4), 0);
+
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+            //robotconfig.addlog(dl, "in arcTowardsBeacon", "error at " + robot.getErrors());
+        }
+
+        public boolean conditionsToCheck() {
+            //robotconfig.addlog(dl, "in arcTowardsBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in pivotbeacon", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in pivotbeacon", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+        }
+    };
+
     state slideToTheRight = new state("slideToTheRight") {
         public void firstTime() {
             robot.setMyMotorTargets(0, color * p.mm2pulses(50 * mmPerInch), 0);
@@ -316,8 +357,7 @@ class stateslist {
      */
     state rotate60 = new state("rotate60") {
         public void firstTime() {
-            robot.enableMotorBreak();
-            robot.setMyMotorTargets(0, 0, p.mm2pulses(p.spin2mm(60 * color)));
+            robot.setMyMotorTargets(0, 0, p.mm2pulses(p.spin2mm(64 * color)));
         }
 
         public void everyTime() {
@@ -345,12 +385,52 @@ class stateslist {
     };
 
     /***
+     * rotates robot 90 degrees clockwise if red, counter if blue
+     */
+    state rotate90 = new state("rotate90") {
+        public void firstTime() {
+            robot.setMyMotorTargets(0, 0, p.mm2pulses(p.spin2mm(90 * color)));
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+        }
+
+        public boolean conditionsToCheck() {
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in rotate90", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in rotate90", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
+        }
+    };
+
+    /***
      * backs up closer to te center vortex
      */
     state backuptovortex = new state("backuptovortex") {
         public void firstTime() {
-            robot.enableMotorBreak();
-            robot.setMyMotorTargets(p.mm2pulses(-20 * mmPerInch), 0, 0);
+            robot.setMyMotorTargets(p.mm2pulses(-40 * mmPerInch), 0, 0);
         }
 
         public void everyTime() {
@@ -377,10 +457,41 @@ class stateslist {
         }
     };
 
+    /***
+     * strafes to the center vortex
+     */
+    state strafetovortex = new state("strafetovortex") {
+        public void firstTime() {
+            robot.setMyMotorTargets(p.mm2pulses(-48 * mmPerInch), p.mm2pulses(-48 * mmPerInch * color), 0);
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+        }
+
+        public boolean conditionsToCheck() {
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in strafetovortex", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in strafetovortex", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+        }
+    };
+
 
     state noscope = new state("noscope") {
         public void firstTime() {
-            robot.enableMotorBreak();
             robot.setMyMotorTargets(0, 0, p.mm2pulses(p.spin2mm(360 * color)));
         }
 
@@ -425,7 +536,7 @@ class stateslist {
         boolean previousGarry = false;
 
         public void firstTime() {
-            robot.puncher.setPower(1);
+            robot.puncher.setPower(0.6);
             robot.lvex.setPosition(1);
             robot.rvex.setPosition(1);
         }
@@ -462,7 +573,7 @@ class stateslist {
         boolean previousGarry = false;
 
         public void firstTime() {
-            robot.puncher.setPower(1);
+            robot.puncher.setPower(0.6);
         }
 
         public void everyTime() {
@@ -534,8 +645,7 @@ class stateslist {
      */
     state backAwayFromBeacon = new state("backAwayFromBeacon") {
         public void firstTime() {
-            robot.enableMotorBreak();
-            robot.setMyMotorTargets(p.mm2pulses(-25 * mmPerInch), 0, 0);
+            robot.setMyMotorTargets(p.mm2pulses(-22 * mmPerInch), 0, 0);
         }
 
         public void everyTime() {
@@ -570,16 +680,6 @@ class stateslist {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            robot.enableEncodersToPosition();
-            Thread.yield();
-            robot.setMotorPower(1);
-            Thread.yield();
-            p.automaticSquareUp(robot);
-            Thread.yield();
-            robot.setMotorPower(0);
-            Thread.yield();
-            robot.enableMotorEncoders();
-            Thread.yield();
         }
     };
 }

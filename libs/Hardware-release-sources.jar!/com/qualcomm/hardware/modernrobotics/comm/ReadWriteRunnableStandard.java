@@ -28,23 +28,22 @@
  * THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.qualcomm.hardware.modernrobotics;
+package com.qualcomm.hardware.modernrobotics.comm;
 
 import android.content.Context;
 
 import com.qualcomm.hardware.HardwareFactory;
 import com.qualcomm.hardware.R;
-import com.qualcomm.modernrobotics.ReadWriteRunnableUsbHandler;
 import com.qualcomm.robotcore.exception.FTDeviceClosedException;
 import com.qualcomm.robotcore.exception.RobotCoreException;
-import com.qualcomm.robotcore.hardware.usb.RobotUsbModule;
 import com.qualcomm.robotcore.hardware.usb.RobotUsbDevice;
+import com.qualcomm.robotcore.hardware.usb.RobotUsbModule;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.GlobalWarningSource;
 import com.qualcomm.robotcore.util.RobotLog;
 import com.qualcomm.robotcore.util.SerialNumber;
-import com.qualcomm.robotcore.util.TypeConversion;
 import com.qualcomm.robotcore.util.ThreadPool;
+import com.qualcomm.robotcore.util.TypeConversion;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -56,8 +55,10 @@ import java.util.concurrent.ExecutorService;
 /**
  * Main loop that copies the read/write buffer from/to the device
  * <p>
- * Helper class for Modern Robotics USB Device
+ * Note that this implementation is specific to Modern Robotics, as it has knowledge
+ * of the Modern Robotics datagram formats, etc.
  */
+@SuppressWarnings("WeakerAccess")
 public class ReadWriteRunnableStandard implements ReadWriteRunnable {
 
   //------------------------------------------------------------------------------------------------
@@ -74,7 +75,7 @@ public class ReadWriteRunnableStandard implements ReadWriteRunnable {
   protected final Context               context;
   protected final SerialNumber          serialNumber;
   protected RobotUsbDevice              robotUsbDevice;
-  protected ReadWriteRunnableUsbHandler usbHandler;
+  protected ModernRoboticsReaderWriter usbHandler;
 
   protected int startAddress;
   protected int monitorLength;
@@ -91,6 +92,7 @@ public class ReadWriteRunnableStandard implements ReadWriteRunnable {
   protected         RobotUsbModule  owner;
 
   protected final boolean DEBUG_LOGGING;
+  protected final boolean DEBUG_SEGMENTS = false;
 
   //------------------------------------------------------------------------------------------------
   // Construction
@@ -112,7 +114,7 @@ public class ReadWriteRunnableStandard implements ReadWriteRunnable {
     this.callback = new EmptyCallback();
     this.owner    = null;
     this.robotUsbDevice = device;
-    this.usbHandler = new ReadWriteRunnableUsbHandler(device);
+    this.usbHandler = new ModernRoboticsReaderWriter(device);
   }
 
   public void setCallback(Callback callback) {
@@ -326,7 +328,6 @@ public class ReadWriteRunnableStandard implements ReadWriteRunnable {
     // Ok: let's ... go ... fly, a kite ... :-)
 
     try {
-      usbHandler.purge(RobotUsbDevice.Channel.RX);
 
       while (running) {
 
@@ -350,6 +351,7 @@ public class ReadWriteRunnableStandard implements ReadWriteRunnable {
             try {
               segment.getReadLock().lock();
               System.arraycopy(readBuffer, 0, segment.getReadBuffer(), 0, segment.getReadBuffer().length);
+              if (DEBUG_SEGMENTS) dumpBuffers("segment " + segment.getAddress() + " read", readBuffer);
             } finally {
               segment.getReadLock().unlock();
             }
