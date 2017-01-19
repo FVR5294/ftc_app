@@ -22,6 +22,7 @@ class stateslist {
     state scanForLine = new state("scanForLine") {
         public void firstTime() {
             robot.enableMotorBreak();
+            robot.enableMotorEncoders();
             robot.move(0, color * 0.3, 0);
         }
 
@@ -35,6 +36,8 @@ class stateslist {
 
         public void onCompletion() {
             robot.move(0, 0, 0);
+            robot.disableMotorBreak();
+            robot.disableMotorEncoders();
         }
     };
     /***
@@ -187,7 +190,7 @@ class stateslist {
             Thread.yield();
             robot.setMotorPower(0);
             Thread.yield();
-            robot.enableMotorEncoders();
+            robot.disableMotorEncoders();
             Thread.yield();
         }
     };
@@ -201,9 +204,9 @@ class stateslist {
         public void firstTime() {
 
             if (color == 1)
-                robot.setMyMotorTankTargets(0, p.mm2pulses(mmPerInch * -30 * pi / 4));
+                robot.setMyMotorTankTargets(0, p.mm2pulses(mmPerInch * -28 * pi / 4));
             else
-                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * -30 * pi / 4), 0);
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * -28 * pi / 4), 0);
 
         }
 
@@ -270,7 +273,7 @@ class stateslist {
             Thread.yield();
             robot.setMotorPower(0);
             Thread.yield();
-            robot.enableMotorEncoders();
+            robot.disableMotorEncoders();
             Thread.yield();
         }
     };
@@ -347,7 +350,7 @@ class stateslist {
             Thread.yield();
             robot.setMotorPower(0);
             Thread.yield();
-            robot.enableMotorEncoders();
+            robot.disableMotorEncoders();
             Thread.yield();
         }
     };
@@ -420,7 +423,7 @@ class stateslist {
             Thread.yield();
             robot.setMotorPower(0);
             Thread.yield();
-            robot.enableMotorEncoders();
+            robot.disableMotorEncoders();
             Thread.yield();
         }
     };
@@ -430,7 +433,7 @@ class stateslist {
      */
     state backuptovortex = new state("backuptovortex") {
         public void firstTime() {
-            robot.setMyMotorTargets(p.mm2pulses(-40 * mmPerInch), 0, 0);
+            robot.setMyMotorTargets(p.mm2pulses(-42 * mmPerInch), 0, 0);
         }
 
         public void everyTime() {
@@ -523,7 +526,7 @@ class stateslist {
             Thread.yield();
             robot.setMotorPower(0);
             Thread.yield();
-            robot.enableMotorEncoders();
+            robot.disableMotorEncoders();
             Thread.yield();
         }
     };
@@ -536,7 +539,7 @@ class stateslist {
         boolean previousGarry = false;
 
         public void firstTime() {
-            robot.puncher.setPower(0.6);
+            robot.puncher.setPower(0.4);
             robot.lvex.setPosition(1);
             robot.rvex.setPosition(1);
         }
@@ -573,7 +576,7 @@ class stateslist {
         boolean previousGarry = false;
 
         public void firstTime() {
-            robot.puncher.setPower(0.6);
+            robot.puncher.setPower(0.4);
         }
 
         public void everyTime() {
@@ -645,6 +648,7 @@ class stateslist {
      */
     state backAwayFromBeacon = new state("backAwayFromBeacon") {
         public void firstTime() {
+            robot.enableMotorEncoders();
             robot.setMyMotorTargets(p.mm2pulses(-22 * mmPerInch), 0, 0);
         }
 
@@ -674,6 +678,7 @@ class stateslist {
 
         public void onCompletion() {
             robot.move(0, 0, 0);
+            robot.disableMotorEncoders();
             robot.pushButton(0);
             try {
                 sleep(100);

@@ -683,7 +683,7 @@ public class robotconfig {
         double fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());
         double bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition());
         double bRightMotorPower = (bRightMotorTarget - bRightMotor.getCurrentPosition());
-        double max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower))) / 0.7;
+        double max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower)));
 
         if (Math.abs(fLeftMotorPower) < bettermovedeadzone)
             fLeftMotorPower = 0;
