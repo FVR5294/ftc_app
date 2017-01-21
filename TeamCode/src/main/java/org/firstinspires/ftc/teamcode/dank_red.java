@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import static org.firstinspires.ftc.teamcode.robotconfig.dl;
@@ -11,7 +12,7 @@ import static org.firstinspires.ftc.teamcode.stateslist.robot;
  * Project: ftc_app_for_2016_robot
  */
 
-//@Autonomous(name = "dank red", group = "red")
+@Autonomous(name = "suspicious red", group = "red")
 
 public class dank_red extends LinearOpMode {
     private preciseMovement p = new preciseMovement();

@@ -21,8 +21,6 @@ class stateslist {
      */
     state scanForLine = new state("scanForLine") {
         public void firstTime() {
-            robot.enableMotorBreak();
-            robot.enableMotorEncoders();
             robot.move(0, color * 0.3, 0);
         }
 
@@ -36,8 +34,6 @@ class stateslist {
 
         public void onCompletion() {
             robot.move(0, 0, 0);
-            robot.disableMotorBreak();
-            robot.disableMotorEncoders();
         }
     };
     /***
@@ -45,8 +41,20 @@ class stateslist {
      */
     state driveTowardsBeacon = new state("driveTowardsBeacon") {
         public void firstTime() {
-            robot.disableMotorBreak();
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
             robot.move(0.3, 0, 0);
+            while (!robot.touchBeacon.isPressed()) {
+                Thread.yield();
+            }
         }
 
         public void everyTime() {
@@ -67,7 +75,7 @@ class stateslist {
                     return (false);
                 }
             } else {
-                return robot.touchBeacon.isPressed();
+                return true;
             }
 
         }
@@ -144,6 +152,8 @@ class stateslist {
 
         public void firstTime() {
 
+            robot.enableMotorBreak();
+
             //Inner radius 49.25"
             //Inner arc length 49.25*pi/2
             //Outer radius 63.25"
@@ -190,7 +200,7 @@ class stateslist {
             Thread.yield();
             robot.setMotorPower(0);
             Thread.yield();
-            robot.disableMotorEncoders();
+            robot.enableMotorEncoders();
             Thread.yield();
         }
     };
@@ -204,9 +214,9 @@ class stateslist {
         public void firstTime() {
 
             if (color == 1)
-                robot.setMyMotorTankTargets(0, p.mm2pulses(mmPerInch * -28 * pi / 4));
+                robot.setMyMotorTankTargets(0, p.mm2pulses(mmPerInch * -5 * pi));
             else
-                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * -28 * pi / 4), 0);
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * -5 * pi), 0);
 
         }
 
@@ -273,7 +283,7 @@ class stateslist {
             Thread.yield();
             robot.setMotorPower(0);
             Thread.yield();
-            robot.disableMotorEncoders();
+            robot.enableMotorEncoders();
             Thread.yield();
         }
     };
@@ -318,7 +328,6 @@ class stateslist {
      */
     state rotate45 = new state("rotate45") {
         public void firstTime() {
-            robot.enableMotorBreak();
             robot.setMyMotorTargets(0, 0, p.mm2pulses(p.spin2mm(45 * color)));
         }
 
@@ -350,7 +359,7 @@ class stateslist {
             Thread.yield();
             robot.setMotorPower(0);
             Thread.yield();
-            robot.disableMotorEncoders();
+            robot.enableMotorEncoders();
             Thread.yield();
         }
     };
@@ -423,7 +432,7 @@ class stateslist {
             Thread.yield();
             robot.setMotorPower(0);
             Thread.yield();
-            robot.disableMotorEncoders();
+            robot.enableMotorEncoders();
             Thread.yield();
         }
     };
@@ -433,7 +442,7 @@ class stateslist {
      */
     state backuptovortex = new state("backuptovortex") {
         public void firstTime() {
-            robot.setMyMotorTargets(p.mm2pulses(-42 * mmPerInch), 0, 0);
+            robot.setMyMotorTargets(p.mm2pulses(-46 * mmPerInch), 0, 0);
         }
 
         public void everyTime() {
@@ -526,7 +535,7 @@ class stateslist {
             Thread.yield();
             robot.setMotorPower(0);
             Thread.yield();
-            robot.disableMotorEncoders();
+            robot.enableMotorEncoders();
             Thread.yield();
         }
     };
@@ -536,16 +545,20 @@ class stateslist {
      */
     state shootball = new state("shootball") {
 
-        boolean previousGarry = false;
-
         public void firstTime() {
-            robot.puncher.setPower(0.4);
+            robot.puncher.setPower(1);
             robot.lvex.setPosition(1);
             robot.rvex.setPosition(1);
+            while (!robot.garry.isPressed()) {
+                Thread.yield();
+            }
+            while (robot.garry.isPressed()) {
+                Thread.yield();
+            }
         }
 
         public void everyTime() {
-            previousGarry = robot.garry.isPressed();
+
         }
 
         public boolean conditionsToCheck() {
@@ -559,7 +572,7 @@ class stateslist {
                     return (false);
                 }
             } else {
-                return !robot.garry.isPressed() && previousGarry;
+                return true;
             }
         }
 
@@ -576,11 +589,17 @@ class stateslist {
         boolean previousGarry = false;
 
         public void firstTime() {
-            robot.puncher.setPower(0.4);
+            robot.puncher.setPower(1);
+            while (!robot.garry.isPressed()) {
+                Thread.yield();
+            }
+            while (robot.garry.isPressed()) {
+                Thread.yield();
+            }
         }
 
         public void everyTime() {
-            previousGarry = robot.garry.isPressed();
+
         }
 
         public boolean conditionsToCheck() {
@@ -594,7 +613,7 @@ class stateslist {
                     return (false);
                 }
             } else {
-                return !robot.garry.isPressed() && previousGarry;
+                return true;
             }
         }
 
@@ -610,7 +629,6 @@ class stateslist {
      */
     state correctStrafe = new state("correctStrafe") {
         public void firstTime() {
-            robot.enableMotorBreak();
             robot.setMyMotorTargets(p.mm2pulses(16 * mmPerInch), 0, 0);
         }
 
@@ -648,7 +666,6 @@ class stateslist {
      */
     state backAwayFromBeacon = new state("backAwayFromBeacon") {
         public void firstTime() {
-            robot.enableMotorEncoders();
             robot.setMyMotorTargets(p.mm2pulses(-22 * mmPerInch), 0, 0);
         }
 
@@ -678,13 +695,22 @@ class stateslist {
 
         public void onCompletion() {
             robot.move(0, 0, 0);
-            robot.disableMotorEncoders();
             robot.pushButton(0);
             try {
                 sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
         }
     };
 }
