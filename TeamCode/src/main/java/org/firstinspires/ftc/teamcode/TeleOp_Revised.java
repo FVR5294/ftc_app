@@ -16,18 +16,18 @@ public class TeleOp_Revised extends OpMode {
     private static double buttonPusher_MIN_RANGE = 0.35;
     private static double buttonPusher_MAX_RANGE = 0.75;
 
-    private static double Tilt_MAX_RANGE = 1.00;
-    private static double Tilt_MIN_RANGE = 0.00;
+    private static double Tilt_MAX_RANGE = 0.95;
+    private static double Tilt_MIN_RANGE = 0.05;
 
-    private static double capRight_MAX_RANGE = 1.00;
-    private static double capRight_MIN_RANGE = 0.00;
+    private static double capRight_MAX_RANGE = 0.95;
+    private static double capRight_MIN_RANGE = 0.05;
 
-    private static double capLeft_MAX_RANGE = 1.00;
-    private static double capLeft_MIN_RANGE = 0.00;
+    private static double capLeft_MAX_RANGE = 0.95;
+    private static double capLeft_MIN_RANGE = 0.05;
     private static double buttonPusherDelta = 0.02;
     private static double tiltDelta = 0.02;
-    private static double capLeftDelta = 0.01;
-    private static double capRightDelta = 0.01;
+    private static double capLeftDelta = 0.02;
+    private static double capRightDelta = 0.02;
     private static int pulses = 2240;
     robotconfig robot = new robotconfig();
     private double buttonPusherPosition = 0;
@@ -62,8 +62,8 @@ public class TeleOp_Revised extends OpMode {
 
         buttonPusherPosition = 0.5;
         tiltPosition = 0.50;
-        capLeftPosition = 0.00;
-        capRightPosition = 0.00;
+        capLeftPosition = 0.05;
+        capRightPosition = 0.05;
 
     }
 
@@ -99,7 +99,7 @@ public class TeleOp_Revised extends OpMode {
             robot.tilt.setPosition(tiltPosition);
         }
 
-        if (gamepad1.a) {
+        if (gamepad1.y) {
             robot.puncher.setPower(1);
             puncherState = true;
         }
