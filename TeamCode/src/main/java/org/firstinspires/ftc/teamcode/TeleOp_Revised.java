@@ -99,7 +99,7 @@ public class TeleOp_Revised extends OpMode {
             robot.tilt.setPosition(tiltPosition);
         }
 
-        if (gamepad1.a) {
+        if (gamepad1.y) {
             robot.puncher.setPower(1);
             puncherState = true;
         }
