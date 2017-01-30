@@ -59,7 +59,7 @@ class preciseMovement {
      * @return number of pulses generated
      */
     public int mm2pulses(double mm) {
-        return (int) ((measurements.ppr / (measurements.pi * measurements.wheelDiameter)) * mm);
+        return (int) ((measurements.ppr / (measurements.pi * measurements.wheelDiameter)) * mm / 1.5);      //  hack for new sprocket ratio
     }
 
     /***

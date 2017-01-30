@@ -8,6 +8,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DeviceInterfaceModule;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.ServoController;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
@@ -36,6 +37,9 @@ public class robotconfig {
     DcMotor fRightMotor;
     DcMotor bLeftMotor;
     DcMotor bRightMotor;
+
+    double driveRatio = 1.5;
+
     Telemetry ltelemetry;
     TouchSensor touchBeacon;
     MultiplexColorSensor muxColor;
@@ -49,6 +53,7 @@ public class robotconfig {
     Servo capLeft;
     Servo capRight;
     Servo buttonPusher;
+    ServoController capServoController;
 
     TouchSensor garry;
 
@@ -268,6 +273,7 @@ public class robotconfig {
 
         hwMap = linearOpMode.hardwareMap;
 
+
         try {
             fLeftMotor = hwMap.dcMotor.get("fl_drive");
         } catch (Exception err) {
@@ -290,6 +296,7 @@ public class robotconfig {
         // Define and Initialize Motors
         if (!debugMode) {
 
+            capServoController = hwMap.servoController.get("Servo Controller 2");
             fLeftMotor = hwMap.dcMotor.get("fl_drive");
             fRightMotor = hwMap.dcMotor.get("fr_drive");
             bLeftMotor = hwMap.dcMotor.get("bl_drive");

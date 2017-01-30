@@ -4,6 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
+import static org.firstinspires.ftc.teamcode.robotconfig.dl;
+
 /**
  * Created by Matthew Hotham on 11/5/2016.
  */
@@ -16,14 +18,14 @@ public class TeleOp_Revised extends OpMode {
     private static double buttonPusher_MIN_RANGE = 0.35;
     private static double buttonPusher_MAX_RANGE = 0.75;
 
-    private static double Tilt_MAX_RANGE = 0.95;
-    private static double Tilt_MIN_RANGE = 0.05;
+    private static double Tilt_MAX_RANGE = 1.00;
+    private static double Tilt_MIN_RANGE = 0.00;
 
-    private static double capRight_MAX_RANGE = 0.95;
-    private static double capRight_MIN_RANGE = 0.05;
+    private static double capRight_MAX_RANGE = 1.00;
+    private static double capRight_MIN_RANGE = 0.00;
 
-    private static double capLeft_MAX_RANGE = 0.95;
-    private static double capLeft_MIN_RANGE = 0.05;
+    private static double capLeft_MAX_RANGE = 1.00;
+    private static double capLeft_MIN_RANGE = 0.00;
     private static double buttonPusherDelta = 0.02;
     private static double tiltDelta = 0.02;
     private static double capLeftDelta = 0.02;
@@ -48,7 +50,10 @@ public class TeleOp_Revised extends OpMode {
     private boolean previousGaryState = false;
     private boolean spinnerState = false;
     private boolean puncherState = false;
-
+    private boolean capGrabberServoStateToggleFlag = true;
+    private boolean capGrabberServoState = true;
+    private boolean speedToggleFlag = false;
+    private boolean slowState = false;
 
     @Override
     public void init() {
@@ -62,8 +67,8 @@ public class TeleOp_Revised extends OpMode {
 
         buttonPusherPosition = 0.5;
         tiltPosition = 0.50;
-        capLeftPosition = 0.05;
-        capRightPosition = 0.05;
+        capLeftPosition = 0.00;
+        capRightPosition = 0.00;
 
     }
 
@@ -75,10 +80,46 @@ public class TeleOp_Revised extends OpMode {
         spin = gamepad1.right_stick_x * Math.abs(gamepad1.right_stick_x);
         reeler = -gamepad2.right_stick_y;
 
+        if (slowState) {
+            forward = forward * 0.25;
+            right = right * 0.60;
+            spin = spin * 0.35;
+        }
+
+        /*
+         *  This added code is to remove power from the cap ball grabber servos
+         *  to be used if we need to disengage the arms and allow the to move
+         *  freely.
+         */
+
+        robotconfig.addlog(dl, "in TeleOp_Revised", "top of main loop");
+
+        if (gamepad1.right_bumper) {          // bumper is down
+            if (speedToggleFlag) {   // was down last time, so ignore
+                ;                                   // this time
+            } else {                                // ok, this the first time
+                // through on a new buper down
+                speedToggleFlag = true;
+
+                if (slowState) {         // was on, starts as on from init
+                    slowState = false;
+                } else {
+                    slowState = true;    // was off, so now we turn it on
+                }
+
+            }
+
+        } else {
+            speedToggleFlag = false;     // trigger is not pulled, so reset
+            // trigger seen flag
+        }
+
+/*
         if (gamepad1.right_bumper) {
             forward *= -1;
             right *= -1;
         }
+*/
 
         robot.move(forward, right, spin);
 
