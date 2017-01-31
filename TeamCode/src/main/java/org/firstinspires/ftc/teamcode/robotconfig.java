@@ -2,11 +2,13 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.adafruit.BNO055IMU;
 import com.qualcomm.hardware.adafruit.JustLoggingAccelerationIntegrator;
+import com.qualcomm.hardware.ams.AMSColorSensorImpl;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DeviceInterfaceModule;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.ServoController;
 import com.qualcomm.robotcore.hardware.TouchSensor;
@@ -38,8 +40,6 @@ public class robotconfig {
     DcMotor bLeftMotor;
     DcMotor bRightMotor;
 
-    double driveRatio = 1.5;
-
     Telemetry ltelemetry;
     TouchSensor touchBeacon;
     MultiplexColorSensor muxColor;
@@ -67,10 +67,14 @@ public class robotconfig {
     private int bRightMotorTarget = 0;
     private int bettermovedeadzone = 100;
     private DeviceInterfaceModule cdim;
+
+    private OpticalDistanceSensor ods;
+    private AMSColorSensorImpl ada;
+
     private HardwareMap hwMap = null;
     private OpMode opMode;
     //color sensor code with multiplexor
-    private int colorSensorLineThreashold = 100;
+    private double colorSensorLineThreashold = 0;
     // The IMU sensor object
     private BNO055IMU imu;
     private boolean lineIsFirstTimeDebug = true;
@@ -321,9 +325,12 @@ public class robotconfig {
 
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
-            int milliSeconds = 1;       // should set to minimum, which is 2.4 ms - needs testing
-            muxColor = new MultiplexColorSensor(hwMap, "mux", "ada", ports, milliSeconds, MultiplexColorSensor.GAIN_16X);
-            muxColor.startPolling();
+//            int milliSeconds = 1;       // should set to minimum, which is 2.4 ms - needs testing
+//            muxColor = new MultiplexColorSensor(hwMap, "mux", "ada", ports, milliSeconds, MultiplexColorSensor.GAIN_16X);
+//            muxColor.startPolling();
+            ods = hwMap.opticalDistanceSensor.get("ods");
+            colorSensorLineThreashold = ods.getLightDetected() * 2;
+            ada = (AMSColorSensorImpl) hwMap.i2cDeviceSynch.get("ada");
 
             //initialize sensor stuff
 //            cdim.setDigitalChannelMode(1, DigitalChannelController.Mode.OUTPUT);
@@ -438,9 +445,12 @@ public class robotconfig {
 
             //get sensor stuff
             cdim = hwMap.deviceInterfaceModule.get("dim");
-            int milliSeconds = 1;       // should set to minimum, which is 2.4 ms - needs testing
-            muxColor = new MultiplexColorSensor(hwMap, "mux", "ada", ports, milliSeconds, MultiplexColorSensor.GAIN_16X);
-            muxColor.startPolling();
+//            int milliSeconds = 1;       // should set to minimum, which is 2.4 ms - needs testing
+//            muxColor = new MultiplexColorSensor(hwMap, "mux", "ada", ports, milliSeconds, MultiplexColorSensor.GAIN_16X);
+//            muxColor.startPolling();
+            ods = hwMap.opticalDistanceSensor.get("ods");
+            colorSensorLineThreashold = ods.getLightDetected() * 2;
+            ada = (AMSColorSensorImpl) hwMap.i2cDeviceSynch.get("ada");
 
             //initialize sensor stuff
 //            cdim.setDigitalChannelMode(1, DigitalChannelController.Mode.OUTPUT);
@@ -527,10 +537,10 @@ public class robotconfig {
 
         switch (button) {
             case 1:
-                buttonPusher.setPosition(1);//0.72);//right button
+                buttonPusher.setPosition(1);//right button
                 break;
             case -1:
-                buttonPusher.setPosition(0);//0.42);//left
+                buttonPusher.setPosition(0);//left
                 break;
             default:
                 buttonPusher.setPosition(0.5);
@@ -574,9 +584,13 @@ public class robotconfig {
         if (debugMode) {
             return (0);
         }
-        if (muxColor.getCRGB(ports[0])[1] > muxColor.getCRGB(ports[0])[3]) {
+        if (ada.red() > ada.blue()) {
             return 1;
-        } else if (muxColor.getCRGB(ports[0])[3] > muxColor.getCRGB(ports[0])[1]) {
+        } else if (ada.red() < ada.blue()) {
+            return -1;
+        } else if (ada.red() > ada.blue()) {
+            return 1;
+        } else if (ada.red() < ada.blue()) {
             return -1;
         } else {
             return 0;
@@ -602,7 +616,8 @@ public class robotconfig {
                 return (false);
             }
         } else {
-            int colorvalue = muxColor.getCRGB(ports[1])[2];
+            // int colorvalue = muxColor.getCRGB(ports[1])[2];
+            double colorvalue = ods.getLightDetected();
             robotconfig.addlog(colorsensors, "in detectLine", "returning, " + colorvalue);
             robotconfig.addlog(dl, "in detectLine", "returning, " + (colorvalue > colorSensorLineThreashold));
             return (colorvalue > colorSensorLineThreashold);
@@ -610,46 +625,46 @@ public class robotconfig {
 
     }
 
-    /***
-     * possibly more responsive function is used to find the line on the field
-     *
-     * @return true if line is detected
-     */
-    boolean detectLineResponsive() {
-
-        int currentColorVal;
-        long endTime;
-
-        endTime = System.nanoTime() + 3 * 1000000;
-
-        addlog(dl, "robot", "detectLineResponsive was called");
-
-        if (robotconfig.debugMode) {
-            if (lineIsFirstTimeDebug) {
-                robotconfig.addlog(dl, "in detectLineResponsive", "returning true");
-                return (true);
-            } else {
-                lineIsFirstTimeDebug = true;
-                robotconfig.addlog(dl, "in detectLineResponsive", "returning false");
-                return (false);
-            }
-        } else {
-
-            while (System.nanoTime() < endTime) {
-                currentColorVal = muxColor.getCRGB(ports[1])[2];
-                robotconfig.addlog(colorsensors, "in detectLineResponsive", "found value, " + currentColorVal);
-                robotconfig.addlog(dl, "in detectLineResponsive", "found value, " + currentColorVal);
-                if (currentColorVal > colorSensorLineThreashold) {
-                    // robot.move(0, 0, 0);     // maybe turn motors off here for quickest response?
-                    return (true);
-                }
-            }
-            // timed out here, so give up - maybe we'll get the next one
-            // robot.move(0, 0, 0);     // and maybe turn motors off here as well?
-            return (true);
-        }
-
-    }
+//    /***
+//     * possibly more responsive function is used to find the line on the field
+//     *
+//     * @return true if line is detected
+//     */
+//    boolean detectLineResponsive() {
+//
+//        int currentColorVal;
+//        long endTime;
+//
+//        endTime = System.nanoTime() + 3 * 1000000;
+//
+//        addlog(dl, "robot", "detectLineResponsive was called");
+//
+//        if (robotconfig.debugMode) {
+//            if (lineIsFirstTimeDebug) {
+//                robotconfig.addlog(dl, "in detectLineResponsive", "returning true");
+//                return (true);
+//            } else {
+//                lineIsFirstTimeDebug = true;
+//                robotconfig.addlog(dl, "in detectLineResponsive", "returning false");
+//                return (false);
+//            }
+//        } else {
+//
+//            while (System.nanoTime() < endTime) {
+//                currentColorVal = muxColor.getCRGB(ports[1])[2];
+//                robotconfig.addlog(colorsensors, "in detectLineResponsive", "found value, " + currentColorVal);
+//                robotconfig.addlog(dl, "in detectLineResponsive", "found value, " + currentColorVal);
+//                if (currentColorVal > colorSensorLineThreashold) {
+//                    // robot.move(0, 0, 0);     // maybe turn motors off here for quickest response?
+//                    return (true);
+//                }
+//            }
+//            // timed out here, so give up - maybe we'll get the next one
+//            // robot.move(0, 0, 0);     // and maybe turn motors off here as well?
+//            return (true);
+//        }
+//
+//    }
 
     /***
      * move is a function to efficiently set the power values of all 4 drive train motors in one quick line.

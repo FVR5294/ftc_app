@@ -22,6 +22,9 @@ class stateslist {
     state scanForLine = new state("scanForLine") {
         public void firstTime() {
             robot.move(0, color * 0.3, 0);
+            while (!robot.detectLine()) {
+                Thread.yield();
+            }
         }
 
         public void everyTime() {
@@ -29,7 +32,7 @@ class stateslist {
         }
 
         public boolean conditionsToCheck() {
-            return robot.detectLine();
+            return true;
         }
 
         public void onCompletion() {
@@ -51,7 +54,7 @@ class stateslist {
             Thread.yield();
             robot.enableMotorEncoders();
             Thread.yield();
-            robot.move(0.3, 0, 0);
+            robot.move(0.2, 0, 0);
             while (!robot.touchBeacon.isPressed()) {
                 Thread.yield();
             }
@@ -206,7 +209,7 @@ class stateslist {
     };
 
     /***
-     * state pivots robot 45 degrees towards beacon
+     * state pivots robot about 45 degrees towards center vortex
      */
     state pivotbeacon = new state("pivotbeacon") {
 
@@ -214,9 +217,9 @@ class stateslist {
         public void firstTime() {
 
             if (color == 1)
-                robot.setMyMotorTankTargets(0, p.mm2pulses(mmPerInch * -5 * pi));
+                robot.setMyMotorTankTargets(0, p.mm2pulses(mmPerInch * -6 * pi));
             else
-                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * -5 * pi), 0);
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * -6 * pi), 0);
 
         }
 

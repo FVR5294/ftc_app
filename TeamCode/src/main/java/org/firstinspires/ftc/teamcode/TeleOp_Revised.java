@@ -114,12 +114,12 @@ public class TeleOp_Revised extends OpMode {
             // trigger seen flag
         }
 
-/*
-        if (gamepad1.right_bumper) {
-            forward *= -1;
-            right *= -1;
-        }
-*/
+
+//        if (gamepad1.right_bumper) {
+//            forward *= -1;
+//            right *= -1;
+//        }
+
 
         robot.move(forward, right, spin);
 
@@ -208,6 +208,11 @@ public class TeleOp_Revised extends OpMode {
             tiltPosition = Range.clip(tiltPosition, Tilt_MIN_RANGE, Tilt_MAX_RANGE);
             robot.tilt.setPosition(tiltPosition);
         }
+
+        if (gamepad2.back)
+            robot.capLeft.getController().pwmDisable();
+        else if (gamepad2.left_stick_button)
+            robot.capLeft.getController().pwmEnable();
 
         telemetry.addData("Forward", "%.2f", forward);
         telemetry.addData("Right", "%.2f", right);
