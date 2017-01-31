@@ -330,7 +330,8 @@ public class robotconfig {
 //            muxColor.startPolling();
             ods = hwMap.opticalDistanceSensor.get("ods");
             colorSensorLineThreashold = ods.getLightDetected() * 2;
-            ada = (AMSColorSensorImpl) hwMap.i2cDeviceSynch.get("ada");
+            // TODO: 1/30/2017 Check color sensor init and ODS init
+            ada = (AMSColorSensorImpl) hwMap.colorSensor.get("ada");
 
             //initialize sensor stuff
 //            cdim.setDigitalChannelMode(1, DigitalChannelController.Mode.OUTPUT);
@@ -450,7 +451,8 @@ public class robotconfig {
 //            muxColor.startPolling();
             ods = hwMap.opticalDistanceSensor.get("ods");
             colorSensorLineThreashold = ods.getLightDetected() * 2;
-            ada = (AMSColorSensorImpl) hwMap.i2cDeviceSynch.get("ada");
+            // TODO: 1/30/2017  Copy color sensor init here from previous method
+            ada = (AMSColorSensorImpl) hwMap.colorSensor.get("ada");
 
             //initialize sensor stuff
 //            cdim.setDigitalChannelMode(1, DigitalChannelController.Mode.OUTPUT);
