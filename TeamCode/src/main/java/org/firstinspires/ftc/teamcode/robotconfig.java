@@ -2,9 +2,9 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.adafruit.BNO055IMU;
 import com.qualcomm.hardware.adafruit.JustLoggingAccelerationIntegrator;
-import com.qualcomm.hardware.ams.AMSColorSensorImpl;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DeviceInterfaceModule;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -42,8 +42,8 @@ public class robotconfig {
 
     Telemetry ltelemetry;
     TouchSensor touchBeacon;
-    MultiplexColorSensor muxColor;
-    int[] ports = {2, 5};
+    //    MultiplexColorSensor muxColor;
+//    int[] ports = {2, 5};
     // State used for updating telemetry
     Orientation angles;
     Acceleration gravity;
@@ -69,7 +69,7 @@ public class robotconfig {
     private DeviceInterfaceModule cdim;
 
     private OpticalDistanceSensor ods;
-    private AMSColorSensorImpl ada;
+    private ColorSensor ada;
 
     private HardwareMap hwMap = null;
     private OpMode opMode;
@@ -330,8 +330,8 @@ public class robotconfig {
 //            muxColor.startPolling();
             ods = hwMap.opticalDistanceSensor.get("ods");
             colorSensorLineThreashold = ods.getLightDetected() * 2;
-            // TODO: 1/30/2017 Check color sensor init and ODS init
-            ada = (AMSColorSensorImpl) hwMap.colorSensor.get("ada");
+            addlog(dl, "r.init", "colorSensorLineThreshhold is " + colorSensorLineThreashold);
+            ada = hwMap.colorSensor.get("ada");
 
             //initialize sensor stuff
 //            cdim.setDigitalChannelMode(1, DigitalChannelController.Mode.OUTPUT);
@@ -451,8 +451,8 @@ public class robotconfig {
 //            muxColor.startPolling();
             ods = hwMap.opticalDistanceSensor.get("ods");
             colorSensorLineThreashold = ods.getLightDetected() * 2;
-            // TODO: 1/30/2017  Copy color sensor init here from previous method
-            ada = (AMSColorSensorImpl) hwMap.colorSensor.get("ada");
+            addlog(dl, "r.init", "colorSensorLineThreshhold is " + colorSensorLineThreashold);
+            ada = hwMap.colorSensor.get("ada");
 
             //initialize sensor stuff
 //            cdim.setDigitalChannelMode(1, DigitalChannelController.Mode.OUTPUT);
