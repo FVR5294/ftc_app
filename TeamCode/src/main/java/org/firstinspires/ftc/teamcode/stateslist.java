@@ -10,12 +10,16 @@ import static org.firstinspires.ftc.teamcode.robotconfig.dl;
  * Project: ftc_app_for_2016_robot
  */
 
+/***
+ * list of states for the state machine
+ * each state can be referenced in other programs for use in various autonomous programs
+ */
 class stateslist {
 
-    public static robotconfig robot = new robotconfig();
-    static int currentState;
-    public int color = 0;
-    public preciseMovement p = new preciseMovement();
+    public static robotconfig robot = new robotconfig();//import the robot configuration
+    static int currentState;//variable is used to control which state the state machine is currently running
+    public int color = 0;//variable is used to change the behavior of the state depending on it's value of either 1 for red or -1 for blue
+    public preciseMovement p = new preciseMovement();//import methods for precise movement
     /***
      * state uses the light sensor to strafe towards the tape line
      */
@@ -165,9 +169,9 @@ class stateslist {
             //Mid arc length 56.25*pi/2
 
             if (color == 1)
-                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * 30 * pi / 2), p.mm2pulses(mmPerInch * 60 * pi / 2));
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * 28 * pi / 2), p.mm2pulses(mmPerInch * 58 * pi / 2));
             else
-                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * 60 * pi / 2), p.mm2pulses(mmPerInch * 30 * pi / 2));
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * 58 * pi / 2), p.mm2pulses(mmPerInch * 28 * pi / 2));
 
         }
 
@@ -632,7 +636,7 @@ class stateslist {
      */
     state correctStrafe = new state("correctStrafe") {
         public void firstTime() {
-            robot.setMyMotorTargets(p.mm2pulses(16 * mmPerInch), 0, 0);
+            robot.setMyMotorTargets(p.mm2pulses(6 * mmPerInch), 0, 0);
         }
 
         public void everyTime() {
@@ -669,7 +673,7 @@ class stateslist {
      */
     state backAwayFromBeacon = new state("backAwayFromBeacon") {
         public void firstTime() {
-            robot.setMyMotorTargets(p.mm2pulses(-22 * mmPerInch), 0, 0);
+            robot.setMyMotorTargets(p.mm2pulses(-12 * mmPerInch), 0, 0);
         }
 
         public void everyTime() {

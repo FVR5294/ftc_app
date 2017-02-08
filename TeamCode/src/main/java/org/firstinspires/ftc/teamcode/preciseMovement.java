@@ -18,8 +18,8 @@ import static org.firstinspires.ftc.teamcode.robotconfig.dl;
  * library to use math for precise movement, primarily for autonomous
  */
 class preciseMovement {
-    public robotconfig robot;
-    public Telemetry ltelemetry;
+    robotconfig robot;
+    Telemetry ltelemetry;
     private measurements m = new measurements();
     private ElapsedTime runtime = new ElapsedTime();
 
@@ -74,7 +74,7 @@ class preciseMovement {
      */
     public void move(double forward, double right, double spin, double timeout, robotconfig robot, Telemetry telemetry) {
         robotconfig.addlog(dl, "pm.move with telemetry", "called with right:" + String.format(Locale.ENGLISH, "%.2f", right) + " and spin:" + String.format(Locale.ENGLISH, "%.2f", spin));
-        telemetry.addData("colorSensor", "Green: %d", robot.muxColor.getCRGB(robot.ports[1])[2]);
+        telemetry.addData("ods", "%d", robot.ods.getLightDetected());
         robotconfig.addlog(dl, "pm.move", "called with right:" + String.format(Locale.ENGLISH, "%.2f", right) + " and spin:" + String.format(Locale.ENGLISH, "%.2f", spin));
         robot.setMotorTargets(mm2pulses(forward), mm2pulses(right), mm2pulses(spin2mm(spin)));
         waitForMotors(robot, telemetry, forward, right, spin, timeout);

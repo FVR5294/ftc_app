@@ -34,7 +34,7 @@ public class DataLogger {
 
         if(!ENABLE_LOGGING) {return;}
 
-            telemetry.addData("00:DataLogger","Invoked...");
+        telemetry.addData("00:DataLogger", "Invoked...");
 
         String state = Environment.getExternalStorageState();
 
@@ -54,7 +54,7 @@ public class DataLogger {
 
         File logdir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), dirName);
  //       telemetry.addData("02:DataLogger", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/" + dirName);
-        File logfile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), dirName + "/" + fileName + ".csv");
+        File logfile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), dirName + "/" + fileName);
  //       telemetry.addData("03:DataLogger", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + dirName + "/" + fileName + ".csv");
 
 /*

@@ -7,14 +7,13 @@ import com.qualcomm.robotcore.util.Range;
 import static org.firstinspires.ftc.teamcode.robotconfig.dl;
 
 /**
- * Created by Matthew Hotham on 11/5/2016.
+ * the main TeleOp program for our robot
  */
 
 @TeleOp(name = "TeleOp_Revised", group = "2016")
 
 public class TeleOp_Revised extends OpMode {
 
-    // TODO: 1/12/2017 Fine tune button pusher range
     private static double buttonPusher_MIN_RANGE = 0.35;
     private static double buttonPusher_MAX_RANGE = 0.75;
 
@@ -96,16 +95,12 @@ public class TeleOp_Revised extends OpMode {
 
         if (gamepad1.right_bumper) {          // bumper is down
             if (speedToggleFlag) {   // was down last time, so ignore
-                ;                                   // this time
+                // this time
             } else {                                // ok, this the first time
                 // through on a new buper down
                 speedToggleFlag = true;
 
-                if (slowState) {         // was on, starts as on from init
-                    slowState = false;
-                } else {
-                    slowState = true;    // was off, so now we turn it on
-                }
+                slowState = !slowState;
 
             }
 

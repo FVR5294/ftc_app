@@ -26,20 +26,20 @@ import java.util.Locale;
  * To enable it, simply add the code
  *
  * @code robotconfig robot = new robotconfig();
- * into the op mode file.
- * Every new motor and sensor should be added to this file.
+ * into the op mode file.c
+ * Every new motor, servo, and sensor should be added to this file.
  */
 public class robotconfig {
 
     static public DataLogger dl;
-    static public DataLogger colorsensors;
     static LinearOpMode theLinearOpMode;
     static boolean debugMode = false;
+    public OpticalDistanceSensor ods;
+    public ColorSensor ada;
     DcMotor fLeftMotor;
     DcMotor fRightMotor;
     DcMotor bLeftMotor;
     DcMotor bRightMotor;
-
     Telemetry ltelemetry;
     TouchSensor touchBeacon;
     //    MultiplexColorSensor muxColor;
@@ -54,29 +54,22 @@ public class robotconfig {
     Servo capRight;
     Servo buttonPusher;
     ServoController capServoController;
-
     TouchSensor garry;
-
     Servo lvex;
     Servo rvex;
     DcMotor puncher;
-
+    // The IMU sensor object
+    BNO055IMU gyro;
     private int fLeftMotorTarget = 0;
     private int fRightMotorTarget = 0;
     private int bLeftMotorTarget = 0;
     private int bRightMotorTarget = 0;
     private int bettermovedeadzone = 100;
     private DeviceInterfaceModule cdim;
-
-    private OpticalDistanceSensor ods;
-    private ColorSensor ada;
-
     private HardwareMap hwMap = null;
     private OpMode opMode;
     //color sensor code with multiplexor
-    private double colorSensorLineThreashold = 0;
-    // The IMU sensor object
-    private BNO055IMU imu;
+    private double colorSensorLineThreashold = 0.2;
     private boolean lineIsFirstTimeDebug = true;
 
 
@@ -87,6 +80,11 @@ public class robotconfig {
 
     static void addlog(DataLogger dli, String function, String message) {
         dli.addField(function);
+        dli.addField(message);
+        dli.newLine();
+    }
+
+    static void addlog(DataLogger dli, String message) {
         dli.addField(message);
         dli.newLine();
     }
@@ -292,8 +290,7 @@ public class robotconfig {
             theLinearOpMode.telemetry.addData("wiring", "connect motor puncher");
         }
 
-        dl = new DataLogger("10635", "autonomousTest", theLinearOpMode.telemetry);
-        colorsensors = new DataLogger("10635", "colorsensors", theLinearOpMode.telemetry);
+        dl = new DataLogger("10635", "autonomousTest.xml", theLinearOpMode.telemetry);
         addlog(dl, "r.init", "r.init was invoked (a)");
         addlog(dl, "r.init", "debug mode is " + debugMode);
 
@@ -309,8 +306,12 @@ public class robotconfig {
             spinner = hwMap.dcMotor.get("spinner");
             tilt = hwMap.servo.get("Tilt");
             tilt.setDirection(Servo.Direction.REVERSE);
+            tilt.setPosition(0.5);
             capLeft = hwMap.servo.get("capLeft");
+            capLeft.setPosition(0.05);
             capRight = hwMap.servo.get("capRight");
+            capRight.setDirection(Servo.Direction.REVERSE);
+            capRight.setPosition(0.05);
 
             garry = hwMap.touchSensor.get("punchLimit");
 
@@ -329,7 +330,7 @@ public class robotconfig {
 //            muxColor = new MultiplexColorSensor(hwMap, "mux", "ada", ports, milliSeconds, MultiplexColorSensor.GAIN_16X);
 //            muxColor.startPolling();
             ods = hwMap.opticalDistanceSensor.get("ods");
-            colorSensorLineThreashold = ods.getLightDetected() * 2;
+//            colorSensorLineThreashold = ods.getLightDetected() * 2;
             addlog(dl, "r.init", "colorSensorLineThreshhold is " + colorSensorLineThreashold);
             ada = hwMap.colorSensor.get("ada");
 
@@ -351,8 +352,8 @@ public class robotconfig {
             // Retrieve and initialize the IMU. We expect the IMU to be attached to an I2C port
             // on a Core Device Interface Module, configured to be a sensor of type "AdaFruit IMU",
             // and named "imu".
-            imu = hwMap.get(BNO055IMU.class, "imu");
-            imu.initialize(parameters);
+            gyro = hwMap.get(BNO055IMU.class, "imu");
+            gyro.initialize(parameters);
 
             touchBeacon = hwMap.touchSensor.get("touchBeacon");
 
@@ -374,10 +375,6 @@ public class robotconfig {
 
             spinner.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             spinner.setPower(0);
-            tilt.setPosition(0.5);
-            capLeft.setPosition(0.05);
-            capRight.setDirection(Servo.Direction.REVERSE);
-            capRight.setPosition(0.05);
         }
         //and check servo power
         this.pushButton(0);
@@ -414,8 +411,7 @@ public class robotconfig {
             opMode.telemetry.addData("wiring", "connect motor puncher");
         }
 
-        dl = new DataLogger("10635", "teleopTest", opMode.telemetry);
-        colorsensors = new DataLogger("10635", "colorsensors", opMode.telemetry);
+        dl = new DataLogger("10635", "teleopTest.csv", opMode.telemetry);
         addlog(dl, "r.init", "r.init was invoked (a)");
         addlog(dl, "r.init", "debug mode is " + debugMode);
 
@@ -450,7 +446,7 @@ public class robotconfig {
 //            muxColor = new MultiplexColorSensor(hwMap, "mux", "ada", ports, milliSeconds, MultiplexColorSensor.GAIN_16X);
 //            muxColor.startPolling();
             ods = hwMap.opticalDistanceSensor.get("ods");
-            colorSensorLineThreashold = ods.getLightDetected() * 2;
+//            colorSensorLineThreashold = ods.getLightDetected() * 2;
             addlog(dl, "r.init", "colorSensorLineThreshhold is " + colorSensorLineThreashold);
             ada = hwMap.colorSensor.get("ada");
 
@@ -472,8 +468,8 @@ public class robotconfig {
             // Retrieve and initialize the IMU. We expect the IMU to be attached to an I2C port
             // on a Core Device Interface Module, configured to be a sensor of type "AdaFruit IMU",
             // and named "imu".
-            imu = hwMap.get(BNO055IMU.class, "imu");
-            imu.initialize(parameters);
+            gyro = hwMap.get(BNO055IMU.class, "imu");
+            gyro.initialize(parameters);
 
             touchBeacon = hwMap.touchSensor.get("touchBeacon");
 
@@ -515,7 +511,7 @@ public class robotconfig {
     /***
      * is a shortcut to get the intrinsic z angle of the robot
      *
-     * @return imu.getAngularOrientation().toAxesReference(AxesReference.INTRINSIC).toAxesOrder(AxesOrder.ZYX).firstAngle;
+     * @return gyro.getAngularOrientation().toAxesReference(AxesReference.INTRINSIC).toAxesOrder(AxesOrder.ZYX).firstAngle;
      */
     double getCurrentAngle() {
         addlog(dl, "robot", "getCurrentAngle was invoked, returning 45");
@@ -523,13 +519,13 @@ public class robotconfig {
             return (45);
         }
 
-        return imu.getAngularOrientation().toAxesReference(AxesReference.INTRINSIC).toAxesOrder(AxesOrder.ZYX).firstAngle;
+        return gyro.getAngularOrientation().toAxesReference(AxesReference.INTRINSIC).toAxesOrder(AxesOrder.ZYX).firstAngle;
     }
 
     /***
      * pushButton is a function to move the button pusher servo to press either one of the buttons, or reset its position.
      *
-     * @param button input 1 for the left button, 2 for the right button, and any other number to reset it back to center
+     * @param button input -1 for the left button, 1 for the right button, and any other number to reset it back to center
      */
     void pushButton(int button) {
         addlog(dl, "robot", String.format(Locale.ENGLISH, "pushButton was invoked with button %d", button));
@@ -554,7 +550,7 @@ public class robotconfig {
      * pushSoftButton is a function to move the button pusher servo to press either one of the buttons, or reset its position.
      * like the name says, it is softer than pushButton and less likely to burn out a servo if left on for long periods of time.
      *
-     * @param button input 1 for the left button, 2 for the right button, and any other number to reset it back to center
+     * @param button input -1 for the left button, 1 for the right button, and any other number to reset it back to center
      */
     void pushSoftButton(int button) {
         addlog(dl, "robot", String.format(Locale.ENGLISH, "pushButton was invoked with button %d", button));
@@ -586,6 +582,7 @@ public class robotconfig {
         if (debugMode) {
             return (0);
         }
+        robotconfig.addlog(dl, "robot", String.format(Locale.ENGLISH, "ada.red, %d, ada.blue, %d", ada.red(), ada.blue()));
         if (ada.red() > ada.blue()) {
             return 1;
         } else if (ada.red() < ada.blue()) {
@@ -620,7 +617,7 @@ public class robotconfig {
         } else {
             // int colorvalue = muxColor.getCRGB(ports[1])[2];
             double colorvalue = ods.getLightDetected();
-            robotconfig.addlog(colorsensors, "in detectLine", "returning, " + colorvalue);
+            robotconfig.addlog(dl, "in detectLine", String.format(Locale.ENGLISH, "ods.getLightDetected(), %f", colorvalue));
             robotconfig.addlog(dl, "in detectLine", "returning, " + (colorvalue > colorSensorLineThreashold));
             return (colorvalue > colorSensorLineThreashold);
         }
@@ -708,6 +705,40 @@ public class robotconfig {
         double bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition());
         double bRightMotorPower = (bRightMotorTarget - bRightMotor.getCurrentPosition());
         double max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower)));
+
+        if (Math.abs(fLeftMotorPower) < bettermovedeadzone)
+            fLeftMotorPower = 0;
+        if (Math.abs(fRightMotorPower) < bettermovedeadzone)
+            fRightMotorPower = 0;
+        if (Math.abs(bRightMotorPower) < bettermovedeadzone)
+            bRightMotorPower = 0;
+        if (Math.abs(bLeftMotorPower) < bettermovedeadzone)
+            bLeftMotorPower = 0;
+
+        fLeftMotor.setPower(fLeftMotorPower / max);
+        fRightMotor.setPower(fRightMotorPower / max);
+        bLeftMotor.setPower(bLeftMotorPower / max);
+        bRightMotor.setPower(bRightMotorPower / max);
+
+        addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
+
+    }
+
+    /***
+     * move is a function to efficiently set the power values of all 4 drive train motors in one quick line.
+     */
+    public void bettermove(double power) {
+
+
+        if (debugMode) {
+            return;
+        }
+
+        double fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition());
+        double fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());
+        double bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition());
+        double bRightMotorPower = (bRightMotorTarget - bRightMotor.getCurrentPosition());
+        double max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower))) / power;
 
         if (Math.abs(fLeftMotorPower) < bettermovedeadzone)
             fLeftMotorPower = 0;

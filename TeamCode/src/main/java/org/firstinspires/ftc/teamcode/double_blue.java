@@ -8,10 +8,8 @@ import static org.firstinspires.ftc.teamcode.stateslist.currentState;
 import static org.firstinspires.ftc.teamcode.stateslist.robot;
 
 /**
- * Created by mail2 on 12/1/2016.
- * Project: ftc_app_for_2016_robot
+ * Autonomous for blue side that shoots 2 balls
  */
-
 @Autonomous(name = "double blue", group = "blue")
 
 public class double_blue extends LinearOpMode {
@@ -22,8 +20,8 @@ public class double_blue extends LinearOpMode {
     public void runOpMode() {
         robot.init(this);  // send whole LinearOpMode object and context
         robotconfig.addlog(dl, "autonomous", "Done with robot.init --- waiting for start in " + this.getClass().getSimpleName());
-        state.color = -1;
-        currentState = 0;
+        state.color = -1;//tell the state list what the current color is
+        currentState = 0;//run each state multiple times until the state increases the currentState variable by 1
         telemetry.addData("Say", "Hello Driver - debug mode is " + robotconfig.debugMode);
         telemetry.update();
         waitForStart();
@@ -33,7 +31,7 @@ public class double_blue extends LinearOpMode {
 
             //robotconfig.addlog(dl, "Mainline", "Beginning state machine pass " + String.format(Locale.ENGLISH, "%d", currentState));
 
-            switch (currentState) {
+            switch (currentState) {//run the state of the currentState index
                 case 0:
                     state.arcTowardsBeacon.run();
                     break;
