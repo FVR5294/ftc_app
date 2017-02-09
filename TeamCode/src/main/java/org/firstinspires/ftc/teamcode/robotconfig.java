@@ -705,6 +705,7 @@ public class robotconfig {
         double bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition());
         double bRightMotorPower = (bRightMotorTarget - bRightMotor.getCurrentPosition());
         double max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower)));
+        max /= Math.min(1, Math.max(Math.abs(max / 3000), 0.5));
 
         if (Math.abs(fLeftMotorPower) < bettermovedeadzone)
             fLeftMotorPower = 0;

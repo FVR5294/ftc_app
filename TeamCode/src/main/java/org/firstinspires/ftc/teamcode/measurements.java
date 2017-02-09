@@ -17,6 +17,6 @@ public class measurements {
     public static final double robotWidth = (17.5 * mmPerInch);
     public static final double robotDepth = (17.5 * mmPerInch);
     public static final double wheelDiagonal = 28.5 * mmPerInch;
-    public static final int ppr = 280 * 4 / 3 * 2;
+    public static final int ppr = (280 << 2) / 3 << 1;
     public static final double pi = 3.1415926535897932384626433832795;
 }

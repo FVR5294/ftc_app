@@ -25,7 +25,7 @@ class stateslist {
      */
     state scanForLine = new state("scanForLine") {
         public void firstTime() {
-            robot.move(0, color * 0.3, 0);
+            robot.move(0, color * 0.2, 0);
             while (!robot.detectLine()) {
                 Thread.yield();
             }
@@ -255,7 +255,7 @@ class stateslist {
 
     state slideToTheRight = new state("slideToTheRight") {
         public void firstTime() {
-            robot.setMyMotorTargets(0, color * p.mm2pulses(50 * mmPerInch), 0);
+            robot.setMyMotorTargets(0, color * p.mm2pulses(54 * mmPerInch), 0);
         }
 
         public void everyTime() {
@@ -453,7 +453,7 @@ class stateslist {
         }
 
         public void everyTime() {
-            robot.bettermove();
+            robot.bettermove(1);
         }
 
         public boolean conditionsToCheck() {
@@ -636,7 +636,7 @@ class stateslist {
      */
     state correctStrafe = new state("correctStrafe") {
         public void firstTime() {
-            robot.setMyMotorTargets(p.mm2pulses(6 * mmPerInch), 0, 0);
+            robot.setMyMotorTargets(p.mm2pulses(10 * mmPerInch), 0, 0);
         }
 
         public void everyTime() {
@@ -673,7 +673,7 @@ class stateslist {
      */
     state backAwayFromBeacon = new state("backAwayFromBeacon") {
         public void firstTime() {
-            robot.setMyMotorTargets(p.mm2pulses(-12 * mmPerInch), 0, 0);
+            robot.setMyMotorTargets(p.mm2pulses(-16 * mmPerInch), 0, 0);
         }
 
         public void everyTime() {
