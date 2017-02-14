@@ -62,6 +62,11 @@ class stateslist {
             while (!robot.touchBeacon.isPressed()) {
                 Thread.yield();
             }
+            robot.move(-0.1, 0, 0);
+            while (robot.touchBeacon.isPressed()) {
+                Thread.yield();
+            }
+            robot.move(0, 0, 0);
         }
 
         public void everyTime() {
@@ -96,7 +101,17 @@ class stateslist {
      */
     state pushBeaconButton = new state("pushBeaconButton") {
         public void firstTime() {
-
+            robot.pushButton(robot.detectColor() * color);
+            try {
+                sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            robot.move(0.1, 0, 0);
+            while (!robot.touchBeacon.isPressed()) {
+                Thread.yield();
+            }
+            robot.move(0, 0, 0);
         }
 
         public void everyTime() {
@@ -108,12 +123,7 @@ class stateslist {
         }
 
         public void onCompletion() {
-            robot.pushButton(robot.detectColor() * color);
-            try {
-                sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
         }
     };
     /***
