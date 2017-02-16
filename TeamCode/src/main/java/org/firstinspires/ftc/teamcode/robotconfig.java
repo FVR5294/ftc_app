@@ -325,7 +325,7 @@ public class robotconfig {
             rvex.setPosition(0.5);
 
             //get sensor stuff
-            cdim = hwMap.deviceInterfaceModule.get("dim");
+//            cdim = hwMap.deviceInterfaceModule.get("dim");
 //            int milliSeconds = 1;       // should set to minimum, which is 2.4 ms - needs testing
 //            muxColor = new MultiplexColorSensor(hwMap, "mux", "ada", ports, milliSeconds, MultiplexColorSensor.GAIN_16X);
 //            muxColor.startPolling();
