@@ -221,19 +221,19 @@ public class TeleOp_Revised extends OpMode {
         telemetry.addData("puncher", "%.2f", puncher);
         telemetry.addData("garry", "%b", !robot.garry.isPressed());
 
-        telemetry.addData("1", "%d", previousTimes[timerStage % 12]);
-        telemetry.addData("2", "%d", previousTimes[1 + timerStage % 12]);
-        telemetry.addData("3", "%d", previousTimes[2 + timerStage % 12]);
-        telemetry.addData("4", "%d", previousTimes[3 + timerStage % 12]);
-        telemetry.addData("5", "%d", previousTimes[4 + timerStage % 12]);
-        telemetry.addData("6", "%d", previousTimes[5 + timerStage % 12]);
-        telemetry.addData("7", "%d", previousTimes[6 + timerStage % 12]);
-        telemetry.addData("8", "%d", previousTimes[7 + timerStage % 12]);
-        telemetry.addData("9", "%d", previousTimes[8 + timerStage % 12]);
-        telemetry.addData("10", "%d", previousTimes[9 + timerStage % 12]);
-        telemetry.addData("11", "%d", previousTimes[10 + timerStage % 12]);
-        telemetry.addData("12", "%d", previousTimes[11 + timerStage % 12]);
-        telemetry.addData("13", "%d", previousTimes[12 + timerStage % 12]);
+        telemetry.addData("1", "%.0f", previousTimes[timerStage % 12]);
+        telemetry.addData("2", "%.0f", previousTimes[1 + timerStage % 12]);
+        telemetry.addData("3", "%.0f", previousTimes[2 + timerStage % 12]);
+        telemetry.addData("4", "%.0f", previousTimes[3 + timerStage % 12]);
+        telemetry.addData("5", "%.0f", previousTimes[4 + timerStage % 12]);
+        telemetry.addData("6", "%.0f", previousTimes[5 + timerStage % 12]);
+        telemetry.addData("7", "%.0f", previousTimes[6 + timerStage % 12]);
+        telemetry.addData("8", "%.0f", previousTimes[7 + timerStage % 12]);
+        telemetry.addData("9", "%.0f", previousTimes[8 + timerStage % 12]);
+        telemetry.addData("10", "%.0f", previousTimes[9 + timerStage % 12]);
+        telemetry.addData("11", "%.0f", previousTimes[10 + timerStage % 12]);
+        telemetry.addData("12", "%.0f", previousTimes[11 + timerStage % 12]);
+        telemetry.addData("13", "%.0f", previousTimes[12 + timerStage % 12]);
 
         loopTimer.reset();
         timerStage++;
