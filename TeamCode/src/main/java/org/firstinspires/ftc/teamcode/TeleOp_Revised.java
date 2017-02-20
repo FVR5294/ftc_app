@@ -69,8 +69,8 @@ public class TeleOp_Revised extends OpMode {
         robot.capLeft.getController().pwmDisable();
         buttonPusherPosition = 0.5;
         tiltPosition = 0.95;
-        capLeftPosition = 0.7;
-        capRightPosition = 0.7;
+        capLeftPosition = 0.05;
+        capRightPosition = 0.05;
         loopTimer.reset();
 
     }
