@@ -42,8 +42,8 @@ public class robotconfig {
     DcMotor bRightMotor;
     Telemetry ltelemetry;
     TouchSensor touchBeacon;
-    //    MultiplexColorSensor muxColor;
-//    int[] ports = {2, 5};
+    MultiplexColorSensor muxColor;
+    int[] ports = {2, 5};
     // State used for updating telemetry
     Orientation angles;
     Acceleration gravity;
@@ -330,7 +330,7 @@ public class robotconfig {
 //            muxColor = new MultiplexColorSensor(hwMap, "mux", "ada", ports, milliSeconds, MultiplexColorSensor.GAIN_16X);
 //            muxColor.startPolling();
             ods = hwMap.opticalDistanceSensor.get("ods");
-//            colorSensorLineThreashold = ods.getLightDetected() * 2;
+            colorSensorLineThreashold = ods.getLightDetected() * 2;
             addlog(dl, "r.init", "colorSensorLineThreshhold is " + colorSensorLineThreashold);
             ada = hwMap.colorSensor.get("ada");
 
@@ -441,11 +441,11 @@ public class robotconfig {
             rvex.setPosition(0.5);
 
             //get sensor stuff
-//            cdim = hwMap.deviceInterfaceModule.get("dim");
+            cdim = hwMap.deviceInterfaceModule.get("dim");
 //            int milliSeconds = 1;       // should set to minimum, which is 2.4 ms - needs testing
 //            muxColor = new MultiplexColorSensor(hwMap, "mux", "ada", ports, milliSeconds, MultiplexColorSensor.GAIN_16X);
 //            muxColor.startPolling();
-//            ods = hwMap.opticalDistanceSensor.get("ods");
+//           ods = hwMap.opticalDistanceSensor.get("ods");
 //            colorSensorLineThreashold = ods.getLightDetected() * 2;
 //            addlog(dl, "r.init", "colorSensorLineThreshhold is " + colorSensorLineThreashold);
 //            ada = hwMap.colorSensor.get("ada");
@@ -457,21 +457,21 @@ public class robotconfig {
             // Set up the parameters with which we will use our IMU. Note that integration
             // algorithm here just reports accelerations to the logcat log; it doesn't actually
             // provide positional information.
-//            BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
-//            parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
-//            parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
-//            parameters.calibrationDataFile = "AdafruitIMUCalibration.json"; // see the calibration sample opmode
-//            parameters.loggingEnabled = false;
-//            parameters.loggingTag = "IMU";
-//            parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
+            BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
+            parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
+            parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+            parameters.calibrationDataFile = "AdafruitIMUCalibration.json"; // see the calibration sample opmode
+            parameters.loggingEnabled = false;
+            parameters.loggingTag = "IMU";
+            parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
 
             // Retrieve and initialize the IMU. We expect the IMU to be attached to an I2C port
             // on a Core Device Interface Module, configured to be a sensor of type "AdaFruit IMU",
             // and named "imu".
-//            gyro = hwMap.get(BNO055IMU.class, "imu");
-//            gyro.initialize(parameters);
+            gyro = hwMap.get(BNO055IMU.class, "imu");
+            gyro.initialize(parameters);
 
-//            touchBeacon = hwMap.touchSensor.get("touchBeacon");
+            touchBeacon = hwMap.touchSensor.get("touchBeacon");
 
             // And initialize servo
             buttonPusher = hwMap.servo.get("buttonPusher");
@@ -503,7 +503,7 @@ public class robotconfig {
         // May want to use RUN_USING_ENCODERS if encoders are installed.
         this.resetMotorEncoders();
         Thread.yield();
-//        this.enableMotorEncoders();
+        this.enableMotorEncoders();
 
         addlog(dl, "r.init", "r.init finished (a)");
     }

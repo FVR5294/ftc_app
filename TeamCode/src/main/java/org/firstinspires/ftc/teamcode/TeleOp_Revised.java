@@ -50,25 +50,25 @@ public class TeleOp_Revised extends OpMode {
     private boolean previousGaryState = false;
     private boolean spinnerState = false;
     private boolean puncherState = false;
+    private boolean capGrabberServoStateToggleFlag = true;
+    private boolean capGrabberServoState = true;
     private boolean speedToggleFlag = false;
     private boolean slowState = false;
 
     private ElapsedTime loopTimer = new ElapsedTime();
-    private double previousTimes[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    private int timerStage = 0;
 
     @Override
     public void init() {
 
         robot.init(this);
         robot.move(0, 0, 0);
-        robot.disableMotorEncoders();
+//        robot.disableMotorEncoders();
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Say", "Hello Driver");
         updateTelemetry(telemetry);
-        robot.capLeft.getController().pwmDisable();
+
         buttonPusherPosition = 0.5;
-        tiltPosition = 0.95;
+        tiltPosition = 0.50;
         capLeftPosition = 0.05;
         capRightPosition = 0.05;
         loopTimer.reset();
@@ -78,16 +78,17 @@ public class TeleOp_Revised extends OpMode {
     @Override
     public void loop() {
 
-        forward = -gamepad1.left_stick_y * Math.abs(gamepad1.left_stick_y);
-        right = gamepad1.left_stick_x * Math.abs(gamepad1.left_stick_x);
-        spin = gamepad1.right_stick_x * Math.abs(gamepad1.right_stick_x);
-        reeler = -gamepad2.right_stick_y;
+        forward = -gamepad1.left_stick_y;// * Math.abs(gamepad1.left_stick_y);
+        right = gamepad1.left_stick_x;// * Math.abs(gamepad1.left_stick_x);
+        spin = gamepad1.right_stick_x;// * Math.abs(gamepad1.right_stick_x);
 
         if (slowState) {
-            forward = forward * 0.25;
-            right = right * 0.60;
-            spin = spin * 0.35;
+            forward = forward * 0.50;
+            right = right * 0.80;
+            spin = spin * 0.65;
         }
+
+        robot.move(forward, right, spin);
 
         /*
          *  This added code is to remove power from the cap ball grabber servos
@@ -113,52 +114,10 @@ public class TeleOp_Revised extends OpMode {
             // trigger seen flag
         }
 
-
-//        if (gamepad1.right_bumper) {
-//            forward *= -1;
-//            right *= -1;
-//        }
-
-
-        robot.move(forward, right, spin);
-
-        robot.reeler.setPower(reeler);
-
         if (gamepad2.right_bumper) {
             vexes = -gamepad2.left_stick_y * 0.5 + 0.5;
             robot.rvex.setPosition(vexes);
             robot.lvex.setPosition(vexes);
-        }
-
-        if (gamepad2.left_bumper) {
-            robot.capLeft.getController().pwmEnable();
-            robot.capLeft.setPosition(capLeftPosition);
-            robot.capRight.setPosition(capRightPosition);
-            robot.tilt.setPosition(tiltPosition);
-        }
-
-        if (gamepad1.y) {
-            robot.puncher.setPower(1);
-            puncherState = true;
-        }
-
-        if (puncherState) {
-            if (!robot.garry.isPressed() && previousGaryState) {
-                robot.puncher.setPower(0);
-                puncherState = false;
-            }
-        }
-
-        previousGaryState = robot.garry.isPressed();
-
-        if (gamepad1.dpad_left) {
-            buttonPusherPosition -= buttonPusherDelta;
-            buttonPusherPosition = Range.clip(buttonPusherPosition, buttonPusher_MIN_RANGE, buttonPusher_MAX_RANGE);
-            robot.buttonPusher.setPosition(buttonPusherPosition);
-        } else if (gamepad1.dpad_right) {
-            buttonPusherPosition += buttonPusherDelta;
-            buttonPusherPosition = Range.clip(buttonPusherPosition, buttonPusher_MIN_RANGE, buttonPusher_MAX_RANGE);
-            robot.buttonPusher.setPosition(buttonPusherPosition);
         }
 
         if (gamepad1.left_bumper) {
@@ -176,41 +135,80 @@ public class TeleOp_Revised extends OpMode {
             previousAState = false;
         }
 
-        if (gamepad2.dpad_right) {
-            capLeftPosition += capLeftDelta;
-            capLeftPosition = Range.clip(capLeftPosition, capLeft_MIN_RANGE, capLeft_MAX_RANGE);
-            robot.capLeft.setPosition(capLeftPosition);
-        } else if (gamepad2.dpad_left) {
-            capLeftPosition -= capLeftDelta;
-            capLeftPosition = Range.clip(capLeftPosition, capLeft_MIN_RANGE, capLeft_MAX_RANGE);
-            robot.capLeft.setPosition(capLeftPosition);
+        if (puncherState) {
+            if (!robot.garry.isPressed() && previousGaryState) {
+                robot.puncher.setPower(0);
+                puncherState = false;
+            }
+        } else {
+            if (gamepad1.y) {
+                robot.puncher.setPower(1);
+                puncherState = true;
+            }
+
+            reeler = -gamepad2.right_stick_y;
+
+            robot.reeler.setPower(reeler);
+
+            if (gamepad2.left_bumper) {
+                capLeftPosition = 0.7;
+                robot.capLeft.setPosition(capLeftPosition);
+                capRightPosition = 0.7;
+                robot.capRight.setPosition(capRightPosition);
+                tiltPosition = 0.95;
+                robot.tilt.setPosition(tiltPosition);
+            }
+
+            if (gamepad1.dpad_left) {
+                buttonPusherPosition -= buttonPusherDelta;
+                buttonPusherPosition = Range.clip(buttonPusherPosition, buttonPusher_MIN_RANGE, buttonPusher_MAX_RANGE);
+                robot.buttonPusher.setPosition(buttonPusherPosition);
+            } else if (gamepad1.dpad_right) {
+                buttonPusherPosition += buttonPusherDelta;
+                buttonPusherPosition = Range.clip(buttonPusherPosition, buttonPusher_MIN_RANGE, buttonPusher_MAX_RANGE);
+                robot.buttonPusher.setPosition(buttonPusherPosition);
+            }
+
+            if (gamepad2.dpad_right) {
+                capLeftPosition += capLeftDelta;
+                capLeftPosition = Range.clip(capLeftPosition, capLeft_MIN_RANGE, capLeft_MAX_RANGE);
+                robot.capLeft.setPosition(capLeftPosition);
+            } else if (gamepad2.dpad_left) {
+                capLeftPosition -= capLeftDelta;
+                capLeftPosition = Range.clip(capLeftPosition, capLeft_MIN_RANGE, capLeft_MAX_RANGE);
+                robot.capLeft.setPosition(capLeftPosition);
+            }
+
+            if (gamepad2.x) {
+                capRightPosition += capRightDelta;
+                capRightPosition = Range.clip(capRightPosition, capRight_MIN_RANGE, capRight_MAX_RANGE);
+                robot.capRight.setPosition(capRightPosition);
+            } else if (gamepad2.b) {
+                capRightPosition -= capRightDelta;
+                capRightPosition = Range.clip(capRightPosition, capRight_MIN_RANGE, capRight_MAX_RANGE);
+                robot.capRight.setPosition(capRightPosition);
+            }
+
+            if (gamepad2.a) {
+                tiltPosition -= tiltDelta;
+                tiltPosition = Range.clip(tiltPosition, Tilt_MIN_RANGE, Tilt_MAX_RANGE);
+                robot.tilt.setPosition(tiltPosition);
+            } else if (gamepad2.y) {
+                tiltPosition += tiltDelta;
+                tiltPosition = Range.clip(tiltPosition, Tilt_MIN_RANGE, Tilt_MAX_RANGE);
+                robot.tilt.setPosition(tiltPosition);
+            }
+
+            if (gamepad2.back)
+                robot.capLeft.getController().pwmDisable();
+            else if (gamepad2.left_stick_button)
+                robot.capLeft.getController().pwmEnable();
+
         }
 
-        if (gamepad2.x) {
-            capRightPosition += capRightDelta;
-            capRightPosition = Range.clip(capRightPosition, capRight_MIN_RANGE, capRight_MAX_RANGE);
-            robot.capRight.setPosition(capRightPosition);
-        } else if (gamepad2.b) {
-            capRightPosition -= capRightDelta;
-            capRightPosition = Range.clip(capRightPosition, capRight_MIN_RANGE, capRight_MAX_RANGE);
-            robot.capRight.setPosition(capRightPosition);
-        }
+        previousGaryState = robot.garry.isPressed();
 
-        if (gamepad2.a) {
-            tiltPosition -= tiltDelta;
-            tiltPosition = Range.clip(tiltPosition, Tilt_MIN_RANGE, Tilt_MAX_RANGE);
-            robot.tilt.setPosition(tiltPosition);
-        } else if (gamepad2.y) {
-            tiltPosition += tiltDelta;
-            tiltPosition = Range.clip(tiltPosition, Tilt_MIN_RANGE, Tilt_MAX_RANGE);
-            robot.tilt.setPosition(tiltPosition);
-        }
-
-        if (gamepad2.back)
-            robot.capLeft.getController().pwmDisable();
-        else if (gamepad2.left_stick_button)
-            robot.capLeft.getController().pwmEnable();
-
+        telemetry.addData("latency", "%.2f", loopTimer.milliseconds());
         telemetry.addData("Forward", "%.2f", forward);
         telemetry.addData("Right", "%.2f", right);
         telemetry.addData("Spin", "%.2f", spin);
@@ -220,71 +218,7 @@ public class TeleOp_Revised extends OpMode {
         telemetry.addData("vexes", "%.2f", vexes);
         telemetry.addData("puncher", "%.2f", puncher);
         telemetry.addData("garry", "%b", !robot.garry.isPressed());
-
-        telemetry.addData("1", "%.0f", previousTimes[timerStage % 12]);
-        telemetry.addData("2", "%.0f", previousTimes[1 + timerStage % 12]);
-        telemetry.addData("3", "%.0f", previousTimes[2 + timerStage % 12]);
-        telemetry.addData("4", "%.0f", previousTimes[3 + timerStage % 12]);
-        telemetry.addData("5", "%.0f", previousTimes[4 + timerStage % 12]);
-        telemetry.addData("6", "%.0f", previousTimes[5 + timerStage % 12]);
-        telemetry.addData("7", "%.0f", previousTimes[6 + timerStage % 12]);
-        telemetry.addData("8", "%.0f", previousTimes[7 + timerStage % 12]);
-        telemetry.addData("9", "%.0f", previousTimes[8 + timerStage % 12]);
-        telemetry.addData("10", "%.0f", previousTimes[9 + timerStage % 12]);
-        telemetry.addData("11", "%.0f", previousTimes[10 + timerStage % 12]);
-        telemetry.addData("12", "%.0f", previousTimes[11 + timerStage % 12]);
-        telemetry.addData("13", "%.0f", previousTimes[12 + timerStage % 12]);
-
         loopTimer.reset();
-        timerStage++;
-        timerStage = timerStage % 12;
     }
-
-//        private String graph(int x) {
-//        switch(x) {
-//            case 0:
-//                return "";
-//            case 1:
-//                return ".";
-//            case 2:
-//                return "..";
-//            case 3:
-//                return "...";
-//            case 4:
-//                return "....";
-//            case 5:
-//                return ".... .";
-//            case 6:
-//                return ".... ..";
-//            case 7:
-//                return ".... ...";
-//            case 8:
-//                return ".... ....";
-//            case 9:
-//                return ".... .... .";
-//            case 10:
-//                return ".... .... ..";
-//            case 11:
-//                return ".... .... ...";
-//            case 12:
-//                return ".... .... ....";
-//            case 13:
-//                return ".... .... .... .";
-//            case 14:
-//                return ".... .... .... ..";
-//            case 15:
-//                return ".... .... .... ...";
-//            case 16:
-//                return ".... .... .... ....";
-//            case 17:
-//                return ".... .... .... .... .";
-//            case 18:
-//                return ".... .... .... .... ..";
-//            case 19:
-//                return ".... .... .... .... ...";
-//            default:
-//                return ".... .... .... .... ....";
-//        }
-//    }
 
 }

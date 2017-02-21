@@ -26,6 +26,8 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.ColorSensor;
+import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 
 /**
  * Created by Chris D on 10/5/2016
@@ -37,15 +39,23 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 @TeleOp(name = "MultiplexColorSensorTest", group = "Iterative Opmode")
 //@Disabled
 public class MultiplexColorSensorTest extends OpMode {
-    MultiplexColorSensor muxColor;
-    int[] ports = {2, 5};
+//    MultiplexColorSensor muxColor;
+//    int[] ports = {2, 5};
+//    robotconfig robot = new robotconfig();
+
+    ColorSensor ada;
+    OpticalDistanceSensor ods;
+
 
     @Override
     public void init() {
-        int milliSeconds = 48;
-        muxColor = new MultiplexColorSensor(hardwareMap, "mux", "ada",
-                ports, milliSeconds,
-                MultiplexColorSensor.GAIN_16X);
+//        robot.init(this);
+//        int milliSeconds = 48;
+//        muxColor = new MultiplexColorSensor(hardwareMap, "mux", "ada",
+//                ports, milliSeconds,
+//                MultiplexColorSensor.GAIN_16X);
+        ada = hardwareMap.colorSensor.get("ada");
+        ods = hardwareMap.opticalDistanceSensor.get("ods");
     }
 
     @Override
@@ -55,20 +65,21 @@ public class MultiplexColorSensorTest extends OpMode {
 
     @Override
     public void start() {
-        muxColor.startPolling();
+
+//        muxColor.startPolling();
     }
 
     @Override
     public void loop() {
-        for (int i = 0; i < ports.length; i++) {
-            int[] crgb = muxColor.getCRGB(ports[i]);
+//        for (int i = 0; i < ports.length; i++) {
+//            int[] crgb = muxColor.getCRGB(ports[i]);
 
-            telemetry.addLine("Sensor " + ports[i]);
-            telemetry.addData("CRGB", "%5d %5d %5d %5d",
-                    crgb[0], crgb[1], crgb[2], crgb[3]);
-        }
+//            telemetry.addLine("Sensor " + ports[i]);
+//        }
 
-        telemetry.update();
+        telemetry.addData("CRGB", "%d %d %d %d",
+                ada.alpha(), ada.red(), ada.green(), ada.blue());
+        telemetry.addData("ODS", "%f", ods.getLightDetected());
     }
 
     @Override
