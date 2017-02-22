@@ -58,7 +58,7 @@ class stateslist {
             Thread.yield();
             robot.enableMotorEncoders();
             Thread.yield();
-            robot.move(0.2, 0, 0);
+            robot.move(0.3, 0, 0);
             while (!robot.touchBeacon.isPressed()) {
                 Thread.yield();
             }
@@ -265,12 +265,25 @@ class stateslist {
 
     state slideToTheRight = new state("slideToTheRight") {
         public void firstTime() {
+            robot.move(0, 0, 0);
+            //TODO: remove added square ups if necessary
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
             robot.setMyMotorTargets(0, color * p.mm2pulses(54 * mmPerInch), 0);
         }
 
         public void everyTime() {
-            robot.bettermove();
-            //robotconfig.addlog(dl, "in slideToTheRight", "error at " + robot.getErrors());
+            robot.bettermovewithspin(p.mm2pulses(p.spin2mm(robot.getCurrentAngle() - (Math.round(robot.getCurrentAngle() / 45) * 45))));
+            // TODO: Test strafe movement with and without continuous gyro readings; comment first one and uncomment second one if continous gyro readings don't help
+//            robot.bettermove();
         }
 
         public boolean conditionsToCheck() {
@@ -764,7 +777,7 @@ class stateslist {
      */
     state correctStrafe = new state("correctStrafe") {
         public void firstTime() {
-            robot.setMyMotorTargets(p.mm2pulses(10 * mmPerInch), 0, 0);
+            robot.setMyMotorTargets(p.mm2pulses(12 * mmPerInch), 0, 0);
         }
 
         public void everyTime() {
@@ -801,7 +814,7 @@ class stateslist {
      */
     state backAwayFromBeacon = new state("backAwayFromBeacon") {
         public void firstTime() {
-            robot.setMyMotorTargets(p.mm2pulses(-16 * mmPerInch), 0, 0);
+            robot.setMyMotorTargets(p.mm2pulses(-20 * mmPerInch), 0, 0);
         }
 
         public void everyTime() {

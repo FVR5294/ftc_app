@@ -42,8 +42,8 @@ public class robotconfig {
     DcMotor bRightMotor;
     Telemetry ltelemetry;
     TouchSensor touchBeacon;
-    //    MultiplexColorSensor muxColor;
-//    int[] ports = {2, 5};
+    MultiplexColorSensor muxColor;
+    int[] ports = {2, 5};
     // State used for updating telemetry
     Orientation angles;
     Acceleration gravity;
@@ -212,6 +212,17 @@ public class robotconfig {
         bRightMotorTarget = (bRightMotor.getCurrentPosition() + forward + right - spin);
     }
 
+    void addSpinToMyMotorTargets(int spin) {
+//        addlog(dl, "robot", "setMotorTargets was called - f:r:s: " + String.format(Locale.ENGLISH, "%d", forward) + " : " + String.format(Locale.ENGLISH, "%d", right) + " : " + String.format(Locale.ENGLISH, "%d", spin));
+        if (debugMode) {
+            return;
+        }
+        fLeftMotorTarget += spin;
+        fRightMotorTarget -= spin;
+        bLeftMotorTarget += spin;
+        bRightMotorTarget -= spin;
+    }
+
     void setMyMotorTankTargets(int left, int right) {
         addlog(dl, "robot", "setMotorTankTargets was called - L:r: " + String.format(Locale.ENGLISH, "%d", left) + " : " + String.format(Locale.ENGLISH, "%d", right));
         if (debugMode) {
@@ -330,7 +341,7 @@ public class robotconfig {
 //            muxColor = new MultiplexColorSensor(hwMap, "mux", "ada", ports, milliSeconds, MultiplexColorSensor.GAIN_16X);
 //            muxColor.startPolling();
             ods = hwMap.opticalDistanceSensor.get("ods");
-//            colorSensorLineThreashold = ods.getLightDetected() * 2;
+            colorSensorLineThreashold = ods.getLightDetected() * 2;
             addlog(dl, "r.init", "colorSensorLineThreshhold is " + colorSensorLineThreashold);
             ada = hwMap.colorSensor.get("ada");
 
@@ -441,11 +452,11 @@ public class robotconfig {
             rvex.setPosition(0.5);
 
             //get sensor stuff
-//            cdim = hwMap.deviceInterfaceModule.get("dim");
+            cdim = hwMap.deviceInterfaceModule.get("dim");
 //            int milliSeconds = 1;       // should set to minimum, which is 2.4 ms - needs testing
 //            muxColor = new MultiplexColorSensor(hwMap, "mux", "ada", ports, milliSeconds, MultiplexColorSensor.GAIN_16X);
 //            muxColor.startPolling();
-//            ods = hwMap.opticalDistanceSensor.get("ods");
+//           ods = hwMap.opticalDistanceSensor.get("ods");
 //            colorSensorLineThreashold = ods.getLightDetected() * 2;
 //            addlog(dl, "r.init", "colorSensorLineThreshhold is " + colorSensorLineThreashold);
 //            ada = hwMap.colorSensor.get("ada");
@@ -457,21 +468,21 @@ public class robotconfig {
             // Set up the parameters with which we will use our IMU. Note that integration
             // algorithm here just reports accelerations to the logcat log; it doesn't actually
             // provide positional information.
-//            BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
-//            parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
-//            parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
-//            parameters.calibrationDataFile = "AdafruitIMUCalibration.json"; // see the calibration sample opmode
-//            parameters.loggingEnabled = false;
-//            parameters.loggingTag = "IMU";
-//            parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
+            BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
+            parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
+            parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+            parameters.calibrationDataFile = "AdafruitIMUCalibration.json"; // see the calibration sample opmode
+            parameters.loggingEnabled = false;
+            parameters.loggingTag = "IMU";
+            parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
 
             // Retrieve and initialize the IMU. We expect the IMU to be attached to an I2C port
             // on a Core Device Interface Module, configured to be a sensor of type "AdaFruit IMU",
             // and named "imu".
-//            gyro = hwMap.get(BNO055IMU.class, "imu");
-//            gyro.initialize(parameters);
+            gyro = hwMap.get(BNO055IMU.class, "imu");
+            gyro.initialize(parameters);
 
-//            touchBeacon = hwMap.touchSensor.get("touchBeacon");
+            touchBeacon = hwMap.touchSensor.get("touchBeacon");
 
             // And initialize servo
             buttonPusher = hwMap.servo.get("buttonPusher");
@@ -503,7 +514,7 @@ public class robotconfig {
         // May want to use RUN_USING_ENCODERS if encoders are installed.
         this.resetMotorEncoders();
         Thread.yield();
-//        this.enableMotorEncoders();
+        this.enableMotorEncoders();
 
         addlog(dl, "r.init", "r.init finished (a)");
     }
@@ -704,6 +715,38 @@ public class robotconfig {
         double fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());
         double bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition());
         double bRightMotorPower = (bRightMotorTarget - bRightMotor.getCurrentPosition());
+        double max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower)));
+        max /= Math.min(1, Math.max(Math.abs(max / 3000), 0.5));
+
+        if (Math.abs(fLeftMotorPower) < bettermovedeadzone)
+            fLeftMotorPower = 0;
+        if (Math.abs(fRightMotorPower) < bettermovedeadzone)
+            fRightMotorPower = 0;
+        if (Math.abs(bRightMotorPower) < bettermovedeadzone)
+            bRightMotorPower = 0;
+        if (Math.abs(bLeftMotorPower) < bettermovedeadzone)
+            bLeftMotorPower = 0;
+
+        fLeftMotor.setPower(fLeftMotorPower / max);
+        fRightMotor.setPower(fRightMotorPower / max);
+        bLeftMotor.setPower(bLeftMotorPower / max);
+        bRightMotor.setPower(bRightMotorPower / max);
+
+        addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
+
+    }
+
+    public void bettermovewithspin(int spin) {
+
+
+        if (debugMode) {
+            return;
+        }
+
+        double fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition()) + spin;
+        double fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition()) - spin;
+        double bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition()) + spin;
+        double bRightMotorPower = (bRightMotorTarget - bRightMotor.getCurrentPosition()) - spin;
         double max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower)));
         max /= Math.min(1, Math.max(Math.abs(max / 3000), 0.5));
 

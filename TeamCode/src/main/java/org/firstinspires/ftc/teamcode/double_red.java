@@ -34,12 +34,15 @@ public class double_red extends LinearOpMode {
 
             switch (currentState) {//run the state of the currentState index
                 case 0:
+                    //makes robot move in an arc like direction to end up near the first beacon then squares up using the gyro
                     state.arcTowardsBeacon.run();
                     break;
                 case 1:
+                    //makes the robot strafe towards the white tape automatically stopping when it is detected then it squares up using the gyro
                     state.scanForLine.run();
                     break;
                 case 2:
+                    //makes the robot drive forward until the beacon is pressed
                     state.driveTowardsBeacon.run();
                     break;
                 case 3:
