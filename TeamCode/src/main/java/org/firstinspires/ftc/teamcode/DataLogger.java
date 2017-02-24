@@ -22,7 +22,7 @@ import java.util.Locale;
  */
 
 public class DataLogger {
-    static private final boolean ENABLE_LOGGING = false;
+    static private final boolean ENABLE_LOGGING = true;
     static private final boolean ENABLE_MULTIPLE_LOGS = true;
     private Writer writer;
     private StringBuffer lineBuffer;
@@ -49,7 +49,7 @@ public class DataLogger {
             Date now = Calendar.getInstance().getTime();
             // (2) create a date "formatter" (the date and time format we want)
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.US);
-            fileName = fileName + "-" + formatter.format(now);
+            fileName = formatter.format(now) + "-" + fileName;
         }
 
         File logdir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), dirName);

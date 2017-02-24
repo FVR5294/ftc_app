@@ -34,53 +34,69 @@ public class double_red extends LinearOpMode {
 
             switch (currentState) {//run the state of the currentState index
                 case 0:
+                    //drives in an arc towards the first beacon
                     state.arcTowardsBeacon.run();
                     break;
                 case 1:
+                    //strafes right until the ODS sensor detects the white line
                     state.scanForLine.run();
                     break;
                 case 2:
+                    //drives straight forward until the robot is touching the beacon
                     state.driveTowardsBeacon.run();
                     break;
                 case 3:
+                    //detect color and activate button pusher servo
                     state.pushBeaconButton.run();
                     break;
                 case 4:
+                    //back away from beacon to prepare for launching ball
                     state.backAwayFromBeacon.run();
                     break;
                 case 5:
+                    //wait for robot to stop moving
                     sleep(500);
                     currentState++;
                     break;
                 case 6:
+                    //shoot ball and activate vex motors
                     state.shootball.run();
                     break;
                 case 7:
+                    //wait for second ball to load
                     sleep(2000);
                     currentState++;
                     break;
                 case 8:
+                    //shoot ball and stop vex motors
                     state.shootball2.run();
                     break;
                 case 9:
+                    //drive forward to get within range of the taped lines
                     state.correctStrafe.run();
                     break;
                 case 10:
+                    //strafe right close to second beacon
                     state.slideToTheRight.run();
                     break;
                 case 11:
+                    //strafe right until the ODS sensor detects the tape line
                     state.scanForLine.run();
                     break;
                 case 12:
+                    //drives straight forward until the robot is touching the beacon
                     state.driveTowardsBeacon.run();
                     break;
                 case 13:
+                    //detect color and activate button pusher servo
                     state.pushBeaconButton.run();
                     break;
                 case 14:
+                    //pivot robot backwards towards center vortex
                     state.pivotbeacon.run();
                     break;
                 case 15:
+                    //backs up the distance to get to the center vortex
                     state.backuptovortex.run();
                     break;
                 default:
