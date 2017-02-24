@@ -212,6 +212,17 @@ public class robotconfig {
         bRightMotorTarget = (bRightMotor.getCurrentPosition() + forward + right - spin);
     }
 
+    void addSpinToMyMotorTargets(int spin) {
+//        addlog(dl, "robot", "setMotorTargets was called - f:r:s: " + String.format(Locale.ENGLISH, "%d", forward) + " : " + String.format(Locale.ENGLISH, "%d", right) + " : " + String.format(Locale.ENGLISH, "%d", spin));
+        if (debugMode) {
+            return;
+        }
+        fLeftMotorTarget += spin;
+        fRightMotorTarget -= spin;
+        bLeftMotorTarget += spin;
+        bRightMotorTarget -= spin;
+    }
+
     void setMyMotorTankTargets(int left, int right) {
         addlog(dl, "robot", "setMotorTankTargets was called - L:r: " + String.format(Locale.ENGLISH, "%d", left) + " : " + String.format(Locale.ENGLISH, "%d", right));
         if (debugMode) {
@@ -704,6 +715,38 @@ public class robotconfig {
         double fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());
         double bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition());
         double bRightMotorPower = (bRightMotorTarget - bRightMotor.getCurrentPosition());
+        double max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower)));
+        max /= Math.min(1, Math.max(Math.abs(max / 3000), 0.5));
+
+        if (Math.abs(fLeftMotorPower) < bettermovedeadzone)
+            fLeftMotorPower = 0;
+        if (Math.abs(fRightMotorPower) < bettermovedeadzone)
+            fRightMotorPower = 0;
+        if (Math.abs(bRightMotorPower) < bettermovedeadzone)
+            bRightMotorPower = 0;
+        if (Math.abs(bLeftMotorPower) < bettermovedeadzone)
+            bLeftMotorPower = 0;
+
+        fLeftMotor.setPower(fLeftMotorPower / max);
+        fRightMotor.setPower(fRightMotorPower / max);
+        bLeftMotor.setPower(bLeftMotorPower / max);
+        bRightMotor.setPower(bRightMotorPower / max);
+
+        addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
+
+    }
+
+    public void bettermovewithspin(int spin) {
+
+
+        if (debugMode) {
+            return;
+        }
+
+        double fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition()) + spin;
+        double fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition()) - spin;
+        double bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition()) + spin;
+        double bRightMotorPower = (bRightMotorTarget - bRightMotor.getCurrentPosition()) - spin;
         double max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower)));
         max /= Math.min(1, Math.max(Math.abs(max / 3000), 0.5));
 
