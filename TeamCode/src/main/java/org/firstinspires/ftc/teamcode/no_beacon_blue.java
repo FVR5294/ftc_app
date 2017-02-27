@@ -34,7 +34,7 @@ public class no_beacon_blue extends LinearOpMode {
 
             switch (currentState) {//run the state of the currentState index
                 case 1:
-                    state.backup1.run();
+                    state.backup30.run();
                     break;
                 case 0:
                     sleep(12000);
@@ -51,10 +51,10 @@ public class no_beacon_blue extends LinearOpMode {
                     state.shootball2.run();
                     break;
                 case 5:
-                    state.rotateN.run();
+                    state.rotate40.run();
                     break;
                 case 6:
-                    state.backup2.run();
+                    state.backup24.run();
                     break;
                 default:
                     robot.move(0, 0, 0);

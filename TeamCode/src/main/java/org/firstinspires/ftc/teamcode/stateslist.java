@@ -20,6 +20,7 @@ class stateslist {
     static int currentState;//variable is used to control which state the state machine is currently running
     public int color = 0;//variable is used to change the behavior of the state depending on it's value of either 1 for red or -1 for blue
     public preciseMovement p = new preciseMovement();//import methods for precise movement
+
     /***
      * state uses the light sensor to strafe towards the tape line
      */
@@ -31,16 +32,63 @@ class stateslist {
             }
         }
 
-        public void everyTime() {
-
-        }
-
-        public boolean conditionsToCheck() {
-            return true;
-        }
-
         public void onCompletion() {
             robot.move(0, 0, 0);
+        }
+    };
+    state colorRed = new state("colorRed") {
+        public void firstTime() {
+            color = 1;
+        }
+    };
+    state colorBlue = new state("colorBlue") {
+        public void firstTime() {
+            color = -1;
+        }
+    };
+    state sleep500 = new state("sleep500") {
+        public void firstTime() {
+            try {
+                sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    };
+    state sleep1000 = new state("sleep1000") {
+        public void firstTime() {
+            try {
+                sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    };
+    state sleep2000 = new state("sleep2000") {
+        public void firstTime() {
+            try {
+                sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    };
+    state sleep4000 = new state("sleep4000") {
+        public void firstTime() {
+            try {
+                sleep(4000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    };
+    state sleep10000 = new state("sleep10000") {
+        public void firstTime() {
+            try {
+                sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     };
     /***
@@ -60,10 +108,6 @@ class stateslist {
             Thread.yield();
             robot.move(0.3, 0, 0);
             while (!robot.touchBeacon.isPressed()) {
-                Thread.yield();
-            }
-            robot.move(-0.1, 0, 0);
-            while (robot.touchBeacon.isPressed()) {
                 Thread.yield();
             }
             robot.move(0, 0, 0);
@@ -106,10 +150,6 @@ class stateslist {
                 sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
-            }
-            robot.move(0.1, 0, 0);
-            while (!robot.touchBeacon.isPressed()) {
-                Thread.yield();
             }
             robot.move(0, 0, 0);
         }
@@ -265,25 +305,11 @@ class stateslist {
 
     state slideToTheRight = new state("slideToTheRight") {
         public void firstTime() {
-            robot.move(0, 0, 0);
-            //TODO: remove added square ups if necessary
-            robot.enableEncodersToPosition();
-            Thread.yield();
-            robot.setMotorPower(1);
-            Thread.yield();
-            p.automaticSquareUp(robot);
-            Thread.yield();
-            robot.setMotorPower(0);
-            Thread.yield();
-            robot.enableMotorEncoders();
-            Thread.yield();
             robot.setMyMotorTargets(0, color * p.mm2pulses(54 * mmPerInch), 0);
         }
 
         public void everyTime() {
-            robot.bettermovewithspin(p.mm2pulses(p.spin2mm(robot.getCurrentAngle() - (Math.round(robot.getCurrentAngle() / 45) * 45))));
-            // TODO: Test strafe movement with and without continuous gyro readings; comment first one and uncomment second one if continous gyro readings don't help
-//            robot.bettermove();
+            robot.bettermove();
         }
 
         public boolean conditionsToCheck() {
@@ -318,14 +344,13 @@ class stateslist {
         }
     };
 
-    state backup1 = new state("backup1") {
+    state slideToTheLeft = new state("slideToTheLeft") {
         public void firstTime() {
-            robot.setMyMotorTargets(p.mm2pulses(-30 * mmPerInch), 0, 0);
+            robot.setMyMotorTargets(0, color * p.mm2pulses(-54 * mmPerInch), 0);
         }
 
         public void everyTime() {
             robot.bettermove();
-            //robotconfig.addlog(dl, "in slideToTheRight", "error at " + robot.getErrors());
         }
 
         public boolean conditionsToCheck() {
@@ -333,11 +358,11 @@ class stateslist {
 
             if (robotconfig.debugMode) {
                 if (this.isFirstTimeDebug) {
-                    robotconfig.addlog(dl, "in backup1", "returning true");
+                    robotconfig.addlog(dl, "in slideToTheLeft", "returning true");
                     return (true);
                 } else {
                     this.isFirstTimeDebug = true;
-                    robotconfig.addlog(dl, "in backup1", "returning false");
+                    robotconfig.addlog(dl, "in slideToTheLeft", "returning false");
                     return (false);
                 }
             } else {
@@ -360,7 +385,49 @@ class stateslist {
         }
     };
 
-    state backup2 = new state("backup2") {
+    state backup30 = new state("backup30") {
+        public void firstTime() {
+            robot.setMyMotorTargets(p.mm2pulses(-30 * mmPerInch), 0, 0);
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+            //robotconfig.addlog(dl, "in slideToTheRight", "error at " + robot.getErrors());
+        }
+
+        public boolean conditionsToCheck() {
+            //robotconfig.addlog(dl, "in arcTowardsBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in backup30", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in backup30", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
+        }
+    };
+
+    state backup24 = new state("backup24") {
         public void firstTime() {
             robot.setMyMotorTargets(p.mm2pulses(-24 * mmPerInch), 0, 0);
         }
@@ -375,11 +442,11 @@ class stateslist {
 
             if (robotconfig.debugMode) {
                 if (this.isFirstTimeDebug) {
-                    robotconfig.addlog(dl, "in backup2", "returning true");
+                    robotconfig.addlog(dl, "in backup24", "returning true");
                     return (true);
                 } else {
                     this.isFirstTimeDebug = true;
-                    robotconfig.addlog(dl, "in backup2", "returning false");
+                    robotconfig.addlog(dl, "in backup24", "returning false");
                     return (false);
                 }
             } else {
@@ -511,9 +578,9 @@ class stateslist {
     };
 
     /***
-     * rotates robot 60 degrees clockwise if red, counter if blue
+     * rotates robot 40 degrees clockwise if red, counter if blue
      */
-    state rotateN = new state("rotateN") {
+    state rotate40 = new state("rotate40") {
         public void firstTime() {
             robot.setMyMotorTargets(0, 0, p.mm2pulses(p.spin2mm(40 * color)));
         }
@@ -525,11 +592,11 @@ class stateslist {
         public boolean conditionsToCheck() {
             if (robotconfig.debugMode) {
                 if (this.isFirstTimeDebug) {
-                    robotconfig.addlog(dl, "in rotateN", "returning true");
+                    robotconfig.addlog(dl, "in rotate40", "returning true");
                     return (true);
                 } else {
                     this.isFirstTimeDebug = true;
-                    robotconfig.addlog(dl, "in rotateN", "returning false");
+                    robotconfig.addlog(dl, "in rotate40", "returning false");
                     return (false);
                 }
             } else {
@@ -562,6 +629,47 @@ class stateslist {
                 } else {
                     this.isFirstTimeDebug = true;
                     robotconfig.addlog(dl, "in rotate90", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
+        }
+    };
+
+    /***
+     * rotates robot 90 degrees clockwise if red, counter if blue
+     */
+    state rotate180 = new state("rotate180") {
+        public void firstTime() {
+            robot.setMyMotorTargets(0, 0, p.mm2pulses(p.spin2mm(180 * color)));
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+        }
+
+        public boolean conditionsToCheck() {
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in rotate180", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in rotate180", "returning false");
                     return (false);
                 }
             } else {
