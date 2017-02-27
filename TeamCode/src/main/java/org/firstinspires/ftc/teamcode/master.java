@@ -22,7 +22,7 @@ import static org.firstinspires.ftc.teamcode.stateslist.robot;
 public class master extends LinearOpMode {
     private preciseMovement p = new preciseMovement();
     private stateslist states = new stateslist();
-    private List<state> chooselist = Arrays.asList(states.rotate40, states.rotate40, states.rotate60, states.rotate90, states.rotate180, states.backup24, states.backup30, states.backuptovortex, states.backAwayFromBeacon, states.shootball, states.shootball2, states.pushBeaconButton, states.arcTowardsBeacon, states.pivotbeacon, states.noscope, states.correctStrafe, states.colorBlue, states.colorRed);
+    private List<state> chooselist = Arrays.asList(states.rotate40, states.rotate40, states.rotate60, states.rotate90, states.rotate180, states.backup24, states.backup30, states.slideToTheLeft, states.slideToTheRight, states.backuptovortex, states.backAwayFromBeacon, states.shootball, states.shootball2, states.pushBeaconButton, states.arcTowardsBeacon, states.pivotbeacon, states.noscope, states.correctStrafe, states.colorBlue, states.colorRed);
     private List<state> list = new ArrayList<state>();
     private state[] runlist;
 

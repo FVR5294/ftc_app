@@ -106,7 +106,7 @@ class stateslist {
             Thread.yield();
             robot.enableMotorEncoders();
             Thread.yield();
-            robot.move(0.3, 0, 0);
+            robot.move(0.2, 0, 0);
             while (!robot.touchBeacon.isPressed()) {
                 Thread.yield();
             }
