@@ -303,15 +303,15 @@ class stateslist {
         }
     };
 
-    state pivotbeacon2 = new state("pivotbeacon2") {
+    state pivotbeaconmore = new state("pivotbeaconmore") {
 
 
         public void firstTime() {
 
             if (color == 1)
-                robot.setMyMotorTankTargets(0, p.mm2pulses(mmPerInch * -12 * pi));
+                robot.setMyMotorTankTargets(0, p.mm2pulses(mmPerInch * -18 * pi));
             else
-                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * -12 * pi), 0);
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * -18 * pi), 0);
 
         }
 
@@ -325,11 +325,49 @@ class stateslist {
 
             if (robotconfig.debugMode) {
                 if (this.isFirstTimeDebug) {
-                    robotconfig.addlog(dl, "in pivotbeacon2", "returning true");
+                    robotconfig.addlog(dl, "in pivotbeaconmore", "returning true");
                     return (true);
                 } else {
                     this.isFirstTimeDebug = true;
-                    robotconfig.addlog(dl, "in pivotbeacon2", "returning false");
+                    robotconfig.addlog(dl, "in pivotbeaconmore", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+        }
+    };
+
+    state pivotbeaconless = new state("pivotbeaconless") {
+
+
+        public void firstTime() {
+
+            if (color == 1)
+                robot.setMyMotorTankTargets(0, p.mm2pulses(mmPerInch * -5 * pi));
+            else
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * -5 * pi), 0);
+
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+            //robotconfig.addlog(dl, "in arcTowardsBeacon", "error at " + robot.getErrors());
+        }
+
+        public boolean conditionsToCheck() {
+            //robotconfig.addlog(dl, "in arcTowardsBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in pivotbeaconless", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in pivotbeaconless", "returning false");
                     return (false);
                 }
             } else {
@@ -1011,6 +1049,142 @@ class stateslist {
             robot.move(0, 0, 0);
         }
     };
+    state correctStrafe16 = new state("correctStrafe16") {
+        public void firstTime() {
+            robot.setMyMotorTargets(p.mm2pulses(16 * mmPerInch), 0, 0);
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+        }
+
+        public boolean conditionsToCheck() {
+
+            //robotconfig.addlog(dl, "in backAwayFromBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in correctStrafe16", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in correctStrafe16", "returning false");
+                    return (false);
+                }
+            } else {
+                //robotconfig.addlog(dl, "in backAwayFromBeacon", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
+                //return robot.getMotorEncoderAverage() < p.mm2pulses(-3 * mmPerInch) + startEncoderPos;
+                return robot.bettermoving();
+            }
+
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+        }
+    };
+    state correctStrafe12 = new state("correctStrafe12") {
+        public void firstTime() {
+            robot.setMyMotorTargets(p.mm2pulses(12 * mmPerInch), 0, 0);
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+        }
+
+        public boolean conditionsToCheck() {
+
+            //robotconfig.addlog(dl, "in backAwayFromBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in correctStrafe12", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in correctStrafe12", "returning false");
+                    return (false);
+                }
+            } else {
+                //robotconfig.addlog(dl, "in backAwayFromBeacon", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
+                //return robot.getMotorEncoderAverage() < p.mm2pulses(-3 * mmPerInch) + startEncoderPos;
+                return robot.bettermoving();
+            }
+
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+        }
+    };
+    state correctStrafe8 = new state("correctStrafe8") {
+        public void firstTime() {
+            robot.setMyMotorTargets(p.mm2pulses(8 * mmPerInch), 0, 0);
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+        }
+
+        public boolean conditionsToCheck() {
+
+            //robotconfig.addlog(dl, "in backAwayFromBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in correctStrafe8", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in correctStrafe8", "returning false");
+                    return (false);
+                }
+            } else {
+                //robotconfig.addlog(dl, "in backAwayFromBeacon", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
+                //return robot.getMotorEncoderAverage() < p.mm2pulses(-3 * mmPerInch) + startEncoderPos;
+                return robot.bettermoving();
+            }
+
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+        }
+    };
+    state correctStrafe4 = new state("correctStrafe4") {
+        public void firstTime() {
+            robot.setMyMotorTargets(p.mm2pulses(4 * mmPerInch), 0, 0);
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+        }
+
+        public boolean conditionsToCheck() {
+
+            //robotconfig.addlog(dl, "in backAwayFromBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in correctStrafe4", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in correctStrafe4", "returning false");
+                    return (false);
+                }
+            } else {
+                //robotconfig.addlog(dl, "in backAwayFromBeacon", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
+                //return robot.getMotorEncoderAverage() < p.mm2pulses(-3 * mmPerInch) + startEncoderPos;
+                return robot.bettermoving();
+            }
+
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+        }
+    };
     /***
      * state makes robot back away from beacon slightly to avoid running into anything during next state and to aim
      */
@@ -1038,6 +1212,156 @@ class stateslist {
                 }
             } else {
                 //robotconfig.addlog(dl, "in backAwayFromBeacon", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
+                return robot.bettermoving();
+            }
+
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+            robot.pushButton(0);
+            try {
+                sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
+        }
+    };
+
+    state backAwayFromBeacon20 = new state("backAwayFromBeacon20") {
+        public void firstTime() {
+            robot.setMyMotorTargets(p.mm2pulses(-20 * mmPerInch), 0, 0);
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+        }
+
+        public boolean conditionsToCheck() {
+
+            //robotconfig.addlog(dl, "in backAwayFromBeacon20", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in backAwayFromBeacon20", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in backAwayFromBeacon20", "returning false");
+                    return (false);
+                }
+            } else {
+                //robotconfig.addlog(dl, "in backAwayFromBeacon20", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
+                return robot.bettermoving();
+            }
+
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+            robot.pushButton(0);
+            try {
+                sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
+        }
+    };
+
+    state backAwayFromBeacon15 = new state("backAwayFromBeacon15") {
+        public void firstTime() {
+            robot.setMyMotorTargets(p.mm2pulses(-15 * mmPerInch), 0, 0);
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+        }
+
+        public boolean conditionsToCheck() {
+
+            //robotconfig.addlog(dl, "in backAwayFromBeacon15", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in backAwayFromBeacon15", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in backAwayFromBeacon15", "returning false");
+                    return (false);
+                }
+            } else {
+                //robotconfig.addlog(dl, "in backAwayFromBeaconLess", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
+                return robot.bettermoving();
+            }
+
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+            robot.pushButton(0);
+            try {
+                sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
+        }
+    };
+
+    state backAwayFromBeacon10 = new state("backAwayFromBeacon10") {
+        public void firstTime() {
+            robot.setMyMotorTargets(p.mm2pulses(-10 * mmPerInch), 0, 0);
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+        }
+
+        public boolean conditionsToCheck() {
+
+            //robotconfig.addlog(dl, "in backAwayFromBeacon10", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in backAwayFromBeacon10", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in backAwayFromBeacon10", "returning false");
+                    return (false);
+                }
+            } else {
+                //robotconfig.addlog(dl, "in backAwayFromBeacon10", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
                 return robot.bettermoving();
             }
 

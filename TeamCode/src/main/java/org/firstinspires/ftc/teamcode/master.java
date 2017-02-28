@@ -21,20 +21,30 @@ import static org.firstinspires.ftc.teamcode.stateslist.robot;
 public class master extends LinearOpMode {
     private preciseMovement p = new preciseMovement();
     private stateslist states = new stateslist();
-    private List<state> chooselist = Arrays.asList(states.sleep500, states.sleep2000, states.sleep10000, states.rotate40, states.rotate40, states.rotate60, states.rotate90, states.rotate180, states.backup24, states.backup30, states.backup84, states.slideToTheLeft, states.slideToTheRight, states.driveTowardsBeacon, states.backuptovortex, states.backAwayFromBeacon, states.shootball, states.shootball2, states.pushBeaconButton, states.arcTowardsBeacon, states.pivotbeacon, states.pivotbeacon2, states.scanForLine, states.noscope, states.correctStrafe, states.colorBlue, states.colorRed);
-    private List<state> list = new ArrayList<state>();
+    private List<state> chooselist = Arrays.asList(states.sleep500, states.sleep2000, states.sleep10000, states.rotate40, states.rotate60, states.rotate90, states.rotate180, states.backup24, states.backup30, states.backup84, states.slideToTheLeft, states.slideToTheRight, states.driveTowardsBeacon, states.backuptovortex, states.backAwayFromBeacon10, states.backAwayFromBeacon15, states.backAwayFromBeacon20, states.shootball, states.shootball2, states.pushBeaconButton, states.arcTowardsBeacon, states.pivotbeaconless, states.pivotbeacon, states.pivotbeaconmore, states.scanForLine, states.noscope, states.correctStrafe4, states.correctStrafe8, states.correctStrafe12, states.correctStrafe16, states.colorBlue, states.colorRed);
+    private List<state> list = new ArrayList<>();
     private state[] runlist;
 
     @Override
     public void runOpMode() {
-        robot.init(this);  // send whole LinearOpMode object and context
-        robotconfig.addlog(dl, "autonomous", "Done with robot.init --- waiting for start in " + this.getClass().getSimpleName());
-        states.color = 0;//tell the state list what the current color is
-        telemetry.addData("Say", "Hello Driver - debug mode is " + robotconfig.debugMode);
-        telemetry.update();
         int selectedstate = 0;
         boolean selecting = true;
-        list.add(selectedstate, chooselist.get(0));
+        list.add(0, states.colorRed);
+        list.add(1, states.arcTowardsBeacon);
+        list.add(2, states.scanForLine);
+        list.add(3, states.driveTowardsBeacon);
+        list.add(4, states.pushBeaconButton);
+        list.add(5, states.backAwayFromBeacon20);
+        list.add(6, states.shootball);
+        list.add(7, states.sleep2000);
+        list.add(8, states.shootball2);
+        list.add(9, states.correctStrafe12);
+        list.add(10, states.slideToTheRight);
+        list.add(11, states.scanForLine);
+        list.add(12, states.driveTowardsBeacon);
+        list.add(13, states.pushBeaconButton);
+        list.add(14, states.arcTowardsBeacon);
+        list.add(15, states.backuptovortex);
         while (selecting) {
             for (int index = 0; index < list.size(); index++) {
                 state currentState = list.get(index);
@@ -69,7 +79,7 @@ public class master extends LinearOpMode {
                         idle();
                     }
                     loop = false;
-                    int choiceindex = (chooselist.size() + chooselist.indexOf(list.get(selectedstate)) - 1) % chooselist.size();
+                    int choiceindex = Math.max(chooselist.indexOf(list.get(selectedstate)), 0);
                     selectedstate++;
                     list.add(selectedstate, chooselist.get(choiceindex));
                 }
@@ -114,15 +124,15 @@ public class master extends LinearOpMode {
                 }
             }
         }
+        robot.init(this);  // send whole LinearOpMode object and context
+        robotconfig.addlog(dl, "autonomous", "Done with robot.init --- waiting for start in " + this.getClass().getSimpleName());
         for (int index = 0; index < list.size(); index++) {
             state currentState = list.get(index);
-            if (index == selectedstate)
-                telemetry.addData(String.valueOf(index), "_" + currentState.name + "_");
-            else
-                telemetry.addData(String.valueOf(index), currentState.name);
+            telemetry.addData(String.valueOf(index), currentState.name);
         }
         runlist = list.toArray(new state[list.size()]);
         currentState = 0;//run each state multiple times until the state increases the currentState variable by 1
+        states.color = 0;//tell the state list what the current color is
         telemetry.addData("Say", "Hello Driver - debug mode is " + robotconfig.debugMode);
         telemetry.update();
         waitForStart();
