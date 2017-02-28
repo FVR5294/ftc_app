@@ -48,15 +48,13 @@ public class double_blue extends LinearOpMode {
                     state.backAwayFromBeacon.run();
                     break;
                 case 5:
-                    sleep(500);
-                    currentState++;
+                    state.sleep500.run();
                     break;
                 case 6:
                     state.shootball.run();
                     break;
                 case 7:
-                    sleep(2000);
-                    currentState++;
+                    state.sleep2000.run();
                     break;
                 case 8:
                     state.shootball2.run();

@@ -303,6 +303,44 @@ class stateslist {
         }
     };
 
+    state pivotbeacon2 = new state("pivotbeacon2") {
+
+
+        public void firstTime() {
+
+            if (color == 1)
+                robot.setMyMotorTankTargets(0, p.mm2pulses(mmPerInch * -12 * pi));
+            else
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * -12 * pi), 0);
+
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+            //robotconfig.addlog(dl, "in arcTowardsBeacon", "error at " + robot.getErrors());
+        }
+
+        public boolean conditionsToCheck() {
+            //robotconfig.addlog(dl, "in arcTowardsBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in pivotbeacon2", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in pivotbeacon2", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+        }
+    };
+
     state slideToTheRight = new state("slideToTheRight") {
         public void firstTime() {
             robot.setMyMotorTargets(0, color * p.mm2pulses(54 * mmPerInch), 0);
@@ -447,6 +485,48 @@ class stateslist {
                 } else {
                     this.isFirstTimeDebug = true;
                     robotconfig.addlog(dl, "in backup24", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
+        }
+    };
+
+    state backup84 = new state("backup84") {
+        public void firstTime() {
+            robot.setMyMotorTargets(p.mm2pulses(-84 * mmPerInch), 0, 0);
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+            //robotconfig.addlog(dl, "in slideToTheRight", "error at " + robot.getErrors());
+        }
+
+        public boolean conditionsToCheck() {
+            //robotconfig.addlog(dl, "in arcTowardsBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in backup84", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in backup84", "returning false");
                     return (false);
                 }
             } else {
@@ -801,7 +881,13 @@ class stateslist {
      */
     state shootball = new state("shootball") {
 
+        double pulses = 2240.0;
+        double endpulses = 0.0;
+        double rampNumb = 3.5 / pulses;
+        double puncher = 0;
+
         public void firstTime() {
+            endpulses = robot.puncher.getCurrentPosition() + pulses;
             robot.puncher.setPower(1);
             robot.lvex.setPosition(1);
             robot.rvex.setPosition(1);
@@ -809,6 +895,8 @@ class stateslist {
                 Thread.yield();
             }
             while (robot.garry.isPressed()) {
+                puncher = Math.min(1, Math.max(0.6, Math.abs(((double) robot.puncher.getCurrentPosition() - endpulses) * rampNumb)));
+                robot.puncher.setPower(puncher);
                 Thread.yield();
             }
         }
@@ -842,14 +930,20 @@ class stateslist {
      */
     state shootball2 = new state("shootball2") {
 
-        boolean previousGarry = false;
+        double pulses = 2240.0;
+        double endpulses = 0.0;
+        double rampNumb = 3.5 / pulses;
+        double puncher = 0;
 
         public void firstTime() {
+            endpulses = robot.puncher.getCurrentPosition() + pulses;
             robot.puncher.setPower(1);
             while (!robot.garry.isPressed()) {
                 Thread.yield();
             }
             while (robot.garry.isPressed()) {
+                puncher = Math.min(1, Math.max(0.6, Math.abs(((double) robot.puncher.getCurrentPosition() - endpulses) * rampNumb)));
+                robot.puncher.setPower(puncher);
                 Thread.yield();
             }
         }
