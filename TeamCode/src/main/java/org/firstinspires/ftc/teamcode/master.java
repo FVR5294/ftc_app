@@ -21,7 +21,7 @@ import static org.firstinspires.ftc.teamcode.stateslist.robot;
 public class master extends LinearOpMode {
     private preciseMovement p = new preciseMovement();
     private stateslist states = new stateslist();
-    private List<state> chooselist = Arrays.asList(states.sleep500, states.sleep2000, states.sleep10000, states.rotate40, states.rotate60, states.rotate90, states.rotate180, states.backup24, states.backup30, states.backup84, states.slideToTheLeft, states.slideToTheRight, states.driveTowardsBeacon, states.backuptovortex, states.backAwayFromBeacon10, states.backAwayFromBeacon15, states.backAwayFromBeacon20, states.shootball, states.shootball2, states.pushBeaconButton, states.arcTowardsBeacon, states.pivotbeaconless, states.pivotbeacon, states.pivotbeaconmore, states.scanForLine, states.noscope, states.correctStrafe4, states.correctStrafe8, states.correctStrafe12, states.correctStrafe16, states.colorBlue, states.colorRed);
+    private List<state> chooselist = Arrays.asList(states.sleep500, states.sleep2000, states.sleep10000, states.rotate40, states.rotate60, states.rotate90, states.rotate180, states.backup24, states.backup30, states.backup84, states.slideToTheLeft, states.slideToTheRight50, states.slideToTheRight54, states.slideToTheRight58, states.driveTowardsBeacon, states.backuptovortexReduced, states.backuptovortex, states.backuptovortexIncreased, states.backAwayFromBeacon10, states.backAwayFromBeacon15, states.backAwayFromBeacon20, states.shootball, states.shootball2, states.pushBeaconButton, states.arcTowardsBeacon20, states.arcTowardsBeacon24, states.arcTowardsBeacon28, states.arcTowardsBeacon32, states.pivotbeaconless, states.pivotbeacon, states.pivotbeaconmore, states.scanForLine, states.noscope, states.correctStrafe4, states.correctStrafe8, states.correctStrafe12, states.correctStrafe16, states.colorBlue, states.colorRed);
     private List<state> list = new ArrayList<>();
     private state[] runlist;
 
@@ -30,7 +30,7 @@ public class master extends LinearOpMode {
         int selectedstate = 0;
         boolean selecting = true;
         list.add(0, states.colorRed);
-        list.add(1, states.arcTowardsBeacon);
+        list.add(1, states.arcTowardsBeacon28);
         list.add(2, states.scanForLine);
         list.add(3, states.driveTowardsBeacon);
         list.add(4, states.pushBeaconButton);
@@ -39,11 +39,11 @@ public class master extends LinearOpMode {
         list.add(7, states.sleep2000);
         list.add(8, states.shootball2);
         list.add(9, states.correctStrafe12);
-        list.add(10, states.slideToTheRight);
+        list.add(10, states.slideToTheRight54);
         list.add(11, states.scanForLine);
         list.add(12, states.driveTowardsBeacon);
         list.add(13, states.pushBeaconButton);
-        list.add(14, states.arcTowardsBeacon);
+        list.add(14, states.pivotbeacon);
         list.add(15, states.backuptovortex);
         while (selecting) {
             for (int index = 0; index < list.size(); index++) {

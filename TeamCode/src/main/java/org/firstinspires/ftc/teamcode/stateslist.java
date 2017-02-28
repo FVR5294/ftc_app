@@ -262,6 +262,238 @@ class stateslist {
         }
     };
 
+    state arcTowardsBeacon28 = new state("arcTowardsBeacon28") {
+
+
+        public void firstTime() {
+
+            robot.enableMotorBreak();
+
+            //Inner radius 49.25"
+            //Inner arc length 49.25*pi/2
+            //Outer radius 63.25"
+            //Outer arc length 63.25*pi/2
+            //Mid radius 56.25"
+            //Mid arc length 56.25*pi/2
+
+            if (color == 1)
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * 28 * pi / 2), p.mm2pulses(mmPerInch * 58 * pi / 2));
+            else
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * 58 * pi / 2), p.mm2pulses(mmPerInch * 28 * pi / 2));
+
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+            //robotconfig.addlog(dl, "in arcTowardsBeacon28", "error at " + robot.getErrors());
+        }
+
+        public boolean conditionsToCheck() {
+            //robotconfig.addlog(dl, "in arcTowardsBeacon28", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in arcTowardsBeacon28", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in arcTowardsBeacon28", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
+        }
+    };
+
+    state arcTowardsBeacon24 = new state("arcTowardsBeacon24") {
+
+
+        public void firstTime() {
+
+            robot.enableMotorBreak();
+
+            //Inner radius 49.25"
+            //Inner arc length 49.25*pi/2
+            //Outer radius 63.25"
+            //Outer arc length 63.25*pi/2
+            //Mid radius 56.25"
+            //Mid arc length 56.25*pi/2
+
+            if (color == 1)
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * 24 * pi / 2), p.mm2pulses(mmPerInch * 54 * pi / 2));
+            else
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * 54 * pi / 2), p.mm2pulses(mmPerInch * 24 * pi / 2));
+
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+            //robotconfig.addlog(dl, "in arcTowardsBeacon24", "error at " + robot.getErrors());
+        }
+
+        public boolean conditionsToCheck() {
+            //robotconfig.addlog(dl, "in arcTowardsBeacon24", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in arcTowardsBeacon24", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in arcTowardsBeacon24", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
+        }
+    };
+
+    state arcTowardsBeacon20 = new state("arcTowardsBeacon20") {
+
+
+        public void firstTime() {
+
+            robot.enableMotorBreak();
+
+            //Inner radius 49.25"
+            //Inner arc length 49.25*pi/2
+            //Outer radius 63.25"
+            //Outer arc length 63.25*pi/2
+            //Mid radius 56.25"
+            //Mid arc length 56.25*pi/2
+
+            if (color == 1)
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * 20 * pi / 2), p.mm2pulses(mmPerInch * 50 * pi / 2));
+            else
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * 50 * pi / 2), p.mm2pulses(mmPerInch * 20 * pi / 2));
+
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+            //robotconfig.addlog(dl, "in arcTowardsBeacon20", "error at " + robot.getErrors());
+        }
+
+        public boolean conditionsToCheck() {
+            //robotconfig.addlog(dl, "in arcTowardsBeacon20", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in arcTowardsBeacon20", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in arcTowardsBeacon20", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
+        }
+    };
+
+    state arcTowardsBeacon32 = new state("arcTowardsBeacon32") {
+
+
+        public void firstTime() {
+
+            robot.enableMotorBreak();
+
+            //Inner radius 49.25"
+            //Inner arc length 49.25*pi/2
+            //Outer radius 63.25"
+            //Outer arc length 63.25*pi/2
+            //Mid radius 56.25"
+            //Mid arc length 56.25*pi/2
+
+            if (color == 1)
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * 32 * pi / 2), p.mm2pulses(mmPerInch * 62 * pi / 2));
+            else
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * 62 * pi / 2), p.mm2pulses(mmPerInch * 32 * pi / 2));
+
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+            //robotconfig.addlog(dl, "in arcTowardsBeacon32", "error at " + robot.getErrors());
+        }
+
+        public boolean conditionsToCheck() {
+            //robotconfig.addlog(dl, "in arcTowardsBeacon32", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in arcTowardsBeacon32", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in arcTowardsBeacon32", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
+        }
+    };
+
     /***
      * state pivots robot about 45 degrees towards center vortex
      */
@@ -398,6 +630,129 @@ class stateslist {
                 } else {
                     this.isFirstTimeDebug = true;
                     robotconfig.addlog(dl, "in slideToTheRight", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
+        }
+    };
+
+    state slideToTheRight54 = new state("slideToTheRight54") {
+        public void firstTime() {
+            robot.setMyMotorTargets(0, color * p.mm2pulses(54 * mmPerInch), 0);
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+        }
+
+        public boolean conditionsToCheck() {
+            //robotconfig.addlog(dl, "in arcTowardsBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in slideToTheRight54", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in slideToTheRight54", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
+        }
+    };
+
+    state slideToTheRight50 = new state("slideToTheRight50") {
+        public void firstTime() {
+            robot.setMyMotorTargets(0, color * p.mm2pulses(50 * mmPerInch), 0);
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+        }
+
+        public boolean conditionsToCheck() {
+            //robotconfig.addlog(dl, "in arcTowardsBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in slideToTheRight50", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in slideToTheRight50", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
+        }
+    };
+
+    state slideToTheRight58 = new state("slideToTheRight58") {
+        public void firstTime() {
+            robot.setMyMotorTargets(0, color * p.mm2pulses(58 * mmPerInch), 0);
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+        }
+
+        public boolean conditionsToCheck() {
+            //robotconfig.addlog(dl, "in arcTowardsBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in slideToTheRight58", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in slideToTheRight58", "returning false");
                     return (false);
                 }
             } else {
@@ -829,6 +1184,64 @@ class stateslist {
                 } else {
                     this.isFirstTimeDebug = true;
                     robotconfig.addlog(dl, "in backuptovortex", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+        }
+    };
+
+    state backuptovortexReduced = new state("backuptovortexReduced") {
+        public void firstTime() {
+            robot.setMyMotorTargets(p.mm2pulses(-40 * mmPerInch), 0, 0);
+        }
+
+        public void everyTime() {
+            robot.bettermove(1);
+        }
+
+        public boolean conditionsToCheck() {
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in backuptovortexReduced", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in backuptovortexReduced", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+        }
+    };
+
+    state backuptovortexIncreased = new state("backuptovortexIncreased") {
+        public void firstTime() {
+            robot.setMyMotorTargets(p.mm2pulses(-52 * mmPerInch), 0, 0);
+        }
+
+        public void everyTime() {
+            robot.bettermove(1);
+        }
+
+        public boolean conditionsToCheck() {
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in backuptovortexIncreased", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in backuptovortexIncreased", "returning false");
                     return (false);
                 }
             } else {
