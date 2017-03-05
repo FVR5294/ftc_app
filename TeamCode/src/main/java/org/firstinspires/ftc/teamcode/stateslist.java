@@ -46,6 +46,15 @@ class stateslist {
             color = -1;
         }
     };
+    state sleep0 = new state("sleep0") {
+        public void firstTime() {
+            try {
+                sleep(0);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    };
     state sleep500 = new state("sleep500") {
         public void firstTime() {
             try {
@@ -541,9 +550,9 @@ class stateslist {
         public void firstTime() {
 
             if (color == 1)
-                robot.setMyMotorTankTargets(0, p.mm2pulses(mmPerInch * -18 * pi));
+                robot.setMyMotorTankTargets(0, p.mm2pulses(mmPerInch * -12 * pi));
             else
-                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * -18 * pi), 0);
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * -12 * pi), 0);
 
         }
 
@@ -911,20 +920,7 @@ class stateslist {
         }
 
         public boolean conditionsToCheck() {
-            //robotconfig.addlog(dl, "in arcTowardsBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos));
-
-            if (robotconfig.debugMode) {
-                if (this.isFirstTimeDebug) {
-                    robotconfig.addlog(dl, "in backup84", "returning true");
-                    return (true);
-                } else {
-                    this.isFirstTimeDebug = true;
-                    robotconfig.addlog(dl, "in backup84", "returning false");
-                    return (false);
-                }
-            } else {
-                return robot.bettermoving();
-            }
+            return robot.bettermoving();
         }
 
         public void onCompletion() {
@@ -1387,6 +1383,112 @@ class stateslist {
         double puncher = 0;
 
         public void firstTime() {
+            endpulses = robot.puncher.getCurrentPosition() + pulses;
+            robot.puncher.setPower(1);
+            while (!robot.garry.isPressed()) {
+                Thread.yield();
+            }
+            while (robot.garry.isPressed()) {
+                puncher = Math.min(1, Math.max(0.6, Math.abs(((double) robot.puncher.getCurrentPosition() - endpulses) * rampNumb)));
+                robot.puncher.setPower(puncher);
+                Thread.yield();
+            }
+        }
+
+        public void everyTime() {
+
+        }
+
+        public boolean conditionsToCheck() {
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in shootball", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in shootball", "returning false");
+                    return (false);
+                }
+            } else {
+                return true;
+            }
+        }
+
+        public void onCompletion() {
+            robot.puncher.setPower(0);
+            robot.lvex.setPosition(0.5);
+            robot.rvex.setPosition(0.5);
+        }
+    };
+
+    state shootballOnce = new state("shoot 1 ball") {
+
+        double pulses = 2240.0;
+        double endpulses = 0.0;
+        double rampNumb = 3.5 / pulses;
+        double puncher = 0;
+
+        public void firstTime() {
+            endpulses = robot.puncher.getCurrentPosition() + pulses;
+            robot.puncher.setPower(1);
+            while (!robot.garry.isPressed()) {
+                Thread.yield();
+            }
+            while (robot.garry.isPressed()) {
+                puncher = Math.min(1, Math.max(0.6, Math.abs(((double) robot.puncher.getCurrentPosition() - endpulses) * rampNumb)));
+                robot.puncher.setPower(puncher);
+                Thread.yield();
+            }
+        }
+
+        public void everyTime() {
+
+        }
+
+        public boolean conditionsToCheck() {
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in shootball", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in shootball", "returning false");
+                    return (false);
+                }
+            } else {
+                return true;
+            }
+        }
+
+        public void onCompletion() {
+            robot.puncher.setPower(0);
+            robot.lvex.setPosition(0.5);
+            robot.rvex.setPosition(0.5);
+        }
+    };
+
+    state shootballTwoBalls = new state("shoot 2 balls") {
+
+        double pulses = 2240.0;
+        double endpulses = 0.0;
+        double rampNumb = 3.5 / pulses;
+        double puncher = 0;
+
+        public void firstTime() {
+            endpulses = robot.puncher.getCurrentPosition() + pulses;
+            robot.puncher.setPower(1);
+            while (!robot.garry.isPressed()) {
+                Thread.yield();
+            }
+            robot.puncher.setPower(1);
+            robot.lvex.setPosition(1);
+            robot.rvex.setPosition(1);
+            while (robot.garry.isPressed()) {
+                puncher = Math.min(1, Math.max(0.6, Math.abs(((double) robot.puncher.getCurrentPosition() - endpulses) * rampNumb)));
+                robot.puncher.setPower(puncher);
+                Thread.yield();
+            }
+            robot.puncher.setPower(0);
             endpulses = robot.puncher.getCurrentPosition() + pulses;
             robot.puncher.setPower(1);
             while (!robot.garry.isPressed()) {
