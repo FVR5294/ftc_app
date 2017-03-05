@@ -36,6 +36,18 @@ class stateslist {
             robot.move(0, 0, 0);
         }
     };
+    state scanForLineInverted = new state("scanForLineInverted") {
+        public void firstTime() {
+            robot.move(0, color * -0.2, 0);
+            while (!robot.detectLine()) {
+                Thread.yield();
+            }
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+        }
+    };
     state colorRed = new state("colorRed") {
         public void firstTime() {
             color = 1;
@@ -588,9 +600,9 @@ class stateslist {
         public void firstTime() {
 
             if (color == 1)
-                robot.setMyMotorTankTargets(0, p.mm2pulses(mmPerInch * -5 * pi));
+                robot.setMyMotorTankTargets(0, p.mm2pulses(mmPerInch * -4 * pi));
             else
-                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * -5 * pi), 0);
+                robot.setMyMotorTankTargets(p.mm2pulses(mmPerInch * -4 * pi), 0);
 
         }
 
@@ -854,16 +866,6 @@ class stateslist {
 
         public void onCompletion() {
             robot.move(0, 0, 0);
-            robot.enableEncodersToPosition();
-            Thread.yield();
-            robot.setMotorPower(1);
-            Thread.yield();
-            p.automaticSquareUp(robot);
-            Thread.yield();
-            robot.setMotorPower(0);
-            Thread.yield();
-            robot.enableMotorEncoders();
-            Thread.yield();
         }
     };
 
@@ -935,6 +937,23 @@ class stateslist {
             Thread.yield();
             robot.enableMotorEncoders();
             Thread.yield();
+        }
+    };
+
+    state driveFoward48 = new state("driveFoward48") {
+        public void firstTime() {
+            robot.setMyMotorTargets(p.mm2pulses(48 * mmPerInch), 0, 0);
+        }
+
+        public void everyTime() {
+            robot.bettermove(1);
+        }
+
+        public boolean conditionsToCheck() {
+            return robot.bettermoving();
+        }
+
+        public void onCompletion() {
         }
     };
 
@@ -1019,7 +1038,7 @@ class stateslist {
      */
     state rotate60 = new state("rotate60") {
         public void firstTime() {
-            robot.setMyMotorTargets(0, 0, p.mm2pulses(p.spin2mm(64 * color)));
+            robot.setMyMotorTargets(0, 0, p.mm2pulses(p.spin2mm(60 * color)));
         }
 
         public void everyTime() {
@@ -1116,6 +1135,35 @@ class stateslist {
             Thread.yield();
             robot.enableMotorEncoders();
             Thread.yield();
+        }
+    };
+
+    state rotate110 = new state("rotate110") {
+        public void firstTime() {
+            robot.setMyMotorTargets(0, 0, p.mm2pulses(p.spin2mm(110 * color)));
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+        }
+
+        public boolean conditionsToCheck() {
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in rotate110", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in rotate110", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
         }
     };
 
@@ -1490,6 +1538,21 @@ class stateslist {
             }
             robot.puncher.setPower(0);
             endpulses = robot.puncher.getCurrentPosition() + pulses;
+            try {
+                sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                try {
+                    sleep(2000);
+                } catch (InterruptedException e2) {
+                    e2.printStackTrace();
+                    try {
+                        sleep(2000);
+                    } catch (InterruptedException e3) {
+                        e3.printStackTrace();
+                    }
+                }
+            }
             robot.puncher.setPower(1);
             while (!robot.garry.isPressed()) {
                 Thread.yield();
@@ -1723,6 +1786,56 @@ class stateslist {
                 } else {
                     this.isFirstTimeDebug = true;
                     robotconfig.addlog(dl, "in backAwayFromBeacon", "returning false");
+                    return (false);
+                }
+            } else {
+                //robotconfig.addlog(dl, "in backAwayFromBeacon", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
+                return robot.bettermoving();
+            }
+
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+            robot.pushButton(0);
+            try {
+                sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
+        }
+    };
+
+    state backAwayFromBeacon5 = new state("backAwayFromBeacon5") {
+        public void firstTime() {
+            robot.setMyMotorTargets(p.mm2pulses(-5 * mmPerInch), 0, 0);
+        }
+
+        public void everyTime() {
+            robot.bettermove();
+        }
+
+        public boolean conditionsToCheck() {
+
+            //robotconfig.addlog(dl, "in backAwayFromBeacon5", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in backAwayFromBeacon5", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in backAwayFromBeacon5", "returning false");
                     return (false);
                 }
             } else {
