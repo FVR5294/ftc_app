@@ -13,20 +13,17 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
  * It could probably be used with the gyroscope sensor to reduce rotation
  */
 class pidController {
-    //set target for pv
-    private double sp = 0;
-
-    private double pGain;
-    private double iGain;
-    private double dGain;
-
     //value to be calculated from the pid controller
     double p = 0;
     //value to be calculated from the pid controller
-    private double i = 0;
-    //value to be calculated from the pid controller
     double d = 0;
-
+    //set target for pv
+    private double sp = 0;
+    private double pGain;
+    private double iGain;
+    private double dGain;
+    //value to be calculated from the pid controller
+    private double i = 0;
     private double ppv = 0;//previous process variable
     private double lowerIntegral = -1;//sets limit of intergral variable
     private double upperIntegral = 1;//sets limit of intergral variable
@@ -118,6 +115,9 @@ class pidController {
         telemetry.addData("p", "%.2f", this.p);
         telemetry.addData("i", "%.2f", this.i);
         telemetry.addData("d", "%.2f", this.d);
+        telemetry.addData("pGain", "%.2f", this.pGain);
+        telemetry.addData("iGain", "%.2f", this.iGain);
+        telemetry.addData("dGain", "%.2f", this.dGain);
         telemetry.addData("oscilate time", "%.2f", this.oscilateTime);
         telemetry.addData("max oscilate", "%.2f", this.maxOscilate);
         telemetry.addData("min oscilate", "%.2f", this.minOscilate);
@@ -128,7 +128,7 @@ class pidController {
         if (this.tunning && tunertime.seconds() > 1) {
             if (this.oscilateTime == 0) {
                 this.pGain += 0.01;
-                this.sp += Math.random() * 16 - 8;
+                this.sp += Math.random() * 32 - 16;
                 tunertime.reset();
             } else if(tunertime.seconds() > 20) {
                 this.tunning = false;
