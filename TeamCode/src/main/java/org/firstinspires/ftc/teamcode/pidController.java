@@ -14,21 +14,20 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
  */
 class pidController {
     //value to be calculated from the pid controller
-    double p = 0;
+    private double p = 0;
     //value to be calculated from the pid controller
-    double d = 0;
+    private double d = 0;
     //set target for pv
-    private double sp = 0;
-    private double pGain;
-    private double iGain;
-    private double dGain;
+    double sp = 0;
+    double pGain;
+    double iGain;
+    double dGain;
     //value to be calculated from the pid controller
     private double i = 0;
     private double ppv = 0;//previous process variable
     private double lowerIntegral = -1;//sets limit of intergral variable
     private double upperIntegral = 1;//sets limit of intergral variable
     private double e = 0;//error variable
-    private double error = 0;//tuning error variable
 
     private boolean phase1 = true;
 
@@ -69,72 +68,69 @@ class pidController {
     }
 
     double getPID(double pv) {
-        if (this.ppv == 0)
-            this.ppv = pv;
 
-        this.d = this.dGain * (pv - this.ppv) / this.time.seconds();
-        this.error = this.sp - pv;
-        this.e = this.sp - pv - this.d;
-        this.p = this.pGain * e;
-        this.i = this.iGain * this.p;
+        d = dGain * (ppv - pv) / time.seconds();
+        e = sp - pv;
+        p = pGain * e;
+        i = iGain * p;
 
-        if(this.d > 0 && !this.phase1) {
-            this.oscilateTime += this.oscilateTimer.seconds();
-            this.oscilateTime /= 2;
-            this.minOscilate = pv - this.sp;
-            this.phase1 = true;
-            this.oscilateTimer.reset();
-        }
+        i = Math.min(upperIntegral, Math.max(lowerIntegral, i));
 
-        if(this.d < 0 && this.phase1) {
-            this.phase1 = false;
-            this.maxOscilate = pv - this.sp;
-        }
-
-        this.i = Math.min(this.upperIntegral, Math.max(this.lowerIntegral, this.i));
-
-        this.ppv = pv;
-        this.time.reset();
-        return (this.p + this.i + this.d);
+        ppv = pv;
+        time.reset();
+        return (p + i + d);
     }
 
     double getPID(double pv, Telemetry telemetry) {
-        if (this.ppv == 0)
-            this.ppv = pv;
+        
+        //detect oscilation
+        if(d > 0 && !phase1) {
+            oscilateTime += oscilateTimer.seconds();
+            oscilateTime /= 2;
+            minOscilate = pv - sp;
+            phase1 = true;
+            oscilateTimer.reset();
+        }
 
-        this.d = this.dGain * (this.ppv - pv) / this.time.seconds();
-        this.error = this.sp - pv;
-        this.e = this.sp - pv - this.d;
-        this.p = this.pGain * e;
-        this.i = this.iGain * this.p;
+        if(d < 0 && phase1) {
+            phase1 = false;
+            maxOscilate = pv - sp;
+        }
 
-        this.i = Math.min(this.upperIntegral, Math.max(this.lowerIntegral, this.i));
+        d = dGain * (ppv - pv) / time.seconds();
+        e = sp - pv;
+        p = pGain * e;
+        i = iGain * p;
 
-        this.ppv = pv;
-        this.time.reset();
-        telemetry.addData("p", "%.2f", this.p);
-        telemetry.addData("i", "%.2f", this.i);
-        telemetry.addData("d", "%.2f", this.d);
-        telemetry.addData("pGain", "%.2f", this.pGain);
-        telemetry.addData("iGain", "%.2f", this.iGain);
-        telemetry.addData("dGain", "%.2f", this.dGain);
-        telemetry.addData("oscilate time", "%.2f", this.oscilateTime);
-        telemetry.addData("max oscilate", "%.2f", this.maxOscilate);
-        telemetry.addData("min oscilate", "%.2f", this.minOscilate);
-        return (this.p + this.i + this.d);
+        i = Math.min(upperIntegral, Math.max(lowerIntegral, i));
+
+        ppv = pv;
+        time.reset();
+        telemetry.addData("p", "%.2f", p);
+        telemetry.addData("i", "%.2f", i);
+        telemetry.addData("d", "%.2f", d);
+        telemetry.addData("e", "%.2f", e);
+        telemetry.addData("pGain", "%.2f", pGain);
+        telemetry.addData("iGain", "%.2f", iGain);
+        telemetry.addData("dGain", "%.2f", dGain);
+        telemetry.addData("oscilate time", "%.2f", oscilateTime);
+        telemetry.addData("max oscilate", "%.2f", maxOscilate);
+        telemetry.addData("min oscilate", "%.2f", minOscilate);
+        return (p + i + d);
     }
 
     void pTune() {
-        if (this.tunning && tunertime.seconds() > 1) {
-            if (this.oscilateTime == 0) {
-                this.pGain += 0.01;
-                this.sp += Math.random() * 32 - 16;
+        //https://en.wikipedia.org/wiki/Ziegler%E2%80%93Nichols_method
+        if (tunning && tunertime.seconds() > 1) {
+            if (oscilateTime == 0) {
+                pGain += 0.01;
+                sp += Math.random() * 32 - 16;
                 tunertime.reset();
             } else if(tunertime.seconds() > 20) {
-                this.tunning = false;
-                this.iGain = 1.2 * this.p / this.oscilateTime;
-                this.dGain = 3 * this.p * this.oscilateTime / 40;
-                this.pGain = this.pGain * 0.60;
+                tunning = false;
+                iGain = 1.2 * p / oscilateTime;
+                dGain = 3 * p * oscilateTime / 40;
+                pGain = pGain * 0.60;
             }
         }
     }
