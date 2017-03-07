@@ -105,7 +105,7 @@ class pidController {
         if (this.ppv == 0)
             this.ppv = pv;
 
-        this.d = this.dGain * (pv - this.ppv) / this.time.seconds();
+        this.d = this.dGain * (this.ppv - pv) / this.time.seconds();
         this.error = this.sp - pv;
         this.e = this.sp - pv - this.d;
         this.p = this.pGain * e;
