@@ -10,7 +10,7 @@ import static org.firstinspires.ftc.teamcode.stateslist.robot;
 /**
  * Autonomous for blue side that shoots 2 balls
  */
-@Autonomous(name = "double blue", group = "blue")
+//@Autonomous(name = "double blue", group = "blue")
 
 public class double_blue extends LinearOpMode {
     private preciseMovement p = new preciseMovement();

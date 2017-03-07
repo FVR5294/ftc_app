@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Project: ftc_app_for_2016_robot
  */
 
-@TeleOp(name = "get max motor speed")
+//@TeleOp(name = "get max motor speed")
 
 public class getmaxmotorspeed extends OpMode {
 

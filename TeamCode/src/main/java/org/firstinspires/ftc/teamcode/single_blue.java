@@ -11,7 +11,7 @@ import static org.firstinspires.ftc.teamcode.stateslist.robot;
  * Autonomous for blue side that shoots 1 ball
  */
 
-@Autonomous(name = "single blue", group = "blue")
+//@Autonomous(name = "single blue", group = "blue")
 
 public class single_blue extends LinearOpMode {
     private preciseMovement p = new preciseMovement();
