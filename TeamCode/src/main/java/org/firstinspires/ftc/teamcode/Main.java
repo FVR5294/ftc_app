@@ -1,6 +1,6 @@
 package com.stormbots;
 
-public class Main {
+public class sampleOfMiniPID {
 
 	/**
 	 * @param args Any arguments passed from stdin
