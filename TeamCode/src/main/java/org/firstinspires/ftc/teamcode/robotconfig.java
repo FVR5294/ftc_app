@@ -13,6 +13,8 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.ServoController;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 
+import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cRangeSensor;
+
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
@@ -36,6 +38,10 @@ public class robotconfig {
     static boolean debugMode = false;
     public OpticalDistanceSensor ods;
     public ColorSensor ada;
+    
+    public ModernRoboticsI2cRangeSensor ultra;
+    public boolean ultraEnabled = true;
+    
     DcMotor fLeftMotor;
     DcMotor fRightMotor;
     DcMotor bLeftMotor;
@@ -292,6 +298,13 @@ public class robotconfig {
         } catch (Exception err) {
             debugMode = false;
         }
+        
+        try {
+            ultra = hwMap.get(ModernRoboticsI2cRangeSensor.class, "ultra");
+        } catch (Exception err) {
+            ultraEnabled = false;
+            theLinearOpMode.telemetry.addData("wiring", "connect Range Sensor ultra");
+        }
 
         try {
             puncher = hwMap.dcMotor.get("puncher");
@@ -412,6 +425,13 @@ public class robotconfig {
             fLeftMotor = hwMap.dcMotor.get("fl_drive");
         } catch (Exception err) {
             debugMode = false;
+        }
+        
+        try {
+            ultra = hwMap.get(ModernRoboticsI2cRangeSensor.class, "ultra");
+        } catch (Exception err) {
+            ultraEnabled = false;
+            opMode.telemetry.addData("wiring", "connect Range Sensor ultra");
         }
 
         try {
