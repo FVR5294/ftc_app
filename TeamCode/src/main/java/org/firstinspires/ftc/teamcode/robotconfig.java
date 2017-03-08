@@ -755,6 +755,39 @@ public class robotconfig {
         addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
 
     }
+    
+    public void ultramove() {
+
+
+        if (debugMode) {
+            return;
+        }
+        //ultra.cmUltrasonic()
+
+        double fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition());
+        double fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());
+        double bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition());
+        double bRightMotorPower = (bRightMotorTarget - bRightMotor.getCurrentPosition());
+        double max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower)));
+        max /= Math.min(1, Math.max(Math.abs(max / 3000), 0.5));
+
+        if (Math.abs(fLeftMotorPower) < bettermovedeadzone)
+            fLeftMotorPower = 0;
+        if (Math.abs(fRightMotorPower) < bettermovedeadzone)
+            fRightMotorPower = 0;
+        if (Math.abs(bRightMotorPower) < bettermovedeadzone)
+            bRightMotorPower = 0;
+        if (Math.abs(bLeftMotorPower) < bettermovedeadzone)
+            bLeftMotorPower = 0;
+
+        fLeftMotor.setPower(fLeftMotorPower / max);
+        fRightMotor.setPower(fRightMotorPower / max);
+        bLeftMotor.setPower(bLeftMotorPower / max);
+        bRightMotor.setPower(bRightMotorPower / max);
+
+        addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
+
+    }
 
     public void bettermovewithspin(int spin) {
 
