@@ -37,26 +37,26 @@ public class masterV3 extends LinearOpMode {
         askState(states.colorRed, states.colorBlue);
         if (ask("Default Starting Position", "Alternate Starting Position")) {
             if (ask("First Beacon", "Second Beacon")) {
-            askState(states.arcTowardsBeacon);
-            askState(states.scanForLine);
-            askState(states.driveTowardsBeacon);
-            askState(states.pushBeaconButton, states.sleep0);
-            askState(states.backAwayFromBeacon);
-            askState(states.shootballTwoBalls, states.shootballOnce, states.noscope);
+                askState(states.arcTowardsBeacon);
+                askState(states.scanForLine);
+                askState(states.driveTowardsBeacon);
+                askState(states.pushBeaconButton, states.sleep0);
+                askState(states.backAwayFromBeacon);
+                askState(states.shootballTwoBalls, states.shootballOnce, states.noscope);
                 askState(states.correctStrafe);
                 askState(states.slideToTheRight);
-            askState(states.scanForLine);
-            askState(states.driveTowardsBeacon);
-            askState(states.pushBeaconButton, states.sleep0);
+                askState(states.scanForLine);
+                askState(states.driveTowardsBeacon);
+                askState(states.pushBeaconButton, states.sleep0);
                 if (ask("Center Vortex Ending", "Other Ending")) {
-                askState(states.pivotbeacon, states.pivotbeaconless);
-                askState(states.backuptovortex, states.backuptovortexIncreased, states.backuptovortexReduced);
-            } else {
+                    askState(states.pivotbeacon, states.pivotbeaconless);
+                    askState(states.backuptovortex, states.backuptovortexIncreased, states.backuptovortexReduced);
+                } else {
                     askState(states.pivotbeacon);
                     askState(states.rotate60);
-                askState(states.backup84);
-            }
-        } else {
+                    askState(states.backup84);
+                }
+            } else {
                 askState(states.driveFoward48);
                 askState(states.arcTowardsBeacon24);
                 askState(states.scanForLine);

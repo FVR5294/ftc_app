@@ -638,7 +638,7 @@ class stateslist {
         }
 
         public void everyTime() {
-            robot.bettermove();
+            robot.ultramove(30);
         }
 
         public boolean conditionsToCheck() {
@@ -802,7 +802,7 @@ class stateslist {
         }
 
         public void everyTime() {
-            robot.bettermove();
+            robot.ultramove(30);
         }
 
         public boolean conditionsToCheck() {
