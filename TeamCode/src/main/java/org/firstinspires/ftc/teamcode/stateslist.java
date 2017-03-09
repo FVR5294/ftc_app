@@ -654,7 +654,7 @@ class stateslist {
                     return (false);
                 }
             } else {
-                return robot.bettermoving();
+                return robot.ultramoving(30);
             }
         }
 
@@ -818,7 +818,7 @@ class stateslist {
                     return (false);
                 }
             } else {
-                return robot.bettermoving();
+                return robot.ultramoving(30);
             }
         }
 

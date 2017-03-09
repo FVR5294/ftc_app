@@ -48,7 +48,7 @@ public class masterV3 extends LinearOpMode {
                 askState(states.scanForLine);
                 askState(states.driveTowardsBeacon);
                 askState(states.pushBeaconButton, states.sleep0);
-                if (ask("Center Vortex Ending", "Other Ending")) {
+                if (ask("Center Vortex Ending", "Corner Vortex Ending")) {
                     askState(states.pivotbeacon, states.pivotbeaconless);
                     askState(states.backuptovortex, states.backuptovortexIncreased, states.backuptovortexReduced);
                 } else {
@@ -113,6 +113,8 @@ public class masterV3 extends LinearOpMode {
 
             //check if the currentState is more than the last index of the runlist
             if (currentState + 1 < runlist.length) {
+                telemetry.addData("state", runlist[currentState].name);
+                telemetry.update();
                 //run the state from the runlist of the currentState index
                 runlist[currentState].run();
                 //add log of name of state that ran for debugging
@@ -165,7 +167,7 @@ public class masterV3 extends LinearOpMode {
         displayStates();
         telemetry.update();
 
-        while (!isStopRequested()) {
+        while (!isStopRequested() && !opModeIsActive()) {
             if (gamepad1.a) {
                 while (gamepad1.a)
                     idle();
@@ -185,7 +187,7 @@ public class masterV3 extends LinearOpMode {
         telemetry.addData("B", stateb.name);
         displayStates();
         telemetry.update();
-        while (!isStopRequested()) {
+        while (!isStopRequested() && !opModeIsActive()) {
             if (gamepad1.a) {
                 while (gamepad1.a)
                     idle();
@@ -205,7 +207,7 @@ public class masterV3 extends LinearOpMode {
         telemetry.addData("X", statex.name);
         displayStates();
         telemetry.update();
-        while (!isStopRequested()) {
+        while (!isStopRequested() && !opModeIsActive()) {
             if (gamepad1.a) {
                 while (gamepad1.a)
                     idle();
@@ -230,7 +232,7 @@ public class masterV3 extends LinearOpMode {
         telemetry.addData("Y", statey.name);
         displayStates();
         telemetry.update();
-        while (!isStopRequested()) {
+        while (!isStopRequested() && !opModeIsActive()) {
             if (gamepad1.a) {
                 while (gamepad1.a)
                     idle();
