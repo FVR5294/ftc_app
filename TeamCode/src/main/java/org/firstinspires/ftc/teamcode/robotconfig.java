@@ -37,9 +37,11 @@ public class robotconfig {
     static boolean debugMode = false;
     public OpticalDistanceSensor ods;
     public ColorSensor ada;
-    
+
     public ModernRoboticsI2cRangeSensor ultra;
     public boolean ultraEnabled = true;
+
+    static double mmPerInch = measurements.mmPerInch;
 
     double maxGyro = 1;
     double minGyro = -maxGyro;
@@ -49,7 +51,9 @@ public class robotconfig {
 
     double ultraGain = 0.01;
     double gyroGain = 0.05;
-    
+
+    static final double hyp = Math.sqrt(Math.pow(17 * mmPerInch * 10, 2) + Math.pow(16 * mmPerInch * 10, 2)) / 2;
+
     DcMotor fLeftMotor;
     DcMotor fRightMotor;
     DcMotor bLeftMotor;
@@ -306,7 +310,7 @@ public class robotconfig {
         } catch (Exception err) {
             debugMode = false;
         }
-        
+
         try {
             ultra = hwMap.get(ModernRoboticsI2cRangeSensor.class, "ultra");
         } catch (Exception err) {
@@ -434,7 +438,7 @@ public class robotconfig {
         } catch (Exception err) {
             debugMode = false;
         }
-        
+
         try {
             ultra = hwMap.get(ModernRoboticsI2cRangeSensor.class, "ultra");
         } catch (Exception err) {
@@ -763,7 +767,7 @@ public class robotconfig {
         addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
 
     }
-    
+
     public void ultramove(double target) {
 
 
@@ -775,17 +779,17 @@ public class robotconfig {
         double gyroValue = getCurrentAngle() - (Math.round(getCurrentAngle() / 45) * 45);
         double spin = Math.max(minGyro, Math.min(maxGyro, gyroValue * gyroGain));
 
-        if(ultraEnabled)
-            ultraValue = Math.max(minUltra, Math.min(maxUltra, (ultra.cmUltrasonic() * Math.cos(Math.abs(gyroGain)) - target) * ultraGain));
+        if (ultraEnabled)
+            ultraValue = Math.max(minUltra, Math.min(maxUltra, (ultra.cmUltrasonic() * Math.cos(gyroValue) + hyp * Math.cos(gyroValue + 45) - target * ultraGain)));
 
         double fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition());
         double fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());
         double bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition());
         double bRightMotorPower = (bRightMotorTarget - bRightMotor.getCurrentPosition());
         double max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower)));
-        fLeftMotorPower  += (ultraValue + spin) * max;
+        fLeftMotorPower += (ultraValue + spin) * max;
         fRightMotorPower += (ultraValue - spin) * max;
-        bLeftMotorPower  += (ultraValue + spin) * max;
+        bLeftMotorPower += (ultraValue + spin) * max;
         bRightMotorPower += (ultraValue - spin) * max;
 
         if (Math.abs(fLeftMotorPower) < bettermovedeadzone)
@@ -935,7 +939,7 @@ public class robotconfig {
         double spin = Math.max(minGyro, Math.min(maxGyro, gyroValue * gyroGain));
 
         if (ultraEnabled)
-            ultraValue = Math.max(minUltra, Math.min(maxUltra, (ultra.cmUltrasonic() * Math.cos(Math.abs(gyroGain)) - target) * ultraGain));
+            ultraValue = Math.max(minUltra, Math.min(maxUltra, (ultra.cmUltrasonic() * Math.cos(gyroValue) + hyp * Math.cos(gyroValue + 45) - target * ultraGain)));
         int fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition());
         int fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());
         int bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition());

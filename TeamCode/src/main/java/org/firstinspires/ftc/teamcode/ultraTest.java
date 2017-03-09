@@ -24,38 +24,42 @@
 
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.hardware.adafruit.AdafruitBNO055IMU;
+import com.qualcomm.hardware.adafruit.BNO055IMU;
+import com.qualcomm.hardware.adafruit.JustLoggingAccelerationIntegrator;
 import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cRangeSensor;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-/**
- * Created by Chris D on 10/5/2016
- * <p>
- * In this example, you need to create a device configuration that lists two
- * "I2C Device"s, one named "mux" and the other named "ada". There are two
- * Adafruit color sensors plugged into the I2C multiplexer on ports 2 and 5.
- */
+import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
+
+import static org.firstinspires.ftc.teamcode.robotconfig.hyp;
+
+
+
 @TeleOp(name = "Ultra Test", group = "above")
 //@Disabled
 public class ultraTest extends OpMode {
-//    MultiplexColorSensor muxColor;
-//    int[] ports = {2, 5};
-//    robotconfig robot = new robotconfig();
-
-    //    ColorSensor ada;
-//    OpticalDistanceSensor ods;
     ModernRoboticsI2cRangeSensor ultra;
+    BNO055IMU gyro;
 
     @Override
     public void init() {
-//        robot.init(this);
-//        int milliSeconds = 48;
-//        muxColor = new MultiplexColorSensor(hardwareMap, "mux", "ada",
-//                ports, milliSeconds,
-//                MultiplexColorSensor.GAIN_16X);
-//        ada = hardwareMap.colorSensor.get("ada");
-//        ods = hardwareMap.opticalDistanceSensor.get("ods");
         ultra = hardwareMap.get(ModernRoboticsI2cRangeSensor.class, "ultra");
+        BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
+        parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
+        parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+        parameters.calibrationDataFile = "AdafruitIMUCalibration.json"; // see the calibration sample opmode
+        parameters.loggingEnabled = false;
+        parameters.loggingTag = "IMU";
+        parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
+
+        // Retrieve and initialize the IMU. We expect the IMU to be attached to an I2C port
+        // on a Core Device Interface Module, configured to be a sensor of type "AdaFruit IMU",
+        // and named "imu".
+        gyro = hardwareMap.get(BNO055IMU.class, "imu");
+        gyro.initialize(parameters);
     }
 
     @Override
@@ -65,21 +69,15 @@ public class ultraTest extends OpMode {
 
     @Override
     public void start() {
-
-//        muxColor.startPolling();
     }
 
     @Override
     public void loop() {
-//        for (int i = 0; i < ports.length; i++) {
-//            int[] crgb = muxColor.getCRGB(ports[i]);
-
-//            telemetry.addLine("Sensor " + ports[i]);
-//        }
-
-//        telemetry.addData("CRGB", "%d %d %d %d",
-//                ada.alpha(), ada.red(), ada.green(), ada.blue());
-//        telemetry.addData("ODS", "%f", ods.getLightDetected());
+        double gyroValue = getCurrentAngle();
+        telemetry.addData("gyro", "%f", gyroValue);
+        telemetry.addData("ultragyro", "%f", ultra.cmUltrasonic() * Math.cos(gyroValue));
+        telemetry.addData("robotgyro", "%f", hyp * Math.cos(gyroValue + 45));
+        telemetry.addData("Ultra+gyro cm", "%f", ultra.cmUltrasonic() * Math.cos(gyroValue) + hyp * Math.cos(gyroValue + 45));
         telemetry.addData("Ultra U cm", "%f", ultra.cmUltrasonic());
         telemetry.addData("Ultra O cm", "%f", ultra.cmOptical());
         telemetry.addData("Ultra S", ultra.status());
@@ -88,5 +86,9 @@ public class ultraTest extends OpMode {
     @Override
     public void stop() {
 
+    }
+
+    double getCurrentAngle() {
+        return gyro.getAngularOrientation().toAxesReference(AxesReference.INTRINSIC).toAxesOrder(AxesOrder.ZYX).firstAngle;
     }
 }
