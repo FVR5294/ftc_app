@@ -15,7 +15,7 @@ import static org.firstinspires.ftc.teamcode.stateslist.robot;
  * Autonomous that can do anything
  */
 
-@Autonomous(name = "master v3", group = "above")
+@Autonomous(name = "Kevin", group = "above")
 
 public class masterV3 extends LinearOpMode {
     //import library for precise movement
@@ -48,13 +48,13 @@ public class masterV3 extends LinearOpMode {
                 askState(states.scanForLine);
                 askState(states.driveTowardsBeacon);
                 askState(states.pushBeaconButton, states.sleep0);
-                if (ask("Center Vortex Ending", "Corner Vortex Ending")) {
-                    askState(states.pivotbeacon, states.pivotbeaconless);
-                    askState(states.backuptovortex, states.backuptovortexIncreased, states.backuptovortexReduced);
-                } else {
+                if (ask("Corner Vortex", "Center Vortex")) {
                     askState(states.pivotbeacon);
                     askState(states.rotate60);
                     askState(states.backup84);
+                } else {
+                    askState(states.pivotbeacon, states.pivotbeaconless);
+                    askState(states.backuptovortex, states.backuptovortexIncreased, states.backuptovortexReduced);
                 }
             } else {
                 askState(states.driveFoward48);
