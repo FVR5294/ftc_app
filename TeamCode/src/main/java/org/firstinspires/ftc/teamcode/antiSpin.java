@@ -1,7 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.stormbots.MiniPID;
 
@@ -9,7 +8,7 @@ import com.stormbots.MiniPID;
  * Created by mail2 on 11/7/2016.
  */
 
-@TeleOp(name = "antiSpin", group = "above")
+//@TeleOp(name = "antiSpin", group = "above")
 
 public class antiSpin extends LinearOpMode {
     public robotconfig robot = new robotconfig();
@@ -22,10 +21,8 @@ public class antiSpin extends LinearOpMode {
     private double pGain = 0;
     private double iGain = 0;
     private double dGain = 0;
-    private double output = 0;
-
     MiniPID pid = new MiniPID(pGain, iGain, dGain);
-
+    private double output = 0;
     private boolean positiveOutput = false;
     private int timeCount = 0;
     private int ntimeCount = 0;

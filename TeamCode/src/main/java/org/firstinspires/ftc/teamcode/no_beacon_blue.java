@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import static org.firstinspires.ftc.teamcode.robotconfig.dl;
@@ -10,7 +11,7 @@ import static org.firstinspires.ftc.teamcode.stateslist.robot;
  * Autonomous for blue side that shoots 2 balls without getting beacons
  */
 
-//@Autonomous(name = "no beacon blue", group = "blue")
+@Autonomous(name = "no beacon blue", group = "blue")
 
 public class no_beacon_blue extends LinearOpMode {
     private preciseMovement p = new preciseMovement();

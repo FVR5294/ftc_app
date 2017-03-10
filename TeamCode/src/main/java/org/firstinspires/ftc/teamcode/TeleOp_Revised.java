@@ -117,6 +117,7 @@ public class TeleOp_Revised extends OpMode {
             vexes = -gamepad2.left_stick_y * 0.5 + 0.5;
             robot.rvex.setPosition(vexes);
             robot.lvex.setPosition(vexes);
+            robot.theHammerOfDawn.setPosition(vexes);
         }
 
         if (gamepad1.left_bumper) {
@@ -143,9 +144,6 @@ public class TeleOp_Revised extends OpMode {
         if (gamepad1.y) {
             robot.puncher.setPower(1);
             puncherState = true;
-            vexes = 1;
-            robot.rvex.setPosition(vexes);
-            robot.lvex.setPosition(vexes);
             puncher = Math.min(1, Math.max(0.6, Math.abs(((double) robot.puncher.getCurrentPosition() - endpulses) * rampNumb)));
             robot.puncher.setPower(puncher);
         }
@@ -222,6 +220,11 @@ public class TeleOp_Revised extends OpMode {
         telemetry.addData("vexes", "%.2f", vexes);
         telemetry.addData("puncher", "%.2f", puncher);
         telemetry.addData("garry", "%b", !robot.garry.isPressed());
+    }
+
+    @Override
+    public void stop() {
+        robot.theHammerOfDawn.setPosition(0.5);
     }
 
 }

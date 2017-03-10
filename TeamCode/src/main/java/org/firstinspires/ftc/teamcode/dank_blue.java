@@ -12,7 +12,7 @@ import static org.firstinspires.ftc.teamcode.stateslist.robot;
  * Project: ftc_app_for_2016_robot
  */
 
-//@Autonomous(name = "suspicious blue", group = "blue")
+@Autonomous(name = "dank blue", group = "blue")
 
 public class dank_blue extends LinearOpMode {
     private preciseMovement p = new preciseMovement();

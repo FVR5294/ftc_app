@@ -660,16 +660,16 @@ class stateslist {
 
         public void onCompletion() {
             robot.move(0, 0, 0);
-            robot.enableEncodersToPosition();
-            Thread.yield();
-            robot.setMotorPower(1);
-            Thread.yield();
-            p.automaticSquareUp(robot);
-            Thread.yield();
-            robot.setMotorPower(0);
-            Thread.yield();
-            robot.enableMotorEncoders();
-            Thread.yield();
+//            robot.enableEncodersToPosition();
+//            Thread.yield();
+//            robot.setMotorPower(1);
+//            Thread.yield();
+//            p.automaticSquareUp(robot);
+//            Thread.yield();
+//            robot.setMotorPower(0);
+//            Thread.yield();
+//            robot.enableMotorEncoders();
+//            Thread.yield();
         }
     };
 
@@ -824,16 +824,16 @@ class stateslist {
 
         public void onCompletion() {
             robot.move(0, 0, 0);
-            robot.enableEncodersToPosition();
-            Thread.yield();
-            robot.setMotorPower(1);
-            Thread.yield();
-            p.automaticSquareUp(robot);
-            Thread.yield();
-            robot.setMotorPower(0);
-            Thread.yield();
-            robot.enableMotorEncoders();
-            Thread.yield();
+//            robot.enableEncodersToPosition();
+//            Thread.yield();
+//            robot.setMotorPower(1);
+//            Thread.yield();
+//            p.automaticSquareUp(robot);
+//            Thread.yield();
+//            robot.setMotorPower(0);
+//            Thread.yield();
+//            robot.enableMotorEncoders();
+//            Thread.yield();
         }
     };
 
@@ -1523,6 +1523,7 @@ class stateslist {
         double puncher = 0;
 
         public void firstTime() {
+            robot.theHammerOfDawn.setPosition(1);
             endpulses = robot.puncher.getCurrentPosition() + pulses;
             robot.puncher.setPower(1);
             while (!robot.garry.isPressed()) {
@@ -1584,6 +1585,7 @@ class stateslist {
         }
 
         public void onCompletion() {
+            robot.theHammerOfDawn.setPosition(0.5);
             robot.puncher.setPower(0);
             robot.lvex.setPosition(0.5);
             robot.rvex.setPosition(0.5);

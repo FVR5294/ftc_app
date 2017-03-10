@@ -24,7 +24,6 @@
 
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.hardware.adafruit.AdafruitBNO055IMU;
 import com.qualcomm.hardware.adafruit.BNO055IMU;
 import com.qualcomm.hardware.adafruit.JustLoggingAccelerationIntegrator;
 import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cRangeSensor;
@@ -73,11 +72,11 @@ public class ultraTest extends OpMode {
 
     @Override
     public void loop() {
-        double gyroValue = getCurrentAngle();
+        double gyroValue = getCurrentAngle() - (Math.round(getCurrentAngle() / 90) * 90);
         telemetry.addData("gyro", "%f", gyroValue);
-        telemetry.addData("ultragyro", "%f", ultra.cmUltrasonic() * Math.cos(gyroValue));
-        telemetry.addData("robotgyro", "%f", hyp * Math.cos(gyroValue + 45));
-        telemetry.addData("Ultra+gyro cm", "%f", ultra.cmUltrasonic() * Math.cos(gyroValue) + hyp * Math.cos(gyroValue + 45));
+        telemetry.addData("ultragyro", "%f", ultra.cmUltrasonic() * Math.cos(Math.toRadians(gyroValue)));
+        telemetry.addData("robotgyro", "%f", hyp * Math.cos(Math.toRadians(gyroValue + 45)));
+        telemetry.addData("Ultra+gyro cm", "%f", ultra.cmUltrasonic() * Math.cos(Math.toRadians(gyroValue)) + hyp * Math.cos(Math.toRadians(gyroValue + 45)));
         telemetry.addData("Ultra U cm", "%f", ultra.cmUltrasonic());
         telemetry.addData("Ultra O cm", "%f", ultra.cmOptical());
         telemetry.addData("Ultra S", ultra.status());
