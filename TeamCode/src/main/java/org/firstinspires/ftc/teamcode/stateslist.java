@@ -880,7 +880,7 @@ class stateslist {
         }
 
         public void everyTime() {
-            robot.bettermove();
+            robot.gyromove();
             //robotconfig.addlog(dl, "in slideToTheRight", "error at " + robot.getErrors());
         }
 
@@ -897,7 +897,7 @@ class stateslist {
                     return (false);
                 }
             } else {
-                return robot.bettermoving();
+                return robot.gyromoving();
             }
         }
 
@@ -912,7 +912,7 @@ class stateslist {
         }
 
         public void everyTime() {
-            robot.bettermove();
+            robot.gyromove();
             //robotconfig.addlog(dl, "in slideToTheRight", "error at " + robot.getErrors());
         }
 
@@ -929,22 +929,12 @@ class stateslist {
                     return (false);
                 }
             } else {
-                return robot.bettermoving();
+                return robot.gyromoving();
             }
         }
 
         public void onCompletion() {
             robot.move(0, 0, 0);
-            robot.enableEncodersToPosition();
-            Thread.yield();
-            robot.setMotorPower(1);
-            Thread.yield();
-            p.automaticSquareUp(robot);
-            Thread.yield();
-            robot.setMotorPower(0);
-            Thread.yield();
-            robot.enableMotorEncoders();
-            Thread.yield();
         }
     };
 
@@ -954,26 +944,16 @@ class stateslist {
         }
 
         public void everyTime() {
-            robot.bettermove();
+            robot.gyromove();
             //robotconfig.addlog(dl, "in slideToTheRight", "error at " + robot.getErrors());
         }
 
         public boolean conditionsToCheck() {
-            return robot.bettermoving();
+            return robot.gyromoving();
         }
 
         public void onCompletion() {
             robot.move(0, 0, 0);
-            robot.enableEncodersToPosition();
-            Thread.yield();
-            robot.setMotorPower(1);
-            Thread.yield();
-            p.automaticSquareUp(robot);
-            Thread.yield();
-            robot.setMotorPower(0);
-            Thread.yield();
-            robot.enableMotorEncoders();
-            Thread.yield();
         }
     };
 
@@ -1563,12 +1543,16 @@ class stateslist {
 
         public void firstTime() {
             robot.theHammerOfDawn.setPosition(1);
+            try {
+                sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             endpulses = robot.puncher.getCurrentPosition() + pulses;
             robot.puncher.setPower(1);
             while (!robot.garry.isPressed()) {
                 Thread.yield();
             }
-            robot.puncher.setPower(1);
             robot.lvex.setPosition(1);
             robot.rvex.setPosition(1);
             while (robot.garry.isPressed()) {
@@ -1582,16 +1566,6 @@ class stateslist {
                 sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
-                try {
-                    sleep(1000);
-                } catch (InterruptedException e2) {
-                    e2.printStackTrace();
-                    try {
-                        sleep(1000);
-                    } catch (InterruptedException e3) {
-                        e3.printStackTrace();
-                    }
-                }
             }
             robot.puncher.setPower(1);
             while (!robot.garry.isPressed()) {
@@ -1813,7 +1787,7 @@ class stateslist {
         }
 
         public void everyTime() {
-            robot.bettermove();
+            robot.gyromove();
         }
 
         public boolean conditionsToCheck() {
@@ -1831,7 +1805,7 @@ class stateslist {
                 }
             } else {
                 //robotconfig.addlog(dl, "in backAwayFromBeacon", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
-                return robot.bettermoving();
+                return robot.gyromoving();
             }
 
         }
@@ -1844,16 +1818,6 @@ class stateslist {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            robot.enableEncodersToPosition();
-            Thread.yield();
-            robot.setMotorPower(1);
-            Thread.yield();
-            p.automaticSquareUp(robot);
-            Thread.yield();
-            robot.setMotorPower(0);
-            Thread.yield();
-            robot.enableMotorEncoders();
-            Thread.yield();
         }
     };
 
@@ -1863,7 +1827,7 @@ class stateslist {
         }
 
         public void everyTime() {
-            robot.bettermove();
+            robot.gyromove();
         }
 
         public boolean conditionsToCheck() {
@@ -1881,7 +1845,7 @@ class stateslist {
                 }
             } else {
                 //robotconfig.addlog(dl, "in backAwayFromBeacon", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
-                return robot.bettermoving();
+                return robot.gyromoving();
             }
 
         }
@@ -1894,16 +1858,6 @@ class stateslist {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            robot.enableEncodersToPosition();
-            Thread.yield();
-            robot.setMotorPower(1);
-            Thread.yield();
-            p.automaticSquareUp(robot);
-            Thread.yield();
-            robot.setMotorPower(0);
-            Thread.yield();
-            robot.enableMotorEncoders();
-            Thread.yield();
         }
     };
 

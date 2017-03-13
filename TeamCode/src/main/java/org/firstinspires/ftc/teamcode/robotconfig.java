@@ -227,7 +227,7 @@ public class robotconfig {
     /**
      * Set motor targets to move robot a specific amount from the current position
      *
-     * @param left  number of encoder pulses for motors on the left side
+     * @param left number of encoder pulses for motors on the left side
      * @param right number of encoder pulses for motors on the right side
      */
     void setMyMotorTankTargets(int left, int right) {
@@ -832,10 +832,17 @@ public class robotconfig {
 
         max /= Math.min(1, Math.max(Math.abs(max / 3000), 0.5));
 
-        fLeftMotor.setPower(fLeftMotorPower / max);
-        fRightMotor.setPower(fRightMotorPower / max);
-        bLeftMotor.setPower(bLeftMotorPower / max);
-        bRightMotor.setPower(bRightMotorPower / max);
+        if (max > 0) {
+            fLeftMotor.setPower(fLeftMotorPower / max);
+            fRightMotor.setPower(fRightMotorPower / max);
+            bLeftMotor.setPower(bLeftMotorPower / max);
+            bRightMotor.setPower(bRightMotorPower / max);
+        } else {
+            fLeftMotor.setPower(0);
+            fRightMotor.setPower(0);
+            bLeftMotor.setPower(0);
+            bRightMotor.setPower(0);
+        }
 
         addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
 
@@ -884,10 +891,17 @@ public class robotconfig {
 
         max /= Math.min(1, Math.max(Math.abs(max / 3000), 0.5));
 
-        fLeftMotor.setPower(fLeftMotorPower / max);
-        fRightMotor.setPower(fRightMotorPower / max);
-        bLeftMotor.setPower(bLeftMotorPower / max);
-        bRightMotor.setPower(bRightMotorPower / max);
+        if (max > 0) {
+            fLeftMotor.setPower(fLeftMotorPower / max);
+            fRightMotor.setPower(fRightMotorPower / max);
+            bLeftMotor.setPower(bLeftMotorPower / max);
+            bRightMotor.setPower(bRightMotorPower / max);
+        } else {
+            fLeftMotor.setPower(0);
+            fRightMotor.setPower(0);
+            bLeftMotor.setPower(0);
+            bRightMotor.setPower(0);
+        }
 
         addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
 
@@ -935,10 +949,17 @@ public class robotconfig {
 
         max /= Math.min(1, Math.max(Math.abs(max / 3000), 0.5));
 
-        fLeftMotor.setPower(fLeftMotorPower / max);
-        fRightMotor.setPower(fRightMotorPower / max);
-        bLeftMotor.setPower(bLeftMotorPower / max);
-        bRightMotor.setPower(bRightMotorPower / max);
+        if (max > 0) {
+            fLeftMotor.setPower(fLeftMotorPower / max);
+            fRightMotor.setPower(fRightMotorPower / max);
+            bLeftMotor.setPower(bLeftMotorPower / max);
+            bRightMotor.setPower(bRightMotorPower / max);
+        } else {
+            fLeftMotor.setPower(0);
+            fRightMotor.setPower(0);
+            bLeftMotor.setPower(0);
+            bRightMotor.setPower(0);
+        }
 
         addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
 
@@ -982,12 +1003,19 @@ public class robotconfig {
 
         max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower)));
 
-        max /= Math.max(power, 0.1);
+        max /= power;
 
-        fLeftMotor.setPower(fLeftMotorPower / max);
-        fRightMotor.setPower(fRightMotorPower / max);
-        bLeftMotor.setPower(bLeftMotorPower / max);
-        bRightMotor.setPower(bRightMotorPower / max);
+        if (max > 0) {
+            fLeftMotor.setPower(fLeftMotorPower / max);
+            fRightMotor.setPower(fRightMotorPower / max);
+            bLeftMotor.setPower(bLeftMotorPower / max);
+            bRightMotor.setPower(bRightMotorPower / max);
+        } else {
+            fLeftMotor.setPower(0);
+            fRightMotor.setPower(0);
+            bLeftMotor.setPower(0);
+            bRightMotor.setPower(0);
+        }
 
         addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
 
@@ -1031,10 +1059,17 @@ public class robotconfig {
 
         max /= Math.min(1, Math.max(Math.abs(max / 3000), 0.5));
 
-        fLeftMotor.setPower(fLeftMotorPower / max);
-        fRightMotor.setPower(fRightMotorPower / max);
-        bLeftMotor.setPower(bLeftMotorPower / max);
-        bRightMotor.setPower(bRightMotorPower / max);
+        if (max > 0) {
+            fLeftMotor.setPower(fLeftMotorPower / max);
+            fRightMotor.setPower(fRightMotorPower / max);
+            bLeftMotor.setPower(bLeftMotorPower / max);
+            bRightMotor.setPower(bRightMotorPower / max);
+        } else {
+            fLeftMotor.setPower(0);
+            fRightMotor.setPower(0);
+            bLeftMotor.setPower(0);
+            bRightMotor.setPower(0);
+        }
 
         addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
 
@@ -1067,12 +1102,19 @@ public class robotconfig {
         if (Math.abs(bLeftMotorPower) < bettermovedeadzone)
             bLeftMotorPower = 0;
 
-        max /= Math.max(power, 0.1);
+        max /= power;
 
-        fLeftMotor.setPower(fLeftMotorPower / max);
-        fRightMotor.setPower(fRightMotorPower / max);
-        bLeftMotor.setPower(bLeftMotorPower / max);
-        bRightMotor.setPower(bRightMotorPower / max);
+        if (max > 0) {
+            fLeftMotor.setPower(fLeftMotorPower / max);
+            fRightMotor.setPower(fRightMotorPower / max);
+            bLeftMotor.setPower(bLeftMotorPower / max);
+            bRightMotor.setPower(bRightMotorPower / max);
+        } else {
+            fLeftMotor.setPower(0);
+            fRightMotor.setPower(0);
+            bLeftMotor.setPower(0);
+            bRightMotor.setPower(0);
+        }
 
         addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
 
