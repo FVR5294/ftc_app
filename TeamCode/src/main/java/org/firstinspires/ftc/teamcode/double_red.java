@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import static org.firstinspires.ftc.teamcode.robotconfig.dl;
@@ -11,7 +10,7 @@ import static org.firstinspires.ftc.teamcode.stateslist.robot;
  * Autonomous for red side that shoots 2 balls
  */
 
-@Autonomous(name = "double red", group = "red")
+//@Autonomous(name = "double red", group = "red")
 
 public class double_red extends LinearOpMode {
     private preciseMovement p = new preciseMovement();
@@ -63,9 +62,7 @@ public class double_red extends LinearOpMode {
                     state.shootball.run();
                     break;
                 case 7:
-                    //wait for second ball to load
-                    sleep(2000);
-                    currentState++;
+                    state.sleep1000.run();
                     break;
                 case 8:
                     //shoot ball and stop vex motors

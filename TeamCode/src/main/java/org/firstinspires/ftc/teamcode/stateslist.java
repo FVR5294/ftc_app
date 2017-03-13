@@ -27,9 +27,14 @@ class stateslist {
     state scanForLine = new state("scanForLine") {
         public void firstTime() {
             robot.move(0, color * 0.2, 0);
-            while (!robot.detectLine()) {
-                Thread.yield();
-            }
+        }
+
+        public void everyTime() {
+            robot.ultramove(0, color * 0.2, 30);
+        }
+
+        public boolean conditionsToCheck() {
+            return robot.detectLine();
         }
 
         public void onCompletion() {
@@ -39,9 +44,14 @@ class stateslist {
     state scanForLineInverted = new state("scanForLineInverted") {
         public void firstTime() {
             robot.move(0, color * -0.2, 0);
-            while (!robot.detectLine()) {
-                Thread.yield();
-            }
+        }
+
+        public void everyTime() {
+            robot.ultramove(0, color * -0.2, 30);
+        }
+
+        public boolean conditionsToCheck() {
+            return robot.detectLine();
         }
 
         public void onCompletion() {
@@ -117,25 +127,11 @@ class stateslist {
      */
     state driveTowardsBeacon = new state("driveTowardsBeacon") {
         public void firstTime() {
-            robot.enableEncodersToPosition();
-            Thread.yield();
-            robot.setMotorPower(1);
-            Thread.yield();
-            p.automaticSquareUp(robot);
-            Thread.yield();
-            robot.setMotorPower(0);
-            Thread.yield();
-            robot.enableMotorEncoders();
-            Thread.yield();
             robot.move(0.2, 0, 0);
-            while (!robot.touchBeacon.isPressed()) {
-                Thread.yield();
-            }
-            robot.move(0, 0, 0);
         }
 
         public void everyTime() {
-
+            robot.ultramove(0.2, 0);
         }
 
         public boolean conditionsToCheck() {
@@ -152,7 +148,7 @@ class stateslist {
                     return (false);
                 }
             } else {
-                return true;
+                return robot.touchBeacon.isPressed();
             }
 
         }
@@ -673,6 +669,47 @@ class stateslist {
         }
     };
 
+    state slideToTheRight2 = new state("slideToTheRight2") {
+        public void firstTime() {
+            robot.setMyMotorTargets(0, color * p.mm2pulses(54 * mmPerInch), 0);
+        }
+
+        public void everyTime() {
+            robot.ultramove2(30);
+        }
+
+        public boolean conditionsToCheck() {
+            //robotconfig.addlog(dl, "in arcTowardsBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in slideToTheRight", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in slideToTheRight", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.ultramoving2(30);
+            }
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+//            robot.enableEncodersToPosition();
+//            Thread.yield();
+//            robot.setMotorPower(1);
+//            Thread.yield();
+//            p.automaticSquareUp(robot);
+//            Thread.yield();
+//            robot.setMotorPower(0);
+//            Thread.yield();
+//            robot.enableMotorEncoders();
+//            Thread.yield();
+        }
+    };
+
     state slideToTheRight54 = new state("slideToTheRight54") {
         public void firstTime() {
             robot.setMyMotorTargets(0, color * p.mm2pulses(54 * mmPerInch), 0);
@@ -946,11 +983,11 @@ class stateslist {
         }
 
         public void everyTime() {
-            robot.bettermove(1);
+            robot.gyromove(1);
         }
 
         public boolean conditionsToCheck() {
-            return robot.bettermoving();
+            return robot.gyromoving();
         }
 
         public void onCompletion() {
@@ -1384,11 +1421,12 @@ class stateslist {
         public void firstTime() {
             endpulses = robot.puncher.getCurrentPosition() + pulses;
             robot.puncher.setPower(1);
-            robot.lvex.setPosition(1);
-            robot.rvex.setPosition(1);
             while (!robot.garry.isPressed()) {
                 Thread.yield();
             }
+            robot.lvex.setPosition(1);
+            robot.rvex.setPosition(1);
+            robot.theHammerOfDawn.setPosition(1);
             while (robot.garry.isPressed()) {
                 puncher = Math.min(1, Math.max(0.6, Math.abs(((double) robot.puncher.getCurrentPosition() - endpulses) * rampNumb)));
                 robot.puncher.setPower(puncher);
@@ -1466,6 +1504,7 @@ class stateslist {
             robot.puncher.setPower(0);
             robot.lvex.setPosition(0.5);
             robot.rvex.setPosition(0.5);
+            robot.theHammerOfDawn.setPosition(0.5);
         }
     };
 
@@ -1540,15 +1579,15 @@ class stateslist {
             robot.puncher.setPower(0);
             endpulses = robot.puncher.getCurrentPosition() + pulses;
             try {
-                sleep(2000);
+                sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
                 try {
-                    sleep(2000);
+                    sleep(1000);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                     try {
-                        sleep(2000);
+                        sleep(1000);
                     } catch (InterruptedException e3) {
                         e3.printStackTrace();
                     }

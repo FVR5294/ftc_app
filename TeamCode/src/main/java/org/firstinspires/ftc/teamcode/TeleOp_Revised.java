@@ -63,6 +63,7 @@ public class TeleOp_Revised extends OpMode {
         robot.move(0, 0, 0);
 //        robot.disableMotorEncoders();
         // Send telemetry message to signify robot waiting;
+//        robot.capLeft.getController().pwmDisable();
         telemetry.addData("Say", "Hello Driver");
         updateTelemetry(telemetry);
 
@@ -133,6 +134,16 @@ public class TeleOp_Revised extends OpMode {
             }
         } else {
             previousAState = false;
+        }
+
+        if (gamepad2.right_trigger > 0.2) {
+            robot.spinner.setPower(-gamepad2.right_trigger);
+        } else {
+            if (spinnerState) {
+                robot.spinner.setPower(1);
+            } else {
+                robot.spinner.setPower(0);
+            }
         }
 
         if (puncherState) {
@@ -225,6 +236,8 @@ public class TeleOp_Revised extends OpMode {
     @Override
     public void stop() {
         robot.theHammerOfDawn.setPosition(0.5);
+        robot.rvex.setPosition(0.5);
+        robot.lvex.setPosition(0.5);
     }
 
 }

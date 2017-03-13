@@ -12,7 +12,7 @@ import static org.firstinspires.ftc.teamcode.stateslist.robot;
  */
 
 @Autonomous(name = "no beacon blue", group = "blue")
-
+//
 public class no_beacon_blue extends LinearOpMode {
     private preciseMovement p = new preciseMovement();
     private stateslist state = new stateslist();
