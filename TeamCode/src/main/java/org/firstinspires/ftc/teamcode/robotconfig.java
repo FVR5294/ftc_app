@@ -224,17 +224,12 @@ public class robotconfig {
         bRightMotorTarget = (bRightMotor.getCurrentPosition() + forward + right - spin);
     }
 
-    void addSpinToMyMotorTargets(int spin) {
-//        addlog(dl, "robot", "setMotorTargets was called - f:r:s: " + String.format(Locale.ENGLISH, "%d", forward) + " : " + String.format(Locale.ENGLISH, "%d", right) + " : " + String.format(Locale.ENGLISH, "%d", spin));
-        if (debugMode) {
-            return;
-        }
-        fLeftMotorTarget += spin;
-        fRightMotorTarget -= spin;
-        bLeftMotorTarget += spin;
-        bRightMotorTarget -= spin;
-    }
-
+    /**
+     * Set motor targets to move robot a specific amount from the current position
+     *
+     * @param left  number of encoder pulses for motors on the left side
+     * @param right number of encoder pulses for motors on the right side
+     */
     void setMyMotorTankTargets(int left, int right) {
         addlog(dl, "robot", "setMotorTankTargets was called - L:r: " + String.format(Locale.ENGLISH, "%d", left) + " : " + String.format(Locale.ENGLISH, "%d", right));
         if (debugMode) {
@@ -613,7 +608,7 @@ public class robotconfig {
     }
 
     /***
-     * code that will one day detect the color of the beacon
+     * code that detects the color of the left side of the beacon
      *
      * @return 1 for red, -1 for blue, 0 if can't tell
      */
@@ -638,7 +633,7 @@ public class robotconfig {
     }
 
     /***
-     * function is used to find the line on the field
+     * function is used to position robot over the line on the field
      *
      * @return true if line is detected
      */
@@ -810,7 +805,8 @@ public class robotconfig {
     }
 
     /***
-     * move is a function to efficiently set the power values of all 4 drive train motors in one quick line.
+     * bettermove is a function to efficiently set the power values of all 4 drive train motors in a way to get all 4 motors to their targets at the same time as fast as possible
+     * similar to ultramove but without gyro and ultrasonic sensors
      */
     public void bettermove() {
 
@@ -824,7 +820,6 @@ public class robotconfig {
         double bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition());
         double bRightMotorPower = (bRightMotorTarget - bRightMotor.getCurrentPosition());
         double max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower)));
-        max /= Math.min(1, Math.max(Math.abs(max / 3000), 0.5));
 
         if (Math.abs(fLeftMotorPower) < bettermovedeadzone)
             fLeftMotorPower = 0;
@@ -835,22 +830,23 @@ public class robotconfig {
         if (Math.abs(bLeftMotorPower) < bettermovedeadzone)
             bLeftMotorPower = 0;
 
-        if (max > 0) {
-            fLeftMotor.setPower(fLeftMotorPower / max);
-            fRightMotor.setPower(fRightMotorPower / max);
-            bLeftMotor.setPower(bLeftMotorPower / max);
-            bRightMotor.setPower(bRightMotorPower / max);
-        } else {
-            fLeftMotor.setPower(0);
-            fRightMotor.setPower(0);
-            bLeftMotor.setPower(0);
-            bRightMotor.setPower(0);
-        }
+        max /= Math.min(1, Math.max(Math.abs(max / 3000), 0.5));
+
+        fLeftMotor.setPower(fLeftMotorPower / max);
+        fRightMotor.setPower(fRightMotorPower / max);
+        bLeftMotor.setPower(bLeftMotorPower / max);
+        bRightMotor.setPower(bRightMotorPower / max);
 
         addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
 
     }
 
+    /***
+     * ultra is a function to efficiently set the power values of all 4 drive train motors in a way to get all 4 motors to their targets at the same time as fast as possible
+     * similar to bettermove but with gyro and ultrasonic sensors
+     * gyro corrects rotation and ultrasonic prevents running into or drifting away from the wall
+     * @param target a measurement of the target distance between the center of the robot and the wall in cm
+     */
     public void ultramove(double target) {
 
 
@@ -888,23 +884,21 @@ public class robotconfig {
 
         max /= Math.min(1, Math.max(Math.abs(max / 3000), 0.5));
 
-        if (max > 0) {
-            fLeftMotor.setPower(fLeftMotorPower / max);
-            fRightMotor.setPower(fRightMotorPower / max);
-            bLeftMotor.setPower(bLeftMotorPower / max);
-            bRightMotor.setPower(bRightMotorPower / max);
-        } else {
-            fLeftMotor.setPower(0);
-            fRightMotor.setPower(0);
-            bLeftMotor.setPower(0);
-            bRightMotor.setPower(0);
-        }
+        fLeftMotor.setPower(fLeftMotorPower / max);
+        fRightMotor.setPower(fRightMotorPower / max);
+        bLeftMotor.setPower(bLeftMotorPower / max);
+        bRightMotor.setPower(bRightMotorPower / max);
 
         addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
 
     }
 
-    public void ultramove2(double target) {
+    /***
+     * like ultramove but before the gyro was used with the range sensor because it is impressive how drunk it moves
+     *
+     * @param target target distance to wall in cm
+     */
+    public void drunkmove(double target) {
 
 
         if (debugMode) {
@@ -941,22 +935,20 @@ public class robotconfig {
 
         max /= Math.min(1, Math.max(Math.abs(max / 3000), 0.5));
 
-        if (max > 0) {
-            fLeftMotor.setPower(fLeftMotorPower / max);
-            fRightMotor.setPower(fRightMotorPower / max);
-            bLeftMotor.setPower(bLeftMotorPower / max);
-            bRightMotor.setPower(bRightMotorPower / max);
-        } else {
-            fLeftMotor.setPower(0);
-            fRightMotor.setPower(0);
-            bLeftMotor.setPower(0);
-            bRightMotor.setPower(0);
-        }
+        fLeftMotor.setPower(fLeftMotorPower / max);
+        fRightMotor.setPower(fRightMotorPower / max);
+        bLeftMotor.setPower(bLeftMotorPower / max);
+        bRightMotor.setPower(bRightMotorPower / max);
 
         addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
 
     }
 
+    /***
+     * gyromove uses predefined motor targets and the gyro to move to the target and correct rotation
+     *
+     * @param power the power to run the fastest motor at
+     */
     public void gyromove(double power) {
 
 
@@ -990,37 +982,36 @@ public class robotconfig {
 
         max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower)));
 
-        max /= Math.min(1, Math.max(power, -1));
+        max /= Math.max(power, 0.1);
 
-        if (max > 0) {
-            fLeftMotor.setPower(fLeftMotorPower / max);
-            fRightMotor.setPower(fRightMotorPower / max);
-            bLeftMotor.setPower(bLeftMotorPower / max);
-            bRightMotor.setPower(bRightMotorPower / max);
-        } else {
-            fLeftMotor.setPower(0);
-            fRightMotor.setPower(0);
-            bLeftMotor.setPower(0);
-            bRightMotor.setPower(0);
-        }
+        fLeftMotor.setPower(fLeftMotorPower / max);
+        fRightMotor.setPower(fRightMotorPower / max);
+        bLeftMotor.setPower(bLeftMotorPower / max);
+        bRightMotor.setPower(bRightMotorPower / max);
 
         addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
 
     }
 
-    public void bettermovewithspin(int spin) {
+    /***
+     * function to set power of motors to get them to their respective targets
+     */
+    public void gyromove() {
 
 
         if (debugMode) {
             return;
         }
 
-        double fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition()) + spin;
-        double fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition()) - spin;
-        double bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition()) + spin;
-        double bRightMotorPower = (bRightMotorTarget - bRightMotor.getCurrentPosition()) - spin;
+        double ultraValue = 0;
+        double gyroValue = getCurrentAngle() - (Math.round(getCurrentAngle() / 90) * 90);
+        double spin = Math.max(minGyro, Math.min(maxGyro, gyroValue * gyroGain));
+
+        double fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition());
+        double fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());
+        double bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition());
+        double bRightMotorPower = (bRightMotorTarget - bRightMotor.getCurrentPosition());
         double max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower)));
-        max /= Math.min(1, Math.max(Math.abs(max / 3000), 0.5));
 
         if (Math.abs(fLeftMotorPower) < bettermovedeadzone)
             fLeftMotorPower = 0;
@@ -1031,17 +1022,19 @@ public class robotconfig {
         if (Math.abs(bLeftMotorPower) < bettermovedeadzone)
             bLeftMotorPower = 0;
 
-        if (max > 0) {
-            fLeftMotor.setPower(fLeftMotorPower / max);
-            fRightMotor.setPower(fRightMotorPower / max);
-            bLeftMotor.setPower(bLeftMotorPower / max);
-            bRightMotor.setPower(bRightMotorPower / max);
-        } else {
-            fLeftMotor.setPower(0);
-            fRightMotor.setPower(0);
-            bLeftMotor.setPower(0);
-            bRightMotor.setPower(0);
-        }
+        fLeftMotorPower += (ultraValue + spin) * max;
+        fRightMotorPower += (ultraValue - spin) * max;
+        bLeftMotorPower += (ultraValue + spin) * max;
+        bRightMotorPower += (ultraValue - spin) * max;
+
+        max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower)));
+
+        max /= Math.min(1, Math.max(Math.abs(max / 3000), 0.5));
+
+        fLeftMotor.setPower(fLeftMotorPower / max);
+        fRightMotor.setPower(fRightMotorPower / max);
+        bLeftMotor.setPower(bLeftMotorPower / max);
+        bRightMotor.setPower(bRightMotorPower / max);
 
         addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
 
@@ -1049,6 +1042,8 @@ public class robotconfig {
 
     /***
      * move is a function to efficiently set the power values of all 4 drive train motors in one quick line.
+     *
+     * @param power the power to run the fastest motor at
      */
     public void bettermove(double power) {
 
@@ -1072,22 +1067,22 @@ public class robotconfig {
         if (Math.abs(bLeftMotorPower) < bettermovedeadzone)
             bLeftMotorPower = 0;
 
-        if (max > 0) {
-            fLeftMotor.setPower(fLeftMotorPower / max);
-            fRightMotor.setPower(fRightMotorPower / max);
-            bLeftMotor.setPower(bLeftMotorPower / max);
-            bRightMotor.setPower(bRightMotorPower / max);
-        } else {
-            fLeftMotor.setPower(0);
-            fRightMotor.setPower(0);
-            bLeftMotor.setPower(0);
-            bRightMotor.setPower(0);
-        }
+        max /= Math.max(power, 0.1);
+
+        fLeftMotor.setPower(fLeftMotorPower / max);
+        fRightMotor.setPower(fRightMotorPower / max);
+        bLeftMotor.setPower(bLeftMotorPower / max);
+        bRightMotor.setPower(bRightMotorPower / max);
 
         addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
 
     }
 
+    /***
+     * check if robot motors are within tolerance
+     *
+     * @return true if motors are close enough to the target
+     */
     public boolean bettermoving() {
         int fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition());
         int fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());
@@ -1096,6 +1091,12 @@ public class robotconfig {
         return Math.abs(fLeftMotorPower) < bettermovedeadzone && Math.abs(fRightMotorPower) < bettermovedeadzone && Math.abs(bLeftMotorPower) < bettermovedeadzone && Math.abs(bRightMotorPower) < bettermovedeadzone;
     }
 
+    /***
+     * check if robot motors are within tolerance factoring in range and gyro sensors
+     *
+     * @param target distance from wall in cm
+     * @return true if motors are close enough to the target
+     */
     public boolean ultramoving(double target) {
 
         double ultraValue = 0;
@@ -1116,7 +1117,13 @@ public class robotconfig {
         return Math.abs(fLeftMotorPower) < bettermovedeadzone && Math.abs(fRightMotorPower) < bettermovedeadzone && Math.abs(bLeftMotorPower) < bettermovedeadzone && Math.abs(bRightMotorPower) < bettermovedeadzone;
     }
 
-    public boolean ultramoving2(double target) {
+    /***
+     * function checks if motors are close enough to their targets factoring the range sensor and gyro sensor
+     *
+     * @param target distance to wall in cm
+     * @return true if motors are close enough to the target
+     */
+    public boolean drunkmoving(double target) {
 
         double ultraValue = 0;
         double gyroValue = getCurrentAngle() - (Math.round(getCurrentAngle() / 90) * 90);
@@ -1136,6 +1143,11 @@ public class robotconfig {
         return Math.abs(fLeftMotorPower) < bettermovedeadzone && Math.abs(fRightMotorPower) < bettermovedeadzone && Math.abs(bLeftMotorPower) < bettermovedeadzone && Math.abs(bRightMotorPower) < bettermovedeadzone;
     }
 
+    /***
+     * check motor encoder positions relative to targets
+     *
+     * @return true if motors are close enough to the targets
+     */
     public boolean gyromoving() {
         double maxGyro = 1;
         double minGyro = -maxGyro;
@@ -1156,6 +1168,11 @@ public class robotconfig {
         return Math.abs(fLeftMotorPower) < bettermovedeadzone && Math.abs(fRightMotorPower) < bettermovedeadzone && Math.abs(bLeftMotorPower) < bettermovedeadzone && Math.abs(bRightMotorPower) < bettermovedeadzone;
     }
 
+    /***
+     * for debugging bettermove
+     *
+     * @return (fLeftMotorPower, fRightMotorPower, bLeftMotorPower, bRightMotorPower)
+     */
     public String getErrors() {
         int fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition());
         int fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());

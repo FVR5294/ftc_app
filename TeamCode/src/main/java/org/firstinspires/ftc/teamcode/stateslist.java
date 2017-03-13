@@ -675,7 +675,7 @@ class stateslist {
         }
 
         public void everyTime() {
-            robot.ultramove2(30);
+            robot.ultramoving(30);
         }
 
         public boolean conditionsToCheck() {
@@ -691,7 +691,7 @@ class stateslist {
                     return (false);
                 }
             } else {
-                return robot.ultramoving2(30);
+                return robot.drunkmoving(30);
             }
         }
 
