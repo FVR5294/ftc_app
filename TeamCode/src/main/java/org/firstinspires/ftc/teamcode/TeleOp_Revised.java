@@ -114,12 +114,11 @@ public class TeleOp_Revised extends OpMode {
             // trigger seen flag
         }
 
-        if (gamepad2.right_bumper) {
-            vexes = -gamepad2.left_stick_y * 0.5 + 0.5;
-            robot.rvex.setPosition(vexes);
-            robot.lvex.setPosition(vexes);
-            robot.theHammerOfDawn.setPosition(vexes);
-        }
+        vexes = -gamepad2.left_stick_y * 0.5 + 0.5 + gamepad1.right_trigger / 2 - gamepad1.left_trigger;
+        robot.rvex.setPosition(vexes);
+        robot.lvex.setPosition(vexes);
+        robot.theHammerOfDawn.setPosition(vexes);
+
 
         if (gamepad1.left_bumper) {
             if (!previousAState) {
@@ -136,8 +135,8 @@ public class TeleOp_Revised extends OpMode {
             previousAState = false;
         }
 
-        if (gamepad2.right_trigger > 0.2) {
-            robot.spinner.setPower(-gamepad2.right_trigger);
+        if (gamepad1.left_trigger > 0.1 || gamepad1.right_trigger > 0.1) {
+            robot.spinner.setPower(gamepad1.right_trigger - gamepad1.left_trigger);
         } else {
             if (spinnerState) {
                 robot.spinner.setPower(1);
@@ -163,14 +162,14 @@ public class TeleOp_Revised extends OpMode {
 
         robot.reeler.setPower(reeler);
 
-        if (gamepad2.left_bumper) {
-            capLeftPosition = 0.7;
-            robot.capLeft.setPosition(capLeftPosition);
-            capRightPosition = 0.7;
-            robot.capRight.setPosition(capRightPosition);
-            tiltPosition = 0.95;
-            robot.tilt.setPosition(tiltPosition);
-        }
+//        if (gamepad2.left_bumper) {
+//            capLeftPosition = 0.7;
+//            robot.capLeft.setPosition(capLeftPosition);
+//            capRightPosition = 0.7;
+//            robot.capRight.setPosition(capRightPosition);
+//            tiltPosition = 0.95;
+//            robot.tilt.setPosition(tiltPosition);
+//        }
 
         if (gamepad1.dpad_left) {
             buttonPusherPosition -= buttonPusherDelta;
@@ -183,21 +182,21 @@ public class TeleOp_Revised extends OpMode {
         }
 
         if (gamepad2.dpad_right) {
-            capLeftPosition += capLeftDelta;
+            capLeftPosition += Math.max(capLeftDelta, 0.1 * (1 - capLeftPosition));
             capLeftPosition = Range.clip(capLeftPosition, capLeft_MIN_RANGE, capLeft_MAX_RANGE);
             robot.capLeft.setPosition(capLeftPosition);
         } else if (gamepad2.dpad_left) {
-            capLeftPosition -= capLeftDelta;
+            capLeftPosition -= Math.max(capLeftDelta, 0.1 * (1 - capLeftPosition));
             capLeftPosition = Range.clip(capLeftPosition, capLeft_MIN_RANGE, capLeft_MAX_RANGE);
             robot.capLeft.setPosition(capLeftPosition);
         }
 
         if (gamepad2.x) {
-            capRightPosition += capRightDelta;
+            capRightPosition += Math.max(capRightDelta, 0.1 * (1 - capRightPosition));
             capRightPosition = Range.clip(capRightPosition, capRight_MIN_RANGE, capRight_MAX_RANGE);
             robot.capRight.setPosition(capRightPosition);
         } else if (gamepad2.b) {
-            capRightPosition -= capRightDelta;
+            capRightPosition -= Math.max(capRightDelta, 0.1 * (1 - capRightPosition));
             capRightPosition = Range.clip(capRightPosition, capRight_MIN_RANGE, capRight_MAX_RANGE);
             robot.capRight.setPosition(capRightPosition);
         }
@@ -214,8 +213,8 @@ public class TeleOp_Revised extends OpMode {
 
         if (gamepad2.back)
             robot.capLeft.getController().pwmDisable();
-        else if (gamepad2.left_stick_button)
-            robot.capLeft.getController().pwmEnable();
+//        else if (gamepad2.left_stick_button)
+//            robot.capLeft.getController().pwmEnable();
 
 
         previousGaryState = robot.garry.isPressed();
