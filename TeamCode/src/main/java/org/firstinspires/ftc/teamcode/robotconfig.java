@@ -227,7 +227,7 @@ public class robotconfig {
     /**
      * Set motor targets to move robot a specific amount from the current position
      *
-     * @param left number of encoder pulses for motors on the left side
+     * @param left  number of encoder pulses for motors on the left side
      * @param right number of encoder pulses for motors on the right side
      */
     void setMyMotorTankTargets(int left, int right) {

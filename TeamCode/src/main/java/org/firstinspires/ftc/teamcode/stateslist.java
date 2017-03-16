@@ -27,14 +27,9 @@ class stateslist {
     state scanForLine = new state("scanForLine") {
         public void firstTime() {
             robot.move(0, color * 0.2, 0);
-        }
-
-        public void everyTime() {
-            robot.ultramove(0, color * 0.2, 30);
-        }
-
-        public boolean conditionsToCheck() {
-            return robot.detectLine();
+            while (!robot.detectLine()) {
+                Thread.yield();
+            }
         }
 
         public void onCompletion() {
@@ -44,14 +39,9 @@ class stateslist {
     state scanForLineInverted = new state("scanForLineInverted") {
         public void firstTime() {
             robot.move(0, color * -0.2, 0);
-        }
-
-        public void everyTime() {
-            robot.ultramove(0, color * -0.2, 30);
-        }
-
-        public boolean conditionsToCheck() {
-            return robot.detectLine();
+            while (!robot.detectLine()) {
+                Thread.yield();
+            }
         }
 
         public void onCompletion() {
@@ -122,16 +112,27 @@ class stateslist {
             }
         }
     };
-    /***
-     * state makes robot drive forward until touch sensor is touching beacon
-     */
     state driveTowardsBeacon = new state("driveTowardsBeacon") {
         public void firstTime() {
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
             robot.move(0.2, 0, 0);
+            while (!robot.touchBeacon.isPressed()) {
+                Thread.yield();
+            }
+            robot.move(0, 0, 0);
         }
 
         public void everyTime() {
-            robot.ultramove(0.2, 0);
+
         }
 
         public boolean conditionsToCheck() {
@@ -148,7 +149,7 @@ class stateslist {
                     return (false);
                 }
             } else {
-                return robot.touchBeacon.isPressed();
+                return true;
             }
 
         }
@@ -157,6 +158,7 @@ class stateslist {
             robot.move(0, 0, 0);
         }
     };
+
     /***
      * state makes robot use color sensor and servo to try to press the button on the beacon
      */
