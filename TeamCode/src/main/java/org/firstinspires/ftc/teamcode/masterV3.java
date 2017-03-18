@@ -43,7 +43,7 @@ public class masterV3 extends LinearOpMode {
                 askState(states.pushBeaconButton, states.sleep0);
                 askState(states.backAwayFromBeacon);
                 askState(states.shootballTwoBalls, states.shootballOnce, states.noscope);
-//                askState(states.correctStrafe);
+                askState(states.correctStrafe);
                 askState(states.slideToTheRight);
                 askState(states.scanForLine);
                 askState(states.driveTowardsBeacon);

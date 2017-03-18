@@ -653,7 +653,7 @@ public class robotconfig {
         } else {
             // int colorvalue = muxColor.getCRGB(ports[1])[2];
             double colorvalue = ods.getLightDetected();
-            robotconfig.addlog(dl, "in detectLine", String.format(Locale.ENGLISH, "ods.getLightDetected(), %f", colorvalue));
+            robotconfig.addlog(dl, "in detectLine", String.format(Locale.ENGLISH, "ods.getLightDetected(), %.3f", colorvalue));
             robotconfig.addlog(dl, "in detectLine", "returning, " + (colorvalue > colorSensorLineThreashold));
             return (colorvalue > colorSensorLineThreashold);
         }
