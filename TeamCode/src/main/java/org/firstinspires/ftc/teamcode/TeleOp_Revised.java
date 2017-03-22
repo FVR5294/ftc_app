@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
+import android.support.annotation.Nullable;
+
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -15,23 +17,23 @@ import static org.firstinspires.ftc.teamcode.robotconfig.dl;
 
 public class TeleOp_Revised extends OpMode {
 
-    private static double buttonPusher_MIN_RANGE = 0.35;
-    private static double buttonPusher_MAX_RANGE = 0.65;
+    private final double buttonPusher_MIN_RANGE = 0.35;
+    private final double buttonPusher_MAX_RANGE = 0.65;
 
-    private static double Tilt_MAX_RANGE = 0.95;
-    private static double Tilt_MIN_RANGE = 0.05;
+    private final double Tilt_MAX_RANGE = 0.95;
+    private final double Tilt_MIN_RANGE = 0.05;
 
-    private static double capRight_MAX_RANGE = 0.95;
-    private static double capRight_MIN_RANGE = 0.05;
+    private final double capRight_MAX_RANGE = 0.95;
+    private final double capRight_MIN_RANGE = 0.05;
 
-    private static double capLeft_MAX_RANGE = 0.95;
-    private static double capLeft_MIN_RANGE = 0.05;
-    private static double buttonPusherDelta = 0.02;
-    private static double tiltDelta = 0.02;
-    private static double capLeftDelta = 0.02;
-    private static double capRightDelta = 0.02;
-    private static double pulses = 2240.0;
-    private static double rampNumb = 3.5 / pulses;
+    private final double capLeft_MAX_RANGE = 0.95;
+    private final double capLeft_MIN_RANGE = 0.05;
+    private final double buttonPusherDelta = 0.02;
+    private final double tiltDelta = 0.02;
+    private final double capLeftDelta = 0.02;
+    private final double capRightDelta = 0.02;
+    private final double pulses = 2240.0;
+    private final double rampNumb = 3.5 / pulses;
     robotconfig robot = new robotconfig();
     private double endpulses = 0.0;
     private double buttonPusherPosition = 0;
@@ -48,11 +50,14 @@ public class TeleOp_Revised extends OpMode {
     private boolean limitPuncher;
 
     private boolean previousAState = false;
-    private boolean previousGaryState = false;
+    private boolean puncherIsActive = false;
     private boolean spinnerState = false;
     private boolean puncherState = false;
     private boolean speedToggleFlag = false;
     private boolean slowState = false;
+
+    //ramp code is most likely unnecessary but Matt made me add it anyway
+    private final boolean puncherRampActive = false;
 
     private ElapsedTime loopTimer = new ElapsedTime();
 
@@ -90,12 +95,6 @@ public class TeleOp_Revised extends OpMode {
 
         robot.move(forward, right, spin);
 
-        /*
-         *  This added code is to remove power from the cap ball grabber servos
-         *  to be used if we need to disengage the arms and allow the to move
-         *  freely.
-         */
-
         robotconfig.addlog(dl, "in TeleOp_Revised", "top of main loop");
 
         if (gamepad1.right_bumper) {          // bumper is down
@@ -114,21 +113,14 @@ public class TeleOp_Revised extends OpMode {
             // trigger seen flag
         }
 
-        vexes = -gamepad2.left_stick_y * 0.5 + 0.5 + gamepad1.right_trigger / 2 - gamepad1.left_trigger;
+        vexes = -gamepad2.left_stick_y * 0.5 + 0.5 + gamepad2.right_trigger / 2 + gamepad1.right_trigger / 2 - gamepad2.left_trigger / 2;
         robot.rvex.setPosition(vexes);
         robot.lvex.setPosition(vexes);
         robot.theHammerOfDawn.setPosition(vexes);
 
-
-        if (gamepad1.left_bumper) {
+        if (gamepad1.left_bumper || gamepad2.left_bumper) {
             if (!previousAState) {
-                if (spinnerState) {
-                    spinnerState = false;
-                    robot.spinner.setPower(0);
-                } else {
-                    spinnerState = true;
-                    robot.spinner.setPower(1);
-                }
+                spinnerState = !spinnerState;
                 previousAState = true;
             }
         } else {
@@ -145,31 +137,44 @@ public class TeleOp_Revised extends OpMode {
             }
         }
 
-        if (puncherState) {
-            if (!robot.garry.isPressed() && previousGaryState) {
-                robot.puncher.setPower(0);
-                puncherState = false;
+        //puncherState is true if the puncher is on but in the beginning stage where the limit switch is still pressed
+        if (puncherState && robot.garry.isPressed()) {
+            //signal that puncher got past initial stage
+            puncherState = false;//without this line, the end is the same as the beginning to the limit switch
+        } else if (!robot.garry.isPressed()) {//always activate puncher if up
+
+            if (puncherRampActive) {//ramp may or may not be needed
+                puncher = Math.min(1, Math.max(Math.abs(robot.puncher.getCurrentPosition() - endpulses) * rampNumb, 0.6));
+            } else {
+                puncher = 1;
             }
-        }
-        if (gamepad1.y) {
-            robot.puncher.setPower(1);
-            puncherState = true;
-            puncher = Math.min(1, Math.max(0.6, Math.abs(((double) robot.puncher.getCurrentPosition() - endpulses) * rampNumb)));
+
             robot.puncher.setPower(puncher);
+            puncherIsActive = true;
+
+        } else if (puncherIsActive) {
+            //puncher stop code is only run per puncher activation
+
+            if (puncherRampActive) {
+                endpulses = robot.puncher.getCurrentPosition() + pulses;
+            }
+
+            puncher = 0;
+            robot.puncher.setPower(puncher);
+            puncherIsActive = false;
+        }
+
+        if (gamepad1.y) {
+            //fire
+            puncher = 1;
+            robot.puncher.setPower(puncher);
+            puncherIsActive = true;
+            puncherState = true;
         }
 
         reeler = -gamepad2.right_stick_y;
 
         robot.reeler.setPower(reeler);
-
-//        if (gamepad2.left_bumper) {
-//            capLeftPosition = 0.7;
-//            robot.capLeft.setPosition(capLeftPosition);
-//            capRightPosition = 0.7;
-//            robot.capRight.setPosition(capRightPosition);
-//            tiltPosition = 0.95;
-//            robot.tilt.setPosition(tiltPosition);
-//        }
 
         if (gamepad1.dpad_left) {
             buttonPusherPosition -= buttonPusherDelta;
@@ -186,7 +191,7 @@ public class TeleOp_Revised extends OpMode {
             capLeftPosition = Range.clip(capLeftPosition, capLeft_MIN_RANGE, capLeft_MAX_RANGE);
             robot.capLeft.setPosition(capLeftPosition);
         } else if (gamepad2.dpad_left) {
-            capLeftPosition -= Math.max(capLeftDelta, 0.1 * (1 - capLeftPosition));
+            capLeftPosition -= capLeftDelta;
             capLeftPosition = Range.clip(capLeftPosition, capLeft_MIN_RANGE, capLeft_MAX_RANGE);
             robot.capLeft.setPosition(capLeftPosition);
         }
@@ -196,7 +201,7 @@ public class TeleOp_Revised extends OpMode {
             capRightPosition = Range.clip(capRightPosition, capRight_MIN_RANGE, capRight_MAX_RANGE);
             robot.capRight.setPosition(capRightPosition);
         } else if (gamepad2.b) {
-            capRightPosition -= Math.max(capRightDelta, 0.1 * (1 - capRightPosition));
+            capRightPosition -= capRightDelta;
             capRightPosition = Range.clip(capRightPosition, capRight_MIN_RANGE, capRight_MAX_RANGE);
             robot.capRight.setPosition(capRightPosition);
         }
@@ -213,11 +218,6 @@ public class TeleOp_Revised extends OpMode {
 
         if (gamepad2.back)
             robot.capLeft.getController().pwmDisable();
-//        else if (gamepad2.left_stick_button)
-//            robot.capLeft.getController().pwmEnable();
-
-
-        previousGaryState = robot.garry.isPressed();
 
         telemetry.addData("latency", "%.2f", loopTimer.milliseconds());
         loopTimer.reset();

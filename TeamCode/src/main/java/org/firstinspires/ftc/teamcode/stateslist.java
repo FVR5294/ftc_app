@@ -961,7 +961,7 @@ class stateslist {
 
     state driveFoward48 = new state("driveFoward48") {
         public void firstTime() {
-            robot.setMyMotorTargets(p.mm2pulses(48 * mmPerInch), 0, 0);
+            robot.setMyMotorTargets(p.mm2pulses(36 * mmPerInch), 0, 0);
         }
 
         public void everyTime() {
