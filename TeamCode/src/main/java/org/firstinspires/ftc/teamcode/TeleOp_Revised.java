@@ -32,10 +32,9 @@ public class TeleOp_Revised extends OpMode {
     private final double capRightDelta = 0.02;
     private final double pulses = 2240.0;
     private final double rampNumb = 3.5 / pulses;
-    //ramp code is most likely unnecessary but Matt made me add it anyway
-    private final boolean puncherRampActive = false;
     robotconfig robot = new robotconfig();
-    private double endpulses = 0.0;
+    private double pulsesOffset = 0.0;
+
     private double buttonPusherPosition = 0;
     private double tiltPosition = 0;
     private double capLeftPosition = 0;
@@ -48,18 +47,21 @@ public class TeleOp_Revised extends OpMode {
     private double vexes;
     private double puncher = 0;
     private boolean limitPuncher;
+
     private boolean previousAState = false;
     private boolean puncherIsActive = false;
     private boolean spinnerState = false;
     private boolean puncherState = false;
     private boolean speedToggleFlag = false;
     private boolean slowState = false;
+
     private ElapsedTime loopTimer = new ElapsedTime();
 
     @Override
     public void init() {
 
         robot.init(this);
+        pulsesOffset = (robot.puncher.getCurrentPosition() % pulses);
         robot.move(0, 0, 0);
 //        robot.disableMotorEncoders();
         // Send telemetry message to signify robot waiting;
@@ -134,32 +136,27 @@ public class TeleOp_Revised extends OpMode {
 
         //puncherState is true if the puncher is on but in the beginning stage where the limit switch is still pressed
         if (puncherState && !robot.garry.isPressed()) {
+
             //signal that puncher got past initial stage
             puncherState = false;//without this line, the end is the same as the beginning to the limit switch
+
+            pulsesOffset = (robot.puncher.getCurrentPosition() % pulses);
+
         } else if (robot.garry.isPressed()) {//always activate puncher if up
 
-            if (puncherRampActive) {//ramp may or may not be needed
-                puncher = Math.min(1, Math.max(Math.abs(robot.puncher.getCurrentPosition() - endpulses) * rampNumb, 0.6));
-            } else {
-                puncher = 1;
-            }
+            puncher = Math.min(1, Math.max((pulses - ((robot.puncher.getCurrentPosition() - pulsesOffset) % pulses)) * rampNumb, 0.6));
 
             robot.puncher.setPower(puncher);
-            puncherIsActive = true;
 
         } else if (puncherIsActive) {
             //puncher stop code is only run per puncher activation
-
-            if (puncherRampActive) {
-                endpulses = robot.puncher.getCurrentPosition() + pulses;
-            }
 
             puncher = 0;
             robot.puncher.setPower(puncher);
             puncherIsActive = false;
         }
 
-        if (gamepad1.y) {
+        if (gamepad1.y && !puncherIsActive) {
             //fire
             puncher = 1;
             robot.puncher.setPower(puncher);
