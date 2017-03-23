@@ -1,7 +1,5 @@
 package org.firstinspires.ftc.teamcode;
 
-import android.support.annotation.Nullable;
-
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -34,6 +32,8 @@ public class TeleOp_Revised extends OpMode {
     private final double capRightDelta = 0.02;
     private final double pulses = 2240.0;
     private final double rampNumb = 3.5 / pulses;
+    //ramp code is most likely unnecessary but Matt made me add it anyway
+    private final boolean puncherRampActive = false;
     robotconfig robot = new robotconfig();
     private double endpulses = 0.0;
     private double buttonPusherPosition = 0;
@@ -48,17 +48,12 @@ public class TeleOp_Revised extends OpMode {
     private double vexes;
     private double puncher = 0;
     private boolean limitPuncher;
-
     private boolean previousAState = false;
     private boolean puncherIsActive = false;
     private boolean spinnerState = false;
     private boolean puncherState = false;
     private boolean speedToggleFlag = false;
     private boolean slowState = false;
-
-    //ramp code is most likely unnecessary but Matt made me add it anyway
-    private final boolean puncherRampActive = false;
-
     private ElapsedTime loopTimer = new ElapsedTime();
 
     @Override
@@ -138,10 +133,10 @@ public class TeleOp_Revised extends OpMode {
         }
 
         //puncherState is true if the puncher is on but in the beginning stage where the limit switch is still pressed
-        if (puncherState && robot.garry.isPressed()) {
+        if (puncherState && !robot.garry.isPressed()) {
             //signal that puncher got past initial stage
             puncherState = false;//without this line, the end is the same as the beginning to the limit switch
-        } else if (!robot.garry.isPressed()) {//always activate puncher if up
+        } else if (robot.garry.isPressed()) {//always activate puncher if up
 
             if (puncherRampActive) {//ramp may or may not be needed
                 puncher = Math.min(1, Math.max(Math.abs(robot.puncher.getCurrentPosition() - endpulses) * rampNumb, 0.6));
