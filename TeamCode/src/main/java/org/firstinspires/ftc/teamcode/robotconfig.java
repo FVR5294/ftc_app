@@ -45,7 +45,7 @@ public class robotconfig {
     double minGyro = -maxGyro;
     double maxUltra = 1;
     double minUltra = -maxUltra;
-    double ultraGain = 0.1;
+    double ultraGain = 0.01;
     double gyroGain = 0.01;
     DcMotor fLeftMotor;
     DcMotor fRightMotor;

@@ -182,22 +182,40 @@ public class masterV3 extends LinearOpMode {
         return true;
     }
 
+    /***
+     * ask is a method that returns a state object containing code for autonomous
+     *
+     * @param statea the first state object to choose
+     * @param stateb the second state object to choose
+     * @return a state to be added to the runList
+     */
     state ask(state statea, state stateb) {
+
+        //display options with the gamepad buttons to press
         telemetry.addData("A", statea.name);
         telemetry.addData("B", stateb.name);
+        //show what was already added
         displayStates();
         telemetry.update();
+
+        //check to make sure it is still in init
         while (!isStopRequested() && !opModeIsActive()) {
             if (gamepad1.a) {
+                //loop while held to avoid double press
                 while (gamepad1.a)
                     idle();
+                //return state to add to runList
                 return statea;
             } else if (gamepad1.b) {
+                //loop while held to avoid double press
                 while (gamepad1.b)
                     idle();
+                //return state to add to runList
                 return stateb;
             }
         }
+
+        //return state if program was stopped to allow a quick restart
         return statea;
     }
 
