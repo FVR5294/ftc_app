@@ -149,13 +149,15 @@ public class TeleOp_Revised extends OpMode {
             if (!robot.garry.isPressed() && previousGaryState) {
                 robot.puncher.setPower(0);
                 puncherState = false;
+            } else {
+                puncher = Math.min(1, Math.max(0.8, Math.abs(((double) robot.puncher.getCurrentPosition() - endpulses) * rampNumb)));
+                robot.puncher.setPower(puncher);
             }
         }
-        if (gamepad1.y) {
+        if (gamepad1.y && !puncherState) {
             robot.puncher.setPower(1);
             puncherState = true;
-//            puncher = Math.min(1, Math.max(0.6, Math.abs(((double) robot.puncher.getCurrentPosition() - endpulses) * rampNumb)));
-//            robot.puncher.setPower(puncher);
+            endpulses = pulses + robot.puncher.getCurrentPosition();
         }
 
         reeler = -gamepad2.right_stick_y;
