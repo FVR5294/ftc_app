@@ -1032,7 +1032,7 @@ public class robotconfig {
         }
 
         double ultraValue = 0;
-        double gyroValue = getCurrentAngle() - (Math.round(getCurrentAngle() / 90) * 90);
+        double gyroValue = getCurrentAngle() - (Math.round(getCurrentAngle() / 45) * 45);
         double spin = Math.max(minGyro, Math.min(maxGyro, gyroValue * gyroGain));
 
         double fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition());
@@ -1195,7 +1195,7 @@ public class robotconfig {
         double minGyro = -maxGyro;
 
         double ultraValue = 0;
-        double gyroValue = getCurrentAngle() - (Math.round(getCurrentAngle() / 90) * 90);
+        double gyroValue = getCurrentAngle() - (Math.round(getCurrentAngle() / 45) * 45);
         double spin = Math.max(minGyro, Math.min(maxGyro, gyroValue * gyroGain));
 
         int fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition());

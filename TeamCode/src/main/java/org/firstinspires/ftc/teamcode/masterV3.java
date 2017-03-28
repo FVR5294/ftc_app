@@ -77,8 +77,13 @@ public class masterV3 extends LinearOpMode {
             askState(states.backup30);
             askState(states.shootballTwoBalls, states.shootballOnce, states.noscope);
             askState(states.sleep0, states.sleep2000, states.sleep4000, states.sleep10000);
-            askState(states.rotate40);
-            askState(states.backup24);
+            if (ask("Corner Vortex", "Center Vortex")) {
+                askState(states.arc2);
+                askState(states.backup30);
+            } else {
+                askState(states.rotate40);
+                askState(states.backup24);
+            }
         }
 
         askState(states.sleep0);
