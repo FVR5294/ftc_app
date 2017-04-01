@@ -13,6 +13,7 @@ import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.ServoController;
 import com.qualcomm.robotcore.hardware.TouchSensor;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
@@ -41,12 +42,15 @@ public class robotconfig {
     public ColorSensor ada;
     public ModernRoboticsI2cRangeSensor ultra;
     public boolean ultraEnabled = true;
+    public ElapsedTime puncherTimer = new ElapsedTime();
+    public boolean puncherTime = false;
+    public int puncherDeadzone = 600;
     double maxGyro = 1;
     double minGyro = -maxGyro;
     double maxUltra = 1;
     double minUltra = -maxUltra;
-    double ultraGain = 0.01;
-    double gyroGain = 0.01;
+    double ultraGain = 0.08;
+    double gyroGain = 0.04;
     DcMotor fLeftMotor;
     DcMotor fRightMotor;
     DcMotor bLeftMotor;
@@ -84,7 +88,6 @@ public class robotconfig {
     private double colorSensorLineThreashold = 0.2;
     private boolean lineIsFirstTimeDebug = true;
 
-
     /* Constructor */
     public robotconfig() {
 
@@ -99,6 +102,17 @@ public class robotconfig {
     static void addlog(DataLogger dli, String message) {
         dli.addField(message);
         dli.newLine();
+    }
+
+    public void resetPuncherTime() {
+        puncherTimer.reset();
+        puncherTime = true;
+    }
+
+    public void checkPuncherTime() {
+        if (puncherTimer.seconds() > 3) {
+            puncherTime = false;
+        }
     }
 
     /***
@@ -328,6 +342,7 @@ public class robotconfig {
             bLeftMotor = hwMap.dcMotor.get("bl_drive");
             bRightMotor = hwMap.dcMotor.get("br_drive");
             reeler = hwMap.dcMotor.get("Reeler");
+//            reeler.setDirection(DcMotorSimple.Direction.REVERSE);
             spinner = hwMap.dcMotor.get("spinner");
             theHammerOfDawn = hwMap.servo.get("theHammerOfDawn");
             theHammerOfDawn.setPosition(0.5);
@@ -457,6 +472,7 @@ public class robotconfig {
             bLeftMotor = hwMap.dcMotor.get("bl_drive");
             bRightMotor = hwMap.dcMotor.get("br_drive");
             reeler = hwMap.dcMotor.get("Reeler");
+//            reeler.setDirection(DcMotorSimple.Direction.REVERSE);
             spinner = hwMap.dcMotor.get("spinner");
             theHammerOfDawn = hwMap.servo.get("theHammerOfDawn");
             theHammerOfDawn.setPosition(0.5);

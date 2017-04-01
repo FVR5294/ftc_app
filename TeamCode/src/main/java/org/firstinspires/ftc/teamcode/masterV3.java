@@ -36,7 +36,7 @@ public class masterV3 extends LinearOpMode {
 
         askState(states.colorRed, states.colorBlue);
         if (ask("Default Starting Position", "Alternate Starting Position")) {
-            if (ask("First Beacon", "Second Beacon")) {
+            if (ask("First Beacon", "Second Beacon which has now been broken so don't run it")) {
                 askState(states.arcTowardsBeacon);
                 askState(states.scanForLine);
                 askState(states.driveTowardsBeacon);
@@ -57,7 +57,7 @@ public class masterV3 extends LinearOpMode {
                     askState(states.backuptovortex, states.backuptovortexIncreased, states.backuptovortexReduced);
                 }
             } else {
-                askState(states.driveFoward48);
+//                askState(states.driveFoward36);
                 askState(states.arcTowardsBeacon24);
                 askState(states.scanForLine);
                 askState(states.driveTowardsBeacon);
@@ -74,12 +74,12 @@ public class masterV3 extends LinearOpMode {
             }
         } else {
             askState(states.sleep0, states.sleep2000, states.sleep4000, states.sleep10000);
-            askState(states.backup30);
+            askState(states.backup42);
             askState(states.shootballTwoBalls, states.shootballOnce, states.noscope);
             askState(states.sleep0, states.sleep2000, states.sleep4000, states.sleep10000);
             if (ask("Corner Vortex", "Center Vortex")) {
                 askState(states.arc2);
-                askState(states.backup30);
+                askState(states.driveFoward48);
             } else {
                 askState(states.rotate40);
                 askState(states.backup24);

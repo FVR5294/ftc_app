@@ -22,7 +22,7 @@ import java.util.Locale;
  */
 
 public class DataLogger {
-    static private final boolean ENABLE_LOGGING = false;
+    static private final boolean ENABLE_LOGGING = true;
     static private final boolean ENABLE_MULTIPLE_LOGS = true;
     private Writer writer;
     private StringBuffer lineBuffer;

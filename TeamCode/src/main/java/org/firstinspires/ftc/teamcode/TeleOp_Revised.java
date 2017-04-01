@@ -31,6 +31,7 @@ public class TeleOp_Revised extends OpMode {
     private final double capLeftDelta = 0.02;
     private final double capRightDelta = 0.02;
     private final double pulses = 2240.0;
+    private final double pulsesReduced = pulses * 0.9;
     private final double rampNumb = 3.5 / pulses;
     robotconfig robot = new robotconfig();
     private double endpulses = 0.0;
@@ -117,7 +118,11 @@ public class TeleOp_Revised extends OpMode {
         vexes = -gamepad2.left_stick_y * 0.5 + 0.5 + gamepad1.right_trigger / 2 + gamepad2.right_trigger / 2 - gamepad2.left_trigger / 2;
         robot.rvex.setPosition(vexes);
         robot.lvex.setPosition(vexes);
-        robot.theHammerOfDawn.setPosition(vexes);
+
+        if (gamepad2.right_bumper)
+            robot.theHammerOfDawn.setPosition(1);
+        else
+            robot.theHammerOfDawn.setPosition(vexes);
 
 
         if (gamepad1.left_bumper || gamepad2.left_bumper) {
@@ -150,14 +155,18 @@ public class TeleOp_Revised extends OpMode {
                 robot.puncher.setPower(0);
                 puncherState = false;
             } else {
-                puncher = Math.min(1, Math.max(0.8, Math.abs(((double) robot.puncher.getCurrentPosition() - endpulses) * rampNumb)));
+                puncher = Math.min(1, Math.max(0.6, (endpulses - robot.puncher.getCurrentPosition()) * rampNumb));
                 robot.puncher.setPower(puncher);
             }
         }
+
         if (gamepad1.y && !puncherState) {
             robot.puncher.setPower(1);
             puncherState = true;
+//            if (!robot.garry.isPressed())
             endpulses = pulses + robot.puncher.getCurrentPosition();
+//            else
+//                endpulses = pulsesReduced + robot.puncher.getCurrentPosition();
         }
 
         reeler = -gamepad2.right_stick_y;
@@ -188,7 +197,7 @@ public class TeleOp_Revised extends OpMode {
             capLeftPosition = Range.clip(capLeftPosition, capLeft_MIN_RANGE, capLeft_MAX_RANGE);
             robot.capLeft.setPosition(capLeftPosition);
         } else if (gamepad2.dpad_left) {
-            capLeftPosition -= Math.max(capLeftDelta, 0.1 * (1 - capLeftPosition));
+            capLeftPosition -= capLeftDelta;
             capLeftPosition = Range.clip(capLeftPosition, capLeft_MIN_RANGE, capLeft_MAX_RANGE);
             robot.capLeft.setPosition(capLeftPosition);
         }
@@ -198,7 +207,7 @@ public class TeleOp_Revised extends OpMode {
             capRightPosition = Range.clip(capRightPosition, capRight_MIN_RANGE, capRight_MAX_RANGE);
             robot.capRight.setPosition(capRightPosition);
         } else if (gamepad2.b) {
-            capRightPosition -= Math.max(capRightDelta, 0.1 * (1 - capRightPosition));
+            capRightPosition -= capRightDelta;
             capRightPosition = Range.clip(capRightPosition, capRight_MIN_RANGE, capRight_MAX_RANGE);
             robot.capRight.setPosition(capRightPosition);
         }
