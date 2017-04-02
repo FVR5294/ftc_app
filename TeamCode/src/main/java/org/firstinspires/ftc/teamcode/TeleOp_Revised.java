@@ -46,7 +46,11 @@ public class TeleOp_Revised extends OpMode {
     private double reeler = 0;
     private double vexes;
     private double puncher = 0;
-    private boolean limitPuncher;
+
+    private boolean unleash = false;
+    private boolean color;
+    private int colorThreshold = 10;
+    private ElapsedTime eject = new ElapsedTime();
 
     private boolean previousAState = false;
     private boolean previousGaryState = false;
@@ -59,6 +63,8 @@ public class TeleOp_Revised extends OpMode {
 
     @Override
     public void init() {
+
+        color = ask("red", "blue");
 
         robot.init(this);
         robot.move(0, 0, 0);
@@ -74,6 +80,24 @@ public class TeleOp_Revised extends OpMode {
         capRightPosition = 0.05;
         loopTimer.reset();
 
+    }
+
+    boolean ask(String statea, String stateb) {
+        telemetry.addData("A", statea);
+        telemetry.addData("B", stateb);
+        telemetry.update();
+
+        while (true) {
+            if (gamepad1.a) {
+                while (gamepad1.a)
+                    Thread.yield();
+                return true;
+            } else if (gamepad1.b) {
+                while (gamepad1.b)
+                    Thread.yield();
+                return false;
+            }
+        }
     }
 
     @Override
@@ -115,15 +139,65 @@ public class TeleOp_Revised extends OpMode {
             // trigger seen flag
         }
 
+        if (spinnerState)
+            spinner = 1;
+        else
+            spinner = 0;
+
         vexes = -gamepad2.left_stick_y * 0.5 + 0.5 + gamepad1.right_trigger / 2 + gamepad2.right_trigger / 2 - gamepad2.left_trigger / 2;
-        robot.rvex.setPosition(vexes);
-        robot.lvex.setPosition(vexes);
 
         if (gamepad2.right_bumper)
             robot.theHammerOfDawn.setPosition(1);
         else
             robot.theHammerOfDawn.setPosition(vexes);
 
+        if (robot.autoIntake && Math.abs(vexes - 0.5) < 0.1) {
+
+            if (robot.intake(1) && !robot.intake(2))
+                vexes = 1;
+
+            if (!robot.intake(4))
+                vexes = 1;
+
+            if (robot.intake(3) && unleash)
+                unleash = false;
+
+            if (unleash && !robot.intake(3))
+                vexes = 1;
+
+            if (spinnerState && robot.intake(1))
+                spinner = 0;
+        }
+
+        if (robot.eject) {
+            if (color) {
+                if (robot.intake.blue() - robot.intake.red() > colorThreshold) {
+                    spinner = -1;
+                    if (robot.autoIntake && robot.intake(1)) {
+                        vexes = 0;
+                    }
+                    eject.reset();
+                }
+            } else {
+                if (robot.intake.red() - robot.intake.blue() > colorThreshold) {
+                    spinner = -1;
+                    if (robot.autoIntake && robot.intake(1)) {
+                        vexes = 0;
+                    }
+                    eject.reset();
+                }
+            }
+            if (eject.seconds() < 2)
+                spinner = -1;
+        }
+
+        if (gamepad1.left_trigger > 0.1 || gamepad1.right_trigger > 0.1)
+            spinner = gamepad1.right_trigger - gamepad1.left_trigger;
+
+        robot.spinner.setPower(spinner);
+
+        robot.rvex.setPosition(vexes);
+        robot.lvex.setPosition(vexes);
 
         if (gamepad1.left_bumper || gamepad2.left_bumper) {
             if (!previousAState) {
@@ -138,16 +212,6 @@ public class TeleOp_Revised extends OpMode {
             }
         } else {
             previousAState = false;
-        }
-
-        if (gamepad1.left_trigger > 0.1 || gamepad1.right_trigger > 0.1) {
-            robot.spinner.setPower(gamepad1.right_trigger - gamepad1.left_trigger);
-        } else {
-            if (spinnerState) {
-                robot.spinner.setPower(1);
-            } else {
-                robot.spinner.setPower(0);
-            }
         }
 
         if (puncherState) {
@@ -167,6 +231,10 @@ public class TeleOp_Revised extends OpMode {
             endpulses = pulses + robot.puncher.getCurrentPosition();
 //            else
 //                endpulses = pulsesReduced + robot.puncher.getCurrentPosition();
+        }
+
+        if (gamepad1.x) {
+            unleash = true;
         }
 
         reeler = -gamepad2.right_stick_y;
@@ -222,10 +290,10 @@ public class TeleOp_Revised extends OpMode {
             robot.tilt.setPosition(tiltPosition);
         }
 
-        if (gamepad2.back)
+        if (gamepad2.back) {
             robot.capLeft.getController().pwmDisable();
-//        else if (gamepad2.left_stick_button)
-//            robot.capLeft.getController().pwmEnable();
+            robot.autoIntake = false;
+        }
 
 
         previousGaryState = robot.garry.isPressed();

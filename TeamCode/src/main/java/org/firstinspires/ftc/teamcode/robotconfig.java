@@ -42,9 +42,14 @@ public class robotconfig {
     public ColorSensor ada;
     public ModernRoboticsI2cRangeSensor ultra;
     public boolean ultraEnabled = true;
+    public boolean autoIntake = true;
+    public boolean eject = true;
+
+
     public ElapsedTime puncherTimer = new ElapsedTime();
     public boolean puncherTime = false;
     public int puncherDeadzone = 600;
+    public ColorSensor intake;
     double maxGyro = 1;
     double minGyro = -maxGyro;
     double maxUltra = 1;
@@ -57,8 +62,10 @@ public class robotconfig {
     DcMotor bRightMotor;
     Telemetry ltelemetry;
     TouchSensor touchBeacon;
-    MultiplexColorSensor muxColor;
-    int[] ports = {2, 5};
+    TouchSensor intake1;
+    TouchSensor intake2;
+    TouchSensor intake3;
+    TouchSensor intake4;
     // State used for updating telemetry
     Orientation angles;
     Acceleration gravity;
@@ -113,6 +120,32 @@ public class robotconfig {
         if (puncherTimer.seconds() > 3) {
             puncherTime = false;
         }
+    }
+
+    public boolean intake(int i) {
+        if (true)
+            switch (i) {
+                case 1:
+                    return !intake1.isPressed();
+                case 2:
+                    return !intake2.isPressed();
+                case 3:
+                    return !intake3.isPressed();
+                case 4:
+                    return !intake4.isPressed();
+            }
+        else
+            switch (i) {
+                case 1:
+                    return intake1.isPressed();
+                case 2:
+                    return intake2.isPressed();
+                case 3:
+                    return intake3.isPressed();
+                case 4:
+                    return intake4.isPressed();
+            }
+        return false;
     }
 
     /***
@@ -327,6 +360,23 @@ public class robotconfig {
             puncher.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         } catch (Exception err) {
             theLinearOpMode.telemetry.addData("wiring", "connect motor puncher");
+        }
+
+        try {
+            intake1 = hwMap.touchSensor.get("intake1");
+            intake2 = hwMap.touchSensor.get("intake2");
+            intake3 = hwMap.touchSensor.get("intake3");
+            intake4 = hwMap.touchSensor.get("intake4");
+        } catch (Exception err) {
+            autoIntake = false;
+            theLinearOpMode.telemetry.addData("wiring", "connect touch sensors intake[1-4]");
+        }
+
+        try {
+            intake = hwMap.colorSensor.get("intake");
+        } catch (Exception err) {
+            eject = false;
+            theLinearOpMode.telemetry.addData("wiring", "connect color sensor intake");
         }
 
         dl = new DataLogger("10635", "autonomousTest.xml", theLinearOpMode.telemetry);
