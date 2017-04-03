@@ -52,6 +52,14 @@ public class TeleOp_Revised extends OpMode {
     private int colorThreshold = 10;
     private ElapsedTime eject = new ElapsedTime();
 
+    //if ball is somewhere between first two limit switches first switch inclusive second exclusive
+    private boolean ballPresent = false;
+
+    //if ball is beyond third switch
+    private boolean ballLoad = false;
+
+    private boolean previous3state = false;
+
     private boolean previousAState = false;
     private boolean previousGaryState = false;
     private boolean spinnerState = false;
@@ -148,21 +156,32 @@ public class TeleOp_Revised extends OpMode {
 
         if (robot.autoIntake && Math.abs(vexes - 0.5) < 0.1) {
 
-            if (!robot.intake(3))
-                if (robot.intake(1) || robot.intake(2))
+            if (!ballPresent && robot.intake(1))
+                ballPresent = true;
+
+            if (ballPresent && robot.intake(2))
+                ballPresent = false;
+
+            if ((ballPresent || robot.intake(2)) && !robot.intake(3))
+                vexes = 1;
+
+            if (unleash)
+                if (robot.intake(3))
+                    unleash = false;
+                else
                     vexes = 1;
 
-            if (!robot.intake(4))
+            if (previous3state && !robot.intake(3))
+                ballLoad = true;
+
+            previous3state = robot.intake(3);
+
+            if (!ballLoad)
                 vexes = 1;
 
-            if (robot.intake(3) && unleash)
-                unleash = false;
-
-            if (unleash && !robot.intake(3))
-                vexes = 1;
-
-            if (spinnerState && (robot.intake(1) || !robot.intake(4)))
+            if (spinnerState && (ballPresent || !ballLoad))
                 spinner = 0;
+
         }
 
         if (robot.eject) {
@@ -192,7 +211,7 @@ public class TeleOp_Revised extends OpMode {
 
         robot.spinner.setPower(spinner);
 
-        if (gamepad2.right_bumper)
+        if (gamepad2.right_bumper || ballLoad)
             robot.theHammerOfDawn.setPosition(1);
         else
             robot.theHammerOfDawn.setPosition(vexes);
@@ -223,19 +242,20 @@ public class TeleOp_Revised extends OpMode {
                 puncher = Math.min(1, Math.max(0.6, (endpulses - robot.puncher.getCurrentPosition()) * rampNumb));
                 robot.puncher.setPower(puncher);
             }
+
+//            if (robot.autoIntake && ballLoad && !robot.intake(4) && robot.garry.isPressed() && !previousGaryState)
+            if (ballLoad && robot.garry.isPressed() && !previousGaryState)
+                ballLoad = false;
         }
 
         if (gamepad1.y && !puncherState) {
+            unleash = true;
             robot.puncher.setPower(1);
             puncherState = true;
 //            if (!robot.garry.isPressed())
             endpulses = pulses + robot.puncher.getCurrentPosition();
 //            else
 //                endpulses = pulsesReduced + robot.puncher.getCurrentPosition();
-        }
-
-        if (gamepad1.x) {
-            unleash = true;
         }
 
         reeler = -gamepad2.right_stick_y;
