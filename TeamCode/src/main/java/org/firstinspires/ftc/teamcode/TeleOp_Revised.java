@@ -72,10 +72,12 @@ public class TeleOp_Revised extends OpMode {
     @Override
     public void init() {
 
-        color = ask("red", "blue");
-
         robot.init(this);
         robot.move(0, 0, 0);
+
+        if (robot.eject)
+            color = ask("red", "blue");
+
 //        robot.disableMotorEncoders();
         // Send telemetry message to signify robot waiting;
 //        robot.capLeft.getController().pwmDisable();
