@@ -59,6 +59,7 @@ public class TeleOp_Revised extends OpMode {
     private boolean ballLoad = false;
 
     private boolean previous3state = false;
+    private boolean previous2state = false;
 
     private boolean previousAState = false;
     private boolean previousGaryState = false;
@@ -161,10 +162,12 @@ public class TeleOp_Revised extends OpMode {
             if (!ballPresent && robot.intake(1))
                 ballPresent = true;
 
-            if (ballPresent && robot.intake(2))
+            if (ballPresent && previous2state && !robot.intake(2))
                 ballPresent = false;
 
-            if ((ballPresent || robot.intake(2)) && !robot.intake(3))
+            previous2state = robot.intake(2);
+
+            if (ballPresent && !robot.intake(3))
                 vexes = 1;
 
             if (unleash)
@@ -313,9 +316,13 @@ public class TeleOp_Revised extends OpMode {
             robot.tilt.setPosition(tiltPosition);
         }
 
+        //if anything fails...
         if (gamepad2.back) {
             robot.capLeft.getController().pwmDisable();
+            robot.tilt.getController().pwmDisable();
+            robot.buttonPusher.getController().pwmDisable();
             robot.autoIntake = false;
+            robot.eject = false;
         }
 
 
