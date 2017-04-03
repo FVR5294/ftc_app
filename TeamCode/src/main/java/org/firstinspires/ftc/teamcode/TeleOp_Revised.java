@@ -146,15 +146,11 @@ public class TeleOp_Revised extends OpMode {
 
         vexes = -gamepad2.left_stick_y * 0.5 + 0.5 + gamepad1.right_trigger / 2 + gamepad2.right_trigger / 2 - gamepad2.left_trigger / 2;
 
-        if (gamepad2.right_bumper)
-            robot.theHammerOfDawn.setPosition(1);
-        else
-            robot.theHammerOfDawn.setPosition(vexes);
-
         if (robot.autoIntake && Math.abs(vexes - 0.5) < 0.1) {
 
-            if (robot.intake(1) && !robot.intake(2))
-                vexes = 1;
+            if (!robot.intake(3))
+                if (robot.intake(1) || robot.intake(2))
+                    vexes = 1;
 
             if (!robot.intake(4))
                 vexes = 1;
@@ -165,7 +161,7 @@ public class TeleOp_Revised extends OpMode {
             if (unleash && !robot.intake(3))
                 vexes = 1;
 
-            if (spinnerState && robot.intake(1))
+            if (spinnerState && (robot.intake(1) || !robot.intake(4)))
                 spinner = 0;
         }
 
@@ -187,7 +183,7 @@ public class TeleOp_Revised extends OpMode {
                     eject.reset();
                 }
             }
-            if (eject.seconds() < 2)
+            if (eject.seconds() < 1)
                 spinner = -1;
         }
 
@@ -195,6 +191,11 @@ public class TeleOp_Revised extends OpMode {
             spinner = gamepad1.right_trigger - gamepad1.left_trigger;
 
         robot.spinner.setPower(spinner);
+
+        if (gamepad2.right_bumper)
+            robot.theHammerOfDawn.setPosition(1);
+        else
+            robot.theHammerOfDawn.setPosition(vexes);
 
         robot.rvex.setPosition(vexes);
         robot.lvex.setPosition(vexes);
