@@ -27,9 +27,14 @@ class stateslist {
     state scanForLine = new state("scanForLine") {
         public void firstTime() {
             robot.move(0, color * 0.2, 0);
-            while (!robot.detectLine()) {
-                Thread.yield();
-            }
+        }
+
+        public void everyTime() {
+            robot.ultramove(0, color * 0.2, 30);
+        }
+
+        public boolean conditionsToCheck() {
+            return robot.detectLine();
         }
 
         public void onCompletion() {
@@ -39,9 +44,14 @@ class stateslist {
     state scanForLineInverted = new state("scanForLineInverted") {
         public void firstTime() {
             robot.move(0, color * -0.2, 0);
-            while (!robot.detectLine()) {
-                Thread.yield();
-            }
+        }
+
+        public void everyTime() {
+            robot.ultramove(0, color * -0.2, 30);
+        }
+
+        public boolean conditionsToCheck() {
+            return robot.detectLine();
         }
 
         public void onCompletion() {
@@ -125,33 +135,14 @@ class stateslist {
             robot.enableMotorEncoders();
             Thread.yield();
             robot.move(0.2, 0, 0);
-            while (!robot.touchBeacon.isPressed()) {
-                Thread.yield();
-            }
-            robot.move(0, 0, 0);
         }
 
         public void everyTime() {
-
+            robot.ultramove(0.2, 0);
         }
 
         public boolean conditionsToCheck() {
-
-            //robotconfig.addlog(dl, "in driveTowardsBeacon", "checking against robot.touchBeacon.isPressed()");
-
-            if (robotconfig.debugMode) {
-                if (this.isFirstTimeDebug) {
-                    robotconfig.addlog(dl, "in driveTowardsBeacon", "returning true");
-                    return (true);
-                } else {
-                    this.isFirstTimeDebug = true;
-                    robotconfig.addlog(dl, "in driveTowardsBeacon", "returning false");
-                    return (false);
-                }
-            } else {
-                return true;
-            }
-
+            return robot.touchBeacon.isPressed();
         }
 
         public void onCompletion() {
@@ -170,19 +161,6 @@ class stateslist {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            robot.move(0, 0, 0);
-        }
-
-        public void everyTime() {
-
-        }
-
-        public boolean conditionsToCheck() {
-            return true;
-        }
-
-        public void onCompletion() {
-
         }
     };
     /***
