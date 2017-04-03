@@ -52,6 +52,8 @@ public class TeleOp_Revised extends OpMode {
     private int colorThreshold = 10;
     private ElapsedTime eject = new ElapsedTime();
 
+    private boolean puncherBroken = false;
+
     //if ball is somewhere between first two limit switches first switch inclusive second exclusive
     private boolean ballPresent = false;
 
@@ -240,7 +242,7 @@ public class TeleOp_Revised extends OpMode {
         }
 
         if (puncherState) {
-            if (!robot.garry.isPressed() && previousGaryState) {
+            if ((!robot.garry.isPressed() && previousGaryState) || (puncherBroken && endpulses - robot.puncher.getCurrentPosition() < -100)) {
                 robot.puncher.setPower(0);
                 puncherState = false;
             } else {
@@ -323,6 +325,8 @@ public class TeleOp_Revised extends OpMode {
             robot.buttonPusher.getController().pwmDisable();
             robot.autoIntake = false;
             robot.eject = false;
+            puncherBroken = true;
+            ballLoad = false;
         }
 
 
