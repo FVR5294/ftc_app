@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
 import static org.firstinspires.ftc.teamcode.robotconfig.dl;
+import static org.firstinspires.ftc.teamcode.superText.numbers;
 
 /**
  * the main TeleOp program for our robot
@@ -47,11 +48,23 @@ public class TeleOp_Revised extends OpMode {
     private double vexes;
     private double puncher = 0;
 
+    private double minutes = 0;
+    private double seconds = 0;
+
+    private int redScore = 0;
+    private int blueScore = 0;
+
+    private boolean endGame = false;
+
+    private boolean gp2x = false;
+    private boolean gp2b = false;
+
     private boolean unleash = false;
     private boolean color;
     private int colorThreshold = 10;
     private ElapsedTime eject = new ElapsedTime();
     private ElapsedTime matchTimer = new ElapsedTime();
+    private int[] matchTimerIndexes = {1, 2, 3, 4, 5};
 
     private boolean puncherBroken = false;
 
@@ -236,7 +249,7 @@ public class TeleOp_Revised extends OpMode {
             robot.theHammerOfDawn.setPosition(vexes);
 
         //bring up next stored ball to top of the L
-        if (gamepad2.right_bumper)
+        if (gamepad2.a && !endGame)
             unleash = true;
 
         if (gamepad1.left_bumper || gamepad2.left_bumper) {
@@ -292,34 +305,58 @@ public class TeleOp_Revised extends OpMode {
             robot.buttonPusher.setPosition(buttonPusherPosition);
         }
 
-        if (gamepad2.dpad_right) {
-            capLeftPosition += Math.max(capLeftDelta, 0.1 * (1 - capLeftPosition));
-            capLeftPosition = Range.clip(capLeftPosition, capLeft_MIN_RANGE, capLeft_MAX_RANGE);
-            robot.capLeft.setPosition(capLeftPosition);
-        } else if (gamepad2.dpad_left) {
-            capLeftPosition -= capLeftDelta;
-            capLeftPosition = Range.clip(capLeftPosition, capLeft_MIN_RANGE, capLeft_MAX_RANGE);
-            robot.capLeft.setPosition(capLeftPosition);
+        if (endGame) {
+
+            if (gamepad2.dpad_right) {
+                capLeftPosition += Math.max(capLeftDelta, 0.1 * (1 - capLeftPosition));
+                capLeftPosition = Range.clip(capLeftPosition, capLeft_MIN_RANGE, capLeft_MAX_RANGE);
+                robot.capLeft.setPosition(capLeftPosition);
+            } else if (gamepad2.dpad_left) {
+                capLeftPosition -= capLeftDelta;
+                capLeftPosition = Range.clip(capLeftPosition, capLeft_MIN_RANGE, capLeft_MAX_RANGE);
+                robot.capLeft.setPosition(capLeftPosition);
+            }
+
+            if (gamepad2.x) {
+                capRightPosition += Math.max(capRightDelta, 0.1 * (1 - capRightPosition));
+                capRightPosition = Range.clip(capRightPosition, capRight_MIN_RANGE, capRight_MAX_RANGE);
+                robot.capRight.setPosition(capRightPosition);
+            } else if (gamepad2.b) {
+                capRightPosition -= capRightDelta;
+                capRightPosition = Range.clip(capRightPosition, capRight_MIN_RANGE, capRight_MAX_RANGE);
+                robot.capRight.setPosition(capRightPosition);
+            }
+
+        } else {
+
+            if (gamepad2.x && !gp2x)
+                if (gamepad2.right_bumper)
+                    blueScore--;
+                else
+                    blueScore++;
+
+            if (gamepad2.b && !gp2b)
+                if (gamepad2.right_bumper)
+                    redScore--;
+                else
+                    redScore++;
+
         }
 
-        if (gamepad2.x) {
-            capRightPosition += Math.max(capRightDelta, 0.1 * (1 - capRightPosition));
-            capRightPosition = Range.clip(capRightPosition, capRight_MIN_RANGE, capRight_MAX_RANGE);
-            robot.capRight.setPosition(capRightPosition);
-        } else if (gamepad2.b) {
-            capRightPosition -= capRightDelta;
-            capRightPosition = Range.clip(capRightPosition, capRight_MIN_RANGE, capRight_MAX_RANGE);
-            robot.capRight.setPosition(capRightPosition);
-        }
+        gp2x = gamepad2.x;
+        gp2b = gamepad2.b;
 
-        if (gamepad2.a) {
+        if (endGame && gamepad2.a) {
             tiltPosition -= tiltDelta;
             tiltPosition = Range.clip(tiltPosition, Tilt_MIN_RANGE, Tilt_MAX_RANGE);
             robot.tilt.setPosition(tiltPosition);
         } else if (gamepad2.y) {
+            endGame = true;
             tiltPosition += tiltDelta;
             tiltPosition = Range.clip(tiltPosition, Tilt_MIN_RANGE, Tilt_MAX_RANGE);
             robot.tilt.setPosition(tiltPosition);
+        } else if (gamepad2.right_bumper) {
+            endGame = false;
         }
 
         //if anything fails...
@@ -333,10 +370,67 @@ public class TeleOp_Revised extends OpMode {
             ballLoad = false;
         }
 
-
         previousGaryState = robot.garry.isPressed();
 
-        telemetry.addData("match Time", "%.0f:%.2f", (matchTimer.seconds() - matchTimer.seconds() % 60), (matchTimer.seconds() % 60));
+        if (matchTimer.seconds() < 120) {
+
+            minutes = 2 - (matchTimer.seconds() - matchTimer.seconds() % 60) / 60;
+            seconds = 120 - (matchTimer.seconds() % 60);
+
+            matchTimerIndexes[1] = (int) Math.floor(minutes % 10);
+            matchTimerIndexes[3] = (int) Math.floor(seconds / 10);
+            matchTimerIndexes[4] = (int) Math.floor(seconds % 10);
+
+            telemetry.addData("t0", numbers[matchTimerIndexes[1]][0] + numbers[matchTimerIndexes[2]][0] + numbers[matchTimerIndexes[3]][0] + numbers[matchTimerIndexes[4]][0]);
+            telemetry.addData("t1", numbers[matchTimerIndexes[1]][1] + numbers[matchTimerIndexes[2]][1] + numbers[matchTimerIndexes[3]][1] + numbers[matchTimerIndexes[4]][1]);
+            telemetry.addData("t2", numbers[matchTimerIndexes[1]][2] + numbers[matchTimerIndexes[2]][2] + numbers[matchTimerIndexes[3]][2] + numbers[matchTimerIndexes[4]][2]);
+            telemetry.addData("t3", numbers[matchTimerIndexes[1]][3] + numbers[matchTimerIndexes[2]][3] + numbers[matchTimerIndexes[3]][3] + numbers[matchTimerIndexes[4]][3]);
+            telemetry.addData("t4", numbers[matchTimerIndexes[1]][4] + numbers[matchTimerIndexes[2]][4] + numbers[matchTimerIndexes[3]][4] + numbers[matchTimerIndexes[4]][4]);
+            telemetry.addData("t5", numbers[matchTimerIndexes[1]][5] + numbers[matchTimerIndexes[2]][5] + numbers[matchTimerIndexes[3]][5] + numbers[matchTimerIndexes[4]][5]);
+            telemetry.addData("t6", numbers[matchTimerIndexes[1]][6] + numbers[matchTimerIndexes[2]][6] + numbers[matchTimerIndexes[3]][6] + numbers[matchTimerIndexes[4]][6]);
+            telemetry.addData("t7", numbers[matchTimerIndexes[1]][7] + numbers[matchTimerIndexes[2]][7] + numbers[matchTimerIndexes[3]][7] + numbers[matchTimerIndexes[4]][7]);
+
+        } else {
+
+            seconds = matchTimer.seconds() % 60;
+            minutes = (matchTimer.seconds() - seconds) / 60;
+
+            matchTimerIndexes[0] = (int) Math.floor((minutes / 10) % 10);
+            matchTimerIndexes[1] = (int) Math.floor(minutes % 10);
+            matchTimerIndexes[2] = (int) Math.floor(seconds / 10);
+            matchTimerIndexes[3] = (int) Math.floor(seconds % 10);
+
+            telemetry.addData("t0", numbers[matchTimerIndexes[0]][0] + numbers[matchTimerIndexes[1]][0] + numbers[matchTimerIndexes[2]][0] + numbers[matchTimerIndexes[3]][0] + numbers[matchTimerIndexes[4]][0]);
+            telemetry.addData("t1", numbers[matchTimerIndexes[0]][1] + numbers[matchTimerIndexes[1]][1] + numbers[matchTimerIndexes[2]][1] + numbers[matchTimerIndexes[3]][1] + numbers[matchTimerIndexes[4]][1]);
+            telemetry.addData("t2", numbers[matchTimerIndexes[0]][2] + numbers[matchTimerIndexes[1]][2] + numbers[matchTimerIndexes[2]][2] + numbers[matchTimerIndexes[3]][2] + numbers[matchTimerIndexes[4]][2]);
+            telemetry.addData("t3", numbers[matchTimerIndexes[0]][3] + numbers[matchTimerIndexes[1]][3] + numbers[matchTimerIndexes[2]][3] + numbers[matchTimerIndexes[3]][3] + numbers[matchTimerIndexes[4]][3]);
+            telemetry.addData("t4", numbers[matchTimerIndexes[0]][4] + numbers[matchTimerIndexes[1]][4] + numbers[matchTimerIndexes[2]][4] + numbers[matchTimerIndexes[3]][4] + numbers[matchTimerIndexes[4]][4]);
+            telemetry.addData("t5", numbers[matchTimerIndexes[0]][5] + numbers[matchTimerIndexes[1]][5] + numbers[matchTimerIndexes[2]][5] + numbers[matchTimerIndexes[3]][5] + numbers[matchTimerIndexes[4]][5]);
+            telemetry.addData("t6", numbers[matchTimerIndexes[0]][6] + numbers[matchTimerIndexes[1]][6] + numbers[matchTimerIndexes[2]][6] + numbers[matchTimerIndexes[3]][6] + numbers[matchTimerIndexes[4]][6]);
+            telemetry.addData("t7", numbers[matchTimerIndexes[0]][7] + numbers[matchTimerIndexes[1]][7] + numbers[matchTimerIndexes[2]][7] + numbers[matchTimerIndexes[3]][7] + numbers[matchTimerIndexes[4]][7]);
+
+        }
+
+        telemetry.addLine();
+
+        telemetry.addData("s0", numbers[blueScore / 10][0] + numbers[blueScore % 10][0] + numbers[11][0] + numbers[redScore / 10][0] + numbers[redScore % 10][0]);
+        telemetry.addData("s1", numbers[blueScore / 10][1] + numbers[blueScore % 10][1] + numbers[11][1] + numbers[redScore / 10][1] + numbers[redScore % 10][1]);
+        telemetry.addData("s2", numbers[blueScore / 10][2] + numbers[blueScore % 10][2] + numbers[11][2] + numbers[redScore / 10][2] + numbers[redScore % 10][2]);
+        telemetry.addData("s3", numbers[blueScore / 10][3] + numbers[blueScore % 10][3] + numbers[11][3] + numbers[redScore / 10][3] + numbers[redScore % 10][3]);
+        telemetry.addData("s4", numbers[blueScore / 10][4] + numbers[blueScore % 10][4] + numbers[11][4] + numbers[redScore / 10][4] + numbers[redScore % 10][4]);
+        telemetry.addData("s5", numbers[blueScore / 10][5] + numbers[blueScore % 10][5] + numbers[11][5] + numbers[redScore / 10][5] + numbers[redScore % 10][5]);
+        telemetry.addData("s6", numbers[blueScore / 10][6] + numbers[blueScore % 10][6] + numbers[11][6] + numbers[redScore / 10][6] + numbers[redScore % 10][6]);
+        telemetry.addData("s7", numbers[blueScore / 10][7] + numbers[blueScore % 10][7] + numbers[11][7] + numbers[redScore / 10][7] + numbers[redScore % 10][7]);
+
+
+        telemetry.addLine();
+        telemetry.addData("match Time", "%.0f:%.2f", minutes, seconds);
+
+        if (color)
+            telemetry.addData("score", "%d - %d", redScore, blueScore);
+        else
+            telemetry.addData("score", "%d - %d", blueScore, redScore);
+
         telemetry.addData("latency", "%.2f", loopTimer.milliseconds());
         loopTimer.reset();
         telemetry.addData("Forward", "%.2f", forward);
@@ -356,5 +450,4 @@ public class TeleOp_Revised extends OpMode {
         robot.rvex.setPosition(0.5);
         robot.lvex.setPosition(0.5);
     }
-
 }
