@@ -51,6 +51,7 @@ public class TeleOp_Revised extends OpMode {
     private boolean color;
     private int colorThreshold = 10;
     private ElapsedTime eject = new ElapsedTime();
+    private ElapsedTime matchTimer = new ElapsedTime();
 
     private boolean puncherBroken = false;
 
@@ -103,6 +104,11 @@ public class TeleOp_Revised extends OpMode {
         else
             telemetry.addData("B", "blue");
 
+    }
+
+    @Override
+    public void start() {
+        matchTimer.reset();
     }
 
     @Override
@@ -184,36 +190,37 @@ public class TeleOp_Revised extends OpMode {
             }
         }
 
+        robot.rvex.setPosition(vexes);
+        robot.lvex.setPosition(vexes);
+
         if (robot.autoIntake) {
 
             //remember if ball entered first stage
-            if (!ballPresent && robot.intake(1) && vexes > 0.5)
+            if (!ballPresent && robot.intake(1))
                 ballPresent = true;
+
+            //automatically stop bringing balls to the top
+            if (unleash && robot.intake(3))
+                unleash = false;
 
             //check if ball left first stage in reverse
             if (ballPresent && previous1state && !robot.intake(1) && vexes < 0.5)
                 ballPresent = false;
-
-            previous1state = robot.intake(1);
 
             //check if ball left first stage going forward
             if (ballPresent && previous2state && !robot.intake(2) && vexes > 0.5)
                 ballPresent = false;
 
             //check if ball entered first stage in reverse
-            if (!ballPresent && robot.intake(2) && vexes < 0.5)
+            if (!ballPresent && robot.intake(2))
                 ballPresent = true;
-
-            previous2state = robot.intake(2);
-
-            //automatically stop bringing balls to the top
-            if (unleash && robot.intake(3))
-                unleash = false;
 
             //check if ball entered puncher thing
             if (previous3state && !robot.intake(3) && vexes > 0.5)
                 ballLoad = true;
 
+            previous1state = robot.intake(1);
+            previous2state = robot.intake(2);
             previous3state = robot.intake(3);
         }
 
@@ -227,9 +234,6 @@ public class TeleOp_Revised extends OpMode {
             robot.theHammerOfDawn.setPosition(1);
         else
             robot.theHammerOfDawn.setPosition(vexes);
-
-        robot.rvex.setPosition(vexes);
-        robot.lvex.setPosition(vexes);
 
         //bring up next stored ball to top of the L
         if (gamepad2.right_bumper)
@@ -332,6 +336,7 @@ public class TeleOp_Revised extends OpMode {
 
         previousGaryState = robot.garry.isPressed();
 
+        telemetry.addData("match Time", "%.0f:%.2f", (matchTimer.seconds() - matchTimer.seconds() % 60), (matchTimer.seconds() % 60));
         telemetry.addData("latency", "%.2f", loopTimer.milliseconds());
         loopTimer.reset();
         telemetry.addData("Forward", "%.2f", forward);
