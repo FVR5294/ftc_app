@@ -5,6 +5,10 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
+import org.firstinspires.ftc.robotcore.external.Func;
+
+import java.util.Locale;
+
 import static org.firstinspires.ftc.teamcode.robotconfig.dl;
 import static org.firstinspires.ftc.teamcode.superText.numbers;
 
@@ -45,18 +49,18 @@ public class TeleOp_Revised extends OpMode {
     private double spin = 0;
     private double spinner = 0;
     private double reeler = 0;
-    private double vexes;
+    private double vexes = 0.5;
     private double puncher = 0;
 
-    private double minutes = 0;
-    private double seconds = 0;
+    private int minutes = 0;
+    private int seconds = 0;
 
-    private int redScore = 0;
-    private int blueScore = 0;
+    private int scoreA = 0;
+    private int scoreB = 0;
 
     private boolean endGame = false;
 
-    private boolean gp2x = false;
+    private boolean gp2a = false;
     private boolean gp2b = false;
 
     private boolean unleash = false;
@@ -64,7 +68,8 @@ public class TeleOp_Revised extends OpMode {
     private int colorThreshold = 10;
     private ElapsedTime eject = new ElapsedTime();
     private ElapsedTime matchTimer = new ElapsedTime();
-    private int[] matchTimerIndexes = {1, 2, 3, 4, 5};
+    private int[] timerIndexes = {1, 2, 10, 3, 4};
+    private int[] scoreIndexes = {1, 2, 12, 3, 4};
 
     private boolean puncherBroken = false;
 
@@ -104,6 +109,8 @@ public class TeleOp_Revised extends OpMode {
         capLeftPosition = 0.05;
         capRightPosition = 0.05;
         loopTimer.reset();
+
+        activateTelemetry();
     }
 
     @Override
@@ -126,6 +133,8 @@ public class TeleOp_Revised extends OpMode {
 
     @Override
     public void loop() {
+
+        loopTimer.reset();
 
         forward = -gamepad1.left_stick_y * Math.abs(gamepad1.left_stick_y);
         right = gamepad1.left_stick_x * Math.abs(gamepad1.left_stick_x);
@@ -168,6 +177,37 @@ public class TeleOp_Revised extends OpMode {
         else
             spinner = 0;
 
+        if (robot.autoIntake) {
+
+            //remember if ball entered first stage
+            if (!ballPresent && robot.intake(1))
+                ballPresent = true;
+
+            //automatically stop bringing balls to the top
+            if (unleash && robot.intake(3))
+                unleash = false;
+
+            //check if ball left first stage in reverse
+            if (ballPresent && previous1state && !robot.intake(1) && vexes < 0.5)
+                ballPresent = false;
+
+            //check if ball left first stage going forward
+            if (ballPresent && previous2state && !robot.intake(2) && vexes > 0.5)
+                ballPresent = false;
+
+            //check if ball entered first stage in reverse
+            if (!ballPresent && robot.intake(2))
+                ballPresent = true;
+
+            //check if ball entered puncher thing
+            if (previous3state && !robot.intake(3) && vexes > 0.5)
+                ballLoad = true;
+
+            previous1state = robot.intake(1);
+            previous2state = robot.intake(2);
+            previous3state = robot.intake(3);
+        }
+
         vexes = -gamepad2.left_stick_y * 0.5 + 0.5 + gamepad1.right_trigger / 2 + gamepad2.right_trigger / 2 - gamepad2.left_trigger / 2;
 
         if (robot.autoIntake && Math.abs(vexes - 0.5) < 0.1) {
@@ -205,37 +245,6 @@ public class TeleOp_Revised extends OpMode {
 
         robot.rvex.setPosition(vexes);
         robot.lvex.setPosition(vexes);
-
-        if (robot.autoIntake) {
-
-            //remember if ball entered first stage
-            if (!ballPresent && robot.intake(1))
-                ballPresent = true;
-
-            //automatically stop bringing balls to the top
-            if (unleash && robot.intake(3))
-                unleash = false;
-
-            //check if ball left first stage in reverse
-            if (ballPresent && previous1state && !robot.intake(1) && vexes < 0.5)
-                ballPresent = false;
-
-            //check if ball left first stage going forward
-            if (ballPresent && previous2state && !robot.intake(2) && vexes > 0.5)
-                ballPresent = false;
-
-            //check if ball entered first stage in reverse
-            if (!ballPresent && robot.intake(2))
-                ballPresent = true;
-
-            //check if ball entered puncher thing
-            if (previous3state && !robot.intake(3) && vexes > 0.5)
-                ballLoad = true;
-
-            previous1state = robot.intake(1);
-            previous2state = robot.intake(2);
-            previous3state = robot.intake(3);
-        }
 
         if (gamepad1.left_trigger > 0.1 || gamepad1.right_trigger > 0.1)
             spinner = gamepad1.right_trigger - gamepad1.left_trigger;
@@ -291,8 +300,9 @@ public class TeleOp_Revised extends OpMode {
 //                endpulses = pulsesReduced + robot.puncher.getCurrentPosition();
         }
 
-        reeler = -gamepad2.right_stick_y;
+        previousGaryState = robot.garry.isPressed();
 
+        reeler = -gamepad2.right_stick_y;
         robot.reeler.setPower(reeler);
 
         if (gamepad1.dpad_left) {
@@ -329,21 +339,21 @@ public class TeleOp_Revised extends OpMode {
 
         } else {
 
-            if (gamepad2.x && !gp2x)
+            if (gamepad2.a && !gp2a)
                 if (gamepad2.right_bumper)
-                    blueScore--;
+                    scoreA--;
                 else
-                    blueScore++;
+                    scoreA++;
 
             if (gamepad2.b && !gp2b)
                 if (gamepad2.right_bumper)
-                    redScore--;
+                    scoreB--;
                 else
-                    redScore++;
+                    scoreB++;
 
         }
 
-        gp2x = gamepad2.x;
+        gp2a = gamepad2.a;
         gp2b = gamepad2.b;
 
         if (endGame && gamepad2.a) {
@@ -370,78 +380,6 @@ public class TeleOp_Revised extends OpMode {
             ballLoad = false;
         }
 
-        previousGaryState = robot.garry.isPressed();
-
-        if (matchTimer.seconds() < 120) {
-
-            minutes = 2 - (matchTimer.seconds() - matchTimer.seconds() % 60) / 60;
-            seconds = 120 - (matchTimer.seconds() % 60);
-
-            matchTimerIndexes[1] = (int) Math.floor(minutes % 10);
-            matchTimerIndexes[3] = (int) Math.floor(seconds / 10);
-            matchTimerIndexes[4] = (int) Math.floor(seconds % 10);
-
-            telemetry.addData("t0", numbers[matchTimerIndexes[1]][0] + numbers[matchTimerIndexes[2]][0] + numbers[matchTimerIndexes[3]][0] + numbers[matchTimerIndexes[4]][0]);
-            telemetry.addData("t1", numbers[matchTimerIndexes[1]][1] + numbers[matchTimerIndexes[2]][1] + numbers[matchTimerIndexes[3]][1] + numbers[matchTimerIndexes[4]][1]);
-            telemetry.addData("t2", numbers[matchTimerIndexes[1]][2] + numbers[matchTimerIndexes[2]][2] + numbers[matchTimerIndexes[3]][2] + numbers[matchTimerIndexes[4]][2]);
-            telemetry.addData("t3", numbers[matchTimerIndexes[1]][3] + numbers[matchTimerIndexes[2]][3] + numbers[matchTimerIndexes[3]][3] + numbers[matchTimerIndexes[4]][3]);
-            telemetry.addData("t4", numbers[matchTimerIndexes[1]][4] + numbers[matchTimerIndexes[2]][4] + numbers[matchTimerIndexes[3]][4] + numbers[matchTimerIndexes[4]][4]);
-            telemetry.addData("t5", numbers[matchTimerIndexes[1]][5] + numbers[matchTimerIndexes[2]][5] + numbers[matchTimerIndexes[3]][5] + numbers[matchTimerIndexes[4]][5]);
-            telemetry.addData("t6", numbers[matchTimerIndexes[1]][6] + numbers[matchTimerIndexes[2]][6] + numbers[matchTimerIndexes[3]][6] + numbers[matchTimerIndexes[4]][6]);
-            telemetry.addData("t7", numbers[matchTimerIndexes[1]][7] + numbers[matchTimerIndexes[2]][7] + numbers[matchTimerIndexes[3]][7] + numbers[matchTimerIndexes[4]][7]);
-
-        } else {
-
-            seconds = matchTimer.seconds() % 60;
-            minutes = (matchTimer.seconds() - seconds) / 60;
-
-            matchTimerIndexes[0] = (int) Math.floor((minutes / 10) % 10);
-            matchTimerIndexes[1] = (int) Math.floor(minutes % 10);
-            matchTimerIndexes[2] = (int) Math.floor(seconds / 10);
-            matchTimerIndexes[3] = (int) Math.floor(seconds % 10);
-
-            telemetry.addData("t0", numbers[matchTimerIndexes[0]][0] + numbers[matchTimerIndexes[1]][0] + numbers[matchTimerIndexes[2]][0] + numbers[matchTimerIndexes[3]][0] + numbers[matchTimerIndexes[4]][0]);
-            telemetry.addData("t1", numbers[matchTimerIndexes[0]][1] + numbers[matchTimerIndexes[1]][1] + numbers[matchTimerIndexes[2]][1] + numbers[matchTimerIndexes[3]][1] + numbers[matchTimerIndexes[4]][1]);
-            telemetry.addData("t2", numbers[matchTimerIndexes[0]][2] + numbers[matchTimerIndexes[1]][2] + numbers[matchTimerIndexes[2]][2] + numbers[matchTimerIndexes[3]][2] + numbers[matchTimerIndexes[4]][2]);
-            telemetry.addData("t3", numbers[matchTimerIndexes[0]][3] + numbers[matchTimerIndexes[1]][3] + numbers[matchTimerIndexes[2]][3] + numbers[matchTimerIndexes[3]][3] + numbers[matchTimerIndexes[4]][3]);
-            telemetry.addData("t4", numbers[matchTimerIndexes[0]][4] + numbers[matchTimerIndexes[1]][4] + numbers[matchTimerIndexes[2]][4] + numbers[matchTimerIndexes[3]][4] + numbers[matchTimerIndexes[4]][4]);
-            telemetry.addData("t5", numbers[matchTimerIndexes[0]][5] + numbers[matchTimerIndexes[1]][5] + numbers[matchTimerIndexes[2]][5] + numbers[matchTimerIndexes[3]][5] + numbers[matchTimerIndexes[4]][5]);
-            telemetry.addData("t6", numbers[matchTimerIndexes[0]][6] + numbers[matchTimerIndexes[1]][6] + numbers[matchTimerIndexes[2]][6] + numbers[matchTimerIndexes[3]][6] + numbers[matchTimerIndexes[4]][6]);
-            telemetry.addData("t7", numbers[matchTimerIndexes[0]][7] + numbers[matchTimerIndexes[1]][7] + numbers[matchTimerIndexes[2]][7] + numbers[matchTimerIndexes[3]][7] + numbers[matchTimerIndexes[4]][7]);
-
-        }
-
-        telemetry.addLine();
-
-        telemetry.addData("s0", numbers[blueScore / 10][0] + numbers[blueScore % 10][0] + numbers[11][0] + numbers[redScore / 10][0] + numbers[redScore % 10][0]);
-        telemetry.addData("s1", numbers[blueScore / 10][1] + numbers[blueScore % 10][1] + numbers[11][1] + numbers[redScore / 10][1] + numbers[redScore % 10][1]);
-        telemetry.addData("s2", numbers[blueScore / 10][2] + numbers[blueScore % 10][2] + numbers[11][2] + numbers[redScore / 10][2] + numbers[redScore % 10][2]);
-        telemetry.addData("s3", numbers[blueScore / 10][3] + numbers[blueScore % 10][3] + numbers[11][3] + numbers[redScore / 10][3] + numbers[redScore % 10][3]);
-        telemetry.addData("s4", numbers[blueScore / 10][4] + numbers[blueScore % 10][4] + numbers[11][4] + numbers[redScore / 10][4] + numbers[redScore % 10][4]);
-        telemetry.addData("s5", numbers[blueScore / 10][5] + numbers[blueScore % 10][5] + numbers[11][5] + numbers[redScore / 10][5] + numbers[redScore % 10][5]);
-        telemetry.addData("s6", numbers[blueScore / 10][6] + numbers[blueScore % 10][6] + numbers[11][6] + numbers[redScore / 10][6] + numbers[redScore % 10][6]);
-        telemetry.addData("s7", numbers[blueScore / 10][7] + numbers[blueScore % 10][7] + numbers[11][7] + numbers[redScore / 10][7] + numbers[redScore % 10][7]);
-
-
-        telemetry.addLine();
-        telemetry.addData("match Time", "%.0f:%.2f", minutes, seconds);
-
-        if (color)
-            telemetry.addData("score", "%d - %d", redScore, blueScore);
-        else
-            telemetry.addData("score", "%d - %d", blueScore, redScore);
-
-        telemetry.addData("latency", "%.2f", loopTimer.milliseconds());
-        loopTimer.reset();
-        telemetry.addData("Forward", "%.2f", forward);
-        telemetry.addData("Right", "%.2f", right);
-        telemetry.addData("Spin", "%.2f", spin);
-        telemetry.addData("ButtonPusher", "%.2f", buttonPusherPosition);
-        telemetry.addData("Tilt", "%.2f", tiltPosition);
-        telemetry.addData("capLeft", "%.2f", capLeftPosition);
-        telemetry.addData("vexes", "%.2f", vexes);
-        telemetry.addData("puncher", "%.2f", puncher);
-        telemetry.addData("garry", "%b", !robot.garry.isPressed());
     }
 
     @Override
@@ -449,5 +387,260 @@ public class TeleOp_Revised extends OpMode {
         robot.theHammerOfDawn.setPosition(0.5);
         robot.rvex.setPosition(0.5);
         robot.lvex.setPosition(0.5);
+    }
+
+    private void activateTelemetry() {
+        telemetry.addAction(new Runnable() {
+            @Override
+            public void run() {
+                if (matchTimer.seconds() < 120)
+                    seconds = 120 - (int) matchTimer.seconds();
+                else
+                    seconds = (int) matchTimer.seconds();
+
+                minutes = seconds;
+                seconds %= 60;
+                minutes -= seconds;
+                minutes /= 60;
+
+                timerIndexes[0] = minutes / 10;
+                timerIndexes[1] = minutes % 10;
+                timerIndexes[3] = seconds / 10;
+                timerIndexes[4] = seconds % 10;
+
+                scoreIndexes[0] = scoreA / 10;
+                scoreIndexes[1] = scoreA % 10;
+                scoreIndexes[3] = scoreB / 10;
+                scoreIndexes[4] = scoreB % 10;
+
+            }
+        });
+
+        telemetry.addLine()
+                .addData("t0", new Func<String>() {
+                    @Override
+                    public String value() {
+                        if (timerIndexes[0] > 0)
+                            return numbers[timerIndexes[0]][0] + numbers[timerIndexes[1]][0] + numbers[timerIndexes[2]][0] + numbers[timerIndexes[3]][0] + numbers[timerIndexes[4]][0];
+                        else
+                            return numbers[timerIndexes[1]][0] + numbers[timerIndexes[2]][0] + numbers[timerIndexes[3]][0] + numbers[timerIndexes[4]][0];
+                    }
+                });
+        telemetry.addLine()
+                .addData("t1", new Func<String>() {
+                    @Override
+                    public String value() {
+                        if (timerIndexes[0] > 0)
+                            return numbers[timerIndexes[0]][1] + numbers[timerIndexes[1]][1] + numbers[timerIndexes[2]][1] + numbers[timerIndexes[3]][1] + numbers[timerIndexes[4]][1];
+                        else
+                            return numbers[timerIndexes[1]][1] + numbers[timerIndexes[2]][1] + numbers[timerIndexes[3]][1] + numbers[timerIndexes[4]][1];
+                    }
+                });
+        telemetry.addLine()
+                .addData("t2", new Func<String>() {
+                    @Override
+                    public String value() {
+                        if (timerIndexes[0] > 0)
+                            return numbers[timerIndexes[0]][2] + numbers[timerIndexes[1]][2] + numbers[timerIndexes[2]][2] + numbers[timerIndexes[3]][2] + numbers[timerIndexes[4]][2];
+                        else
+                            return numbers[timerIndexes[1]][2] + numbers[timerIndexes[2]][2] + numbers[timerIndexes[3]][2] + numbers[timerIndexes[4]][2];
+                    }
+                });
+        telemetry.addLine()
+                .addData("t3", new Func<String>() {
+                    @Override
+                    public String value() {
+                        if (timerIndexes[0] > 0)
+                            return numbers[timerIndexes[0]][3] + numbers[timerIndexes[1]][3] + numbers[timerIndexes[2]][3] + numbers[timerIndexes[3]][3] + numbers[timerIndexes[4]][3];
+                        else
+                            return numbers[timerIndexes[1]][3] + numbers[timerIndexes[2]][3] + numbers[timerIndexes[3]][3] + numbers[timerIndexes[4]][3];
+                    }
+                });
+        telemetry.addLine()
+                .addData("t4", new Func<String>() {
+                    @Override
+                    public String value() {
+                        if (timerIndexes[0] > 0)
+                            return numbers[timerIndexes[0]][4] + numbers[timerIndexes[1]][4] + numbers[timerIndexes[2]][4] + numbers[timerIndexes[3]][4] + numbers[timerIndexes[4]][4];
+                        else
+                            return numbers[timerIndexes[1]][4] + numbers[timerIndexes[2]][4] + numbers[timerIndexes[3]][4] + numbers[timerIndexes[4]][4];
+                    }
+                });
+        telemetry.addLine()
+                .addData("t5", new Func<String>() {
+                    @Override
+                    public String value() {
+                        if (timerIndexes[0] > 0)
+                            return numbers[timerIndexes[0]][5] + numbers[timerIndexes[1]][5] + numbers[timerIndexes[2]][5] + numbers[timerIndexes[3]][5] + numbers[timerIndexes[4]][5];
+                        else
+                            return numbers[timerIndexes[1]][5] + numbers[timerIndexes[2]][5] + numbers[timerIndexes[3]][5] + numbers[timerIndexes[4]][5];
+                    }
+                });
+        telemetry.addLine()
+                .addData("t6", new Func<String>() {
+                    @Override
+                    public String value() {
+                        if (timerIndexes[0] > 0)
+                            return numbers[timerIndexes[0]][6] + numbers[timerIndexes[1]][6] + numbers[timerIndexes[2]][6] + numbers[timerIndexes[3]][6] + numbers[timerIndexes[4]][6];
+                        else
+                            return numbers[timerIndexes[1]][6] + numbers[timerIndexes[2]][6] + numbers[timerIndexes[3]][6] + numbers[timerIndexes[4]][6];
+                    }
+                });
+        telemetry.addLine()
+                .addData("t7", new Func<String>() {
+                    @Override
+                    public String value() {
+                        if (timerIndexes[0] > 0)
+                            return numbers[timerIndexes[0]][7] + numbers[timerIndexes[1]][7] + numbers[timerIndexes[2]][7] + numbers[timerIndexes[3]][7] + numbers[timerIndexes[4]][7];
+                        else
+                            return numbers[timerIndexes[1]][7] + numbers[timerIndexes[2]][7] + numbers[timerIndexes[3]][7] + numbers[timerIndexes[4]][7];
+                    }
+                });
+
+        telemetry.addLine()
+                .addData("s0", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return numbers[scoreIndexes[0]][0] + numbers[scoreIndexes[1]][0] + numbers[scoreIndexes[2]][0] + numbers[scoreIndexes[3]][0] + numbers[scoreIndexes[4]][0];
+                    }
+                });
+        telemetry.addLine()
+                .addData("s1", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return numbers[scoreIndexes[0]][1] + numbers[scoreIndexes[1]][1] + numbers[scoreIndexes[2]][1] + numbers[scoreIndexes[3]][1] + numbers[scoreIndexes[4]][1];
+                    }
+                });
+        telemetry.addLine()
+                .addData("s2", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return numbers[scoreIndexes[0]][2] + numbers[scoreIndexes[1]][2] + numbers[scoreIndexes[2]][2] + numbers[scoreIndexes[3]][2] + numbers[scoreIndexes[4]][2];
+                    }
+                });
+        telemetry.addLine()
+                .addData("s3", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return numbers[scoreIndexes[0]][3] + numbers[scoreIndexes[1]][3] + numbers[scoreIndexes[2]][3] + numbers[scoreIndexes[3]][3] + numbers[scoreIndexes[4]][3];
+                    }
+                });
+        telemetry.addLine()
+                .addData("s4", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return numbers[scoreIndexes[0]][4] + numbers[scoreIndexes[1]][4] + numbers[scoreIndexes[2]][4] + numbers[scoreIndexes[3]][4] + numbers[scoreIndexes[4]][4];
+                    }
+                });
+        telemetry.addLine()
+                .addData("s5", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return numbers[scoreIndexes[0]][5] + numbers[scoreIndexes[1]][5] + numbers[scoreIndexes[2]][5] + numbers[scoreIndexes[3]][5] + numbers[scoreIndexes[4]][5];
+                    }
+                });
+        telemetry.addLine()
+                .addData("s6", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return numbers[scoreIndexes[0]][6] + numbers[scoreIndexes[1]][6] + numbers[scoreIndexes[2]][6] + numbers[scoreIndexes[3]][6] + numbers[scoreIndexes[4]][6];
+                    }
+                });
+        telemetry.addLine()
+                .addData("s7", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return numbers[scoreIndexes[0]][7] + numbers[scoreIndexes[1]][7] + numbers[scoreIndexes[2]][7] + numbers[scoreIndexes[3]][7] + numbers[scoreIndexes[4]][7];
+                    }
+                });
+
+        telemetry.addLine()
+                .addData("match time", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return String.format(Locale.ENGLISH, "%.0f:%.2f", minutes, seconds);
+                    }
+                });
+        telemetry.addLine()
+                .addData("score", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return String.format(Locale.ENGLISH, "%d - %d", scoreA, scoreB);
+                    }
+                });
+        telemetry.addLine()
+                .addData("score", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return String.format(Locale.ENGLISH, "%d - %d", scoreA, scoreB);
+                    }
+                });
+        telemetry.addLine()
+                .addData("loop time", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return String.format(Locale.ENGLISH, "%.2f", loopTimer.milliseconds());
+                    }
+                });
+        telemetry.addLine()
+                .addData("Forward", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return String.format(Locale.ENGLISH, "%.2f", forward);
+                    }
+                })
+                .addData("Right", new Func<String>() {
+                            @Override
+                            public String value() {
+                                return String.format(Locale.ENGLISH, "%.2f", right);
+                            }
+                        }
+                )
+                .addData("Spin", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return String.format(Locale.ENGLISH, "%.2f", spin);
+                    }
+                });
+        telemetry.addLine()
+                .addData("Puncher", new Func<String>() {
+                            @Override
+                            public String value() {
+                                return String.format(Locale.ENGLISH, "%.2f", puncher);
+                            }
+                        }
+                )
+                .addData("garry", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return String.format(Locale.ENGLISH, "%b", !robot.garry.isPressed());
+                    }
+                })
+                .addData("vexes", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return String.format(Locale.ENGLISH, "%.2f", vexes);
+                    }
+                });
+        telemetry.addLine()
+                .addData("Tilt", new Func<String>() {
+                            @Override
+                            public String value() {
+                                return String.format(Locale.ENGLISH, "%.2f", tiltPosition);
+                            }
+                        }
+                )
+                .addData("capLeft", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return String.format(Locale.ENGLISH, "%.2f", capLeftPosition);
+                    }
+                })
+                .addData("capRight", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return String.format(Locale.ENGLISH, "%.2f", capLeftPosition);
+                    }
+                });
     }
 }
