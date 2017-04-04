@@ -78,9 +78,6 @@ public class TeleOp_Revised extends OpMode {
         robot.init(this);
         robot.move(0, 0, 0);
 
-        if (robot.eject)
-            color = ask("red", "blue");
-
 //        robot.disableMotorEncoders();
         // Send telemetry message to signify robot waiting;
 //        robot.capLeft.getController().pwmDisable();
@@ -92,25 +89,19 @@ public class TeleOp_Revised extends OpMode {
         capLeftPosition = 0.05;
         capRightPosition = 0.05;
         loopTimer.reset();
-
     }
 
-    boolean ask(String statea, String stateb) {
-        telemetry.addData("A", statea);
-        telemetry.addData("B", stateb);
-        telemetry.update();
+    @Override
+    public void init_loop() {
+        if (gamepad1.a)
+            color = true;
+        else if (gamepad1.b)
+            color = false;
+        if (color)
+            telemetry.addData("A", "red");
+        else
+            telemetry.addData("B", "blue");
 
-        while (true) {
-            if (gamepad1.a) {
-                while (gamepad1.a)
-                    Thread.yield();
-                return true;
-            } else if (gamepad1.b) {
-                while (gamepad1.b)
-                    Thread.yield();
-                return false;
-            }
-        }
     }
 
     @Override

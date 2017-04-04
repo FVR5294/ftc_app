@@ -43,6 +43,7 @@ public class robotconfig {
     public ModernRoboticsI2cRangeSensor ultra;
     public boolean ultraEnabled = true;
     public boolean autoIntake = true;
+    public boolean intakeSensorRedundancy = true;
     public boolean eject = true;
 
 
@@ -65,6 +66,9 @@ public class robotconfig {
     TouchSensor intake1;
     TouchSensor intake2;
     TouchSensor intake3;
+    TouchSensor intake1b;
+    TouchSensor intake2b;
+    TouchSensor intake3b;
     //    TouchSensor intake4;
     // State used for updating telemetry
     Orientation angles;
@@ -123,7 +127,16 @@ public class robotconfig {
     }
 
     public boolean intake(int i) {
-        if (true)
+        if (intakeSensorRedundancy)
+            switch (i) {
+                case 1:
+                    return !intake1.isPressed() || !intake1b.isPressed();
+                case 2:
+                    return !intake2.isPressed() || !intake2b.isPressed();
+                case 3:
+                    return !intake3.isPressed() || !intake3b.isPressed();
+            }
+        else
             switch (i) {
                 case 1:
                     return !intake1.isPressed();
@@ -131,19 +144,6 @@ public class robotconfig {
                     return !intake2.isPressed();
                 case 3:
                     return !intake3.isPressed();
-//                case 4:
-//                    return !intake4.isPressed();
-            }
-        else
-            switch (i) {
-                case 1:
-                    return intake1.isPressed();
-                case 2:
-                    return intake2.isPressed();
-                case 3:
-                    return intake3.isPressed();
-//                case 4:
-//                    return intake4.isPressed();
             }
         return false;
     }
@@ -362,23 +362,6 @@ public class robotconfig {
             theLinearOpMode.telemetry.addData("wiring", "connect motor puncher");
         }
 
-        try {
-            intake1 = hwMap.touchSensor.get("intake1");
-            intake2 = hwMap.touchSensor.get("intake2");
-            intake3 = hwMap.touchSensor.get("intake3");
-//            intake4 = hwMap.touchSensor.get("intake4");
-        } catch (Exception err) {
-            autoIntake = false;
-            theLinearOpMode.telemetry.addData("wiring", "connect touch sensors intake[1-4]");
-        }
-
-        try {
-            intake = hwMap.colorSensor.get("intake");
-        } catch (Exception err) {
-            eject = false;
-            theLinearOpMode.telemetry.addData("wiring", "connect color sensor intake");
-        }
-
         dl = new DataLogger("10635", "autonomousTest.xml", theLinearOpMode.telemetry);
         addlog(dl, "r.init", "r.init was invoked (a)");
         addlog(dl, "r.init", "debug mode is " + debugMode);
@@ -508,6 +491,31 @@ public class robotconfig {
             puncher.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         } catch (Exception err) {
             opMode.telemetry.addData("wiring", "connect motor puncher");
+        }
+
+        try {
+            intake1 = hwMap.touchSensor.get("intake1");
+            intake2 = hwMap.touchSensor.get("intake2");
+            intake3 = hwMap.touchSensor.get("intake3");
+        } catch (Exception err) {
+            autoIntake = false;
+            opMode.telemetry.addData("wiring", "connect touch sensors intake[1-4]");
+        }
+
+        try {
+            intake1b = hwMap.touchSensor.get("intake1b");
+            intake2b = hwMap.touchSensor.get("intake2b");
+            intake3b = hwMap.touchSensor.get("intake3b");
+        } catch (Exception err) {
+            intakeSensorRedundancy = false;
+            opMode.telemetry.addData("wiring", "connect redundant touch sensors intake[1-4]b");
+        }
+
+        try {
+            intake = hwMap.colorSensor.get("intake");
+        } catch (Exception err) {
+            eject = false;
+            opMode.telemetry.addData("wiring", "connect color sensor intake");
         }
 
         dl = new DataLogger("10635", "teleopTest.csv", opMode.telemetry);
