@@ -62,6 +62,7 @@ public class TeleOp_Revised extends OpMode {
 
     private boolean previous3state = false;
     private boolean previous2state = false;
+    private boolean previous1state = false;
 
     private boolean previousAState = false;
     private boolean previousGaryState = false;
@@ -152,56 +153,68 @@ public class TeleOp_Revised extends OpMode {
 
         if (robot.autoIntake && Math.abs(vexes - 0.5) < 0.1) {
 
-            if (!ballPresent && robot.intake(1))
-                ballPresent = true;
-
-            if (ballPresent && previous2state && !robot.intake(2))
-                ballPresent = false;
-
-            previous2state = robot.intake(2);
-
-            if (ballPresent && !robot.intake(3))
-                vexes = 1;
-
-            if (unleash)
-                if (robot.intake(3))
-                    unleash = false;
-                else
-                    vexes = 1;
-
-            if (previous3state && !robot.intake(3))
-                ballLoad = true;
-
-            previous3state = robot.intake(3);
-
-            if (!ballLoad)
+            if (!ballLoad || ((ballPresent || unleash) && !robot.intake(3)))
                 vexes = 1;
 
             if (spinnerState && (ballPresent || !ballLoad))
                 spinner = 0;
-
         }
 
         if (robot.eject) {
             if (color) {
                 if (robot.intake.blue() - robot.intake.red() > colorThreshold) {
                     spinner = -1;
-                    if (robot.autoIntake && robot.intake(1)) {
+                    if (robot.autoIntake && robot.intake(1))
                         vexes = 0;
-                    }
                     eject.reset();
                 }
             } else {
                 if (robot.intake.red() - robot.intake.blue() > colorThreshold) {
                     spinner = -1;
-                    if (robot.autoIntake && robot.intake(1)) {
+                    if (robot.autoIntake && robot.intake(1))
                         vexes = 0;
-                    }
                     eject.reset();
                 }
             }
-            if (eject.seconds() < 1)
+            if (eject.seconds() < 1) {
                 spinner = -1;
+                if (robot.autoIntake)
+                    if (ballLoad)
+                        vexes = 0;
+            }
+        }
+
+        if (robot.autoIntake) {
+
+            //remember if ball entered first stage
+            if (!ballPresent && robot.intake(1) && vexes > 0.5)
+                ballPresent = true;
+
+            //check if ball left first stage in reverse
+            if (ballPresent && previous1state && !robot.intake(1) && vexes < 0.5)
+                ballPresent = false;
+
+            previous1state = robot.intake(1);
+
+            //check if ball left first stage going forward
+            if (ballPresent && previous2state && !robot.intake(2) && vexes > 0.5)
+                ballPresent = false;
+
+            //check if ball entered first stage in reverse
+            if (!ballPresent && robot.intake(2) && vexes < 0.5)
+                ballPresent = true;
+
+            previous2state = robot.intake(2);
+
+            //automatically stop bringing balls to the top
+            if (unleash && robot.intake(3))
+                unleash = false;
+
+            //check if ball entered puncher thing
+            if (previous3state && !robot.intake(3) && vexes > 0.5)
+                ballLoad = true;
+
+            previous3state = robot.intake(3);
         }
 
         if (gamepad1.left_trigger > 0.1 || gamepad1.right_trigger > 0.1)
@@ -209,13 +222,18 @@ public class TeleOp_Revised extends OpMode {
 
         robot.spinner.setPower(spinner);
 
-        if (gamepad2.right_bumper || ballLoad)
+        //automatically start when ball is above the L
+        if (ballLoad)
             robot.theHammerOfDawn.setPosition(1);
         else
             robot.theHammerOfDawn.setPosition(vexes);
 
         robot.rvex.setPosition(vexes);
         robot.lvex.setPosition(vexes);
+
+        //bring up next stored ball to top of the L
+        if (gamepad2.right_bumper)
+            unleash = true;
 
         if (gamepad1.left_bumper || gamepad2.left_bumper) {
             if (!previousAState) {
@@ -241,7 +259,7 @@ public class TeleOp_Revised extends OpMode {
                 robot.puncher.setPower(puncher);
             }
 
-//            if (robot.autoIntake && ballLoad && !robot.intake(4) && robot.garry.isPressed() && !previousGaryState)
+            //tell auto intake script to go fetch a ball
             if (ballLoad && robot.garry.isPressed() && !previousGaryState)
                 ballLoad = false;
         }
@@ -259,15 +277,6 @@ public class TeleOp_Revised extends OpMode {
         reeler = -gamepad2.right_stick_y;
 
         robot.reeler.setPower(reeler);
-
-//        if (gamepad2.left_bumper) {
-//            capLeftPosition = 0.7;
-//            robot.capLeft.setPosition(capLeftPosition);
-//            capRightPosition = 0.7;
-//            robot.capRight.setPosition(capRightPosition);
-//            tiltPosition = 0.95;
-//            robot.tilt.setPosition(tiltPosition);
-//        }
 
         if (gamepad1.dpad_left) {
             buttonPusherPosition -= buttonPusherDelta;
