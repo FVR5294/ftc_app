@@ -38,6 +38,7 @@ public class TeleOp_Revised extends OpMode {
     private final double pulses = 2240.0;
     private final double pulsesReduced = pulses * 0.9;
     private final double rampNumb = 3.5 / pulses;
+    private final boolean illegibleText = false;
     robotconfig robot = new robotconfig();
     private double endpulses = 0.0;
     private double buttonPusherPosition = 0;
@@ -51,65 +52,52 @@ public class TeleOp_Revised extends OpMode {
     private double reeler = 0;
     private double vexes = 0.5;
     private double puncher = 0;
-
     private int minutes = 0;
     private int seconds = 0;
-
     private int scoreA = 0;
     private int scoreB = 0;
-
     private boolean endGame = false;
-
     private boolean gp2a = false;
     private boolean gp2b = false;
-
     private boolean unleash = false;
-    private boolean color;
+    private boolean color = false;
     private int colorThreshold = 10;
     private ElapsedTime eject = new ElapsedTime();
     private ElapsedTime matchTimer = new ElapsedTime();
     private int[] timerIndexes = {1, 2, 10, 3, 4};
     private int[] scoreIndexes = {1, 2, 12, 3, 4};
-
     private boolean puncherBroken = false;
-
     //if ball is somewhere between first two limit switches first switch inclusive second exclusive
     private boolean ballPresent = false;
-
     //if ball is beyond third switch
     private boolean ballLoad = false;
-
     private boolean previous3state = false;
     private boolean previous2state = false;
     private boolean previous1state = false;
-
     private boolean previousAState = false;
     private boolean previousGaryState = false;
     private boolean spinnerState = false;
     private boolean puncherState = false;
     private boolean speedToggleFlag = false;
     private boolean slowState = false;
-
     private ElapsedTime loopTimer = new ElapsedTime();
 
     @Override
     public void init() {
 
+//        robotconfig.debugMode = true;
         robot.init(this);
-        robot.move(0, 0, 0);
 
 //        robot.disableMotorEncoders();
         // Send telemetry message to signify robot waiting;
 //        robot.capLeft.getController().pwmDisable();
-        telemetry.addData("Say", "Hello Driver");
-        updateTelemetry(telemetry);
 
+        telemetry.update();
         buttonPusherPosition = 0.5;
         tiltPosition = 0.50;
         capLeftPosition = 0.05;
         capRightPosition = 0.05;
         loopTimer.reset();
-
         activateTelemetry();
     }
 
@@ -119,11 +107,6 @@ public class TeleOp_Revised extends OpMode {
             color = true;
         else if (gamepad1.b)
             color = false;
-        if (color)
-            telemetry.addData("A", "red");
-        else
-            telemetry.addData("B", "blue");
-
     }
 
     @Override
@@ -403,169 +386,142 @@ public class TeleOp_Revised extends OpMode {
                 minutes -= seconds;
                 minutes /= 60;
 
-                timerIndexes[0] = minutes / 10;
-                timerIndexes[1] = minutes % 10;
-                timerIndexes[3] = seconds / 10;
-                timerIndexes[4] = seconds % 10;
+                if (illegibleText) {
+                    timerIndexes[0] = minutes / 10;
+                    timerIndexes[1] = minutes % 10;
+                    timerIndexes[3] = seconds / 10;
+                    timerIndexes[4] = seconds % 10;
 
-                scoreIndexes[0] = scoreA / 10;
-                scoreIndexes[1] = scoreA % 10;
-                scoreIndexes[3] = scoreB / 10;
-                scoreIndexes[4] = scoreB % 10;
+                    scoreIndexes[0] = scoreA / 10;
+                    scoreIndexes[1] = scoreA % 10;
+                    scoreIndexes[3] = scoreB / 10;
+                    scoreIndexes[4] = scoreB % 10;
+                }
 
             }
         });
 
-        telemetry.addLine()
-                .addData("t0", new Func<String>() {
-                    @Override
-                    public String value() {
-                        if (timerIndexes[0] > 0)
-                            return numbers[timerIndexes[0]][0] + numbers[timerIndexes[1]][0] + numbers[timerIndexes[2]][0] + numbers[timerIndexes[3]][0] + numbers[timerIndexes[4]][0];
-                        else
+        if (illegibleText) {
+            telemetry.addLine()
+                    .addData("t0", new Func<String>() {
+                        @Override
+                        public String value() {
                             return numbers[timerIndexes[1]][0] + numbers[timerIndexes[2]][0] + numbers[timerIndexes[3]][0] + numbers[timerIndexes[4]][0];
-                    }
-                });
-        telemetry.addLine()
-                .addData("t1", new Func<String>() {
-                    @Override
-                    public String value() {
-                        if (timerIndexes[0] > 0)
-                            return numbers[timerIndexes[0]][1] + numbers[timerIndexes[1]][1] + numbers[timerIndexes[2]][1] + numbers[timerIndexes[3]][1] + numbers[timerIndexes[4]][1];
-                        else
+                        }
+                    });
+            telemetry.addLine()
+                    .addData("t1", new Func<String>() {
+                        @Override
+                        public String value() {
                             return numbers[timerIndexes[1]][1] + numbers[timerIndexes[2]][1] + numbers[timerIndexes[3]][1] + numbers[timerIndexes[4]][1];
-                    }
-                });
-        telemetry.addLine()
-                .addData("t2", new Func<String>() {
-                    @Override
-                    public String value() {
-                        if (timerIndexes[0] > 0)
-                            return numbers[timerIndexes[0]][2] + numbers[timerIndexes[1]][2] + numbers[timerIndexes[2]][2] + numbers[timerIndexes[3]][2] + numbers[timerIndexes[4]][2];
-                        else
+                        }
+                    });
+            telemetry.addLine()
+                    .addData("t2", new Func<String>() {
+                        @Override
+                        public String value() {
                             return numbers[timerIndexes[1]][2] + numbers[timerIndexes[2]][2] + numbers[timerIndexes[3]][2] + numbers[timerIndexes[4]][2];
-                    }
-                });
-        telemetry.addLine()
-                .addData("t3", new Func<String>() {
-                    @Override
-                    public String value() {
-                        if (timerIndexes[0] > 0)
-                            return numbers[timerIndexes[0]][3] + numbers[timerIndexes[1]][3] + numbers[timerIndexes[2]][3] + numbers[timerIndexes[3]][3] + numbers[timerIndexes[4]][3];
-                        else
+                        }
+                    });
+            telemetry.addLine()
+                    .addData("t3", new Func<String>() {
+                        @Override
+                        public String value() {
                             return numbers[timerIndexes[1]][3] + numbers[timerIndexes[2]][3] + numbers[timerIndexes[3]][3] + numbers[timerIndexes[4]][3];
-                    }
-                });
-        telemetry.addLine()
-                .addData("t4", new Func<String>() {
-                    @Override
-                    public String value() {
-                        if (timerIndexes[0] > 0)
-                            return numbers[timerIndexes[0]][4] + numbers[timerIndexes[1]][4] + numbers[timerIndexes[2]][4] + numbers[timerIndexes[3]][4] + numbers[timerIndexes[4]][4];
-                        else
+                        }
+                    });
+            telemetry.addLine()
+                    .addData("t4", new Func<String>() {
+                        @Override
+                        public String value() {
                             return numbers[timerIndexes[1]][4] + numbers[timerIndexes[2]][4] + numbers[timerIndexes[3]][4] + numbers[timerIndexes[4]][4];
-                    }
-                });
-        telemetry.addLine()
-                .addData("t5", new Func<String>() {
-                    @Override
-                    public String value() {
-                        if (timerIndexes[0] > 0)
-                            return numbers[timerIndexes[0]][5] + numbers[timerIndexes[1]][5] + numbers[timerIndexes[2]][5] + numbers[timerIndexes[3]][5] + numbers[timerIndexes[4]][5];
-                        else
+                        }
+                    });
+            telemetry.addLine()
+                    .addData("t5", new Func<String>() {
+                        @Override
+                        public String value() {
                             return numbers[timerIndexes[1]][5] + numbers[timerIndexes[2]][5] + numbers[timerIndexes[3]][5] + numbers[timerIndexes[4]][5];
-                    }
-                });
-        telemetry.addLine()
-                .addData("t6", new Func<String>() {
-                    @Override
-                    public String value() {
-                        if (timerIndexes[0] > 0)
-                            return numbers[timerIndexes[0]][6] + numbers[timerIndexes[1]][6] + numbers[timerIndexes[2]][6] + numbers[timerIndexes[3]][6] + numbers[timerIndexes[4]][6];
-                        else
+                        }
+                    });
+            telemetry.addLine()
+                    .addData("t6", new Func<String>() {
+                        @Override
+                        public String value() {
                             return numbers[timerIndexes[1]][6] + numbers[timerIndexes[2]][6] + numbers[timerIndexes[3]][6] + numbers[timerIndexes[4]][6];
-                    }
-                });
-        telemetry.addLine()
-                .addData("t7", new Func<String>() {
-                    @Override
-                    public String value() {
-                        if (timerIndexes[0] > 0)
-                            return numbers[timerIndexes[0]][7] + numbers[timerIndexes[1]][7] + numbers[timerIndexes[2]][7] + numbers[timerIndexes[3]][7] + numbers[timerIndexes[4]][7];
-                        else
+                        }
+                    });
+            telemetry.addLine()
+                    .addData("t7", new Func<String>() {
+                        @Override
+                        public String value() {
                             return numbers[timerIndexes[1]][7] + numbers[timerIndexes[2]][7] + numbers[timerIndexes[3]][7] + numbers[timerIndexes[4]][7];
-                    }
-                });
+                        }
+                    });
 
-        telemetry.addLine()
-                .addData("s0", new Func<String>() {
-                    @Override
-                    public String value() {
-                        return numbers[scoreIndexes[0]][0] + numbers[scoreIndexes[1]][0] + numbers[scoreIndexes[2]][0] + numbers[scoreIndexes[3]][0] + numbers[scoreIndexes[4]][0];
-                    }
-                });
-        telemetry.addLine()
-                .addData("s1", new Func<String>() {
-                    @Override
-                    public String value() {
-                        return numbers[scoreIndexes[0]][1] + numbers[scoreIndexes[1]][1] + numbers[scoreIndexes[2]][1] + numbers[scoreIndexes[3]][1] + numbers[scoreIndexes[4]][1];
-                    }
-                });
-        telemetry.addLine()
-                .addData("s2", new Func<String>() {
-                    @Override
-                    public String value() {
-                        return numbers[scoreIndexes[0]][2] + numbers[scoreIndexes[1]][2] + numbers[scoreIndexes[2]][2] + numbers[scoreIndexes[3]][2] + numbers[scoreIndexes[4]][2];
-                    }
-                });
-        telemetry.addLine()
-                .addData("s3", new Func<String>() {
-                    @Override
-                    public String value() {
-                        return numbers[scoreIndexes[0]][3] + numbers[scoreIndexes[1]][3] + numbers[scoreIndexes[2]][3] + numbers[scoreIndexes[3]][3] + numbers[scoreIndexes[4]][3];
-                    }
-                });
-        telemetry.addLine()
-                .addData("s4", new Func<String>() {
-                    @Override
-                    public String value() {
-                        return numbers[scoreIndexes[0]][4] + numbers[scoreIndexes[1]][4] + numbers[scoreIndexes[2]][4] + numbers[scoreIndexes[3]][4] + numbers[scoreIndexes[4]][4];
-                    }
-                });
-        telemetry.addLine()
-                .addData("s5", new Func<String>() {
-                    @Override
-                    public String value() {
-                        return numbers[scoreIndexes[0]][5] + numbers[scoreIndexes[1]][5] + numbers[scoreIndexes[2]][5] + numbers[scoreIndexes[3]][5] + numbers[scoreIndexes[4]][5];
-                    }
-                });
-        telemetry.addLine()
-                .addData("s6", new Func<String>() {
-                    @Override
-                    public String value() {
-                        return numbers[scoreIndexes[0]][6] + numbers[scoreIndexes[1]][6] + numbers[scoreIndexes[2]][6] + numbers[scoreIndexes[3]][6] + numbers[scoreIndexes[4]][6];
-                    }
-                });
-        telemetry.addLine()
-                .addData("s7", new Func<String>() {
-                    @Override
-                    public String value() {
-                        return numbers[scoreIndexes[0]][7] + numbers[scoreIndexes[1]][7] + numbers[scoreIndexes[2]][7] + numbers[scoreIndexes[3]][7] + numbers[scoreIndexes[4]][7];
-                    }
-                });
+            telemetry.addLine()
+                    .addData("s0", new Func<String>() {
+                        @Override
+                        public String value() {
+                            return numbers[scoreIndexes[1]][0] + numbers[scoreIndexes[2]][0] + numbers[scoreIndexes[4]][0];
+                        }
+                    });
+            telemetry.addLine()
+                    .addData("s1", new Func<String>() {
+                        @Override
+                        public String value() {
+                            return numbers[scoreIndexes[1]][1] + numbers[scoreIndexes[2]][1] + numbers[scoreIndexes[4]][1];
+                        }
+                    });
+            telemetry.addLine()
+                    .addData("s2", new Func<String>() {
+                        @Override
+                        public String value() {
+                            return numbers[scoreIndexes[1]][2] + numbers[scoreIndexes[2]][2] + numbers[scoreIndexes[4]][2];
+                        }
+                    });
+            telemetry.addLine()
+                    .addData("s3", new Func<String>() {
+                        @Override
+                        public String value() {
+                            return numbers[scoreIndexes[1]][3] + numbers[scoreIndexes[2]][3] + numbers[scoreIndexes[4]][3];
+                        }
+                    });
+            telemetry.addLine()
+                    .addData("s4", new Func<String>() {
+                        @Override
+                        public String value() {
+                            return numbers[scoreIndexes[1]][4] + numbers[scoreIndexes[2]][4] + numbers[scoreIndexes[4]][4];
+                        }
+                    });
+            telemetry.addLine()
+                    .addData("s5", new Func<String>() {
+                        @Override
+                        public String value() {
+                            return numbers[scoreIndexes[1]][5] + numbers[scoreIndexes[2]][5] + numbers[scoreIndexes[4]][5];
+                        }
+                    });
+            telemetry.addLine()
+                    .addData("s6", new Func<String>() {
+                        @Override
+                        public String value() {
+                            return numbers[scoreIndexes[1]][6] + numbers[scoreIndexes[2]][6] + numbers[scoreIndexes[4]][6];
+                        }
+                    });
+            telemetry.addLine()
+                    .addData("s7", new Func<String>() {
+                        @Override
+                        public String value() {
+                            return numbers[scoreIndexes[1]][7] + numbers[scoreIndexes[2]][7] + numbers[scoreIndexes[4]][7];
+                        }
+                    });
+        }
 
         telemetry.addLine()
                 .addData("match time", new Func<String>() {
                     @Override
                     public String value() {
-                        return String.format(Locale.ENGLISH, "%.0f:%.2f", minutes, seconds);
-                    }
-                });
-        telemetry.addLine()
-                .addData("score", new Func<String>() {
-                    @Override
-                    public String value() {
-                        return String.format(Locale.ENGLISH, "%d - %d", scoreA, scoreB);
+                        return String.format(Locale.ENGLISH, "%d:%d", minutes, seconds);
                     }
                 });
         telemetry.addLine()
@@ -582,65 +538,76 @@ public class TeleOp_Revised extends OpMode {
                         return String.format(Locale.ENGLISH, "%.2f", loopTimer.milliseconds());
                     }
                 });
+
         telemetry.addLine()
-                .addData("Forward", new Func<String>() {
+                .addData("colorRed", new Func<String>() {
                     @Override
                     public String value() {
-                        return String.format(Locale.ENGLISH, "%.2f", forward);
-                    }
-                })
-                .addData("Right", new Func<String>() {
-                            @Override
-                            public String value() {
-                                return String.format(Locale.ENGLISH, "%.2f", right);
-                            }
-                        }
-                )
-                .addData("Spin", new Func<String>() {
-                    @Override
-                    public String value() {
-                        return String.format(Locale.ENGLISH, "%.2f", spin);
+                        return String.format(Locale.ENGLISH, "%b", color);
                     }
                 });
-        telemetry.addLine()
-                .addData("Puncher", new Func<String>() {
-                            @Override
-                            public String value() {
-                                return String.format(Locale.ENGLISH, "%.2f", puncher);
-                            }
+
+        if (!robotconfig.debugMode) {
+            telemetry.addLine()
+                    .addData("Forward", new Func<String>() {
+                        @Override
+                        public String value() {
+                            return String.format(Locale.ENGLISH, "%.2f", forward);
                         }
-                )
-                .addData("garry", new Func<String>() {
-                    @Override
-                    public String value() {
-                        return String.format(Locale.ENGLISH, "%b", !robot.garry.isPressed());
-                    }
-                })
-                .addData("vexes", new Func<String>() {
-                    @Override
-                    public String value() {
-                        return String.format(Locale.ENGLISH, "%.2f", vexes);
-                    }
-                });
-        telemetry.addLine()
-                .addData("Tilt", new Func<String>() {
-                            @Override
-                            public String value() {
-                                return String.format(Locale.ENGLISH, "%.2f", tiltPosition);
-                            }
+                    })
+                    .addData("Right", new Func<String>() {
+                        @Override
+                        public String value() {
+                            return String.format(Locale.ENGLISH, "%.2f", right);
                         }
-                )
-                .addData("capLeft", new Func<String>() {
-                    @Override
-                    public String value() {
-                        return String.format(Locale.ENGLISH, "%.2f", capLeftPosition);
-                    }
-                })
-                .addData("capRight", new Func<String>() {
-                    @Override
-                    public String value() {
-                        return String.format(Locale.ENGLISH, "%.2f", capLeftPosition);
-                    }
-                });
+                            }
+                    )
+                    .addData("Spin", new Func<String>() {
+                        @Override
+                        public String value() {
+                            return String.format(Locale.ENGLISH, "%.2f", spin);
+                        }
+                    });
+            telemetry.addLine()
+                    .addData("Puncher", new Func<String>() {
+                        @Override
+                        public String value() {
+                            return String.format(Locale.ENGLISH, "%.2f", puncher);
+                        }
+                            }
+                    )
+                    .addData("garry", new Func<String>() {
+                        @Override
+                        public String value() {
+                            return String.format(Locale.ENGLISH, "%b", !robot.garry.isPressed());
+                        }
+                    })
+                    .addData("vexes", new Func<String>() {
+                        @Override
+                        public String value() {
+                            return String.format(Locale.ENGLISH, "%.2f", vexes);
+                        }
+                    });
+            telemetry.addLine()
+                    .addData("Tilt", new Func<String>() {
+                        @Override
+                        public String value() {
+                            return String.format(Locale.ENGLISH, "%.2f", tiltPosition);
+                        }
+                            }
+                    )
+                    .addData("capLeft", new Func<String>() {
+                        @Override
+                        public String value() {
+                            return String.format(Locale.ENGLISH, "%.2f", capLeftPosition);
+                        }
+                    })
+                    .addData("capRight", new Func<String>() {
+                        @Override
+                        public String value() {
+                            return String.format(Locale.ENGLISH, "%.2f", capLeftPosition);
+                        }
+                    });
+        }
     }
 }
