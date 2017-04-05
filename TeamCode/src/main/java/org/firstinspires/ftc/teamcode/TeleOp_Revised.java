@@ -323,13 +323,13 @@ public class TeleOp_Revised extends OpMode {
         } else {
 
             if (gamepad2.a && !gp2a)
-                if (gamepad2.right_bumper)
+                if (gamepad2.right_bumper && scoreA > 0)
                     scoreA--;
                 else
                     scoreA++;
 
             if (gamepad2.b && !gp2b)
-                if (gamepad2.right_bumper)
+                if (gamepad2.right_bumper && scoreB > 0)
                     scoreB--;
                 else
                     scoreB++;
