@@ -171,10 +171,14 @@ public class TeleOp_Revised extends OpMode {
 
         if (robot.autoIntake) {
 
-            if (robot.intake(1))
-                intakeTime.reset();
+            if (robot.firstIntake) {
 
-            ballPresent = intakeTime.seconds() < intakeDelay;
+                if (robot.intake(1))
+                    intakeTime.reset();
+
+                ballPresent = intakeTime.seconds() < intakeDelay;
+
+            }
 
             //automatically stop bringing balls to the top
             if (unleash && robot.intake(3))
@@ -198,7 +202,7 @@ public class TeleOp_Revised extends OpMode {
 //                spinner = 0;
         }
 
-        if (robot.eject) {
+        if (robot.eject && (!robot.firstIntake || robot.intake(1))) {
             if (color) {
                 if (robot.intake.blue() - robot.intake.red() > colorThreshold) {
                     spinner = -1;
@@ -212,6 +216,7 @@ public class TeleOp_Revised extends OpMode {
                     eject.reset();
                 }
             }
+
             if (eject.seconds() < 1) {
                 spinner = -1;
 //                if (ballPresent)

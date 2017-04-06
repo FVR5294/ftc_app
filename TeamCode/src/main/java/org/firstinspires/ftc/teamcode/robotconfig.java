@@ -43,9 +43,9 @@ public class robotconfig {
     public ModernRoboticsI2cRangeSensor ultra;
     public boolean ultraEnabled = true;
     public boolean autoIntake = true;
+    public boolean firstIntake = true;
     public boolean intakeSensorRedundancy = true;
     public boolean eject = true;
-
 
     public ElapsedTime puncherTimer = new ElapsedTime();
     public boolean puncherTime = false;
@@ -494,8 +494,6 @@ public class robotconfig {
         }
 
         try {
-            intake1 = hwMap.touchSensor.get("intake1");
-//            intake2 = hwMap.touchSensor.get("intake2");
             intake3 = hwMap.touchSensor.get("intake3");
         } catch (Exception err) {
             autoIntake = false;
@@ -503,8 +501,15 @@ public class robotconfig {
         }
 
         try {
-            intake1b = hwMap.touchSensor.get("intake1b");
-//            intake2b = hwMap.touchSensor.get("intake2b");
+            intake1 = hwMap.touchSensor.get("intake1");
+        } catch (Exception err) {
+            firstIntake = false;
+            opMode.telemetry.addData("wiring", "connect touch sensor intake1");
+        }
+
+        try {
+            if (firstIntake)
+                intake1b = hwMap.touchSensor.get("intake1b");
             intake3b = hwMap.touchSensor.get("intake3b");
         } catch (Exception err) {
             intakeSensorRedundancy = false;
@@ -513,7 +518,6 @@ public class robotconfig {
 
         try {
             intake = hwMap.colorSensor.get("intake");
-//            intake1 = hwMap.touchSensor.get("intake1");
         } catch (Exception err) {
             eject = false;
             opMode.telemetry.addData("wiring", "connect color sensor intake and touch sensor intake1");
