@@ -146,12 +146,6 @@ public class TeleOp_Revised extends OpMode {
 
         robot.move(forward, right, spin);
 
-        /*
-         *  This added code is to remove power from the cap ball grabber servos
-         *  to be used if we need to disengage the arms and allow the to move
-         *  freely.
-         */
-
         robotconfig.addlog(dl, "in TeleOp_Revised", "top of main loop");
 
         if (gamepad1.right_bumper) {          // bumper is down
@@ -177,11 +171,11 @@ public class TeleOp_Revised extends OpMode {
 
         if (robot.autoIntake) {
 
-            ballPresent = robot.intake(1);
-
-            if (ballPresent)
+            if (robot.intake(1))
                 intakeTime.reset();
-//
+
+            ballPresent = intakeTime.seconds() < intakeDelay;
+
             //automatically stop bringing balls to the top
             if (unleash && robot.intake(3))
                 unleash = false;
@@ -197,7 +191,7 @@ public class TeleOp_Revised extends OpMode {
 
         if (robot.autoIntake && Math.abs(vexes - 0.5) < 0.1) {
 
-            if (!ballLoad || ((unleash || intakeTime.seconds() < intakeDelay) && !robot.intake(3)))
+            if (!ballLoad || ((unleash || ballPresent) && !robot.intake(3)))
                 vexes = 1;
 
 //            if (spinnerState && (ballPresent || !ballLoad))
@@ -220,8 +214,8 @@ public class TeleOp_Revised extends OpMode {
             }
             if (eject.seconds() < 1) {
                 spinner = -1;
-                if (ballPresent)
-                    vexes = 0;
+//                if (ballPresent)
+//                    vexes = 0;
             }
         }
 
