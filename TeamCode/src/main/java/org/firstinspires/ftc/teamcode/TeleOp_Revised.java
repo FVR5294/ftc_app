@@ -238,10 +238,6 @@ public class TeleOp_Revised extends OpMode {
         else
             robot.theHammerOfDawn.setPosition(vexes);
 
-        //bring up next stored ball to top of the L
-        if (gamepad1.a)
-            unleash = true;
-
         if (gamepad1.left_bumper || gamepad2.left_bumper) {
             if (!previousAState) {
                 if (spinnerState) {
@@ -272,6 +268,7 @@ public class TeleOp_Revised extends OpMode {
         }
 
         if (gamepad1.y && !puncherState) {
+//            if (!robot.garry.isPressed())
             unleash = true;
             robot.puncher.setPower(1);
             puncherState = true;
