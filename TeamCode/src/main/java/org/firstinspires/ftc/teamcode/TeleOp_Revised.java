@@ -67,13 +67,13 @@ public class TeleOp_Revised extends OpMode {
     private int[] timerIndexes = {1, 2, 10, 3, 4};
     private int[] scoreIndexes = {1, 2, 12, 3, 4};
     private boolean puncherBroken = false;
-    //if ball is somewhere between first two limit switches first switch inclusive second exclusive
+    //if ball is touching first limit switch
     private boolean ballPresent = false;
     //if ball is beyond third switch
     private boolean ballLoad = false;
     private boolean previous3state = false;
-    private boolean previous2state = false;
-    private boolean previous1state = false;
+    //    private boolean previous2state = false;
+//    private boolean previous1state = false;
     private boolean previousAState = false;
     private boolean previousGaryState = false;
     private boolean spinnerState = false;
@@ -83,6 +83,14 @@ public class TeleOp_Revised extends OpMode {
     private ElapsedTime loopTimer = new ElapsedTime();
 
     private double loopTime = 0;
+
+    private double totalLoopTime = 0;
+    private double loopCount = 1;
+
+    private double maxLoopTime = 0;
+
+    private double intakeDelay = 0.42;
+    private ElapsedTime intakeTime = new ElapsedTime();
 
     @Override
     public void init() {
@@ -114,6 +122,7 @@ public class TeleOp_Revised extends OpMode {
     @Override
     public void start() {
         matchTimer.reset();
+        loopTimer.reset();
     }
 
     @Override
@@ -121,7 +130,9 @@ public class TeleOp_Revised extends OpMode {
 
         loopTime = loopTimer.milliseconds();
         loopTimer.reset();
-
+        totalLoopTime += loopTime;
+        loopCount++;
+        maxLoopTime = Math.max(maxLoopTime, loopTime);
 
         forward = -gamepad1.left_stick_y * Math.abs(gamepad1.left_stick_y);
         right = gamepad1.left_stick_x * Math.abs(gamepad1.left_stick_x);
@@ -166,32 +177,19 @@ public class TeleOp_Revised extends OpMode {
 
         if (robot.autoIntake) {
 
-            //remember if ball entered first stage
-            if (!ballPresent && robot.intake(1))
-                ballPresent = true;
+            ballPresent = robot.intake(1);
 
+            if (ballPresent)
+                intakeTime.reset();
+//
             //automatically stop bringing balls to the top
             if (unleash && robot.intake(3))
                 unleash = false;
-
-            //check if ball left first stage in reverse
-            if (ballPresent && previous1state && !robot.intake(1) && vexes < 0.5)
-                ballPresent = false;
-
-            //check if ball left first stage going forward
-            if (ballPresent && previous2state && !robot.intake(2) && vexes > 0.5)
-                ballPresent = false;
-
-            //check if ball entered first stage in reverse
-            if (!ballPresent && robot.intake(2))
-                ballPresent = true;
 
             //check if ball entered puncher thing
             if (previous3state && !robot.intake(3) && vexes > 0.5)
                 ballLoad = true;
 
-            previous1state = robot.intake(1);
-            previous2state = robot.intake(2);
             previous3state = robot.intake(3);
         }
 
@@ -199,34 +197,31 @@ public class TeleOp_Revised extends OpMode {
 
         if (robot.autoIntake && Math.abs(vexes - 0.5) < 0.1) {
 
-            if (!ballLoad || ((ballPresent || unleash) && !robot.intake(3)))
+            if (!ballLoad || ((unleash || intakeTime.seconds() < intakeDelay) && !robot.intake(3)))
                 vexes = 1;
 
-            if (spinnerState && (ballPresent || !ballLoad))
-                spinner = 0;
+//            if (spinnerState && (ballPresent || !ballLoad))
+//                spinner = 0;
         }
 
         if (robot.eject) {
             if (color) {
                 if (robot.intake.blue() - robot.intake.red() > colorThreshold) {
                     spinner = -1;
-                    if (robot.intake(1))
-                        vexes = 0;
+                    vexes = 0;
                     eject.reset();
                 }
             } else {
                 if (robot.intake.red() - robot.intake.blue() > colorThreshold) {
                     spinner = -1;
-                    if (robot.intake(1))
-                        vexes = 0;
+                    vexes = 0;
                     eject.reset();
                 }
             }
             if (eject.seconds() < 1) {
                 spinner = -1;
-                if (robot.autoIntake)
-                    if (ballLoad)
-                        vexes = 0;
+                if (ballPresent)
+                    vexes = 0;
             }
         }
 
@@ -245,7 +240,7 @@ public class TeleOp_Revised extends OpMode {
             robot.theHammerOfDawn.setPosition(vexes);
 
         //bring up next stored ball to top of the L
-        if (gamepad2.a && !endGame)
+        if (gamepad1.a)
             unleash = true;
 
         if (gamepad1.left_bumper || gamepad2.left_bumper) {
@@ -541,6 +536,18 @@ public class TeleOp_Revised extends OpMode {
                     public String value() {
                         return String.format(Locale.ENGLISH, "%.2f", loopTime);
                     }
+                })
+                .addData("avg", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return String.format(Locale.ENGLISH, "%.2f", totalLoopTime / loopCount);
+                    }
+                })
+                .addData("max", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return String.format(Locale.ENGLISH, "%.2f", maxLoopTime);
+                    }
                 });
 
         telemetry.addLine()
@@ -625,6 +632,21 @@ public class TeleOp_Revised extends OpMode {
                             @Override
                             public String value() {
                                 return String.format(Locale.ENGLISH, "%d", robot.intake.blue());
+                            }
+                        });
+            if (robot.autoIntake)
+                telemetry.addLine()
+                        .addData("ballPresent", new Func<String>() {
+                                    @Override
+                                    public String value() {
+                                        return String.format(Locale.ENGLISH, "%b", ballPresent);
+                                    }
+                                }
+                        )
+                        .addData("ballLoaded", new Func<String>() {
+                            @Override
+                            public String value() {
+                                return String.format(Locale.ENGLISH, "%b", ballLoad);
                             }
                         });
         }
