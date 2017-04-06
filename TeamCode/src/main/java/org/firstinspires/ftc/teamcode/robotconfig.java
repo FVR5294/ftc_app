@@ -513,6 +513,7 @@ public class robotconfig {
 
         try {
             intake = hwMap.colorSensor.get("intake");
+            intake1 = hwMap.touchSensor.get("intake1");
         } catch (Exception err) {
             eject = false;
             opMode.telemetry.addData("wiring", "connect color sensor intake");

@@ -61,7 +61,7 @@ public class TeleOp_Revised extends OpMode {
     private boolean gp2b = false;
     private boolean unleash = false;
     private boolean color = false;
-    private int colorThreshold = 10;
+    private int colorThreshold = 1;
     private ElapsedTime eject = new ElapsedTime();
     private ElapsedTime matchTimer = new ElapsedTime();
     private int[] timerIndexes = {1, 2, 10, 3, 4};
@@ -81,6 +81,8 @@ public class TeleOp_Revised extends OpMode {
     private boolean speedToggleFlag = false;
     private boolean slowState = false;
     private ElapsedTime loopTimer = new ElapsedTime();
+
+    private double loopTime = 0;
 
     @Override
     public void init() {
@@ -117,7 +119,9 @@ public class TeleOp_Revised extends OpMode {
     @Override
     public void loop() {
 
+        loopTime = loopTimer.milliseconds();
         loopTimer.reset();
+
 
         forward = -gamepad1.left_stick_y * Math.abs(gamepad1.left_stick_y);
         right = gamepad1.left_stick_x * Math.abs(gamepad1.left_stick_x);
@@ -206,14 +210,14 @@ public class TeleOp_Revised extends OpMode {
             if (color) {
                 if (robot.intake.blue() - robot.intake.red() > colorThreshold) {
                     spinner = -1;
-                    if (robot.autoIntake && robot.intake(1))
+                    if (robot.intake(1))
                         vexes = 0;
                     eject.reset();
                 }
             } else {
                 if (robot.intake.red() - robot.intake.blue() > colorThreshold) {
                     spinner = -1;
-                    if (robot.autoIntake && robot.intake(1))
+                    if (robot.intake(1))
                         vexes = 0;
                     eject.reset();
                 }
@@ -535,7 +539,7 @@ public class TeleOp_Revised extends OpMode {
                 .addData("loop time", new Func<String>() {
                     @Override
                     public String value() {
-                        return String.format(Locale.ENGLISH, "%.2f", loopTimer.milliseconds());
+                        return String.format(Locale.ENGLISH, "%.2f", loopTime);
                     }
                 });
 
@@ -608,6 +612,21 @@ public class TeleOp_Revised extends OpMode {
                             return String.format(Locale.ENGLISH, "%.2f", capLeftPosition);
                         }
                     });
+            if (robot.eject)
+                telemetry.addLine()
+                        .addData("red", new Func<String>() {
+                                    @Override
+                                    public String value() {
+                                        return String.format(Locale.ENGLISH, "%d", robot.intake.red());
+                                    }
+                                }
+                        )
+                        .addData("blue", new Func<String>() {
+                            @Override
+                            public String value() {
+                                return String.format(Locale.ENGLISH, "%d", robot.intake.blue());
+                            }
+                        });
         }
     }
 }
