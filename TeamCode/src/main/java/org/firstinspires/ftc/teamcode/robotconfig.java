@@ -518,6 +518,8 @@ public class robotconfig {
 
         try {
             intake = hwMap.colorSensor.get("intake");
+            intake.enableLed(false);
+            intake.enableLed(true);
         } catch (Exception err) {
             eject = false;
             opMode.telemetry.addData("wiring", "connect color sensor intake and touch sensor intake1");
