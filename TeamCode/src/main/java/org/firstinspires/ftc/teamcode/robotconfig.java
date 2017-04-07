@@ -130,20 +130,20 @@ public class robotconfig {
         if (intakeSensorRedundancy)
             switch (i) {
                 case 1:
-                    return !intake1.isPressed() || !intake1b.isPressed();
+                    return intake1.isPressed() || intake1b.isPressed();
 //                case 2:
-//                    return !intake2.isPressed() || !intake2b.isPressed();
+//                    return intake2.isPressed() || intake2b.isPressed();
                 case 3:
-                    return !intake3.isPressed() || !intake3b.isPressed();
+                    return intake3.isPressed() || intake3b.isPressed();
             }
         else
             switch (i) {
                 case 1:
-                    return !intake1.isPressed();
+                    return intake1.isPressed();
 //                case 2:
-//                    return !intake2.isPressed();
+//                    return intake2.isPressed();
                 case 3:
-                    return !intake3.isPressed();
+                    return intake3.isPressed();
             }
         return false;
     }
