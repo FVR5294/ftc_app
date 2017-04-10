@@ -135,6 +135,7 @@ class stateslist {
             robot.enableMotorEncoders();
             Thread.yield();
             robot.move(0.2, 0, 0);
+            robot.spinner.setPower(0.7);
         }
 
         public void everyTime() {
@@ -147,6 +148,7 @@ class stateslist {
 
         public void onCompletion() {
             robot.move(0, 0, 0);
+            robot.spinner.setPower(0);
         }
     };
 

@@ -26,8 +26,6 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.ColorSensor;
-import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 
 /**
  * Created by Chris D on 10/5/2016
@@ -39,13 +37,9 @@ import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 @TeleOp(name = "MultiplexColorSensorTest", group = "Iterative Opmode")
 //@Disabled
 public class MultiplexColorSensorTest extends OpMode {
-//    MultiplexColorSensor muxColor;
-//    int[] ports = {2, 5};
-//    robotconfig robot = new robotconfig();
 
-    ColorSensor ada;
-    OpticalDistanceSensor ods;
-
+    double vexes = 0.5;
+    robotconfig robot = new robotconfig();
 
     @Override
     public void init() {
@@ -54,8 +48,7 @@ public class MultiplexColorSensorTest extends OpMode {
 //        muxColor = new MultiplexColorSensor(hardwareMap, "mux", "ada",
 //                ports, milliSeconds,
 //                MultiplexColorSensor.GAIN_16X);
-        ada = hardwareMap.colorSensor.get("ada");
-        ods = hardwareMap.opticalDistanceSensor.get("ods");
+        robot.init(this);
     }
 
     @Override
@@ -71,15 +64,17 @@ public class MultiplexColorSensorTest extends OpMode {
 
     @Override
     public void loop() {
-//        for (int i = 0; i < ports.length; i++) {
-//            int[] crgb = muxColor.getCRGB(ports[i]);
 
-//            telemetry.addLine("Sensor " + ports[i]);
-//        }
+        vexes = -gamepad2.left_stick_y * 0.5 + 0.5 + gamepad1.right_trigger / 2 + gamepad2.right_trigger / 2 - gamepad2.left_trigger / 2;
+        robot.rvex.setPosition(vexes);
+        robot.lvex.setPosition(vexes);
 
-        telemetry.addData("CRGB", "%d %d %d %d",
-                ada.alpha(), ada.red(), ada.green(), ada.blue());
-        telemetry.addData("ODS", "%f", ods.getLightDetected());
+        telemetry.addData("beacon CRGB", "%d %d %d %d",
+                robot.ada.alpha(), robot.ada.red(), robot.ada.green(), robot.ada.blue());
+        telemetry.addData("ODS", "%f", robot.ods.getLightDetected());
+        if (robot.eject)
+            telemetry.addData("intake CRGB", "%d %d %d %d",
+                    robot.intake.alpha(), robot.intake.red(), robot.intake.green(), robot.intake.blue());
     }
 
     @Override

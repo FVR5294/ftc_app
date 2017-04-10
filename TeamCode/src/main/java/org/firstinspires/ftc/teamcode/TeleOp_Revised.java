@@ -89,7 +89,8 @@ public class TeleOp_Revised extends OpMode {
 
     private double maxLoopTime = 0;
 
-    private double intakeDelay = 0.42;
+    private double forwardIntakeDelay = 0.42;
+    private double elseIntakeDelay = 0.1;
     private ElapsedTime intakeTime = new ElapsedTime();
 
     @Override
@@ -176,7 +177,10 @@ public class TeleOp_Revised extends OpMode {
                 if (robot.intake(1))
                     intakeTime.reset();
 
-                ballPresent = intakeTime.seconds() < intakeDelay;
+                if (vexes > 0.5)
+                    ballPresent = intakeTime.seconds() < forwardIntakeDelay;
+                else
+                    ballPresent = intakeTime.seconds() < elseIntakeDelay;
 
             }
 
@@ -185,7 +189,7 @@ public class TeleOp_Revised extends OpMode {
                 unleash = false;
 
             //check if ball entered puncher thing
-            if (previous3state && !robot.intake(3) && vexes > 0.5)
+            if ((previous3state && !robot.intake(3) && vexes > 0.5) || robot.intake(4))
                 ballLoad = true;
 
             previous3state = robot.intake(3);
@@ -198,8 +202,8 @@ public class TeleOp_Revised extends OpMode {
             if (!ballLoad || ((unleash || ballPresent) && !robot.intake(3)))
                 vexes = 1;
 
-//            if (spinnerState && (ballPresent || !ballLoad))
-//                spinner = 0;
+            if (spinnerState && (ballPresent || !ballLoad))
+                spinner = 0;
         }
 
         if (robot.eject && (!robot.firstIntake || robot.intake(1))) {
@@ -219,8 +223,8 @@ public class TeleOp_Revised extends OpMode {
 
             if (eject.seconds() < 1) {
                 spinner = -1;
-//                if (ballPresent)
-//                    vexes = 0;
+                if (!ballPresent)
+                    vexes = 0;
             }
         }
 
@@ -232,8 +236,7 @@ public class TeleOp_Revised extends OpMode {
 
         robot.spinner.setPower(spinner);
 
-        //automatically start when ball is above the L
-        if (ballLoad)
+        if (ballLoad && !robot.intake(4))
             robot.theHammerOfDawn.setPosition(1);
         else
             robot.theHammerOfDawn.setPosition(vexes);

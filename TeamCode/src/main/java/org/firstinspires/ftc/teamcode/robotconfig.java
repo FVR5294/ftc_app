@@ -69,7 +69,7 @@ public class robotconfig {
     TouchSensor intake1b;
     //    TouchSensor intake2b;
     TouchSensor intake3b;
-    //    TouchSensor intake4;
+    TouchSensor intake4;
     // State used for updating telemetry
     Orientation angles;
     Acceleration gravity;
@@ -144,6 +144,8 @@ public class robotconfig {
 //                    return intake2.isPressed();
                 case 3:
                     return intake3.isPressed();
+                case 4:
+                    return intake4.isPressed();
             }
         return false;
     }
@@ -476,6 +478,7 @@ public class robotconfig {
             fLeftMotor = hwMap.dcMotor.get("fl_drive");
         } catch (Exception err) {
             debugMode = false;
+            opMode.telemetry.addData("wiring", "connect robot");
         }
 
         try {
@@ -495,6 +498,7 @@ public class robotconfig {
 
         try {
             intake3 = hwMap.touchSensor.get("intake3");
+            intake4 = hwMap.touchSensor.get("intake4");
         } catch (Exception err) {
             autoIntake = false;
             opMode.telemetry.addData("wiring", "connect touch sensor intake3");
