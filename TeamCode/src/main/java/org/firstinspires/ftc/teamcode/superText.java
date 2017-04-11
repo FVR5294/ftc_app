@@ -4,7 +4,7 @@ package org.firstinspires.ftc.teamcode;
  * Created by mail2 on 4/4/2017.
  */
 
-public final class superText {
+public class superText {
     public static final String[][] numbers = {{
             "___^^^^^^___",
             "_^^______^^_",
@@ -123,4 +123,6 @@ public final class superText {
             "_________",
             "_________"
     }};
+
+    public static final String[] bars = {"", "@", "@@", "@@@", "@@@@", "@@@@+"};
 }

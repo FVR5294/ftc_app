@@ -10,6 +10,7 @@ import org.firstinspires.ftc.robotcore.external.Func;
 import java.util.Locale;
 
 import static org.firstinspires.ftc.teamcode.robotconfig.dl;
+import static org.firstinspires.ftc.teamcode.superText.bars;
 import static org.firstinspires.ftc.teamcode.superText.numbers;
 
 /**
@@ -20,78 +21,93 @@ import static org.firstinspires.ftc.teamcode.superText.numbers;
 
 public class TeleOp_Revised extends OpMode {
 
-    private final double buttonPusher_MIN_RANGE = 0.35;
-    private final double buttonPusher_MAX_RANGE = 0.65;
+    final double buttonPusher_MIN_RANGE = 0.35;
+    final double buttonPusher_MAX_RANGE = 0.65;
 
-    private final double Tilt_MAX_RANGE = 0.95;
-    private final double Tilt_MIN_RANGE = 0.05;
+    final double Tilt_MAX_RANGE = 0.95;
+    final double Tilt_MIN_RANGE = 0.05;
 
-    private final double capRight_MAX_RANGE = 0.95;
-    private final double capRight_MIN_RANGE = 0.05;
+    final double capRight_MAX_RANGE = 0.95;
+    final double capRight_MIN_RANGE = 0.05;
 
-    private final double capLeft_MAX_RANGE = 0.95;
-    private final double capLeft_MIN_RANGE = 0.05;
-    private final double buttonPusherDelta = 0.02;
-    private final double tiltDelta = 0.02;
-    private final double capLeftDelta = 0.02;
-    private final double capRightDelta = 0.02;
-    private final double pulses = 2240.0;
-    private final double pulsesReduced = pulses * 0.9;
-    private final double rampNumb = 3.5 / pulses;
-    private final boolean illegibleText = false;
+    final double capLeft_MAX_RANGE = 0.95;
+    final double capLeft_MIN_RANGE = 0.05;
+    final double buttonPusherDelta = 0.02;
+    final double tiltDelta = 0.02;
+    final double capLeftDelta = 0.02;
+    final double capRightDelta = 0.02;
+    final double pulses = 2240.0;
+    final double pulsesReduced = pulses * 0.9;
+    final double rampNumb = 3.5 / pulses;
+
+    final boolean illegibleText = false;
+    final boolean barGraph = true;
+    int completeSeconds = 0;
+
     robotconfig robot = new robotconfig();
-    private double endpulses = 0.0;
-    private double buttonPusherPosition = 0;
-    private double tiltPosition = 0;
-    private double capLeftPosition = 0;
-    private double capRightPosition = 0;
-    private double forward = 0;
-    private double right = 0;
-    private double spin = 0;
-    private double spinner = 0;
-    private double reeler = 0;
-    private double vexes = 0.5;
-    private double puncher = 0;
-    private int minutes = 0;
-    private int seconds = 0;
-    private int scoreA = 0;
-    private int scoreB = 0;
-    private boolean endGame = false;
-    private boolean gp2a = false;
-    private boolean gp2b = false;
-    private boolean unleash = false;
-    private boolean color = false;
-    private int colorThreshold = 1;
-    private ElapsedTime eject = new ElapsedTime();
-    private ElapsedTime matchTimer = new ElapsedTime();
-    private int[] timerIndexes = {1, 2, 10, 3, 4};
-    private int[] scoreIndexes = {1, 2, 12, 3, 4};
-    private boolean puncherBroken = false;
+    double endpulses = 0.0;
+    double buttonPusherPosition = 0;
+    double tiltPosition = 0;
+    double capLeftPosition = 0;
+    double capRightPosition = 0;
+    double forward = 0;
+    double right = 0;
+    double spin = 0;
+    double spinner = 0;
+    double reeler = 0;
+    double vexes = 0.5;
+    double puncher = 0;
+    int minutes = 0;
+    int seconds = 0;
+    int scoreX = 0;
+    int scoreB = 0;
+    boolean endGame = false;
+    boolean gp2x = false;
+    boolean gp2b = false;
+    boolean unleash = false;
+    boolean color = false;
+    int colorThreshold = 1;
+    ElapsedTime eject = new ElapsedTime();
+    ElapsedTime matchTimer = new ElapsedTime();
+    int[] timerIndexes = {1, 2, 10, 3, 4};
+    int[] scoreIndexes = {1, 2, 12, 3, 4};
+    boolean puncherBroken = false;
     //if ball is touching first limit switch
-    private boolean ballPresent = false;
+    boolean ballPresent = false;
     //if ball is beyond third switch
-    private boolean ballLoad = false;
-    private boolean previous3state = false;
-    //    private boolean previous2state = false;
-//    private boolean previous1state = false;
-    private boolean previousAState = false;
-    private boolean previousGaryState = false;
-    private boolean spinnerState = false;
-    private boolean puncherState = false;
-    private boolean speedToggleFlag = false;
-    private boolean slowState = false;
-    private ElapsedTime loopTimer = new ElapsedTime();
+    boolean ballLoad = false;
+    boolean previous3state = false;
+    //    boolean previous2state = false;
+//    boolean previous1state = false;
+    boolean previousAState = false;
+    boolean previousGaryState = false;
+    boolean spinnerState = false;
+    boolean puncherState = false;
+    boolean speedToggleFlag = false;
+    boolean slowState = false;
+    ElapsedTime loopTimer = new ElapsedTime();
 
-    private double loopTime = 0;
+    double loopTime = 0;
 
-    private double totalLoopTime = 0;
-    private double loopCount = 1;
+    double totalLoopTime = 0;
+    double loopCount = 1;
 
-    private double maxLoopTime = 0;
+    double maxLoopTime = 0;
 
-    private double forwardIntakeDelay = 0.42;
-    private double elseIntakeDelay = 0.1;
-    private ElapsedTime intakeTime = new ElapsedTime();
+    double forwardIntakeDelay = 0.42;
+    double elseIntakeDelay = 0.2;
+    ElapsedTime intakeTime = new ElapsedTime();
+
+    ElapsedTime loadTimer = new ElapsedTime();
+    double lowerLoadTime = 0.2;
+    double upperLoadTime = 0.42;
+
+    ElapsedTime constantRunTimer = new ElapsedTime();
+    double constantRunTime = 2;
+    boolean intakeIdle = false;
+
+    ElapsedTime intake4timer = new ElapsedTime();
+    double intake4time = 0.2;
 
     @Override
     public void init() {
@@ -101,8 +117,7 @@ public class TeleOp_Revised extends OpMode {
 
 //        robot.disableMotorEncoders();
         // Send telemetry message to signify robot waiting;
-//        robot.capLeft.getController().pwmDisable();
-
+        robot.capLeft.getController().pwmDisable();
         telemetry.update();
         buttonPusherPosition = 0.5;
         tiltPosition = 0.50;
@@ -124,6 +139,7 @@ public class TeleOp_Revised extends OpMode {
     public void start() {
         matchTimer.reset();
         loopTimer.reset();
+        constantRunTimer.reset();
     }
 
     @Override
@@ -188,35 +204,43 @@ public class TeleOp_Revised extends OpMode {
             if (unleash && robot.intake(3))
                 unleash = false;
 
-            //check if ball entered puncher thing
-            if ((previous3state && !robot.intake(3) && vexes > 0.5) || robot.intake(4))
-                ballLoad = true;
+            if (robot.intake(3))
+                loadTimer.reset();
 
-            previous3state = robot.intake(3);
+            if (robot.intake(4))
+                intake4timer.reset();
+
+            //check if ball entered puncher thing
+            if (!ballLoad)
+                if (intake4timer.seconds() < intake4time || (vexes > 0.5 && loadTimer.seconds() > lowerLoadTime && loadTimer.seconds() < upperLoadTime))
+                    ballLoad = true;
+
+            if (ballLoad || ballPresent)
+                constantRunTimer.reset();
+
+            intakeIdle = constantRunTimer.seconds() > constantRunTime;
         }
 
-        vexes = -gamepad2.left_stick_y * 0.5 + 0.5 + gamepad1.right_trigger / 2 + gamepad2.right_trigger / 2 - gamepad2.left_trigger / 2;
+        vexes = -gamepad2.left_stick_y * 0.5 + 0.5 + gamepad2.right_trigger / 2 - gamepad2.left_trigger / 2;
 
-        if (robot.autoIntake && Math.abs(vexes - 0.5) < 0.1) {
+        if (robot.autoIntake && !intakeIdle && Math.abs(vexes - 0.5) < 0.1) {
 
-            if (!ballLoad || ((unleash || ballPresent) && !robot.intake(3)))
+            if ((!ballLoad && !gamepad2.a) || ((unleash || ballPresent) && !robot.intake(3)))
                 vexes = 1;
 
-            if (spinnerState && (ballPresent || !ballLoad))
+            if (spinnerState && (ballPresent || (!ballLoad && !gamepad2.a)))
                 spinner = 0;
         }
 
-        if (robot.eject && (!robot.firstIntake || robot.intake(1))) {
+        if (robot.eject) {
             if (color) {
                 if (robot.intake.blue() - robot.intake.red() > colorThreshold) {
                     spinner = -1;
-                    vexes = 0;
                     eject.reset();
                 }
             } else {
                 if (robot.intake.red() - robot.intake.blue() > colorThreshold) {
                     spinner = -1;
-                    vexes = 0;
                     eject.reset();
                 }
             }
@@ -320,11 +344,11 @@ public class TeleOp_Revised extends OpMode {
 
         } else {
 
-            if (gamepad2.a && !gp2a)
-                if (gamepad2.right_bumper && scoreA > 0)
-                    scoreA--;
+            if (gamepad2.x && !gp2x)
+                if (gamepad2.right_bumper && scoreX > 0)
+                    scoreX--;
                 else
-                    scoreA++;
+                    scoreX++;
 
             if (gamepad2.b && !gp2b)
                 if (gamepad2.right_bumper && scoreB > 0)
@@ -334,7 +358,7 @@ public class TeleOp_Revised extends OpMode {
 
         }
 
-        gp2a = gamepad2.a;
+        gp2x = gamepad2.x;
         gp2b = gamepad2.b;
 
         if (endGame && gamepad2.a) {
@@ -370,7 +394,7 @@ public class TeleOp_Revised extends OpMode {
         robot.lvex.setPosition(0.5);
     }
 
-    private void activateTelemetry() {
+    void activateTelemetry() {
         telemetry.addAction(new Runnable() {
             @Override
             public void run() {
@@ -379,6 +403,7 @@ public class TeleOp_Revised extends OpMode {
                 else
                     seconds = (int) matchTimer.seconds();
 
+                completeSeconds = seconds % 120;
                 minutes = seconds;
                 seconds %= 60;
                 minutes -= seconds;
@@ -390,14 +415,54 @@ public class TeleOp_Revised extends OpMode {
                     timerIndexes[3] = seconds / 10;
                     timerIndexes[4] = seconds % 10;
 
-                    scoreIndexes[0] = scoreA / 10;
-                    scoreIndexes[1] = scoreA % 10;
+                    scoreIndexes[0] = scoreX / 10;
+                    scoreIndexes[1] = scoreX % 10;
                     scoreIndexes[3] = scoreB / 10;
                     scoreIndexes[4] = scoreB % 10;
                 }
 
             }
         });
+
+        final int barCount = 5;
+        final int total = 30;
+
+        if (barGraph) {
+            telemetry.addLine()
+                    .addData("t1", new Func<String>() {
+                        @Override
+                        public String value() {
+                            int index = Math.max(0, Math.min(barCount, barCount * ((completeSeconds - total * 0) / total)));
+                            return bars[index];
+                        }
+                    });
+            telemetry.addLine()
+                    .addData("t2", new Func<String>() {
+                        @Override
+                        public String value() {
+                            int index = Math.max(0, Math.min(barCount, barCount * ((completeSeconds - total * 1) / total)));
+                            return bars[index];
+                        }
+                    });
+            telemetry.addLine();
+            telemetry.addLine()
+                    .addData("t3", new Func<String>() {
+                        @Override
+                        public String value() {
+                            int index = Math.max(0, Math.min(barCount, barCount * ((completeSeconds - total * 2) / total)));
+                            return bars[index];
+                        }
+                    });
+            telemetry.addLine()
+                    .addData("t4", new Func<String>() {
+                        @Override
+                        public String value() {
+                            int index = Math.max(0, Math.min(barCount, barCount * ((completeSeconds - total * 3) / total)));
+                            return bars[index];
+                        }
+                    });
+            telemetry.addLine();
+        }
 
         if (illegibleText) {
             telemetry.addLine()
@@ -522,11 +587,14 @@ public class TeleOp_Revised extends OpMode {
                         return String.format(Locale.ENGLISH, "%d:%d", minutes, seconds);
                     }
                 });
+
+        telemetry.addLine();
+
         telemetry.addLine()
                 .addData("score", new Func<String>() {
                     @Override
                     public String value() {
-                        return String.format(Locale.ENGLISH, "%d - %d", scoreA, scoreB);
+                        return String.format(Locale.ENGLISH, "%d - %d", scoreX, scoreB);
                     }
                 });
         telemetry.addLine()
