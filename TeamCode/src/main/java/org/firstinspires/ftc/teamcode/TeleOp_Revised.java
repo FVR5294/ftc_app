@@ -716,6 +716,28 @@ public class TeleOp_Revised extends OpMode {
                                 return String.format(Locale.ENGLISH, "%b", ballLoad);
                             }
                         });
+            if (robot.autoIntake && robot.firstIntake)
+                telemetry.addLine()
+                        .addData("intake1", new Func<String>() {
+                                    @Override
+                                    public String value() {
+                                        return String.format(Locale.ENGLISH, "%b", robot.intake(1));
+                                    }
+                                }
+                        )
+                        .addData("intake3", new Func<String>() {
+                                    @Override
+                                    public String value() {
+                                        return String.format(Locale.ENGLISH, "%b", robot.intake(3));
+                                    }
+                                }
+                        )
+                        .addData("intake4", new Func<String>() {
+                            @Override
+                            public String value() {
+                                return String.format(Locale.ENGLISH, "%b", robot.intake(4));
+                            }
+                        });
         }
     }
 }

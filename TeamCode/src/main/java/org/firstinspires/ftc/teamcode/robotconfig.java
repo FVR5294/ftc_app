@@ -452,6 +452,11 @@ public class robotconfig {
 
             spinner.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             spinner.setPower(0);
+            puncher.setPower(0.6);
+            while (!garry.isPressed()) {
+                Thread.yield();
+            }
+            puncher.setPower(0);
         }
         //and check servo power
         this.pushButton(0);
@@ -616,6 +621,12 @@ public class robotconfig {
 
             spinner.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             spinner.setPower(0);
+
+            puncher.setPower(0.6);
+            while (!garry.isPressed()) {
+                Thread.yield();
+            }
+            puncher.setPower(0);
         }
         //and check servo power
         this.pushButton(0);

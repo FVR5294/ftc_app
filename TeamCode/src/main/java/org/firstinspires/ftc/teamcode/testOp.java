@@ -56,6 +56,7 @@ public class testOp extends OpMode {
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Say", "Hello Driver");
         updateTelemetry(telemetry);
+        robot.puncher.setPower(1);
     }
 
     /*
@@ -63,6 +64,8 @@ public class testOp extends OpMode {
      */
     @Override
     public void init_loop() {
+        if (!robot.garry.isPressed())
+            robot.puncher.setPower(0);
     }
 
     /*
