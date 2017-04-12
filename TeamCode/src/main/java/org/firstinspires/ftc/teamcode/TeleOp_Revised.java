@@ -215,7 +215,7 @@ public class TeleOp_Revised extends OpMode {
                 if (intake4timer.seconds() < intake4time || (vexes > 0.5 && loadTimer.seconds() > lowerLoadTime && loadTimer.seconds() < upperLoadTime))
                     ballLoad = true;
 
-            if (ballLoad || ballPresent)
+            if (ballPresent || ballLoad || robot.intake(3))
                 constantRunTimer.reset();
 
             intakeIdle = constantRunTimer.seconds() > constantRunTime;
