@@ -3,6 +3,8 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
+import org.firstinspires.ftc.robotcore.external.Func;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -43,11 +45,13 @@ public class strafe_test extends LinearOpMode {
         for (int i = 0; i < 20; i++) {
             askState(states.slideToTheRight);
             askState(states.scanForLine);
+            askState(states.sleep2000);
 //        askState(states.driveTowardsBeacon);
 //        askState(states.pushBeaconButton);
 //        askState(states.backAwayFromBeacon5);
             askState(states.slideToTheLeft);
             askState(states.scanForLineInverted);
+            askState(states.sleep2000);
 //        askState(states.driveTowardsBeacon);
 //        askState(states.pushBeaconButton);
         }
@@ -74,17 +78,36 @@ public class strafe_test extends LinearOpMode {
         displayStates();
         //display telementry data
         telemetry.update();
+        telemetry.setMsTransmissionInterval(20);
         waitForStart();
+        telemetry.addLine()
+                .addData("state", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return runlist[currentState].name;
+                    }
+                });
+        telemetry.addLine()
+                .addData("gyroP", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return String.format(Locale.ENGLISH, "%.2f", robot.gyroPid.getOutput());
+                    }
+                })
+                .addData("ultraP", new Func<String>() {
+                    @Override
+                    public String value() {
+                        return String.format(Locale.ENGLISH, "%.2f", robot.ultraPid.getOutput());
+                    }
+                });
         //add log to log file
         robotconfig.addlog(dl, "autonomous", "Started");
         //loop while match is running
         while (opModeIsActive()) {
 
             robotconfig.addlog(dl, "Mainline", "Beginning state machine pass " + String.format(Locale.ENGLISH, "%d", currentState));
-
             //check if the currentState is more than the last index of the runlist
             if (currentState + 1 < runlist.length) {
-                telemetry.addData("state", runlist[currentState].name);
                 telemetry.update();
                 //run the state from the runlist of the currentState index
                 runlist[currentState].run();
