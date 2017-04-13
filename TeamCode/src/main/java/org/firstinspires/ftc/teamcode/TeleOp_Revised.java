@@ -42,8 +42,8 @@ public class TeleOp_Revised extends OpMode {
 
     final boolean illegibleText = false;
     final boolean barGraph = true;
+    final boolean squishBallsTogether = false;
     int completeSeconds = 0;
-
     robotconfig robot = new robotconfig();
     double endpulses = 0.0;
     double buttonPusherPosition = 0;
@@ -72,7 +72,7 @@ public class TeleOp_Revised extends OpMode {
     int[] timerIndexes = {1, 2, 10, 3, 4};
     int[] scoreIndexes = {1, 2, 12, 3, 4};
     boolean puncherBroken = false;
-    //if ball is touching first limit switch
+    //if ball is touching or beyond first limit switch
     boolean ballPresent = false;
     //if ball is beyond third switch
     boolean ballLoad = false;
@@ -86,28 +86,16 @@ public class TeleOp_Revised extends OpMode {
     boolean speedToggleFlag = false;
     boolean slowState = false;
     ElapsedTime loopTimer = new ElapsedTime();
-
     double loopTime = 0;
-
     double totalLoopTime = 0;
     double loopCount = 1;
-
     double maxLoopTime = 0;
-
-    double forwardIntakeDelay = 0.42;
-    double elseIntakeDelay = 0.2;
-    ElapsedTime intakeTime = new ElapsedTime();
-
-    ElapsedTime loadTimer = new ElapsedTime();
-    double lowerLoadTime = 0.2;
     double upperLoadTime = 0.42;
-
-    ElapsedTime constantRunTimer = new ElapsedTime();
-    double constantRunTime = 2;
-    boolean intakeIdle = false;
-
-    ElapsedTime intake4timer = new ElapsedTime();
+    double lowerLoadTime = 0.2;
     double intake4time = 0.2;
+    ElapsedTime loadTimer = new ElapsedTime();
+    ElapsedTime intake4timer = new ElapsedTime();
+    boolean intake3 = false;
 
     @Override
     public void init() {
@@ -139,7 +127,6 @@ public class TeleOp_Revised extends OpMode {
     public void start() {
         matchTimer.reset();
         loopTimer.reset();
-        constantRunTimer.reset();
     }
 
     @Override
@@ -188,15 +175,24 @@ public class TeleOp_Revised extends OpMode {
 
         if (robot.autoIntake) {
 
-            if (robot.firstIntake) {
+            if (squishBallsTogether) {
 
-                if (robot.intake(1))
-                    intakeTime.reset();
+                if (!ballPresent)
+                    if (robot.intake(1) || robot.intake(2) || robot.intake(3))
+                        ballPresent = true;
 
-                if (vexes > 0.5)
-                    ballPresent = intakeTime.seconds() < forwardIntakeDelay;
-                else
-                    ballPresent = intakeTime.seconds() < elseIntakeDelay;
+            } else {
+
+                if (!ballPresent && robot.intake(1)) {
+                    ballPresent = true;
+                    intake3 = !robot.intake(2);
+                }
+
+                if (intake3 && robot.intake(1) && robot.intake(2))
+                    intake3 = false;
+
+                if (ballPresent && robot.intake(2) && (robot.intake(3) || intake3))
+                    ballPresent = false;
 
             }
 
@@ -214,22 +210,30 @@ public class TeleOp_Revised extends OpMode {
             if (!ballLoad)
                 if (intake4timer.seconds() < intake4time || (vexes > 0.5 && loadTimer.seconds() > lowerLoadTime && loadTimer.seconds() < upperLoadTime))
                     ballLoad = true;
-
-            if (ballPresent || ballLoad || robot.intake(3))
-                constantRunTimer.reset();
-
-            intakeIdle = constantRunTimer.seconds() > constantRunTime;
         }
 
         vexes = -gamepad2.left_stick_y * 0.5 + 0.5 + gamepad2.right_trigger / 2 - gamepad2.left_trigger / 2;
 
-        if (robot.autoIntake && !intakeIdle && Math.abs(vexes - 0.5) < 0.1) {
+        if (robot.autoIntake && Math.abs(vexes - 0.5) < 0.1) {
 
-            if ((!ballLoad && !gamepad2.a) || ((unleash || ballPresent) && !robot.intake(3)))
-                vexes = 1;
+            if (squishBallsTogether) {
 
-            if (spinnerState && (ballPresent || (!ballLoad && !gamepad2.a)))
-                spinner = 0;
+                if (ballPresent)
+                    if (!ballLoad || (unleash && !robot.intake(3)))
+                        vexes = 1;
+
+                if (spinnerState && robot.intake(3) && !gamepad2.a)
+                    spinner = 0;
+
+            } else {
+
+                if ((!ballLoad && !gamepad2.a) || ((unleash || ballPresent) && !robot.intake(3)))
+                    vexes = 1;
+
+                if (spinnerState && (ballPresent || (!ballLoad && !gamepad2.a)))
+                    spinner = 0;
+
+            }
         }
 
         if (robot.eject) {
@@ -290,8 +294,11 @@ public class TeleOp_Revised extends OpMode {
             }
 
             //tell auto intake script to go fetch a ball
-            if (ballLoad && robot.garry.isPressed() && !previousGaryState)
+            if (ballLoad && robot.garry.isPressed() && !previousGaryState) {
                 ballLoad = false;
+                if (squishBallsTogether)
+                    ballPresent = false;
+            }
         }
 
         if (gamepad1.y && !puncherState) {
@@ -716,12 +723,19 @@ public class TeleOp_Revised extends OpMode {
                                 return String.format(Locale.ENGLISH, "%b", ballLoad);
                             }
                         });
-            if (robot.autoIntake && robot.firstIntake)
+            if (robot.autoIntake)
                 telemetry.addLine()
                         .addData("intake1", new Func<String>() {
                                     @Override
                                     public String value() {
                                         return String.format(Locale.ENGLISH, "%b", robot.intake(1));
+                                    }
+                                }
+                        )
+                        .addData("intake2", new Func<String>() {
+                                    @Override
+                                    public String value() {
+                                        return String.format(Locale.ENGLISH, "%b", robot.intake(2));
                                     }
                                 }
                         )

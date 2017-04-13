@@ -44,7 +44,6 @@ public class robotconfig {
     public boolean ultraEnabled = true;
     public boolean autoIntake = true;
     public boolean firstIntake = true;
-    public boolean intakeSensorRedundancy = true;
     public boolean eject = true;
 
     public ElapsedTime puncherTimer = new ElapsedTime();
@@ -64,11 +63,8 @@ public class robotconfig {
     Telemetry ltelemetry;
     TouchSensor touchBeacon;
     TouchSensor intake1;
-    //    TouchSensor intake2;
+    TouchSensor intake2;
     TouchSensor intake3;
-    TouchSensor intake1b;
-    //    TouchSensor intake2b;
-    TouchSensor intake3b;
     TouchSensor intake4;
     // State used for updating telemetry
     Orientation angles;
@@ -127,27 +123,18 @@ public class robotconfig {
     }
 
     public boolean intake(int i) {
-        if (intakeSensorRedundancy)
-            switch (i) {
-                case 1:
-                    return intake1.isPressed() || intake1b.isPressed();
-//                case 2:
-//                    return intake2.isPressed() || intake2b.isPressed();
-                case 3:
-                    return intake3.isPressed() || intake3b.isPressed();
-            }
-        else
-            switch (i) {
-                case 1:
-                    return intake1.isPressed();
-//                case 2:
-//                    return intake2.isPressed();
-                case 3:
-                    return intake3.isPressed();
-                case 4:
-                    return intake4.isPressed();
-            }
-        return false;
+        switch (i) {
+            case 1:
+                return intake1.isPressed();
+            case 2:
+                return intake2.isPressed();
+            case 3:
+                return intake3.isPressed();
+            case 4:
+                return intake4.isPressed();
+            default:
+                return false;
+        }
     }
 
     /***
@@ -502,28 +489,30 @@ public class robotconfig {
         }
 
         try {
+            intake1 = hwMap.touchSensor.get("intake1");
+            intake2 = hwMap.touchSensor.get("intake2");
             intake3 = hwMap.touchSensor.get("intake3");
             intake4 = hwMap.touchSensor.get("intake4");
         } catch (Exception err) {
             autoIntake = false;
-            opMode.telemetry.addData("wiring", "connect touch sensor intake3");
+            opMode.telemetry.addData("wiring", "connect touch sensors intake[2-4]");
         }
 
-        try {
-            intake1 = hwMap.touchSensor.get("intake1");
-        } catch (Exception err) {
-            firstIntake = false;
-            opMode.telemetry.addData("wiring", "connect touch sensor intake1");
-        }
+//        try {
+//            intake1 = hwMap.touchSensor.get("intake1");
+//        } catch (Exception err) {
+//            firstIntake = false;
+//            opMode.telemetry.addData("wiring", "connect touch sensor intake1");
+//        }
 
-        try {
-            if (firstIntake)
-                intake1b = hwMap.touchSensor.get("intake1b");
-            intake3b = hwMap.touchSensor.get("intake3b");
-        } catch (Exception err) {
-            intakeSensorRedundancy = false;
-            opMode.telemetry.addData("wiring", "connect redundant touch sensors intake[13]b");
-        }
+//        try {
+//            if (firstIntake)
+//                intake1b = hwMap.touchSensor.get("intake1b");
+//            intake3b = hwMap.touchSensor.get("intake3b");
+//        } catch (Exception err) {
+//            intakeSensorRedundancy = false;
+//            opMode.telemetry.addData("wiring", "connect redundant touch sensors intake[13]b");
+//        }
 
         try {
             intake = hwMap.colorSensor.get("intake");
