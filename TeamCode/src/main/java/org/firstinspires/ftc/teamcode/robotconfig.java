@@ -56,7 +56,7 @@ public class robotconfig {
     double minGyro = -maxGyro;
     double maxUltra = 1;
     double minUltra = -maxUltra;
-    double ultraGain = 0.08;
+    double ultraGain = 0.008;
     double ultraKu = 0.16;
     double ultraTu = 0;
 
@@ -64,8 +64,11 @@ public class robotconfig {
     double gyroKu = 0.08;
     double gyroTu = 0;
 
-    MiniPID ultraPid = new MiniPID(ultraKu / 5, ultraTu / 2, ultraTu / 3);
-    MiniPID gyroPid = new MiniPID(gyroKu / 5, ultraTu / 2, ultraTu / 3);
+//    MiniPID ultraPid = new MiniPID(ultraKu / 5, ultraTu / 2, ultraTu / 3);
+//    MiniPID gyroPid = new MiniPID(gyroKu / 5, gyroTu / 2, gyroTu / 3);
+
+    MiniPID ultraPid = new MiniPID(ultraGain, 0, 0);
+    MiniPID gyroPid = new MiniPID(gyroGain, 0, 0);
 
     DcMotor fLeftMotor;
     DcMotor fRightMotor;
@@ -83,6 +86,7 @@ public class robotconfig {
     DcMotor spinner;
     DcMotor reeler;
     Servo tilt;
+    Servo tilt2;
     Servo capLeft;
     Servo capRight;
     Servo buttonPusher;
@@ -137,13 +141,13 @@ public class robotconfig {
     public boolean intake(int i) {
         switch (i) {
             case 1:
-                return intake1.isPressed();
+                return !intake1.isPressed();
             case 2:
-                return intake2.isPressed();
+                return !intake2.isPressed();
             case 3:
-                return intake3.isPressed();
+                return !intake3.isPressed();
             case 4:
-                return intake4.isPressed();
+                return !intake4.isPressed();
             default:
                 return false;
         }
@@ -371,6 +375,8 @@ public class robotconfig {
 
         gyroPid.setOutputLimits(1);
         ultraPid.setOutputLimits(1);
+        gyroPid.setDirection(true);
+        ultraPid.setDirection(false);
 
         // Define and Initialize Motors
         if (!debugMode) {
@@ -387,7 +393,10 @@ public class robotconfig {
             theHammerOfDawn.setPosition(0.5);
             tilt = hwMap.servo.get("Tilt");
             tilt.setDirection(Servo.Direction.REVERSE);
-            tilt.setPosition(0.5);
+            tilt.setPosition(1.0 - 140.0 / 255.0);
+            tilt2 = hwMap.servo.get("tilt2");
+            tilt2.setDirection(Servo.Direction.REVERSE);
+            tilt2.setPosition(0);
             capLeft = hwMap.servo.get("capLeft");
             capLeft.setDirection(Servo.Direction.REVERSE);
             capLeft.setPosition(0.05);
@@ -456,11 +465,11 @@ public class robotconfig {
 
             spinner.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             spinner.setPower(0);
-            puncher.setPower(0.6);
-            while (!garry.isPressed()) {
-                Thread.yield();
-            }
-            puncher.setPower(0);
+//            puncher.setPower(0.6);
+//            while (!garry.isPressed()) {
+//                Thread.yield();
+//            }
+//            puncher.setPower(0);
         }
         //and check servo power
         this.pushButton(0);
@@ -556,13 +565,16 @@ public class robotconfig {
             spinner = hwMap.dcMotor.get("spinner");
             theHammerOfDawn = hwMap.servo.get("theHammerOfDawn");
             theHammerOfDawn.setPosition(0.5);
-            tilt = hwMap.servo.get("Tilt");
-            tilt.setDirection(Servo.Direction.REVERSE);
             capLeft = hwMap.servo.get("capLeft");
             capLeft.setDirection(Servo.Direction.REVERSE);
             capLeft.setPosition(0.05);
             capRight = hwMap.servo.get("capRight");
-            tilt.setPosition(0.5);
+            tilt = hwMap.servo.get("Tilt");
+            tilt.setDirection(Servo.Direction.REVERSE);
+            tilt.setPosition(1.0 - 140.0 / 255.0);
+            tilt2 = hwMap.servo.get("tilt2");
+            tilt2.setDirection(Servo.Direction.REVERSE);
+            tilt2.setPosition(0);
             capRight.setPosition(0.05);
 
             garry = hwMap.touchSensor.get("punchLimit");
@@ -628,11 +640,11 @@ public class robotconfig {
             spinner.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             spinner.setPower(0);
 
-            puncher.setPower(0.6);
-            while (!garry.isPressed()) {
-                Thread.yield();
-            }
-            puncher.setPower(0);
+//            puncher.setPower(0.6);
+//            while (!garry.isPressed()) {
+//                Thread.yield();
+//            }
+//            puncher.setPower(0);
         }
         //and check servo power
         this.pushButton(0);
@@ -842,14 +854,12 @@ public class robotconfig {
         }
 
         double gyroValue = (Math.round(getCurrentAngle() / 90) * 90) - getCurrentAngle();
-        double spin = gyroPid.getOutput(getCurrentAngle(), Math.round(getCurrentAngle() / 90) * 90);
+        double spin = Math.max(minGyro, Math.min(maxGyro, gyroValue * gyroGain));
 
-        double ultraVal = 0;
+        double ultraValue = 0;
 
         if (ultraEnabled)
-            ultraVal = ultra.cmUltrasonic() * Math.cos(Math.toRadians(gyroValue)) + hyp * Math.cos(Math.toRadians(gyroValue + 45));
-
-        double ultraValue = ultraPid.getOutput(ultraVal, target);
+            ultraValue = Math.max(minUltra, Math.min(maxUltra, (ultra.cmUltrasonic() * Math.cos(Math.toRadians(gyroValue)) + hyp * Math.cos(Math.toRadians(gyroValue + 45)) - target) * ultraGain));
 
         double fLeftMotorPower = forward + right;
         double fRightMotorPower = forward - right;
@@ -886,7 +896,7 @@ public class robotconfig {
 
         double ultraValue = 0;
         double gyroValue = (Math.round(getCurrentAngle() / 90) * 90) - getCurrentAngle();
-        double spin = gyroPid.getOutput(getCurrentAngle(), Math.round(getCurrentAngle() / 90) * 90);
+        double spin = Math.max(minGyro, Math.min(maxGyro, gyroValue * gyroGain));
 
         double fLeftMotorPower = forward + right;
         double fRightMotorPower = forward - right;
@@ -967,14 +977,12 @@ public class robotconfig {
         }
 
         double gyroValue = (Math.round(getCurrentAngle() / 90) * 90) - getCurrentAngle();
-        double spin = gyroPid.getOutput(getCurrentAngle(), Math.round(getCurrentAngle() / 90) * 90);
+        double spin = Math.max(minGyro, Math.min(maxGyro, gyroValue * gyroGain));
 
-        double ultraVal = 0;
+        double ultraValue = 0;
 
         if (ultraEnabled)
-            ultraVal = ultra.cmUltrasonic() * Math.cos(Math.toRadians(gyroValue)) + hyp * Math.cos(Math.toRadians(gyroValue + 45));
-
-        double ultraValue = ultraPid.getOutput(ultraVal, target);
+            ultraValue = Math.max(minUltra, Math.min(maxUltra, (ultra.cmUltrasonic() * Math.cos(Math.toRadians(gyroValue)) + hyp * Math.cos(Math.toRadians(gyroValue + 45)) - target) * ultraGain));
 
         double fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition());
         double fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());
@@ -1021,7 +1029,6 @@ public class robotconfig {
      * @param target target distance to wall in cm
      */
     public void drunkmove(double target) {
-
 
         if (debugMode) {
             return;
@@ -1086,7 +1093,8 @@ public class robotconfig {
         }
 
         double ultraValue = 0;
-        double spin = gyroPid.getOutput(getCurrentAngle(), Math.round(getCurrentAngle() / 90) * 90);
+        double gyroValue = getCurrentAngle() - (Math.round(getCurrentAngle() / 45) * 45);
+        double spin = Math.max(minGyro, Math.min(maxGyro, gyroValue * gyroGain));
 
         double fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition());
         double fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());
@@ -1140,7 +1148,7 @@ public class robotconfig {
 
         double ultraValue = 0;
         double gyroValue = (Math.round(getCurrentAngle() / 90) * 90) - getCurrentAngle();
-        double spin = gyroPid.getOutput(getCurrentAngle(), Math.round(getCurrentAngle() / 90) * 90);
+        double spin = Math.max(minGyro, Math.min(maxGyro, gyroValue * gyroGain));
 
         double fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition());
         double fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());
@@ -1249,10 +1257,11 @@ public class robotconfig {
     public boolean ultramoving(double target) {
 
         double ultraValue = 0;
-        double spin = gyroPid.getOutput();
+        double gyroValue = (Math.round(getCurrentAngle() / 90) * 90) - getCurrentAngle();
+        double spin = Math.max(minGyro, Math.min(maxGyro, gyroValue * gyroGain));
 
         if (ultraEnabled)
-            ultraValue = ultraPid.getOutput();
+            ultraValue = Math.max(minUltra, Math.min(maxUltra, (ultra.cmUltrasonic() * Math.cos(Math.toRadians(gyroValue)) + hyp * Math.cos(Math.toRadians(gyroValue + 45)) - target) * ultraGain));
 
         int fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition());
         int fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());
@@ -1301,7 +1310,8 @@ public class robotconfig {
     public boolean gyromoving() {
 
         double ultraValue = 0;
-        double spin = gyroPid.getOutput();
+        double gyroValue = (Math.round(getCurrentAngle() / 90) * 90) - getCurrentAngle();
+        double spin = Math.max(minGyro, Math.min(maxGyro, gyroValue * gyroGain));
 
         int fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition());
         int fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());

@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import static org.firstinspires.ftc.teamcode.robotconfig.dl;
@@ -13,7 +14,7 @@ import static org.firstinspires.ftc.teamcode.stateslist.robot;
  */
 
 @Autonomous(name = "dank blue", group = "blue")
-
+@Disabled
 public class dank_blue extends LinearOpMode {
     private preciseMovement p = new preciseMovement();
     private stateslist state = new stateslist();

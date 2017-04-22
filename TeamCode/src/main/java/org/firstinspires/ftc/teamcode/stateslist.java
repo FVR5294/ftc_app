@@ -39,6 +39,8 @@ class stateslist {
 
         public void onCompletion() {
             robot.move(0, 0, 0);
+            robot.gyroPid.reset();
+            robot.ultraPid.reset();
         }
     };
     state scanForLineInverted = new state("scanForLineInverted") {
@@ -56,6 +58,8 @@ class stateslist {
 
         public void onCompletion() {
             robot.move(0, 0, 0);
+            robot.gyroPid.reset();
+            robot.ultraPid.reset();
         }
     };
     state colorRed = new state("colorRed") {
@@ -135,7 +139,7 @@ class stateslist {
             robot.enableMotorEncoders();
             Thread.yield();
             robot.move(0.2, 0, 0);
-            robot.spinner.setPower(0.7);
+            robot.spinner.setPower(0);
         }
 
         public void everyTime() {
@@ -715,7 +719,7 @@ class stateslist {
         }
 
         public void everyTime() {
-            robot.ultramoving(30);
+            robot.drunkmove(30);
         }
 
         public boolean conditionsToCheck() {
@@ -896,6 +900,47 @@ class stateslist {
                 }
             } else {
                 return robot.ultramoving(30);
+            }
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+//            robot.enableEncodersToPosition();
+//            Thread.yield();
+//            robot.setMotorPower(1);
+//            Thread.yield();
+//            p.automaticSquareUp(robot);
+//            Thread.yield();
+//            robot.setMotorPower(0);
+//            Thread.yield();
+//            robot.enableMotorEncoders();
+//            Thread.yield();
+        }
+    };
+
+    state slideToTheLeft2 = new state("slideToTheLeft2") {
+        public void firstTime() {
+            robot.setMyMotorTargets(0, color * p.mm2pulses(-54 * mmPerInch), 0);
+        }
+
+        public void everyTime() {
+            robot.drunkmove(30);
+        }
+
+        public boolean conditionsToCheck() {
+            //robotconfig.addlog(dl, "in arcTowardsBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in slideToTheLeft", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in slideToTheLeft", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.drunkmoving(30);
             }
         }
 
@@ -1457,6 +1502,65 @@ class stateslist {
             Thread.yield();
             robot.enableMotorEncoders();
             Thread.yield();
+        }
+    };
+
+    state noscope2 = new state("noscope2") {
+
+        double pulses = 2240.0;
+        double endpulses = 0.0;
+        double rampNumb = 3.5 / pulses;
+        double puncher = 0;
+
+        public void firstTime() {
+            robot.theHammerOfDawn.setPosition(1);
+            try {
+                sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            endpulses = robot.puncher.getCurrentPosition() + pulses;
+            robot.puncher.setPower(1);
+            while (!robot.garry.isPressed()) {
+                Thread.yield();
+            }
+            robot.setMyMotorTargets(0, 0, p.mm2pulses(p.spin2mm(360 * color)));
+            robot.lvex.setPosition(1);
+            robot.rvex.setPosition(1);
+
+            while (robot.garry.isPressed()) {
+                puncher = Math.min(1, Math.max(0.6, Math.abs(((double) robot.puncher.getCurrentPosition() - endpulses) * rampNumb)));
+                robot.puncher.setPower(puncher);
+                robot.bettermove();
+                Thread.yield();
+            }
+            robot.puncher.setPower(0);
+            while (robot.bettermoving()) {
+                robot.bettermove();
+                Thread.yield();
+            }
+
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
+
+            endpulses = robot.puncher.getCurrentPosition() + pulses;
+            robot.puncher.setPower(1);
+            while (!robot.garry.isPressed()) {
+                Thread.yield();
+            }
+            while (robot.garry.isPressed()) {
+                puncher = Math.min(1, Math.max(0.6, Math.abs(((double) robot.puncher.getCurrentPosition() - endpulses) * rampNumb)));
+                robot.puncher.setPower(puncher);
+                Thread.yield();
+            }
         }
     };
 

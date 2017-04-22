@@ -24,8 +24,8 @@ public class TeleOp_Revised extends OpMode {
     final double buttonPusher_MIN_RANGE = 0.35;
     final double buttonPusher_MAX_RANGE = 0.65;
 
-    final double Tilt_MAX_RANGE = 0.95;
-    final double Tilt_MIN_RANGE = 0.05;
+    final double Tilt_MAX_RANGE = 1.0;
+    final double Tilt_MIN_RANGE = 1.0-140.0/255.0;
 
     final double capRight_MAX_RANGE = 0.95;
     final double capRight_MIN_RANGE = 0.05;
@@ -36,18 +36,20 @@ public class TeleOp_Revised extends OpMode {
     final double tiltDelta = 0.02;
     final double capLeftDelta = 0.02;
     final double capRightDelta = 0.02;
+
     final double pulses = 2240.0;
     final double pulsesReduced = pulses * 0.9;
     final double rampNumb = 3.5 / pulses;
+    final boolean squishBallsTogether = false;
 
     final boolean illegibleText = false;
     final boolean barGraph = true;
-    final boolean squishBallsTogether = false;
     int completeSeconds = 0;
     robotconfig robot = new robotconfig();
     double endpulses = 0.0;
     double buttonPusherPosition = 0;
-    double tiltPosition = 0;
+    double tiltPosition = 1.0-140.0/255.0;
+    double tilt2Position = 0;
     double capLeftPosition = 0;
     double capRightPosition = 0;
     double forward = 0;
@@ -72,11 +74,6 @@ public class TeleOp_Revised extends OpMode {
     int[] timerIndexes = {1, 2, 10, 3, 4};
     int[] scoreIndexes = {1, 2, 12, 3, 4};
     boolean puncherBroken = false;
-    //if ball is touching or beyond first limit switch
-    boolean ballPresent = false;
-    //if ball is beyond third switch
-    boolean ballLoad = false;
-    boolean previous3state = false;
     //    boolean previous2state = false;
 //    boolean previous1state = false;
     boolean previousAState = false;
@@ -90,12 +87,16 @@ public class TeleOp_Revised extends OpMode {
     double totalLoopTime = 0;
     double loopCount = 1;
     double maxLoopTime = 0;
-    double upperLoadTime = 0.42;
-    double lowerLoadTime = 0.2;
-    double intake4time = 0.2;
+
+    double intake4time = 0.1;
     ElapsedTime loadTimer = new ElapsedTime();
     ElapsedTime intake4timer = new ElapsedTime();
     boolean intake3 = false;
+    //if ball is touching or beyond first limit switch
+    boolean ballPresent = false;
+    //if ball is beyond third switch
+    boolean ballLoad = false;
+    ElapsedTime constantRunTimer = new ElapsedTime();
 
     @Override
     public void init() {
@@ -105,10 +106,9 @@ public class TeleOp_Revised extends OpMode {
 
 //        robot.disableMotorEncoders();
         // Send telemetry message to signify robot waiting;
-        robot.capLeft.getController().pwmDisable();
+//        robot.capLeft.getController().pwmDisable();
         telemetry.update();
         buttonPusherPosition = 0.5;
-        tiltPosition = 0.50;
         capLeftPosition = 0.05;
         capRightPosition = 0.05;
         loopTimer.reset();
@@ -127,6 +127,7 @@ public class TeleOp_Revised extends OpMode {
     public void start() {
         matchTimer.reset();
         loopTimer.reset();
+        constantRunTimer.reset();
     }
 
     @Override
@@ -191,8 +192,10 @@ public class TeleOp_Revised extends OpMode {
                 if (intake3 && robot.intake(1) && robot.intake(2))
                     intake3 = false;
 
-                if (ballPresent && robot.intake(2) && (robot.intake(3) || intake3))
+                if (ballPresent && robot.intake(2) && (robot.intake(3) || intake3)) {
                     ballPresent = false;
+                    intake3 = true;
+                }
 
             }
 
@@ -206,31 +209,37 @@ public class TeleOp_Revised extends OpMode {
             if (robot.intake(4))
                 intake4timer.reset();
 
+            if (robot.intake(1) || robot.intake(2) || robot.intake(3))
+                constantRunTimer.reset();
+
             //check if ball entered puncher thing
             if (!ballLoad)
-                if (intake4timer.seconds() < intake4time || (vexes > 0.5 && loadTimer.seconds() > lowerLoadTime && loadTimer.seconds() < upperLoadTime))
+                if (intake4timer.seconds() < 0.1 || (vexes > 0.5 && loadTimer.seconds() > 0 && loadTimer.seconds() < 1))
                     ballLoad = true;
+
+            if (ballLoad)
+                if ((loadTimer.seconds() < 0.5 || loadTimer.seconds() > 1) && intake4timer.seconds() > 0.5)
+                    ballLoad = false;
         }
 
-        vexes = -gamepad2.left_stick_y * 0.5 + 0.5 + gamepad2.right_trigger / 2 - gamepad2.left_trigger / 2;
+        vexes = -gamepad2.left_stick_y / 2 + 0.5 + gamepad2.right_trigger / 2 - gamepad2.left_trigger / 2;
 
-        if (robot.autoIntake && Math.abs(vexes - 0.5) < 0.1) {
+        if (robot.autoIntake && Math.abs(vexes - 0.5) < 0.1 && constantRunTimer.seconds() < 4) {
 
             if (squishBallsTogether) {
 
-                if (ballPresent)
-                    if (!ballLoad || (unleash && !robot.intake(3)))
-                        vexes = 1;
+                if (!ballLoad || !robot.intake(3))
+                    vexes = 1;
 
-                if (spinnerState && robot.intake(3) && !gamepad2.a)
+                if (spinnerState && robot.intake(3))
                     spinner = 0;
 
             } else {
 
-                if ((!ballLoad && !gamepad2.a) || ((unleash || ballPresent) && !robot.intake(3)))
+                if (!ballLoad || (ballPresent && !robot.intake(3)))
                     vexes = 1;
 
-                if (spinnerState && (ballPresent || (!ballLoad && !gamepad2.a)))
+                if (spinnerState && (ballPresent || (robot.intake(1) && robot.intake(2) && robot.intake(3))))
                     spinner = 0;
 
             }
@@ -264,19 +273,24 @@ public class TeleOp_Revised extends OpMode {
 
         robot.spinner.setPower(spinner);
 
-        if (ballLoad && !robot.intake(4))
+        if (!endGame && ballLoad && !robot.intake(4))
             robot.theHammerOfDawn.setPosition(1);
-        else
-            robot.theHammerOfDawn.setPosition(vexes);
+        else {
+            if (vexes > 0.55)
+                robot.theHammerOfDawn.setPosition(1);
+            else if (vexes < 0.45)
+                robot.theHammerOfDawn.setPosition(0);
+            else
+                robot.theHammerOfDawn.setPosition(vexes);
+        }
+
 
         if (gamepad1.left_bumper || gamepad2.left_bumper) {
             if (!previousAState) {
                 if (spinnerState) {
                     spinnerState = false;
-                    robot.spinner.setPower(0);
                 } else {
                     spinnerState = true;
-                    robot.spinner.setPower(1);
                 }
                 previousAState = true;
             }
@@ -371,12 +385,24 @@ public class TeleOp_Revised extends OpMode {
         if (endGame && gamepad2.a) {
             tiltPosition -= tiltDelta;
             tiltPosition = Range.clip(tiltPosition, Tilt_MIN_RANGE, Tilt_MAX_RANGE);
+            final double x1 = 1.0-140.0/255.0;
+            final double x3 = 1.0;
+            final double y1 = 0.0;
+            final double y3 = 1.0-30.0/255.0;
+            tilt2Position = (tiltPosition-x1)*(y3-y1)/(x3-x1) + y1;
             robot.tilt.setPosition(tiltPosition);
+            robot.tilt2.setPosition(tilt2Position);
         } else if (gamepad2.y) {
             endGame = true;
             tiltPosition += tiltDelta;
             tiltPosition = Range.clip(tiltPosition, Tilt_MIN_RANGE, Tilt_MAX_RANGE);
+            final double x1 = 1.0-140.0/255.0;
+            final double x3 = 1.0;
+            final double y1 = 0.0;
+            final double y3 = 1.0-30.0/255.0;
+            tilt2Position = (tiltPosition-x1)*(y3-y1)/(x3-x1) + y1;
             robot.tilt.setPosition(tiltPosition);
+            robot.tilt2.setPosition(tilt2Position);
         } else if (gamepad2.right_bumper) {
             endGame = false;
         }
@@ -431,15 +457,15 @@ public class TeleOp_Revised extends OpMode {
             }
         });
 
-        final int barCount = 5;
-        final int total = 30;
+        final double barCount = 5;
+        final double total = 30;
 
         if (barGraph) {
             telemetry.addLine()
                     .addData("t1", new Func<String>() {
                         @Override
                         public String value() {
-                            int index = Math.max(0, Math.min(barCount, barCount * ((completeSeconds - total * 0) / total)));
+                            int index = (int) Math.max(0, Math.min(barCount, barCount * ((completeSeconds - total * 0) / total)));
                             return bars[index];
                         }
                     });
@@ -447,16 +473,15 @@ public class TeleOp_Revised extends OpMode {
                     .addData("t2", new Func<String>() {
                         @Override
                         public String value() {
-                            int index = Math.max(0, Math.min(barCount, barCount * ((completeSeconds - total * 1) / total)));
+                            int index = (int) Math.max(0, Math.min(barCount, barCount * ((completeSeconds - total * 1) / total)));
                             return bars[index];
                         }
                     });
-            telemetry.addLine();
             telemetry.addLine()
                     .addData("t3", new Func<String>() {
                         @Override
                         public String value() {
-                            int index = Math.max(0, Math.min(barCount, barCount * ((completeSeconds - total * 2) / total)));
+                            int index = (int) Math.max(0, Math.min(barCount, barCount * ((completeSeconds - total * 2) / total)));
                             return bars[index];
                         }
                     });
@@ -464,7 +489,7 @@ public class TeleOp_Revised extends OpMode {
                     .addData("t4", new Func<String>() {
                         @Override
                         public String value() {
-                            int index = Math.max(0, Math.min(barCount, barCount * ((completeSeconds - total * 3) / total)));
+                            int index = (int) Math.max(0, Math.min(barCount, barCount * ((completeSeconds - total * 3) / total)));
                             return bars[index];
                         }
                     });
@@ -641,10 +666,10 @@ public class TeleOp_Revised extends OpMode {
                         }
                     })
                     .addData("Right", new Func<String>() {
-                        @Override
-                        public String value() {
-                            return String.format(Locale.ENGLISH, "%.2f", right);
-                        }
+                                @Override
+                                public String value() {
+                                    return String.format(Locale.ENGLISH, "%.2f", right);
+                                }
                             }
                     )
                     .addData("Spin", new Func<String>() {
@@ -655,10 +680,10 @@ public class TeleOp_Revised extends OpMode {
                     });
             telemetry.addLine()
                     .addData("Puncher", new Func<String>() {
-                        @Override
-                        public String value() {
-                            return String.format(Locale.ENGLISH, "%.2f", puncher);
-                        }
+                                @Override
+                                public String value() {
+                                    return String.format(Locale.ENGLISH, "%.2f", puncher);
+                                }
                             }
                     )
                     .addData("garry", new Func<String>() {
@@ -675,10 +700,17 @@ public class TeleOp_Revised extends OpMode {
                     });
             telemetry.addLine()
                     .addData("Tilt", new Func<String>() {
-                        @Override
-                        public String value() {
-                            return String.format(Locale.ENGLISH, "%.2f", tiltPosition);
-                        }
+                                @Override
+                                public String value() {
+                                    return String.format(Locale.ENGLISH, "%.2f", tiltPosition);
+                                }
+                            }
+                    )
+                    .addData("Tilt2", new Func<String>() {
+                                @Override
+                                public String value() {
+                                    return String.format(Locale.ENGLISH, "%.2f", tilt2Position);
+                                }
                             }
                     )
                     .addData("capLeft", new Func<String>() {
@@ -690,7 +722,7 @@ public class TeleOp_Revised extends OpMode {
                     .addData("capRight", new Func<String>() {
                         @Override
                         public String value() {
-                            return String.format(Locale.ENGLISH, "%.2f", capLeftPosition);
+                            return String.format(Locale.ENGLISH, "%.2f", capRightPosition);
                         }
                     });
             if (robot.eject)

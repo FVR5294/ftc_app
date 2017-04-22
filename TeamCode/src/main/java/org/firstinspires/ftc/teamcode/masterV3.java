@@ -26,6 +26,8 @@ public class masterV3 extends LinearOpMode {
     private List<state> list = new ArrayList<>();
     //init the array that is going to be used when actually running
     private state[] runlist;
+    private boolean egg = false;
+    tetris tetris = new tetris();
 
     @Override
     public void runOpMode() {
@@ -36,15 +38,21 @@ public class masterV3 extends LinearOpMode {
 
         askState(states.colorRed, states.colorBlue);
         if (ask("Default Starting Position", "Alternate Starting Position")) {
-            if (ask("First Beacon", "Second Beacon which has now been broken so don't run it")) {
+            if (ask("First Beacon", "Second Beacon which will probably work now but it might still cause a penalty")) {
                 askState(states.arcTowardsBeacon);
                 askState(states.scanForLine);
                 askState(states.driveTowardsBeacon);
                 askState(states.pushBeaconButton, states.sleep0);
                 askState(states.backAwayFromBeacon);
-                askState(states.shootballTwoBalls, states.shootballOnce, states.noscope);
+                if (tetris.game)
+                    askState(states.noscope2);
+                else
+                    askState(states.shootballTwoBalls, states.shootballOnce, states.noscope);
                 askState(states.correctStrafe);
-                askState(states.slideToTheRight);
+                if (egg)
+                    askState(states.slideToTheRight2);
+                else
+                    askState(states.slideToTheRight);
                 askState(states.scanForLine);
                 askState(states.driveTowardsBeacon);
                 askState(states.pushBeaconButton, states.sleep0);
@@ -57,25 +65,37 @@ public class masterV3 extends LinearOpMode {
                     askState(states.backuptovortex, states.backuptovortexIncreased, states.backuptovortexReduced);
                 }
             } else {
-//                askState(states.driveFoward36);
-                askState(states.arcTowardsBeacon24);
+                askState(states.arcTowardsBeacon);
+                if (egg)
+                    askState(states.slideToTheRight2);
+                else
+                    askState(states.slideToTheRight);
                 askState(states.scanForLine);
                 askState(states.driveTowardsBeacon);
                 askState(states.pushBeaconButton, states.sleep0);
                 askState(states.backAwayFromBeacon5);
-                askState(states.slideToTheLeft);
+                if (egg)
+                    askState(states.slideToTheLeft2);
+                else
+                    askState(states.slideToTheLeft);
                 askState(states.scanForLineInverted);
                 askState(states.driveTowardsBeacon);
                 askState(states.pushBeaconButton, states.sleep0);
                 askState(states.backAwayFromBeacon);
-                askState(states.shootballTwoBalls, states.shootballOnce, states.noscope);
+                if (tetris.game)
+                    askState(states.noscope2);
+                else
+                    askState(states.shootballTwoBalls, states.shootballOnce, states.noscope);
                 askState(states.rotate110);
                 askState(states.backup30);
             }
         } else {
             askState(states.sleep0, states.sleep2000, states.sleep4000, states.sleep10000);
             askState(states.backup42);
-            askState(states.shootballTwoBalls, states.shootballOnce, states.noscope);
+            if (tetris.game)
+                askState(states.noscope2);
+            else
+                askState(states.shootballTwoBalls, states.shootballOnce, states.noscope);
             askState(states.sleep0, states.sleep2000, states.sleep4000, states.sleep10000);
             if (ask("Corner Vortex", "Center Vortex")) {
                 askState(states.arc2);
@@ -173,15 +193,27 @@ public class masterV3 extends LinearOpMode {
         telemetry.update();
 
         while (!isStopRequested() && !opModeIsActive()) {
-            if (gamepad1.a) {
-                while (gamepad1.a)
-                    idle();
-                return true;
-            } else if (gamepad1.b) {
-                while (gamepad1.b)
-                    idle();
-                return false;
-            }
+            tetris.run(gamepad1, telemetry);
+            if (tetris.state < 16 || tetris.state > 19)
+                if (gamepad1.a) {
+                    while (gamepad1.a)
+                        idle();
+                    return true;
+                } else if (gamepad1.b) {
+                    while (gamepad1.b)
+                        idle();
+                    return false;
+                } else if (gamepad2.a) {
+                    egg = true;
+                    while (gamepad2.a)
+                        idle();
+                    return true;
+                } else if (gamepad2.b) {
+                    egg = true;
+                    while (gamepad2.b)
+                        idle();
+                    return false;
+                }
         }
 
         return true;
@@ -205,19 +237,35 @@ public class masterV3 extends LinearOpMode {
 
         //check to make sure it is still in init
         while (!isStopRequested() && !opModeIsActive()) {
-            if (gamepad1.a) {
-                //loop while held to avoid double press
-                while (gamepad1.a)
-                    idle();
-                //return state to add to runList
-                return statea;
-            } else if (gamepad1.b) {
-                //loop while held to avoid double press
-                while (gamepad1.b)
-                    idle();
-                //return state to add to runList
-                return stateb;
-            }
+            tetris.run(gamepad1, telemetry);
+            if (tetris.state < 16 || tetris.state > 19)
+                if (gamepad1.a) {
+                    //loop while held to avoid double press
+                    while (gamepad1.a)
+                        idle();
+                    //return state to add to runList
+                    return statea;
+                } else if (gamepad1.b) {
+                    //loop while held to avoid double press
+                    while (gamepad1.b)
+                        idle();
+                    //return state to add to runList
+                    return stateb;
+                } else if (gamepad2.a) {
+                    egg = true;
+                    //loop while held to avoid double press
+                    while (gamepad2.a)
+                        idle();
+                    //return state to add to runList
+                    return statea;
+                } else if (gamepad2.b) {
+                    egg = true;
+                    //loop while held to avoid double press
+                    while (gamepad2.b)
+                        idle();
+                    //return state to add to runList
+                    return stateb;
+                }
         }
 
         //return state if program was stopped to allow a quick restart
@@ -231,19 +279,36 @@ public class masterV3 extends LinearOpMode {
         displayStates();
         telemetry.update();
         while (!isStopRequested() && !opModeIsActive()) {
-            if (gamepad1.a) {
-                while (gamepad1.a)
-                    idle();
-                return statea;
-            } else if (gamepad1.b) {
-                while (gamepad1.b)
-                    idle();
-                return stateb;
-            } else if (gamepad1.x) {
-                while (gamepad1.x)
-                    idle();
-                return statex;
-            }
+            tetris.run(gamepad1, telemetry);
+            if (tetris.state < 16 || tetris.state > 19)
+                if (gamepad1.a) {
+                    while (gamepad1.a)
+                        idle();
+                    return statea;
+                } else if (gamepad1.b) {
+                    while (gamepad1.b)
+                        idle();
+                    return stateb;
+                } else if (gamepad1.x) {
+                    while (gamepad1.x)
+                        idle();
+                    return statex;
+                } else if (gamepad2.a) {
+                    egg = true;
+                    while (gamepad2.a)
+                        idle();
+                    return statea;
+                } else if (gamepad2.b) {
+                    egg = true;
+                    while (gamepad2.b)
+                        idle();
+                    return stateb;
+                } else if (gamepad2.x) {
+                    egg = true;
+                    while (gamepad2.x)
+                        idle();
+                    return statex;
+                }
         }
         return statea;
     }
@@ -256,23 +321,45 @@ public class masterV3 extends LinearOpMode {
         displayStates();
         telemetry.update();
         while (!isStopRequested() && !opModeIsActive()) {
-            if (gamepad1.a) {
-                while (gamepad1.a)
-                    idle();
-                return statea;
-            } else if (gamepad1.b) {
-                while (gamepad1.b)
-                    idle();
-                return stateb;
-            } else if (gamepad1.x) {
-                while (gamepad1.x)
-                    idle();
-                return statex;
-            } else if (gamepad1.y) {
-                while (gamepad1.y)
-                    idle();
-                return statey;
-            }
+            tetris.run(gamepad1, telemetry);
+            if (tetris.state < 16 || tetris.state > 19)
+                if (gamepad1.a) {
+                    while (gamepad1.a)
+                        idle();
+                    return statea;
+                } else if (gamepad1.b) {
+                    while (gamepad1.b)
+                        idle();
+                    return stateb;
+                } else if (gamepad1.x) {
+                    while (gamepad1.x)
+                        idle();
+                    return statex;
+                } else if (gamepad1.y) {
+                    while (gamepad1.y)
+                        idle();
+                    return statey;
+                } else if (gamepad2.a) {
+                    egg = true;
+                    while (gamepad2.a)
+                        idle();
+                    return statea;
+                } else if (gamepad2.b) {
+                    egg = true;
+                    while (gamepad2.b)
+                        idle();
+                    return stateb;
+                } else if (gamepad2.x) {
+                    egg = true;
+                    while (gamepad2.x)
+                        idle();
+                    return statex;
+                } else if (gamepad2.y) {
+                    egg = true;
+                    while (gamepad2.y)
+                        idle();
+                    return statey;
+                }
         }
         return statea;
     }

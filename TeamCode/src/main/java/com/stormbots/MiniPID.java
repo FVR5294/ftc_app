@@ -252,7 +252,7 @@ public class MiniPID{
 	public double getOutput(double actual, double setpoint){
 		double output;
 		double Poutput;
-        double Ioutput;//*hint: look for spaces*
+        double Ioutput;
         double Doutput;
 		double Foutput;
 
