@@ -87,19 +87,19 @@ public class strafe_test extends LinearOpMode {
                         return runlist[currentState].name;
                     }
                 });
-        telemetry.addLine()
-                .addData("gyroP", new Func<String>() {
-                    @Override
-                    public String value() {
-                        return String.format(Locale.ENGLISH, "%.2f", robot.gyroPid.getOutput());
-                    }
-                })
-                .addData("ultraP", new Func<String>() {
-                    @Override
-                    public String value() {
-                        return String.format(Locale.ENGLISH, "%.2f", robot.ultraPid.getOutput());
-                    }
-                });
+//        telemetry.addLine()
+//                .addData("gyroP", new Func<String>() {
+//                    @Override
+//                    public String value() {
+//                        return String.format(Locale.ENGLISH, "%.2f", robot.gyroPid.getOutput());
+//                    }
+//                })
+//                .addData("ultraP", new Func<String>() {
+//                    @Override
+//                    public String value() {
+//                        return String.format(Locale.ENGLISH, "%.2f", robot.ultraPid.getOutput());
+//                    }
+//                });
         //add log to log file
         robotconfig.addlog(dl, "autonomous", "Started");
         //loop while match is running

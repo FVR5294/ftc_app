@@ -26,11 +26,11 @@ class stateslist {
      */
     state scanForLine = new state("scanForLine") {
         public void firstTime() {
-            robot.move(0, color * 0.2, 0);
+            robot.move(0, color * 0.125, 0);
         }
 
         public void everyTime() {
-            robot.ultramove(0, color * 0.2, 30);
+            robot.ultramove(0, color * 0.125, 30);
         }
 
         public boolean conditionsToCheck() {
@@ -39,17 +39,15 @@ class stateslist {
 
         public void onCompletion() {
             robot.move(0, 0, 0);
-            robot.gyroPid.reset();
-            robot.ultraPid.reset();
         }
     };
     state scanForLineInverted = new state("scanForLineInverted") {
         public void firstTime() {
-            robot.move(0, color * -0.2, 0);
+            robot.move(0, color * -0.125, 0);
         }
 
         public void everyTime() {
-            robot.ultramove(0, color * -0.2, 30);
+            robot.ultramove(0, color * -0.125, 30);
         }
 
         public boolean conditionsToCheck() {
@@ -58,8 +56,6 @@ class stateslist {
 
         public void onCompletion() {
             robot.move(0, 0, 0);
-            robot.gyroPid.reset();
-            robot.ultraPid.reset();
         }
     };
     state colorRed = new state("colorRed") {
@@ -138,12 +134,12 @@ class stateslist {
             Thread.yield();
             robot.enableMotorEncoders();
             Thread.yield();
-            robot.move(0.2, 0, 0);
+            robot.move(0.125, 0, 0);
             robot.spinner.setPower(0);
         }
 
         public void everyTime() {
-            robot.ultramove(0.2, 0);
+            robot.ultramove(0.125, 0);
         }
 
         public boolean conditionsToCheck() {

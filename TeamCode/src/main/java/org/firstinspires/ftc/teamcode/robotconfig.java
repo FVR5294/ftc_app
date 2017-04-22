@@ -56,19 +56,8 @@ public class robotconfig {
     double minGyro = -maxGyro;
     double maxUltra = 1;
     double minUltra = -maxUltra;
-    double ultraGain = 0.008;
-    double ultraKu = 0.16;
-    double ultraTu = 0;
-
-    double gyroGain = 0.04;
-    double gyroKu = 0.08;
-    double gyroTu = 0;
-
-//    MiniPID ultraPid = new MiniPID(ultraKu / 5, ultraTu / 2, ultraTu / 3);
-//    MiniPID gyroPid = new MiniPID(gyroKu / 5, gyroTu / 2, gyroTu / 3);
-
-    MiniPID ultraPid = new MiniPID(ultraGain, 0, 0);
-    MiniPID gyroPid = new MiniPID(gyroGain, 0, 0);
+    double ultraGain = 0.001;
+    double gyroGain = 0.0001;
 
     DcMotor fLeftMotor;
     DcMotor fRightMotor;
@@ -372,11 +361,6 @@ public class robotconfig {
 //        ultraLog = new DataLogger("10635", "ultraLog.csv", theLinearOpMode.telemetry);
         addlog(dl, "r.init", "r.init was invoked (a)");
         addlog(dl, "r.init", "debug mode is " + debugMode);
-
-        gyroPid.setOutputLimits(1);
-        ultraPid.setOutputLimits(1);
-        gyroPid.setDirection(true);
-        ultraPid.setDirection(false);
 
         // Define and Initialize Motors
         if (!debugMode) {
