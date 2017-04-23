@@ -19,4 +19,10 @@ public class measurements {
     public static final double wheelDiagonal = 28.5 * mmPerInch;
     public static final int ppr = (280 << 2) >> 1;
     public static final double pi = 3.1415926535897932384626433832795;
+
+    //tilt
+    public static final double x1 = 1.0-150.0/255.0;
+    public static final double x3 = 1.0;
+    public static final double y1 = 1.0-200.0/255.0;
+    public static final double y3 = 1.0;
 }

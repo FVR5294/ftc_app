@@ -13,6 +13,11 @@ import static org.firstinspires.ftc.teamcode.robotconfig.dl;
 import static org.firstinspires.ftc.teamcode.superText.bars;
 import static org.firstinspires.ftc.teamcode.superText.numbers;
 
+import static org.firstinspires.ftc.teamcode.measurements.x1;
+import static org.firstinspires.ftc.teamcode.measurements.x3;
+import static org.firstinspires.ftc.teamcode.measurements.y1;
+import static org.firstinspires.ftc.teamcode.measurements.y3;
+
 /**
  * the main TeleOp program for our robot
  */
@@ -24,8 +29,8 @@ public class TeleOp_Revised extends OpMode {
     final double buttonPusher_MIN_RANGE = 0.35;
     final double buttonPusher_MAX_RANGE = 0.65;
 
-    final double Tilt_MAX_RANGE = 1.0;
-    final double Tilt_MIN_RANGE = 1.0-140.0/255.0;
+    final double Tilt_MAX_RANGE = x3;
+    final double Tilt_MIN_RANGE = x1;
 
     final double capRight_MAX_RANGE = 0.95;
     final double capRight_MIN_RANGE = 0.05;
@@ -48,7 +53,7 @@ public class TeleOp_Revised extends OpMode {
     robotconfig robot = new robotconfig();
     double endpulses = 0.0;
     double buttonPusherPosition = 0;
-    double tiltPosition = 1.0-140.0/255.0;
+    double tiltPosition = 1.0 - 140.0 / 255.0;
     double tilt2Position = 0;
     double capLeftPosition = 0;
     double capRightPosition = 0;
@@ -104,15 +109,17 @@ public class TeleOp_Revised extends OpMode {
 //        robotconfig.debugMode = true;
         robot.init(this);
 
-//        robot.disableMotorEncoders();
+        robot.disableMotorEncoders();
         // Send telemetry message to signify robot waiting;
 //        robot.capLeft.getController().pwmDisable();
+//        robot.enableMotorBreak();
         telemetry.update();
         buttonPusherPosition = 0.5;
         capLeftPosition = 0.05;
         capRightPosition = 0.05;
         loopTimer.reset();
         activateTelemetry();
+        activateDebugTelemetry();
     }
 
     @Override
@@ -139,9 +146,9 @@ public class TeleOp_Revised extends OpMode {
         loopCount++;
         maxLoopTime = Math.max(maxLoopTime, loopTime);
 
-        forward = -gamepad1.left_stick_y * Math.abs(gamepad1.left_stick_y);
-        right = gamepad1.left_stick_x * Math.abs(gamepad1.left_stick_x);
-        spin = gamepad1.right_stick_x * Math.abs(gamepad1.right_stick_x);
+        forward = -gamepad1.left_stick_y;
+        right = gamepad1.left_stick_x;
+        spin = gamepad1.right_stick_x;
 
         if (slowState) {
             forward = forward * 0.25;
@@ -214,7 +221,7 @@ public class TeleOp_Revised extends OpMode {
 
             //check if ball entered puncher thing
             if (!ballLoad)
-                if (intake4timer.seconds() < 0.1 || (vexes > 0.5 && loadTimer.seconds() > 0 && loadTimer.seconds() < 1))
+                if (intake4timer.seconds() < 0.1 || (vexes > 0.5 && robot.intake(3) && loadTimer.seconds() < 1))
                     ballLoad = true;
 
             if (ballLoad)
@@ -239,8 +246,8 @@ public class TeleOp_Revised extends OpMode {
                 if (!ballLoad || (ballPresent && !robot.intake(3)))
                     vexes = 1;
 
-                if (spinnerState && (ballPresent || (robot.intake(1) && robot.intake(2) && robot.intake(3))))
-                    spinner = 0;
+//                if (spinnerState && (ballPresent || (robot.intake(1) && robot.intake(2) && robot.intake(3))))
+//                    spinner = 0;
 
             }
         }
@@ -385,22 +392,14 @@ public class TeleOp_Revised extends OpMode {
         if (endGame && gamepad2.a) {
             tiltPosition -= tiltDelta;
             tiltPosition = Range.clip(tiltPosition, Tilt_MIN_RANGE, Tilt_MAX_RANGE);
-            final double x1 = 1.0-140.0/255.0;
-            final double x3 = 1.0;
-            final double y1 = 0.0;
-            final double y3 = 1.0-30.0/255.0;
-            tilt2Position = (tiltPosition-x1)*(y3-y1)/(x3-x1) + y1;
+            tilt2Position = (tiltPosition - x1) * (y3 - y1) / (x3 - x1) + y1;
             robot.tilt.setPosition(tiltPosition);
             robot.tilt2.setPosition(tilt2Position);
         } else if (gamepad2.y) {
             endGame = true;
             tiltPosition += tiltDelta;
             tiltPosition = Range.clip(tiltPosition, Tilt_MIN_RANGE, Tilt_MAX_RANGE);
-            final double x1 = 1.0-140.0/255.0;
-            final double x3 = 1.0;
-            final double y1 = 0.0;
-            final double y3 = 1.0-30.0/255.0;
-            tilt2Position = (tiltPosition-x1)*(y3-y1)/(x3-x1) + y1;
+            tilt2Position = (tiltPosition - x1) * (y3 - y1) / (x3 - x1) + y1;
             robot.tilt.setPosition(tiltPosition);
             robot.tilt2.setPosition(tilt2Position);
         } else if (gamepad2.right_bumper) {
@@ -493,7 +492,6 @@ public class TeleOp_Revised extends OpMode {
                             return bars[index];
                         }
                     });
-            telemetry.addLine();
         }
 
         if (illegibleText) {
@@ -620,7 +618,6 @@ public class TeleOp_Revised extends OpMode {
                     }
                 });
 
-        telemetry.addLine();
 
         telemetry.addLine()
                 .addData("score", new Func<String>() {
@@ -648,7 +645,9 @@ public class TeleOp_Revised extends OpMode {
                         return String.format(Locale.ENGLISH, "%.2f", maxLoopTime);
                     }
                 });
+    }
 
+    void activateDebugTelemetry() {
         telemetry.addLine()
                 .addData("colorRed", new Func<String>() {
                     @Override

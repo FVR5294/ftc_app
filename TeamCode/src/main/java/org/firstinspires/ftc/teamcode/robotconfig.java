@@ -14,7 +14,6 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.ServoController;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import com.stormbots.MiniPID;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
@@ -23,6 +22,11 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 import java.util.Locale;
+
+import static org.firstinspires.ftc.teamcode.measurements.x1;
+import static org.firstinspires.ftc.teamcode.measurements.x3;
+import static org.firstinspires.ftc.teamcode.measurements.y1;
+import static org.firstinspires.ftc.teamcode.measurements.y3;
 
 /***
  * robotconfig is a simple and effective way to import the robot configuration information into every program.
@@ -377,10 +381,10 @@ public class robotconfig {
             theHammerOfDawn.setPosition(0.5);
             tilt = hwMap.servo.get("Tilt");
             tilt.setDirection(Servo.Direction.REVERSE);
-            tilt.setPosition(1.0 - 140.0 / 255.0);
+            tilt.setPosition(x1);
             tilt2 = hwMap.servo.get("tilt2");
             tilt2.setDirection(Servo.Direction.REVERSE);
-            tilt2.setPosition(0);
+            tilt2.setPosition(y1);
             capLeft = hwMap.servo.get("capLeft");
             capLeft.setDirection(Servo.Direction.REVERSE);
             capLeft.setPosition(0.05);
@@ -555,10 +559,10 @@ public class robotconfig {
             capRight = hwMap.servo.get("capRight");
             tilt = hwMap.servo.get("Tilt");
             tilt.setDirection(Servo.Direction.REVERSE);
-            tilt.setPosition(1.0 - 140.0 / 255.0);
+            tilt.setPosition(x1);
             tilt2 = hwMap.servo.get("tilt2");
             tilt2.setDirection(Servo.Direction.REVERSE);
-            tilt2.setPosition(0);
+            tilt2.setPosition(y1);
             capRight.setPosition(0.05);
 
             garry = hwMap.touchSensor.get("punchLimit");
