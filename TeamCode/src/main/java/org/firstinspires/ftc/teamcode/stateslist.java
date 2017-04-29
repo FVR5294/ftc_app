@@ -26,11 +26,28 @@ class stateslist {
      */
     state scanForLine = new state("scanForLine") {
         public void firstTime() {
-            robot.move(0, color * 0.125, 0);
+            robot.move(0, color * 0.2, 0);
         }
 
         public void everyTime() {
-            robot.ultramove(0, color * 0.125, 30);
+            robot.ultramove(0, color * 0.2, 30);
+        }
+
+        public boolean conditionsToCheck() {
+            return robot.detectLine();
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+        }
+    };
+    state scanForLinePart2 = new state("scanForLinePart2") {
+        public void firstTime() {
+            robot.move(0, color * -0.125, 0);
+        }
+
+        public void everyTime() {
+            robot.ultramove(0, color * -0.125, 30);
         }
 
         public boolean conditionsToCheck() {
@@ -43,11 +60,28 @@ class stateslist {
     };
     state scanForLineInverted = new state("scanForLineInverted") {
         public void firstTime() {
-            robot.move(0, color * -0.125, 0);
+            robot.move(0, color * -0.2, 0);
         }
 
         public void everyTime() {
-            robot.ultramove(0, color * -0.125, 30);
+            robot.ultramove(0, color * -0.2, 30);
+        }
+
+        public boolean conditionsToCheck() {
+            return robot.detectLine();
+        }
+
+        public void onCompletion() {
+            robot.move(0, 0, 0);
+        }
+    };
+    state scanForLineInvertedPart2 = new state("scanForLineInvertedPart2") {
+        public void firstTime() {
+            robot.move(0, color * 0.125, 0);
+        }
+
+        public void everyTime() {
+            robot.ultramove(0, color * 0.125, 30);
         }
 
         public boolean conditionsToCheck() {
@@ -1531,7 +1565,8 @@ class stateslist {
                 Thread.yield();
             }
             robot.puncher.setPower(0);
-            while (robot.bettermoving()) {
+
+            while (!robot.bettermoving()) {
                 robot.bettermove();
                 Thread.yield();
             }

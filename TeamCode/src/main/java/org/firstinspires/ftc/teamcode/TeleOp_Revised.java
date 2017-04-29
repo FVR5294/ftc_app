@@ -9,14 +9,13 @@ import org.firstinspires.ftc.robotcore.external.Func;
 
 import java.util.Locale;
 
-import static org.firstinspires.ftc.teamcode.robotconfig.dl;
-import static org.firstinspires.ftc.teamcode.superText.bars;
-import static org.firstinspires.ftc.teamcode.superText.numbers;
-
 import static org.firstinspires.ftc.teamcode.measurements.x1;
 import static org.firstinspires.ftc.teamcode.measurements.x3;
 import static org.firstinspires.ftc.teamcode.measurements.y1;
 import static org.firstinspires.ftc.teamcode.measurements.y3;
+import static org.firstinspires.ftc.teamcode.robotconfig.dl;
+import static org.firstinspires.ftc.teamcode.superText.bars;
+import static org.firstinspires.ftc.teamcode.superText.numbers;
 
 /**
  * the main TeleOp program for our robot
@@ -100,7 +99,7 @@ public class TeleOp_Revised extends OpMode {
     //if ball is touching or beyond first limit switch
     boolean ballPresent = false;
     //if ball is beyond third switch
-    boolean ballLoad = false;
+    boolean ballLoad = true;
     ElapsedTime constantRunTimer = new ElapsedTime();
 
     @Override
@@ -134,7 +133,7 @@ public class TeleOp_Revised extends OpMode {
     public void start() {
         matchTimer.reset();
         loopTimer.reset();
-        constantRunTimer.reset();
+//        constantRunTimer.reset();
     }
 
     @Override
@@ -294,11 +293,7 @@ public class TeleOp_Revised extends OpMode {
 
         if (gamepad1.left_bumper || gamepad2.left_bumper) {
             if (!previousAState) {
-                if (spinnerState) {
-                    spinnerState = false;
-                } else {
-                    spinnerState = true;
-                }
+                spinnerState = !spinnerState;
                 previousAState = true;
             }
         } else {

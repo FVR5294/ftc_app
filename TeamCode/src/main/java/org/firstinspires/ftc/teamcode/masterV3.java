@@ -18,6 +18,7 @@ import static org.firstinspires.ftc.teamcode.stateslist.robot;
 @Autonomous(name = "Kevin", group = "above")
 
 public class masterV3 extends LinearOpMode {
+    tetris tetris = new tetris();
     //import library for precise movement
     private preciseMovement p = new preciseMovement();
     //import file of states
@@ -27,7 +28,6 @@ public class masterV3 extends LinearOpMode {
     //init the array that is going to be used when actually running
     private state[] runlist;
     private boolean egg = false;
-    tetris tetris = new tetris();
 
     @Override
     public void runOpMode() {
@@ -54,6 +54,7 @@ public class masterV3 extends LinearOpMode {
                 else
                     askState(states.slideToTheRight);
                 askState(states.scanForLine);
+//                askState(states.scanForLinePart2);
                 askState(states.driveTowardsBeacon);
                 askState(states.pushBeaconButton, states.sleep0);
                 if (ask("Corner Vortex", "Center Vortex")) {
@@ -71,6 +72,7 @@ public class masterV3 extends LinearOpMode {
                 else
                     askState(states.slideToTheRight);
                 askState(states.scanForLine);
+//                askState(states.scanForLinePart2);
                 askState(states.driveTowardsBeacon);
                 askState(states.pushBeaconButton, states.sleep0);
                 askState(states.backAwayFromBeacon5);
@@ -79,6 +81,7 @@ public class masterV3 extends LinearOpMode {
                 else
                     askState(states.slideToTheLeft);
                 askState(states.scanForLineInverted);
+//                askState(states.scanForLineInvertedPart2);
                 askState(states.driveTowardsBeacon);
                 askState(states.pushBeaconButton, states.sleep0);
                 askState(states.backAwayFromBeacon);

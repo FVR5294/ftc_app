@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import static org.firstinspires.ftc.teamcode.stateslist.robot;
  * Autonomous that can do anything
  */
 
-//@Autonomous(name = "master", group = "above")
+@Autonomous(name = "anything", group = "above")
 
 public class master extends LinearOpMode {
     //import library for precise movement
@@ -37,36 +38,36 @@ public class master extends LinearOpMode {
         boolean selecting = true;
         //add state to set color to red as the first of many default states
         list.add(0, states.colorRed);
-        //add state to arc towards the beacon with an inner radius of 28 inches
-        list.add(1, states.arcTowardsBeacon28);
-        //add state to scan for the white tape line while straffing right, stopping on the line
-        list.add(2, states.scanForLine);
-        //add state to drive forwards until robot touches beacon
-        list.add(3, states.driveTowardsBeacon);
-        //add state to use color sensor and push corresponding button with the button pusher servo
-        list.add(4, states.pushBeaconButton);
-        //add state to back away from beacon 20 inches to prepare for shooting ball
-        list.add(5, states.backAwayFromBeacon20);
-        //add state to spin launcher motor one complete cycle, also activates primary intake
-        list.add(6, states.shootball);
-        //add state to wait 2 seconds for second ball to intake
-        list.add(7, states.sleep2000);
-        //add state to spin launcher motor one complete cycle and stops primary intake
-        list.add(8, states.shootball2);
-        //add state to drive back foward 12 inches after shooting ball to get within range of the tape
-        list.add(9, states.correctStrafe12);
-        //add state to strafe in the direction of the second beacon 54 inches at a faster speed then when scanning for the line
-        list.add(10, states.slideToTheRight54);
-        //same as previous scanForLine state
-        list.add(11, states.scanForLine);
-        //same as previous driveTowardsBeacon state
-        list.add(12, states.driveTowardsBeacon);
-        //same as previous pushBeaconButton state
-        list.add(13, states.pushBeaconButton);
-        //add state to pivot robot backwards towards center vortex
-        list.add(14, states.pivotbeacon);
-        //add state to backup on to center vortex to knock off cap ball and park
-        list.add(15, states.backuptovortex);
+//        //add state to arc towards the beacon with an inner radius of 28 inches
+//        list.add(1, states.arcTowardsBeacon28);
+//        //add state to scan for the white tape line while straffing right, stopping on the line
+//        list.add(2, states.scanForLine);
+//        //add state to drive forwards until robot touches beacon
+//        list.add(3, states.driveTowardsBeacon);
+//        //add state to use color sensor and push corresponding button with the button pusher servo
+//        list.add(4, states.pushBeaconButton);
+//        //add state to back away from beacon 20 inches to prepare for shooting ball
+//        list.add(5, states.backAwayFromBeacon20);
+//        //add state to spin launcher motor one complete cycle, also activates primary intake
+//        list.add(6, states.shootball);
+//        //add state to wait 2 seconds for second ball to intake
+//        list.add(7, states.sleep2000);
+//        //add state to spin launcher motor one complete cycle and stops primary intake
+//        list.add(8, states.shootball2);
+//        //add state to drive back foward 12 inches after shooting ball to get within range of the tape
+//        list.add(9, states.correctStrafe12);
+//        //add state to strafe in the direction of the second beacon 54 inches at a faster speed then when scanning for the line
+//        list.add(10, states.slideToTheRight54);
+//        //same as previous scanForLine state
+//        list.add(11, states.scanForLine);
+//        //same as previous driveTowardsBeacon state
+//        list.add(12, states.driveTowardsBeacon);
+//        //same as previous pushBeaconButton state
+//        list.add(13, states.pushBeaconButton);
+//        //add state to pivot robot backwards towards center vortex
+//        list.add(14, states.pivotbeacon);
+//        //add state to backup on to center vortex to knock off cap ball and park
+//        list.add(15, states.backuptovortex);
         //loop to use joystick to edit list of states
         while (selecting) {
             //loop to add each element in list of current states to telemetry data
