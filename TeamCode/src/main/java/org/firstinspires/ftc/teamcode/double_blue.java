@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import static org.firstinspires.ftc.teamcode.robotconfig.dl;
@@ -8,11 +7,9 @@ import static org.firstinspires.ftc.teamcode.stateslist.currentState;
 import static org.firstinspires.ftc.teamcode.stateslist.robot;
 
 /**
- * Created by mail2 on 12/1/2016.
- * Project: ftc_app_for_2016_robot
+ * Autonomous for blue side that shoots 2 balls
  */
-
-@Autonomous(name = "double blue", group = "blue")
+//@Autonomous(name = "double blue", group = "blue")
 
 public class double_blue extends LinearOpMode {
     private preciseMovement p = new preciseMovement();
@@ -22,8 +19,8 @@ public class double_blue extends LinearOpMode {
     public void runOpMode() {
         robot.init(this);  // send whole LinearOpMode object and context
         robotconfig.addlog(dl, "autonomous", "Done with robot.init --- waiting for start in " + this.getClass().getSimpleName());
-        state.color = -1;
-        currentState = 0;
+        state.color = -1;//tell the state list what the current color is
+        currentState = 0;//run each state multiple times until the state increases the currentState variable by 1
         telemetry.addData("Say", "Hello Driver - debug mode is " + robotconfig.debugMode);
         telemetry.update();
         waitForStart();
@@ -33,7 +30,7 @@ public class double_blue extends LinearOpMode {
 
             //robotconfig.addlog(dl, "Mainline", "Beginning state machine pass " + String.format(Locale.ENGLISH, "%d", currentState));
 
-            switch (currentState) {
+            switch (currentState) {//run the state of the currentState index
                 case 0:
                     state.arcTowardsBeacon.run();
                     break;
@@ -50,28 +47,37 @@ public class double_blue extends LinearOpMode {
                     state.backAwayFromBeacon.run();
                     break;
                 case 5:
-                    state.shootball.run();
+                    state.sleep500.run();
                     break;
                 case 6:
                     state.shootball.run();
                     break;
                 case 7:
-                    state.slideToTheRight.run();
+                    state.sleep1000.run();
                     break;
                 case 8:
-                    state.correctStrafe.run();
+                    state.shootball2.run();
                     break;
                 case 9:
-                    state.scanForLine.run();
+                    state.correctStrafe.run();
                     break;
                 case 10:
-                    state.driveTowardsBeacon.run();
+                    state.slideToTheRight.run();
                     break;
                 case 11:
-                    state.pushBeaconButton.run();
+                    state.scanForLine.run();
                     break;
                 case 12:
-                    state.backAwayFromBeacon.run();
+                    state.driveTowardsBeacon.run();
+                    break;
+                case 13:
+                    state.pushBeaconButton.run();
+                    break;
+                case 14:
+                    state.pivotbeacon.run();
+                    break;
+                case 15:
+                    state.backuptovortex.run();
                     break;
                 default:
                     robot.move(0, 0, 0);

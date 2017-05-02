@@ -34,7 +34,7 @@ public class DataLogger {
 
         if(!ENABLE_LOGGING) {return;}
 
-            telemetry.addData("00:DataLogger","Invoked...");
+        telemetry.addData("00:DataLogger", "Invoked...");
 
         String state = Environment.getExternalStorageState();
 
@@ -49,12 +49,12 @@ public class DataLogger {
             Date now = Calendar.getInstance().getTime();
             // (2) create a date "formatter" (the date and time format we want)
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.US);
-            fileName = fileName + "-" + formatter.format(now);
+            fileName = formatter.format(now) + "-" + fileName;
         }
 
         File logdir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), dirName);
  //       telemetry.addData("02:DataLogger", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/" + dirName);
-        File logfile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), dirName + "/" + fileName + ".csv");
+        File logfile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), dirName + "/" + fileName);
  //       telemetry.addData("03:DataLogger", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + dirName + "/" + fileName + ".csv");
 
 /*

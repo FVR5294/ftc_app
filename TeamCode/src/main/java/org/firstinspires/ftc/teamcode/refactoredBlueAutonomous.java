@@ -12,7 +12,7 @@ import static org.firstinspires.ftc.teamcode.stateslist.robot;
  * Project: ftc_app_for_2016_robot
  */
 
-@Autonomous(name = "no launch blue", group = "blue")
+//@Autonomous(name = "no launch blue", group = "blue")
 
 public class refactoredBlueAutonomous extends LinearOpMode {
 
@@ -34,7 +34,7 @@ public class refactoredBlueAutonomous extends LinearOpMode {
 
             //robotconfig.addlog(dl, "Mainline", "Beginning state machine pass " + String.format(Locale.ENGLISH, "%d", currentState));
 
-            switch (currentState) {
+            switch (currentState) {//run the state of the currentState index
                 case 0:
                     state.arcTowardsBeacon.run();
                     break;
@@ -51,19 +51,25 @@ public class refactoredBlueAutonomous extends LinearOpMode {
                     state.backAwayFromBeacon.run();
                     break;
                 case 5:
-                    state.slideToTheRight.run();
+                    state.correctStrafe.run();
                     break;
                 case 6:
-                    state.scanForLine.run();
+                    state.slideToTheRight.run();
                     break;
                 case 7:
-                    state.driveTowardsBeacon.run();
+                    state.scanForLine.run();
                     break;
                 case 8:
-                    state.pushBeaconButton.run();
+                    state.driveTowardsBeacon.run();
                     break;
                 case 9:
-                    state.backAwayFromBeacon.run();
+                    state.pushBeaconButton.run();
+                    break;
+                case 10:
+                    state.pivotbeacon.run();
+                    break;
+                case 11:
+                    state.backuptovortex.run();
                     break;
                 default:
                     robot.move(0, 0, 0);
@@ -71,9 +77,6 @@ public class refactoredBlueAutonomous extends LinearOpMode {
                     requestOpModeStop();
                     break;
             }
-
-            //robotconfig.addlog(dl, "Mainline", "Ending state machine pass");
-
         }
 
         robot.setMotorPower(0);

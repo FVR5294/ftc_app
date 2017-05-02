@@ -2,31 +2,42 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
+
 /**
  * Created by mail2 on 10/27/2016.
  */
 
 /***
- * a class designed for making a simple pid controller...
+ * a class designed for making a pid controller...
  * It could probably be used with the gyroscope sensor to reduce rotation
  */
-public class pidController {
-    public double sp = 0;//set target for pv
-
-    public double pGain;
-    public double iGain;
-    public double dGain;
-
-    public double p = 0;//value to be calculated from the pid controller, public for tuning
-    public double i = 0;//value to be calculated from the pid controller, public for tuning
-    public double d = 0;//value to be calculated from the pid controller, public for tuning
-
-    public double ppv = 0;//previous process variable
-    public double lowerIntegral = -1;//sets limit of intergral variable
-    public double upperIntegral = 1;//sets limit of intergral variable
-    public double e = 0;//error variable
-
-    public ElapsedTime time = new ElapsedTime();
+class pidController {
+    //set target for pv
+    double sp = 0;
+    double pGain;
+    double iGain;
+    double dGain;
+    boolean tunning = false;
+    //value to be calculated from the pid controller
+    private double p = 0;
+    //value to be calculated from the pid controller
+    private double d = 0;
+    //value to be calculated from the pid controller
+    private double i = 0;
+    private double ppv = 0;//previous process variable
+    private double lowerIntegral = -1;//sets limit of intergral variable
+    private double upperIntegral = 1;//sets limit of intergral variable
+    private double e = 0;//error variable
+    private boolean phase1 = true;
+    //Don't question my spelling...
+    private double maxOscilate = 0;
+    private double minOscilate = 0;
+    private double oscilateTime = 0;
+    private ElapsedTime oscilateTimer = new ElapsedTime();
+    private ElapsedTime time = new ElapsedTime();
+    private ElapsedTime tunertime = new ElapsedTime();
+    private ElapsedTime spTime = new ElapsedTime();
 
     /***
      * pidController creates a new PID controller. Could potentially be used for the Gyroscope sensor.
@@ -35,41 +46,101 @@ public class pidController {
      * @param iGain integral gain constant
      * @param dGain derivative gain constant
      */
-    public pidController(double pGain, double iGain, double dGain) {
+    pidController(double pGain, double iGain, double dGain) {
         this.pGain = pGain;
         this.iGain = iGain;
         this.dGain = dGain;
+        if (dGain == 1)
+            tunning = true;
     }
 
-    public void setSp(double sp) {
+    void setSp(double sp) {
         this.sp = sp;
     }
 
-    public void setLowerIntegral(double lowerIntegral) {
+    void setLowerIntegral(double lowerIntegral) {
         this.lowerIntegral = lowerIntegral;
     }
 
-    public void setUpperIntegral(double upperIntegral) {
+    void setUpperIntegral(double upperIntegral) {
         this.upperIntegral = upperIntegral;
     }
 
-    public double getPID(double pv) {
-        if (this.ppv == 0)
-            this.ppv = pv;
+    double getPID(double pv) {
 
-        this.e = (this.sp - pv);
-        this.p = this.pGain * e;
-        this.i = this.iGain * this.p;
+        d = dGain * (ppv - pv) / time.milliseconds();
+        e = sp - pv;
+        p = pGain * e;
+        i = iGain * p;
 
-        if (this.i > this.upperIntegral)
-            this.i = this.upperIntegral;
+        i = Math.min(upperIntegral, Math.max(lowerIntegral, i));
 
-        if (this.i < this.lowerIntegral)
-            this.i = this.lowerIntegral;
+        ppv = pv;
+        time.reset();
+        return (p + i + d);
+    }
 
-        this.d = -this.dGain * this.ppv * this.time.seconds();
-        this.ppv = pv;
-        this.time.reset();
-        return (this.p + this.i + this.d);
+    double getPID(double pv, Telemetry telemetry) {
+
+        //detect oscilation
+        if (d > 0 && !phase1) {
+            oscilateTime = oscilateTimer.milliseconds();
+            minOscilate = pv - sp;
+            phase1 = true;
+            oscilateTimer.reset();
+        }
+
+        if (d < 0 && phase1) {
+            phase1 = false;
+            maxOscilate = pv - sp;
+        }
+
+        d = dGain * (ppv - pv) / time.milliseconds();
+        e = sp - pv;
+        p = pGain * e;
+        i = iGain * p;
+
+        i = Math.min(upperIntegral, Math.max(lowerIntegral, i));
+
+        ppv = pv;
+        time.reset();
+        telemetry.addData("p", "%.4f", p);
+        telemetry.addData("i", "%.4f", i);
+        telemetry.addData("d", "%.4f", d);
+        telemetry.addData("e", "%.4f", e);
+        telemetry.addData("pGain", "%.4f", pGain);
+        telemetry.addData("iGain", "%.4f", iGain);
+        telemetry.addData("dGain", "%.4f", dGain);
+        telemetry.addData("oscilate time", "%.4f", oscilateTime);
+        telemetry.addData("max oscilate", "%.4f", maxOscilate);
+        telemetry.addData("min oscilate", "%.4f", minOscilate);
+        if (tunning)
+            return p;
+        else
+            return (p + i + d);
+    }
+
+    void pTune() {
+        //https://en.wikipedia.org/wiki/Ziegler%E2%80%93Nichols_method
+        if (tunning && tunertime.seconds() > 1) {
+            if (oscilateTime == 0 || oscilateTime > 3000) {
+                pGain += 0.0001;
+                if (Math.abs(e) < 5) {
+                    if (spTime.seconds() > 10) {
+                        sp = Math.random() * 45;
+                        phase1 = true;
+                        oscilateTimer.reset();
+                    }
+                } else {
+                    spTime.reset();
+                }
+                tunertime.reset();
+            } else if (tunertime.seconds() > 20) {
+                tunning = false;
+                iGain = 1.2 * p / oscilateTime;
+                dGain = 3 * p * oscilateTime / 40;
+                pGain = pGain * 0.60;
+            }
+        }
     }
 }

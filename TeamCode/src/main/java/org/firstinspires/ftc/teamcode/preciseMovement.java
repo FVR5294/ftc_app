@@ -59,7 +59,7 @@ class preciseMovement {
      * @return number of pulses generated
      */
     public int mm2pulses(double mm) {
-        return (int) ((measurements.ppr / (measurements.pi * measurements.wheelDiameter)) * mm);
+        return (int) ((measurements.ppr / (measurements.pi * measurements.wheelDiameter)) * mm);//moved sprocket change to measurements.ppr
     }
 
     /***
@@ -74,7 +74,6 @@ class preciseMovement {
      */
     public void move(double forward, double right, double spin, double timeout, robotconfig robot, Telemetry telemetry) {
         robotconfig.addlog(dl, "pm.move with telemetry", "called with right:" + String.format(Locale.ENGLISH, "%.2f", right) + " and spin:" + String.format(Locale.ENGLISH, "%.2f", spin));
-        telemetry.addData("colorSensor", "Green: %d", robot.muxColor.getCRGB(robot.ports[1])[2]);
         robotconfig.addlog(dl, "pm.move", "called with right:" + String.format(Locale.ENGLISH, "%.2f", right) + " and spin:" + String.format(Locale.ENGLISH, "%.2f", spin));
         robot.setMotorTargets(mm2pulses(forward), mm2pulses(right), mm2pulses(spin2mm(spin)));
         waitForMotors(robot, telemetry, forward, right, spin, timeout);
@@ -165,6 +164,7 @@ class preciseMovement {
      */
     void automaticSquareUp(robotconfig robot) {
         robotconfig.addlog(dl, "pm.automaticSquareUp without telemetry", "called");
+        //TODO: change the amount of time used to square up by changing the 4th argument in the next function
         this.move(0, 0, (robot.getCurrentAngle() - (Math.round(robot.getCurrentAngle() / 45) * 45)), 1, robot);
     }
 

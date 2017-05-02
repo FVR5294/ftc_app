@@ -1,14 +1,13 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
+import static org.firstinspires.ftc.teamcode.robotconfig.dl;
 /**
  * Created by Matthew Hotham on 11/5/2016.
  */
-
-@TeleOp(name = "MattTeleOP", group = "2016")
+//@TeleOp(name = "MattTeleOP", group = "2016")
 
 public class MatTeleOP extends OpMode {
 
@@ -26,7 +25,6 @@ public class MatTeleOP extends OpMode {
 
     robotconfig robot = new robotconfig();
 
-    private double buttonPusherPosition;
     private double tiltPosition;
     private double capLeftPosition;
     private double capRightPosition;
@@ -50,13 +48,10 @@ public class MatTeleOP extends OpMode {
 
         robot.init(this);
         robot.move(0, 0, 0);
-        robot.disableMotorEncoders();
-        robot.cam.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Say", "Hello Driver");
         updateTelemetry(telemetry);
-
-        buttonPusherPosition = 0.56;
+        robot.pushButton(0);
         tiltPosition = 0.50;
         capLeftPosition = 0.00;
         capRightPosition = 0.00;
@@ -66,9 +61,14 @@ public class MatTeleOP extends OpMode {
     @Override
     public void loop() {
 
-        forward = -gamepad1.left_stick_y * Math.abs(gamepad1.left_stick_y);
-        right = gamepad1.left_stick_x * Math.abs(gamepad1.left_stick_x);
-        spin = gamepad1.right_stick_x * Math.abs(gamepad1.right_stick_x);
+        forward = -gamepad1.left_stick_y;
+        right = gamepad1.left_stick_x;
+        spin = gamepad1.right_stick_x;
+
+        if (gamepad1.right_bumper || gamepad1.left_bumper) {
+            forward *= -1;
+            right *= -1;
+        }
 
         forward = Range.clip(forward, -1, 1);
         right = Range.clip(right, -1, 1);
@@ -84,12 +84,12 @@ public class MatTeleOP extends OpMode {
         robot.reeler.setPower(reeler);
 
 
-        if (gamepad1.dpad_left) {
-            buttonPusherPosition -= buttonPusherDelta;
+        if (gamepad1.dpad_left || gamepad1.x) {
+            robot.pushSoftButton(-1);
         }
 
-        if (gamepad1.dpad_right) {
-            buttonPusherPosition += buttonPusherDelta;
+        if (gamepad1.dpad_right || gamepad1.b) {
+            robot.pushSoftButton(1);
         }
 
         if (gamepad2.a) {
@@ -98,21 +98,21 @@ public class MatTeleOP extends OpMode {
 
         if (gamepad2.b) {
             vexes = -gamepad2.left_stick_y * 0.5 + 0.5;
-            try {
                 robot.lvex.setPosition(vexes);
                 robot.rvex.setPosition(vexes);
-                //not exactly sure how to set power of continuous rotation servo
-            } catch (Exception err) {
-                robotconfig.addlog(dl, "error", "failed to set powers of vex servos");
-            }
         }
 
         if (gamepad2.right_bumper) {
             try {
-                robot.cam.setPower(0.3333333333333333333333333333333333333333333333333333);
-                robot.cam.setTarget(robot.cam.getCurrentPosition() + 2240);
+                robot.puncher.setPower(1);
             } catch (Exception err) {
-                robotconfig.addlog(dl, "error", "failed to set power of cam");
+                robotconfig.addlog(dl, "error", "failed to set power of puncher");
+            }
+        } else {
+            try {
+                robot.puncher.setPower(0);
+            } catch (Exception err) {
+                robotconfig.addlog(dl, "error", "failed to set power of puncher");
             }
         }
 
@@ -127,36 +127,33 @@ public class MatTeleOP extends OpMode {
             capLeftPosition = 0.90;
             tiltPosition = 1.00;
         }
-        
+
         if (gamepad2.dpad_down) {
             capLeftPosition = 0.90;
-            tiltPosition = 0.50;
+            tiltPosition = 0.00;
         }
 
         if (gamepad2.dpad_left) {
             capLeftPosition = 0.66;
-            tiltPosition = 0.50;
+            tiltPosition = 0.00;
         }
-        
-        if (gamepad2.back) {
+
+        if (gamepad2.left_bumper) {
             capLeftPosition = 0;
             tiltPosition = 0.50;
         }
 
-        buttonPusherPosition = Range.clip(buttonPusherPosition, buttonPusher_MIN_RANGE, buttonPusher_MAX_RANGE);
         tiltPosition = Range.clip(tiltPosition, Tilt_MIN_RANGE, Tilt_MAX_RANGE);
         capRightPosition = Range.clip(capRightPosition, capRight_MIN_RANGE, capRight_MAX_RANGE);
         capLeftPosition = Range.clip(capLeftPosition, capLeft_MIN_RANGE, capLeft_MAX_RANGE);
 
-        robot.buttonPusher.setPosition(buttonPusherPosition);
         robot.tilt.setPosition(tiltPosition);
         robot.capLeft.setPosition(capLeftPosition);
-        robot.capRight.setPosition(capRightPosition);
+        robot.capRight.setPosition(capLeftPosition);
 
         telemetry.addData("Forward", "%.2f", forward);
         telemetry.addData("Right", "%.2f", right);
         telemetry.addData("Spin", "%.2f", spin);
-        telemetry.addData("ButtonPusher", "%.2f", buttonPusherPosition);
         telemetry.addData("Tilt", "%.2f", tiltPosition);
         telemetry.addData("capLeft", "%.2f", capLeftPosition);
         telemetry.addData("vexes", "%.2f", vexes);

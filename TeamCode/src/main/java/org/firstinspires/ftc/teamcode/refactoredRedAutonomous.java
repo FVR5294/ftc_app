@@ -12,7 +12,7 @@ import static org.firstinspires.ftc.teamcode.stateslist.robot;
  * Project: ftc_app_for_2016_robot
  */
 
-@Autonomous(name = "no launch red", group = "red")
+//@Autonomous(name = "no launch red", group = "red")
 
 public class refactoredRedAutonomous extends LinearOpMode {
 
@@ -34,7 +34,7 @@ public class refactoredRedAutonomous extends LinearOpMode {
 
             //robotconfig.addlog(dl, "Mainline", "Beginning state machine pass " + String.format(Locale.ENGLISH, "%d", currentState));
 
-            switch (currentState) {
+            switch (currentState) {//run the state of the currentState index
                 case 0:
                     state.arcTowardsBeacon.run();
                     break;
@@ -51,10 +51,10 @@ public class refactoredRedAutonomous extends LinearOpMode {
                     state.backAwayFromBeacon.run();
                     break;
                 case 5:
-                    state.slideToTheRight.run();
+                    state.correctStrafe.run();
                     break;
                 case 6:
-                    state.backAwayFromBeacon.run();
+                    state.slideToTheRight.run();
                     break;
                 case 7:
                     state.scanForLine.run();
@@ -66,7 +66,10 @@ public class refactoredRedAutonomous extends LinearOpMode {
                     state.pushBeaconButton.run();
                     break;
                 case 10:
-                    state.backAwayFromBeacon.run();
+                    state.pivotbeacon.run();
+                    break;
+                case 11:
+                    state.backuptovortex.run();
                     break;
                 default:
                     robot.move(0, 0, 0);
@@ -74,9 +77,6 @@ public class refactoredRedAutonomous extends LinearOpMode {
                     requestOpModeStop();
                     break;
             }
-
-            //robotconfig.addlog(dl, "Mainline", "Ending state machine pass");
-
         }
 
         robot.setMotorPower(0);
