@@ -18,7 +18,7 @@ import static org.firstinspires.ftc.teamcode.stateslist.robot;
 @Autonomous(name = "Kevin", group = "above")
 
 public class masterV3 extends LinearOpMode {
-    tetris tetris = new tetris();
+    kode kode = new kode();
     //import library for precise movement
     private preciseMovement p = new preciseMovement();
     //import file of states
@@ -39,24 +39,44 @@ public class masterV3 extends LinearOpMode {
         askState(states.colorRed, states.colorBlue);
         if (ask("Default Starting Position", "Alternate Starting Position")) {
             if (ask("First Beacon", "Second Beacon which will probably work now but it might still cause a penalty")) {
-                askState(states.arcTowardsBeacon);
-                askState(states.scanForLine);
-                askState(states.driveTowardsBeacon);
-                askState(states.pushBeaconButton, states.sleep0);
+                if (!kode.game) {
+                    askState(states.clearWall);
+                    askState(states.arcToBeacon);
+                    askState(states.driveTowardsBeacon2);
+                    askState(states.waitForBeacon);
+                } else {
+                    askState(states.arcTowardsBeacon);
+                    askState(states.scanForLine);
+                    askState(states.driveTowardsBeacon);
+                    askState(states.pushBeaconButton);
+                }
                 askState(states.backAwayFromBeacon);
-                if (tetris.game)
+                if (!kode.game)
                     askState(states.noscope2);
                 else
                     askState(states.shootballTwoBalls, states.shootballOnce, states.noscope);
-                askState(states.correctStrafe);
-                if (egg)
-                    askState(states.slideToTheRight2);
-                else
-                    askState(states.slideToTheRight);
-                askState(states.scanForLine);
+                if (!kode.game) {
+                    askState(states.rotate90);
+                    askState(states.driveNearSecondBeacon);
+                    askState(states.arcToSecondBeacon);
+                    askState(states.driveTowardsBeacon2);
+                    askState(states.waitForBeacon);
+                } else {
+                    askState(states.correctStrafe);
+                    if (egg)
+                        askState(states.slideToTheRight2);
+                    else
+                        askState(states.slideToTheRight);
+                    askState(states.scanForLine);
+                }
 //                askState(states.scanForLinePart2);
-                askState(states.driveTowardsBeacon);
-                askState(states.pushBeaconButton, states.sleep0);
+                if (!kode.game) {
+                    askState(states.driveTowardsBeacon2);
+                    askState(states.waitForBeacon);
+                } else {
+                    askState(states.driveTowardsBeacon);
+                    askState(states.pushBeaconButton);
+                }
                 if (ask("Corner Vortex", "Center Vortex")) {
                     askState(states.pivotbeacon);
                     askState(states.rotate60);
@@ -73,8 +93,13 @@ public class masterV3 extends LinearOpMode {
                     askState(states.slideToTheRight);
                 askState(states.scanForLine);
 //                askState(states.scanForLinePart2);
-                askState(states.driveTowardsBeacon);
-                askState(states.pushBeaconButton, states.sleep0);
+                if (!kode.game) {
+                    askState(states.driveTowardsBeacon2);
+                    askState(states.waitForBeacon);
+                } else {
+                    askState(states.driveTowardsBeacon);
+                    askState(states.pushBeaconButton);
+                }
                 askState(states.backAwayFromBeacon5);
                 if (egg)
                     askState(states.slideToTheLeft2);
@@ -82,10 +107,15 @@ public class masterV3 extends LinearOpMode {
                     askState(states.slideToTheLeft);
                 askState(states.scanForLineInverted);
 //                askState(states.scanForLineInvertedPart2);
-                askState(states.driveTowardsBeacon);
-                askState(states.pushBeaconButton, states.sleep0);
+                if (!kode.game) {
+                    askState(states.driveTowardsBeacon2);
+                    askState(states.waitForBeacon);
+                } else {
+                    askState(states.driveTowardsBeacon);
+                    askState(states.pushBeaconButton);
+                }
                 askState(states.backAwayFromBeacon);
-                if (tetris.game)
+                if (!kode.game)
                     askState(states.noscope2);
                 else
                     askState(states.shootballTwoBalls, states.shootballOnce, states.noscope);
@@ -95,7 +125,7 @@ public class masterV3 extends LinearOpMode {
         } else {
             askState(states.sleep0, states.sleep2000, states.sleep4000, states.sleep10000);
             askState(states.backup42);
-            if (tetris.game)
+            if (!kode.game)
                 askState(states.noscope2);
             else
                 askState(states.shootballTwoBalls, states.shootballOnce, states.noscope);
@@ -117,6 +147,7 @@ public class masterV3 extends LinearOpMode {
 
         // send whole LinearOpMode object and context to robotconfig init method
         robot.init(this);
+        robot.enableMotorBreak();
         //add telementry to report that init completed
         robotconfig.addlog(dl, "autonomous", "Done with robot.init --- waiting for start in " + this.getClass().getSimpleName());
 
@@ -196,8 +227,8 @@ public class masterV3 extends LinearOpMode {
         telemetry.update();
 
         while (!isStopRequested() && !opModeIsActive()) {
-            tetris.run(gamepad1, telemetry);
-            if (tetris.state < 16 || tetris.state > 19)
+            kode.run(gamepad1, telemetry);
+            if (kode.state < 16 || kode.state > 19)
                 if (gamepad1.a) {
                     while (gamepad1.a)
                         idle();
@@ -240,8 +271,8 @@ public class masterV3 extends LinearOpMode {
 
         //check to make sure it is still in init
         while (!isStopRequested() && !opModeIsActive()) {
-            tetris.run(gamepad1, telemetry);
-            if (tetris.state < 16 || tetris.state > 19)
+            kode.run(gamepad1, telemetry);
+            if (kode.state < 16 || kode.state > 19)
                 if (gamepad1.a) {
                     //loop while held to avoid double press
                     while (gamepad1.a)
@@ -282,8 +313,8 @@ public class masterV3 extends LinearOpMode {
         displayStates();
         telemetry.update();
         while (!isStopRequested() && !opModeIsActive()) {
-            tetris.run(gamepad1, telemetry);
-            if (tetris.state < 16 || tetris.state > 19)
+            kode.run(gamepad1, telemetry);
+            if (kode.state < 16 || kode.state > 19)
                 if (gamepad1.a) {
                     while (gamepad1.a)
                         idle();
@@ -324,8 +355,8 @@ public class masterV3 extends LinearOpMode {
         displayStates();
         telemetry.update();
         while (!isStopRequested() && !opModeIsActive()) {
-            tetris.run(gamepad1, telemetry);
-            if (tetris.state < 16 || tetris.state > 19)
+            kode.run(gamepad1, telemetry);
+            if (kode.state < 16 || kode.state > 19)
                 if (gamepad1.a) {
                     while (gamepad1.a)
                         idle();

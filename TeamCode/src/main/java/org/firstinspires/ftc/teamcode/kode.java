@@ -5,16 +5,14 @@ import android.graphics.Point;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.robotcore.external.Func;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-import static org.firstinspires.ftc.teamcode.superText.numbers;
+public class kode {
 
-public class tetris {
-
+    static Gamepad gp;
     private final Point[][][] Tetraminos = {
             // I-Piece
             {
@@ -72,12 +70,13 @@ public class tetris {
                     {new Point(1, 0), new Point(0, 1), new Point(1, 1), new Point(0, 2)}
             }
     };
-
+    public int state = 0;
+    public boolean game = false;
+    ElapsedTime dropTimer = new ElapsedTime();
     private Point pieceOrigin;
     private int currentPiece;
     private int rotation;
     private ArrayList<Integer> nextPieces = new ArrayList<Integer>();
-
     private long score;
     private int[][] well;
 
@@ -215,11 +214,6 @@ public class tetris {
         }
     }
 
-    public int state = 0;
-    public boolean game = false;
-    static Gamepad gp;
-    ElapsedTime dropTimer = new ElapsedTime();
-
     public void run(Gamepad gp, Telemetry tp) {
         switch (state) {
             case 0:
@@ -305,14 +299,14 @@ public class tetris {
             case 20:
                 game = true;
 //                tp.clearAll();
-//                tetris.gp = gp;
+//                kode.gp = gp;
 //                init();
 //                tp.setMsTransmissionInterval(10);
 //                tp.addAction(new Runnable() {
 //                    @Override
 //                    public void run() {
 //                        state++;
-//                        keyPressed(tetris.gp);
+//                        keyPressed(kode.gp);
 //                        if (dropTimer.seconds() > 0.5) {
 //                            dropDown();
 //                            dropTimer.reset();
