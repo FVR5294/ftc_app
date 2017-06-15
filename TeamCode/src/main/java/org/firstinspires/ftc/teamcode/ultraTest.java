@@ -24,8 +24,7 @@
 
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.hardware.adafruit.BNO055IMU;
-import com.qualcomm.hardware.adafruit.JustLoggingAccelerationIntegrator;
+import com.qualcomm.hardware.adafruit.AdafruitBNO055IMU;
 import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cRangeSensor;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -41,23 +40,23 @@ import static org.firstinspires.ftc.teamcode.robotconfig.hyp;
 //@Disabled
 public class ultraTest extends OpMode {
     ModernRoboticsI2cRangeSensor ultra;
-    BNO055IMU gyro;
+    AdafruitBNO055IMU gyro;
 
     @Override
     public void init() {
         ultra = hardwareMap.get(ModernRoboticsI2cRangeSensor.class, "ultra");
-        BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
-        parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
-        parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+        AdafruitBNO055IMU.Parameters parameters = new AdafruitBNO055IMU.Parameters();
+        parameters.angleUnit = AdafruitBNO055IMU.AngleUnit.DEGREES;
+        parameters.accelUnit = AdafruitBNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
         parameters.calibrationDataFile = "AdafruitIMUCalibration.json"; // see the calibration sample opmode
         parameters.loggingEnabled = false;
         parameters.loggingTag = "IMU";
-        parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
+//        parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
 
         // Retrieve and initialize the IMU. We expect the IMU to be attached to an I2C port
         // on a Core Device Interface Module, configured to be a sensor of type "AdaFruit IMU",
         // and named "imu".
-        gyro = hardwareMap.get(BNO055IMU.class, "imu");
+        gyro = hardwareMap.get(AdafruitBNO055IMU.class, "imu");
         gyro.initialize(parameters);
     }
 

@@ -1,0 +1,1973 @@
+sec,d ms,r.init,r.init was invoked (a)
+0.001,0.971,r.init,debug mode is false
+0.002,0.951,r.init,colorSensorLineThreshhold is 0.05474095796676442
+0.109,106.905,robot,pushButton was invoked with button 0
+4.117,4008.843,robot,resetMotorEncoders was called
+4.126,8.563,robot,enableMotorEncoders was called
+4.161,34.642,r.init,r.init finished (a)
+4.220,59.216,autonomous,Done with robot.init --- waiting for start in masterV3
+4.221,1.581,autonomous,Started
+5.821,1599.682,Mainline,Beginning state machine pass 0
+5.822,1.077,<colorRed>
+5.824,1.896,colorRedStateMachine,Execution of colorRed has started
+5.825,0.754,</colorRed>
+5.826,0.701,colorRedStateMachine,Execution of colorRed has been completed in, 0, intervals over a time of, 0.000908.3, seconds
+5.827,1.644,Mainline,Ending state machine pass of arcTowardsBeacon
+5.829,1.289,Mainline,Beginning state machine pass 1
+5.830,1.124,robot,enableMotorBreak was called
+5.831,0.929,robot,setMotorTankTargets was called - L:r: 2610 : 5408
+5.868,37.212,<arcTowardsBeacon>
+5.908,40.063,arcTowardsBeaconStateMachine,Execution of arcTowardsBeacon has started
+5.909,0.737,robot,bettermove powers are fl:fr:bl:br, 0.48, 1.00, 0.48, 1.00
+5.979,70.101,Mainline,Ending state machine pass of arcTowardsBeacon
+5.980,1.022,Mainline,Beginning state machine pass 1
+5.981,1.162,robot,bettermove powers are fl:fr:bl:br, 0.48, 1.00, 0.48, 1.00
+5.983,1.878,Mainline,Ending state machine pass of arcTowardsBeacon
+5.984,0.805,Mainline,Beginning state machine pass 1
+5.984,0.868,robot,bettermove powers are fl:fr:bl:br, 0.48, 1.00, 0.48, 1.00
+5.987,2.170,Mainline,Ending state machine pass of arcTowardsBeacon
+5.988,1.750,Mainline,Beginning state machine pass 1
+5.990,1.308,robot,bettermove powers are fl:fr:bl:br, 0.48, 1.00, 0.48, 1.00
+5.996,6.312,Mainline,Ending state machine pass of arcTowardsBeacon
+5.998,1.620,Mainline,Beginning state machine pass 1
+5.999,1.098,robot,bettermove powers are fl:fr:bl:br, 0.48, 1.00, 0.48, 1.00
+6.001,2.784,Mainline,Ending state machine pass of arcTowardsBeacon
+6.003,1.467,Mainline,Beginning state machine pass 1
+6.004,0.929,robot,bettermove powers are fl:fr:bl:br, 0.48, 1.00, 0.48, 1.00
+6.007,3.367,Mainline,Ending state machine pass of arcTowardsBeacon
+6.008,0.964,Mainline,Beginning state machine pass 1
+6.010,1.520,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.48, 1.00
+6.063,52.954,Mainline,Ending state machine pass of arcTowardsBeacon
+6.063,0.780,Mainline,Beginning state machine pass 1
+6.065,1.256,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.095,30.003,Mainline,Ending state machine pass of arcTowardsBeacon
+6.096,0.866,Mainline,Beginning state machine pass 1
+6.097,1.329,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.100,3.576,Mainline,Ending state machine pass of arcTowardsBeacon
+6.102,1.412,Mainline,Beginning state machine pass 1
+6.103,1.221,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.106,2.529,Mainline,Ending state machine pass of arcTowardsBeacon
+6.106,0.830,Mainline,Beginning state machine pass 1
+6.107,0.710,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.109,1.548,Mainline,Ending state machine pass of arcTowardsBeacon
+6.110,0.772,Mainline,Beginning state machine pass 1
+6.111,1.993,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.114,2.320,Mainline,Ending state machine pass of arcTowardsBeacon
+6.115,0.820,Mainline,Beginning state machine pass 1
+6.116,0.893,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.118,2.097,Mainline,Ending state machine pass of arcTowardsBeacon
+6.118,0.823,Mainline,Beginning state machine pass 1
+6.119,0.583,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.121,1.616,Mainline,Ending state machine pass of arcTowardsBeacon
+6.123,2.576,Mainline,Beginning state machine pass 1
+6.125,1.760,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.127,1.638,Mainline,Ending state machine pass of arcTowardsBeacon
+6.130,3.451,Mainline,Beginning state machine pass 1
+6.131,0.893,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.135,3.561,Mainline,Ending state machine pass of arcTowardsBeacon
+6.136,1.063,Mainline,Beginning state machine pass 1
+6.137,1.139,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.140,3.204,Mainline,Ending state machine pass of arcTowardsBeacon
+6.141,0.921,Mainline,Beginning state machine pass 1
+6.142,1.058,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.144,2.123,Mainline,Ending state machine pass of arcTowardsBeacon
+6.145,0.708,Mainline,Beginning state machine pass 1
+6.145,0.499,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.147,1.789,Mainline,Ending state machine pass of arcTowardsBeacon
+6.148,0.692,Mainline,Beginning state machine pass 1
+6.148,0.554,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.150,2.089,Mainline,Ending state machine pass of arcTowardsBeacon
+6.151,0.742,Mainline,Beginning state machine pass 1
+6.152,0.836,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.153,1.376,Mainline,Ending state machine pass of arcTowardsBeacon
+6.155,1.237,Mainline,Beginning state machine pass 1
+6.156,0.959,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.158,2.403,Mainline,Ending state machine pass of arcTowardsBeacon
+6.159,0.694,Mainline,Beginning state machine pass 1
+6.160,1.271,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.161,1.597,Mainline,Ending state machine pass of arcTowardsBeacon
+6.162,0.749,Mainline,Beginning state machine pass 1
+6.163,0.563,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.165,1.899,Mainline,Ending state machine pass of arcTowardsBeacon
+6.165,0.624,Mainline,Beginning state machine pass 1
+6.166,0.476,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.167,1.208,Mainline,Ending state machine pass of arcTowardsBeacon
+6.168,0.632,Mainline,Beginning state machine pass 1
+6.168,0.513,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.171,2.667,Mainline,Ending state machine pass of arcTowardsBeacon
+6.171,0.660,Mainline,Beginning state machine pass 1
+6.172,0.717,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.173,1.190,Mainline,Ending state machine pass of arcTowardsBeacon
+6.174,0.636,Mainline,Beginning state machine pass 1
+6.175,0.550,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.176,1.596,Mainline,Ending state machine pass of arcTowardsBeacon
+6.177,0.566,Mainline,Beginning state machine pass 1
+6.177,0.538,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.178,1.229,Mainline,Ending state machine pass of arcTowardsBeacon
+6.179,0.619,Mainline,Beginning state machine pass 1
+6.180,0.549,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.181,1.667,Mainline,Ending state machine pass of arcTowardsBeacon
+6.182,0.650,Mainline,Beginning state machine pass 1
+6.183,0.560,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.184,1.210,Mainline,Ending state machine pass of arcTowardsBeacon
+6.184,0.601,Mainline,Beginning state machine pass 1
+6.185,0.477,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.186,1.475,Mainline,Ending state machine pass of arcTowardsBeacon
+6.187,0.629,Mainline,Beginning state machine pass 1
+6.188,0.569,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.189,1.419,Mainline,Ending state machine pass of arcTowardsBeacon
+6.190,0.697,Mainline,Beginning state machine pass 1
+6.190,0.818,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.192,1.814,Mainline,Ending state machine pass of arcTowardsBeacon
+6.193,0.786,Mainline,Beginning state machine pass 1
+6.194,0.577,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.195,1.534,Mainline,Ending state machine pass of arcTowardsBeacon
+6.196,0.592,Mainline,Beginning state machine pass 1
+6.196,0.536,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.200,4.196,Mainline,Ending state machine pass of arcTowardsBeacon
+6.201,0.892,Mainline,Beginning state machine pass 1
+6.202,0.826,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.204,1.764,Mainline,Ending state machine pass of arcTowardsBeacon
+6.205,0.696,Mainline,Beginning state machine pass 1
+6.205,0.813,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.207,1.935,Mainline,Ending state machine pass of arcTowardsBeacon
+6.208,0.809,Mainline,Beginning state machine pass 1
+6.209,0.574,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.212,2.888,Mainline,Ending state machine pass of arcTowardsBeacon
+6.213,1.317,Mainline,Beginning state machine pass 1
+6.214,0.572,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.215,1.809,Mainline,Ending state machine pass of arcTowardsBeacon
+6.216,0.633,Mainline,Beginning state machine pass 1
+6.217,1.347,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.221,3.421,Mainline,Ending state machine pass of arcTowardsBeacon
+6.222,0.752,Mainline,Beginning state machine pass 1
+6.222,0.792,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.224,1.423,Mainline,Ending state machine pass of arcTowardsBeacon
+6.225,0.875,Mainline,Beginning state machine pass 1
+6.226,1.006,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.233,7.218,Mainline,Ending state machine pass of arcTowardsBeacon
+6.236,3.088,Mainline,Beginning state machine pass 1
+6.238,1.958,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.98, 0.47, 1.00
+6.260,22.515,Mainline,Ending state machine pass of arcTowardsBeacon
+6.261,0.906,Mainline,Beginning state machine pass 1
+6.262,0.817,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.98, 0.47, 1.00
+6.264,1.565,Mainline,Ending state machine pass of arcTowardsBeacon
+6.264,0.811,Mainline,Beginning state machine pass 1
+6.266,1.144,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.303,37.354,Mainline,Ending state machine pass of arcTowardsBeacon
+6.304,1.226,Mainline,Beginning state machine pass 1
+6.306,1.815,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.46, 1.00
+6.336,29.695,Mainline,Ending state machine pass of arcTowardsBeacon
+6.336,0.727,Mainline,Beginning state machine pass 1
+6.337,0.915,robot,bettermove powers are fl:fr:bl:br, 0.46, 0.99, 0.46, 1.00
+6.388,50.404,Mainline,Ending state machine pass of arcTowardsBeacon
+6.390,1.935,Mainline,Beginning state machine pass 1
+6.394,4.145,robot,bettermove powers are fl:fr:bl:br, 0.46, 0.98, 0.45, 1.00
+6.440,45.732,Mainline,Ending state machine pass of arcTowardsBeacon
+6.441,1.007,Mainline,Beginning state machine pass 1
+6.442,1.200,robot,bettermove powers are fl:fr:bl:br, 0.45, 0.98, 0.45, 1.00
+6.473,31.355,Mainline,Ending state machine pass of arcTowardsBeacon
+6.474,1.019,Mainline,Beginning state machine pass 1
+6.475,0.885,robot,bettermove powers are fl:fr:bl:br, 0.45, 0.98, 0.45, 1.00
+6.477,2.038,Mainline,Ending state machine pass of arcTowardsBeacon
+6.479,1.692,Mainline,Beginning state machine pass 1
+6.482,3.168,robot,bettermove powers are fl:fr:bl:br, 0.45, 0.98, 0.44, 1.00
+6.511,29.229,Mainline,Ending state machine pass of arcTowardsBeacon
+6.512,1.246,Mainline,Beginning state machine pass 1
+6.514,1.080,robot,bettermove powers are fl:fr:bl:br, 0.45, 0.98, 0.44, 1.00
+6.516,2.615,Mainline,Ending state machine pass of arcTowardsBeacon
+6.517,1.205,Mainline,Beginning state machine pass 1
+6.519,1.256,robot,bettermove powers are fl:fr:bl:br, 0.45, 0.98, 0.44, 1.00
+6.521,2.753,Mainline,Ending state machine pass of arcTowardsBeacon
+6.523,1.172,Mainline,Beginning state machine pass 1
+6.523,0.861,robot,bettermove powers are fl:fr:bl:br, 0.45, 0.98, 0.44, 1.00
+6.526,2.953,Mainline,Ending state machine pass of arcTowardsBeacon
+6.528,1.316,Mainline,Beginning state machine pass 1
+6.529,0.865,robot,bettermove powers are fl:fr:bl:br, 0.44, 0.98, 0.44, 1.00
+6.549,20.107,Mainline,Ending state machine pass of arcTowardsBeacon
+6.550,1.030,Mainline,Beginning state machine pass 1
+6.550,0.703,robot,bettermove powers are fl:fr:bl:br, 0.44, 0.98, 0.44, 1.00
+6.553,2.518,Mainline,Ending state machine pass of arcTowardsBeacon
+6.554,0.892,Mainline,Beginning state machine pass 1
+6.554,0.645,robot,bettermove powers are fl:fr:bl:br, 0.44, 0.98, 0.44, 1.00
+6.556,1.769,Mainline,Ending state machine pass of arcTowardsBeacon
+6.557,0.844,Mainline,Beginning state machine pass 1
+6.558,0.666,robot,bettermove powers are fl:fr:bl:br, 0.44, 0.98, 0.44, 1.00
+6.560,2.473,Mainline,Ending state machine pass of arcTowardsBeacon
+6.561,1.253,Mainline,Beginning state machine pass 1
+6.562,0.692,robot,bettermove powers are fl:fr:bl:br, 0.44, 0.98, 0.44, 1.00
+6.565,2.623,Mainline,Ending state machine pass of arcTowardsBeacon
+6.565,0.756,Mainline,Beginning state machine pass 1
+6.566,0.681,robot,bettermove powers are fl:fr:bl:br, 0.44, 0.98, 0.44, 1.00
+6.569,2.839,Mainline,Ending state machine pass of arcTowardsBeacon
+6.571,2.104,Mainline,Beginning state machine pass 1
+6.575,3.601,robot,bettermove powers are fl:fr:bl:br, 0.44, 0.98, 0.43, 1.00
+6.605,30.065,Mainline,Ending state machine pass of arcTowardsBeacon
+6.605,0.632,Mainline,Beginning state machine pass 1
+6.606,0.934,robot,bettermove powers are fl:fr:bl:br, 0.44, 0.98, 0.43, 1.00
+6.608,1.273,Mainline,Ending state machine pass of arcTowardsBeacon
+6.608,0.623,Mainline,Beginning state machine pass 1
+6.609,0.721,robot,bettermove powers are fl:fr:bl:br, 0.43, 0.98, 0.43, 1.00
+6.637,28.157,Mainline,Ending state machine pass of arcTowardsBeacon
+6.638,0.795,Mainline,Beginning state machine pass 1
+6.639,0.874,robot,bettermove powers are fl:fr:bl:br, 0.43, 0.98, 0.43, 1.00
+6.641,2.556,Mainline,Ending state machine pass of arcTowardsBeacon
+6.644,2.576,Mainline,Beginning state machine pass 1
+6.645,1.492,robot,bettermove powers are fl:fr:bl:br, 0.43, 0.98, 0.43, 1.00
+6.648,2.345,Mainline,Ending state machine pass of arcTowardsBeacon
+6.649,1.109,Mainline,Beginning state machine pass 1
+6.651,1.871,robot,bettermove powers are fl:fr:bl:br, 0.43, 0.97, 0.43, 1.00
+6.678,26.806,Mainline,Ending state machine pass of arcTowardsBeacon
+6.678,0.877,Mainline,Beginning state machine pass 1
+6.679,0.917,robot,bettermove powers are fl:fr:bl:br, 0.43, 0.98, 0.42, 1.00
+6.711,31.942,Mainline,Ending state machine pass of arcTowardsBeacon
+6.712,0.914,Mainline,Beginning state machine pass 1
+6.713,1.111,robot,bettermove powers are fl:fr:bl:br, 0.42, 0.98, 0.42, 1.00
+6.745,31.784,Mainline,Ending state machine pass of arcTowardsBeacon
+6.746,0.825,Mainline,Beginning state machine pass 1
+6.747,1.155,robot,bettermove powers are fl:fr:bl:br, 0.42, 0.98, 0.42, 1.00
+6.749,2.220,Mainline,Ending state machine pass of arcTowardsBeacon
+6.750,0.879,Mainline,Beginning state machine pass 1
+6.751,0.770,robot,bettermove powers are fl:fr:bl:br, 0.42, 0.98, 0.42, 1.00
+6.753,1.678,Mainline,Ending state machine pass of arcTowardsBeacon
+6.754,1.233,Mainline,Beginning state machine pass 1
+6.755,1.086,robot,bettermove powers are fl:fr:bl:br, 0.42, 0.99, 0.42, 1.00
+6.781,26.165,Mainline,Ending state machine pass of arcTowardsBeacon
+6.782,0.865,Mainline,Beginning state machine pass 1
+6.784,1.581,robot,bettermove powers are fl:fr:bl:br, 0.42, 0.98, 0.42, 1.00
+6.810,26.139,Mainline,Ending state machine pass of arcTowardsBeacon
+6.810,0.632,Mainline,Beginning state machine pass 1
+6.811,1.109,robot,bettermove powers are fl:fr:bl:br, 0.42, 0.98, 0.42, 1.00
+6.813,1.378,Mainline,Ending state machine pass of arcTowardsBeacon
+6.813,0.704,Mainline,Beginning state machine pass 1
+6.814,0.516,robot,bettermove powers are fl:fr:bl:br, 0.42, 0.98, 0.42, 1.00
+6.815,1.247,Mainline,Ending state machine pass of arcTowardsBeacon
+6.816,0.638,Mainline,Beginning state machine pass 1
+6.816,0.563,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.98, 0.42, 1.00
+6.847,30.505,Mainline,Ending state machine pass of arcTowardsBeacon
+6.848,0.684,Mainline,Beginning state machine pass 1
+6.849,0.936,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.98, 0.41, 1.00
+6.867,18.129,Mainline,Ending state machine pass of arcTowardsBeacon
+6.868,0.849,Mainline,Beginning state machine pass 1
+6.869,1.264,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.98, 0.42, 1.00
+6.900,30.871,Mainline,Ending state machine pass of arcTowardsBeacon
+6.900,0.706,Mainline,Beginning state machine pass 1
+6.902,1.243,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.98, 0.42, 1.00
+6.903,1.712,Mainline,Ending state machine pass of arcTowardsBeacon
+6.904,0.863,Mainline,Beginning state machine pass 1
+6.905,0.624,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.98, 0.42, 1.00
+6.906,1.519,Mainline,Ending state machine pass of arcTowardsBeacon
+6.907,0.824,Mainline,Beginning state machine pass 1
+6.908,0.621,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.99, 0.42, 1.00
+6.945,37.277,Mainline,Ending state machine pass of arcTowardsBeacon
+6.947,1.493,Mainline,Beginning state machine pass 1
+6.948,1.855,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.98, 0.42, 1.00
+6.986,37.289,Mainline,Ending state machine pass of arcTowardsBeacon
+6.986,0.776,Mainline,Beginning state machine pass 1
+6.988,1.860,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.99, 0.42, 1.00
+7.024,35.214,Mainline,Ending state machine pass of arcTowardsBeacon
+7.024,0.857,Mainline,Beginning state machine pass 1
+7.025,0.909,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.99, 0.42, 1.00
+7.027,1.770,Mainline,Ending state machine pass of arcTowardsBeacon
+7.028,0.944,Mainline,Beginning state machine pass 1
+7.029,1.122,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.99, 0.42, 1.00
+7.032,3.003,Mainline,Ending state machine pass of arcTowardsBeacon
+7.033,1.307,Mainline,Beginning state machine pass 1
+7.035,1.603,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.99, 0.42, 1.00
+7.037,2.070,Mainline,Ending state machine pass of arcTowardsBeacon
+7.038,1.238,Mainline,Beginning state machine pass 1
+7.039,0.927,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.99, 0.42, 1.00
+7.042,2.397,Mainline,Ending state machine pass of arcTowardsBeacon
+7.046,3.877,Mainline,Beginning state machine pass 1
+7.048,2.547,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.99, 0.42, 1.00
+7.051,2.741,Mainline,Ending state machine pass of arcTowardsBeacon
+7.053,1.837,Mainline,Beginning state machine pass 1
+7.054,0.845,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.99, 0.42, 1.00
+7.057,3.423,Mainline,Ending state machine pass of arcTowardsBeacon
+7.059,1.873,Mainline,Beginning state machine pass 1
+7.061,1.782,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.99, 0.42, 1.00
+7.063,2.853,Mainline,Ending state machine pass of arcTowardsBeacon
+7.065,1.248,Mainline,Beginning state machine pass 1
+7.066,1.087,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.99, 0.42, 1.00
+7.068,1.839,Mainline,Ending state machine pass of arcTowardsBeacon
+7.069,1.030,Mainline,Beginning state machine pass 1
+7.070,0.850,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.99, 0.42, 1.00
+7.072,2.436,Mainline,Ending state machine pass of arcTowardsBeacon
+7.074,1.777,Mainline,Beginning state machine pass 1
+7.075,0.845,robot,bettermove powers are fl:fr:bl:br, 0.41, 1.00, 0.41, 0.99
+7.125,50.045,Mainline,Ending state machine pass of arcTowardsBeacon
+7.126,1.153,Mainline,Beginning state machine pass 1
+7.127,0.987,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.99, 0.41, 1.00
+7.160,32.793,Mainline,Ending state machine pass of arcTowardsBeacon
+7.161,1.641,Mainline,Beginning state machine pass 1
+7.165,3.484,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.99, 0.41, 1.00
+7.168,3.659,Mainline,Ending state machine pass of arcTowardsBeacon
+7.170,1.736,Mainline,Beginning state machine pass 1
+7.173,2.766,robot,bettermove powers are fl:fr:bl:br, 0.41, 1.00, 0.41, 0.99
+7.221,48.487,Mainline,Ending state machine pass of arcTowardsBeacon
+7.222,0.812,Mainline,Beginning state machine pass 1
+7.224,1.390,robot,bettermove powers are fl:fr:bl:br, 0.40, 0.98, 0.41, 0.98
+7.268,43.996,Mainline,Ending state machine pass of arcTowardsBeacon
+7.268,0.920,Mainline,Beginning state machine pass 1
+7.269,0.845,robot,bettermove powers are fl:fr:bl:br, 0.38, 0.92, 0.38, 0.92
+7.333,63.985,Mainline,Ending state machine pass of arcTowardsBeacon
+7.334,0.869,Mainline,Beginning state machine pass 1
+7.335,0.930,robot,bettermove powers are fl:fr:bl:br, 0.36, 0.87, 0.36, 0.87
+7.393,57.886,Mainline,Ending state machine pass of arcTowardsBeacon
+7.394,1.057,Mainline,Beginning state machine pass 1
+7.395,1.132,robot,bettermove powers are fl:fr:bl:br, 0.33, 0.82, 0.33, 0.82
+7.455,59.961,Mainline,Ending state machine pass of arcTowardsBeacon
+7.456,0.807,Mainline,Beginning state machine pass 1
+7.457,0.737,robot,bettermove powers are fl:fr:bl:br, 0.32, 0.77, 0.32, 0.77
+7.524,67.470,Mainline,Ending state machine pass of arcTowardsBeacon
+7.525,1.099,Mainline,Beginning state machine pass 1
+7.526,0.831,robot,bettermove powers are fl:fr:bl:br, 0.30, 0.71, 0.30, 0.71
+7.575,48.509,Mainline,Ending state machine pass of arcTowardsBeacon
+7.575,0.881,Mainline,Beginning state machine pass 1
+7.576,0.897,robot,bettermove powers are fl:fr:bl:br, 0.29, 0.67, 0.29, 0.67
+7.640,63.413,Mainline,Ending state machine pass of arcTowardsBeacon
+7.641,0.834,Mainline,Beginning state machine pass 1
+7.642,1.003,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.62, 0.27, 0.62
+7.692,50.537,Mainline,Ending state machine pass of arcTowardsBeacon
+7.694,1.429,Mainline,Beginning state machine pass 1
+7.695,1.094,robot,bettermove powers are fl:fr:bl:br, 0.26, 0.58, 0.26, 0.58
+7.743,48.478,Mainline,Ending state machine pass of arcTowardsBeacon
+7.744,0.955,Mainline,Beginning state machine pass 1
+7.746,2.217,robot,bettermove powers are fl:fr:bl:br, 0.24, 0.54, 0.24, 0.53
+7.805,58.523,Mainline,Ending state machine pass of arcTowardsBeacon
+7.806,1.208,Mainline,Beginning state machine pass 1
+7.807,0.673,robot,bettermove powers are fl:fr:bl:br, 0.23, 0.50, 0.23, 0.49
+7.861,54.087,Mainline,Ending state machine pass of arcTowardsBeacon
+7.862,0.881,Mainline,Beginning state machine pass 1
+7.862,0.713,robot,bettermove powers are fl:fr:bl:br, 0.24, 0.50, 0.24, 0.48
+7.902,39.890,Mainline,Ending state machine pass of arcTowardsBeacon
+7.903,0.895,Mainline,Beginning state machine pass 1
+7.904,0.717,robot,bettermove powers are fl:fr:bl:br, 0.24, 0.50, 0.25, 0.48
+7.925,20.722,Mainline,Ending state machine pass of arcTowardsBeacon
+7.925,0.792,Mainline,Beginning state machine pass 1
+7.926,0.647,robot,bettermove powers are fl:fr:bl:br, 0.24, 0.50, 0.25, 0.47
+7.961,35.400,Mainline,Ending state machine pass of arcTowardsBeacon
+7.962,0.855,Mainline,Beginning state machine pass 1
+7.963,0.811,robot,bettermove powers are fl:fr:bl:br, 0.25, 0.50, 0.25, 0.48
+7.987,23.891,Mainline,Ending state machine pass of arcTowardsBeacon
+7.988,1.324,Mainline,Beginning state machine pass 1
+7.990,1.937,robot,bettermove powers are fl:fr:bl:br, 0.25, 0.50, 0.26, 0.47
+8.035,44.869,Mainline,Ending state machine pass of arcTowardsBeacon
+8.036,0.894,Mainline,Beginning state machine pass 1
+8.037,0.764,robot,bettermove powers are fl:fr:bl:br, 0.26, 0.50, 0.26, 0.47
+8.048,10.787,Mainline,Ending state machine pass of arcTowardsBeacon
+8.049,1.049,Mainline,Beginning state machine pass 1
+8.050,0.918,robot,bettermove powers are fl:fr:bl:br, 0.26, 0.50, 0.27, 0.48
+8.087,37.120,Mainline,Ending state machine pass of arcTowardsBeacon
+8.088,0.833,Mainline,Beginning state machine pass 1
+8.088,0.870,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.50, 0.27, 0.47
+8.113,24.639,Mainline,Ending state machine pass of arcTowardsBeacon
+8.114,0.994,Mainline,Beginning state machine pass 1
+8.115,0.856,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.50, 0.27, 0.47
+8.117,1.673,Mainline,Ending state machine pass of arcTowardsBeacon
+8.119,1.933,Mainline,Beginning state machine pass 1
+8.125,6.113,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.50, 0.28, 0.48
+8.177,52.843,Mainline,Ending state machine pass of arcTowardsBeacon
+8.179,1.113,Mainline,Beginning state machine pass 1
+8.180,1.163,robot,bettermove powers are fl:fr:bl:br, 0.28, 0.50, 0.28, 0.48
+8.235,55.551,Mainline,Ending state machine pass of arcTowardsBeacon
+8.236,0.722,Mainline,Beginning state machine pass 1
+8.237,1.266,robot,bettermove powers are fl:fr:bl:br, 0.28, 0.50, 0.28, 0.47
+8.271,33.909,Mainline,Ending state machine pass of arcTowardsBeacon
+8.272,0.766,Mainline,Beginning state machine pass 1
+8.273,1.355,robot,bettermove powers are fl:fr:bl:br, 0.29, 0.50, 0.29, 0.48
+8.325,51.558,Mainline,Ending state machine pass of arcTowardsBeacon
+8.327,1.719,Mainline,Beginning state machine pass 1
+8.327,0.907,robot,bettermove powers are fl:fr:bl:br, 0.29, 0.50, 0.28, 0.47
+8.389,61.931,Mainline,Ending state machine pass of arcTowardsBeacon
+8.390,1.029,Mainline,Beginning state machine pass 1
+8.391,1.019,robot,bettermove powers are fl:fr:bl:br, 0.30, 0.50, 0.29, 0.48
+8.438,47.020,Mainline,Ending state machine pass of arcTowardsBeacon
+8.439,0.917,Mainline,Beginning state machine pass 1
+8.440,0.689,robot,bettermove powers are fl:fr:bl:br, 0.31, 0.50, 0.29, 0.47
+8.472,31.527,Mainline,Ending state machine pass of arcTowardsBeacon
+8.472,0.781,Mainline,Beginning state machine pass 1
+8.473,0.944,robot,bettermove powers are fl:fr:bl:br, 0.31, 0.50, 0.29, 0.48
+8.503,29.993,Mainline,Ending state machine pass of arcTowardsBeacon
+8.505,1.283,Mainline,Beginning state machine pass 1
+8.505,0.819,robot,bettermove powers are fl:fr:bl:br, 0.31, 0.50, 0.30, 0.49
+8.546,40.290,Mainline,Ending state machine pass of arcTowardsBeacon
+8.547,0.864,Mainline,Beginning state machine pass 1
+8.547,0.839,robot,bettermove powers are fl:fr:bl:br, 0.32, 0.50, 0.30, 0.48
+8.574,26.787,Mainline,Ending state machine pass of arcTowardsBeacon
+8.575,0.945,Mainline,Beginning state machine pass 1
+8.577,1.377,robot,bettermove powers are fl:fr:bl:br, 0.32, 0.50, 0.30, 0.49
+8.603,26.199,Mainline,Ending state machine pass of arcTowardsBeacon
+8.604,1.517,Mainline,Beginning state machine pass 1
+8.607,2.499,robot,bettermove powers are fl:fr:bl:br, 0.33, 0.50, 0.30, 0.50
+8.638,31.200,Mainline,Ending state machine pass of arcTowardsBeacon
+8.639,1.009,Mainline,Beginning state machine pass 1
+8.640,1.288,robot,bettermove powers are fl:fr:bl:br, 0.33, 0.50, 0.29, 0.47
+8.696,55.386,Mainline,Ending state machine pass of arcTowardsBeacon
+8.697,0.947,Mainline,Beginning state machine pass 1
+8.697,0.756,robot,bettermove powers are fl:fr:bl:br, 0.31, 0.50, 0.00, 0.46
+8.728,30.884,Mainline,Ending state machine pass of arcTowardsBeacon
+8.729,1.184,Mainline,Beginning state machine pass 1
+8.730,0.926,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.50, 0.00, 0.45
+8.765,34.263,Mainline,Ending state machine pass of arcTowardsBeacon
+8.765,0.852,Mainline,Beginning state machine pass 1
+8.766,0.809,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.50, 0.00, 0.45
+8.768,1.820,Mainline,Ending state machine pass of arcTowardsBeacon
+8.770,2.308,Mainline,Beginning state machine pass 1
+8.771,0.990,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.50, 0.00, 0.45
+8.773,1.856,Mainline,Ending state machine pass of arcTowardsBeacon
+8.776,2.452,Mainline,Beginning state machine pass 1
+8.777,1.117,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.50, 0.00, 0.45
+8.781,3.957,Mainline,Ending state machine pass of arcTowardsBeacon
+8.784,3.243,Mainline,Beginning state machine pass 1
+8.787,2.809,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.50, 0.00, 0.46
+8.811,23.873,Mainline,Ending state machine pass of arcTowardsBeacon
+8.812,1.369,Mainline,Beginning state machine pass 1
+8.814,1.601,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.50, 0.00, 0.46
+8.817,3.145,Mainline,Ending state machine pass of arcTowardsBeacon
+8.819,1.696,Mainline,Beginning state machine pass 1
+8.820,1.206,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.50, 0.00, 0.46
+8.823,3.622,Mainline,Ending state machine pass of arcTowardsBeacon
+8.825,1.373,Mainline,Beginning state machine pass 1
+8.826,0.809,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.50, 0.00, 0.46
+8.829,3.708,Mainline,Ending state machine pass of arcTowardsBeacon
+8.830,1.275,Mainline,Beginning state machine pass 1
+8.831,0.972,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.50, 0.00, 0.46
+8.834,2.979,Mainline,Ending state machine pass of arcTowardsBeacon
+8.835,0.736,Mainline,Beginning state machine pass 1
+8.836,0.937,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.50, 0.00, 0.46
+8.839,2.622,Mainline,Ending state machine pass of arcTowardsBeacon
+8.840,1.172,Mainline,Beginning state machine pass 1
+8.841,0.811,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.50, 0.00, 0.46
+8.843,2.561,Mainline,Ending state machine pass of arcTowardsBeacon
+8.845,1.395,Mainline,Beginning state machine pass 1
+8.846,1.222,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.50, 0.00, 0.46
+8.848,2.018,Mainline,Ending state machine pass of arcTowardsBeacon
+8.849,0.963,Mainline,Beginning state machine pass 1
+8.850,1.132,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.50, 0.00, 0.46
+8.852,2.197,Mainline,Ending state machine pass of arcTowardsBeacon
+8.853,1.287,Mainline,Beginning state machine pass 1
+8.856,2.957,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.50, 0.00, 0.47
+8.888,31.708,Mainline,Ending state machine pass of arcTowardsBeacon
+8.889,0.912,Mainline,Beginning state machine pass 1
+8.890,0.864,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.48, 0.00, 0.50
+8.916,25.851,Mainline,Ending state machine pass of arcTowardsBeacon
+8.916,0.686,Mainline,Beginning state machine pass 1
+8.917,0.866,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+8.958,41.113,Mainline,Ending state machine pass of arcTowardsBeacon
+8.960,1.093,Mainline,Beginning state machine pass 1
+8.960,0.868,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+8.985,24.183,Mainline,Ending state machine pass of arcTowardsBeacon
+8.986,0.950,Mainline,Beginning state machine pass 1
+8.986,0.808,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+8.989,2.316,Mainline,Ending state machine pass of arcTowardsBeacon
+8.990,0.980,Mainline,Beginning state machine pass 1
+8.990,0.805,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+8.993,2.751,Mainline,Ending state machine pass of arcTowardsBeacon
+8.994,1.114,Mainline,Beginning state machine pass 1
+8.996,1.227,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+9.004,8.030,Mainline,Ending state machine pass of arcTowardsBeacon
+9.005,1.788,Mainline,Beginning state machine pass 1
+9.007,1.309,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+9.011,4.094,Mainline,Ending state machine pass of arcTowardsBeacon
+9.013,2.091,Mainline,Beginning state machine pass 1
+9.014,0.669,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+9.015,1.738,Mainline,Ending state machine pass of arcTowardsBeacon
+9.016,1.021,Mainline,Beginning state machine pass 1
+9.017,1.000,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+9.019,2.143,Mainline,Ending state machine pass of arcTowardsBeacon
+9.020,0.846,Mainline,Beginning state machine pass 1
+9.021,0.845,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+9.023,1.612,Mainline,Ending state machine pass of arcTowardsBeacon
+9.024,0.845,Mainline,Beginning state machine pass 1
+9.024,0.557,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+9.026,2.193,Mainline,Ending state machine pass of arcTowardsBeacon
+9.027,1.063,Mainline,Beginning state machine pass 1
+9.028,0.944,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+9.030,1.584,Mainline,Ending state machine pass of arcTowardsBeacon
+9.031,0.905,Mainline,Beginning state machine pass 1
+9.032,0.725,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+9.035,3.403,Mainline,Ending state machine pass of arcTowardsBeacon
+9.037,1.910,Mainline,Beginning state machine pass 1
+9.038,1.302,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+9.051,12.565,Mainline,Ending state machine pass of arcTowardsBeacon
+9.052,1.552,Mainline,Beginning state machine pass 1
+9.053,0.861,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+9.058,5.004,Mainline,Ending state machine pass of arcTowardsBeacon
+9.059,1.220,Mainline,Beginning state machine pass 1
+9.061,2.003,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+9.066,4.223,Mainline,Ending state machine pass of arcTowardsBeacon
+9.068,2.746,Mainline,Beginning state machine pass 1
+9.069,0.605,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+9.071,2.053,Mainline,Ending state machine pass of arcTowardsBeacon
+9.073,2.156,Mainline,Beginning state machine pass 1
+9.075,1.911,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+9.079,4.326,Mainline,Ending state machine pass of arcTowardsBeacon
+9.080,0.830,Mainline,Beginning state machine pass 1
+9.104,23.725,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+9.110,5.830,Mainline,Ending state machine pass of arcTowardsBeacon
+9.111,0.810,Mainline,Beginning state machine pass 1
+9.111,0.857,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+9.113,1.386,Mainline,Ending state machine pass of arcTowardsBeacon
+9.114,0.719,Mainline,Beginning state machine pass 1
+9.114,0.529,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+9.116,1.999,Mainline,Ending state machine pass of arcTowardsBeacon
+9.117,0.681,Mainline,Beginning state machine pass 1
+9.118,1.178,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+9.120,1.603,Mainline,Ending state machine pass of arcTowardsBeacon
+9.120,0.597,Mainline,Beginning state machine pass 1
+9.121,0.863,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.147,26.042,Mainline,Ending state machine pass of arcTowardsBeacon
+9.148,0.694,Mainline,Beginning state machine pass 1
+9.149,0.995,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.150,1.275,Mainline,Ending state machine pass of arcTowardsBeacon
+9.151,0.679,Mainline,Beginning state machine pass 1
+9.152,0.928,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.154,2.002,Mainline,Ending state machine pass of arcTowardsBeacon
+9.154,0.655,Mainline,Beginning state machine pass 1
+9.155,0.555,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.46, 0.00, 0.50
+9.172,17.126,Mainline,Ending state machine pass of arcTowardsBeacon
+9.173,1.020,Mainline,Beginning state machine pass 1
+9.175,1.921,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.202,27.302,Mainline,Ending state machine pass of arcTowardsBeacon
+9.203,0.992,Mainline,Beginning state machine pass 1
+9.204,0.677,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.207,2.692,Mainline,Ending state machine pass of arcTowardsBeacon
+9.208,0.971,Mainline,Beginning state machine pass 1
+9.209,0.980,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.211,2.146,Mainline,Ending state machine pass of arcTowardsBeacon
+9.211,0.775,Mainline,Beginning state machine pass 1
+9.213,1.247,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.215,1.985,Mainline,Ending state machine pass of arcTowardsBeacon
+9.216,1.197,Mainline,Beginning state machine pass 1
+9.217,1.384,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.220,2.853,Mainline,Ending state machine pass of arcTowardsBeacon
+9.222,1.737,Mainline,Beginning state machine pass 1
+9.223,1.457,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.225,1.975,Mainline,Ending state machine pass of arcTowardsBeacon
+9.227,1.262,Mainline,Beginning state machine pass 1
+9.227,0.889,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.229,1.859,Mainline,Ending state machine pass of arcTowardsBeacon
+9.230,1.188,Mainline,Beginning state machine pass 1
+9.231,1.037,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.233,1.867,Mainline,Ending state machine pass of arcTowardsBeacon
+9.234,1.082,Mainline,Beginning state machine pass 1
+9.235,0.703,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.237,2.215,Mainline,Ending state machine pass of arcTowardsBeacon
+9.240,2.342,Mainline,Beginning state machine pass 1
+9.241,1.060,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.242,1.687,Mainline,Ending state machine pass of arcTowardsBeacon
+9.246,3.193,Mainline,Beginning state machine pass 1
+9.247,0.930,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.249,2.804,Mainline,Ending state machine pass of arcTowardsBeacon
+9.251,1.403,Mainline,Beginning state machine pass 1
+9.252,0.791,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.254,2.236,Mainline,Ending state machine pass of arcTowardsBeacon
+9.255,1.396,Mainline,Beginning state machine pass 1
+9.256,1.122,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.258,1.424,Mainline,Ending state machine pass of arcTowardsBeacon
+9.258,0.720,Mainline,Beginning state machine pass 1
+9.262,3.741,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.272,10.160,Mainline,Ending state machine pass of arcTowardsBeacon
+9.275,2.316,Mainline,Beginning state machine pass 1
+9.276,1.153,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.279,2.888,Mainline,Ending state machine pass of arcTowardsBeacon
+9.280,1.138,Mainline,Beginning state machine pass 1
+9.281,0.947,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.283,1.959,Mainline,Ending state machine pass of arcTowardsBeacon
+9.283,0.692,Mainline,Beginning state machine pass 1
+9.284,0.541,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.287,2.856,Mainline,Ending state machine pass of arcTowardsBeacon
+9.288,0.904,Mainline,Beginning state machine pass 1
+9.289,0.842,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.291,2.115,Mainline,Ending state machine pass of arcTowardsBeacon
+9.292,0.961,Mainline,Beginning state machine pass 1
+9.292,0.608,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.294,1.839,Mainline,Ending state machine pass of arcTowardsBeacon
+9.295,0.726,Mainline,Beginning state machine pass 1
+9.296,0.676,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.297,1.658,Mainline,Ending state machine pass of arcTowardsBeacon
+9.298,0.936,Mainline,Beginning state machine pass 1
+9.299,0.573,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.301,2.593,Mainline,Ending state machine pass of arcTowardsBeacon
+9.302,0.568,Mainline,Beginning state machine pass 1
+9.302,0.629,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.304,1.634,Mainline,Ending state machine pass of arcTowardsBeacon
+9.305,0.684,Mainline,Beginning state machine pass 1
+9.305,0.526,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.306,1.137,Mainline,Ending state machine pass of arcTowardsBeacon
+9.307,0.594,Mainline,Beginning state machine pass 1
+9.308,0.517,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.309,1.708,Mainline,Ending state machine pass of arcTowardsBeacon
+9.310,0.569,Mainline,Beginning state machine pass 1
+9.310,0.541,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.312,2.032,Mainline,Ending state machine pass of arcTowardsBeacon
+9.313,0.642,Mainline,Beginning state machine pass 1
+9.314,0.541,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.315,1.754,Mainline,Ending state machine pass of arcTowardsBeacon
+9.316,0.560,Mainline,Beginning state machine pass 1
+9.316,0.536,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.318,1.545,Mainline,Ending state machine pass of arcTowardsBeacon
+9.319,1.310,Mainline,Beginning state machine pass 1
+9.320,0.496,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.321,1.408,Mainline,Ending state machine pass of arcTowardsBeacon
+9.322,0.596,Mainline,Beginning state machine pass 1
+9.322,0.564,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.324,1.852,Mainline,Ending state machine pass of arcTowardsBeacon
+9.325,0.616,Mainline,Beginning state machine pass 1
+9.325,0.532,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.327,1.198,Mainline,Ending state machine pass of arcTowardsBeacon
+9.327,0.584,Mainline,Beginning state machine pass 1
+9.328,0.459,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.329,1.743,Mainline,Ending state machine pass of arcTowardsBeacon
+9.330,0.641,Mainline,Beginning state machine pass 1
+9.331,0.586,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.332,1.502,Mainline,Ending state machine pass of arcTowardsBeacon
+9.333,0.650,Mainline,Beginning state machine pass 1
+9.333,0.523,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.335,1.483,Mainline,Ending state machine pass of arcTowardsBeacon
+9.335,0.660,Mainline,Beginning state machine pass 1
+9.336,0.548,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.337,1.354,Mainline,Ending state machine pass of arcTowardsBeacon
+9.338,0.557,Mainline,Beginning state machine pass 1
+9.338,0.525,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.340,1.811,Mainline,Ending state machine pass of arcTowardsBeacon
+9.341,0.708,Mainline,Beginning state machine pass 1
+9.341,0.520,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.343,1.558,Mainline,Ending state machine pass of arcTowardsBeacon
+9.344,0.653,Mainline,Beginning state machine pass 1
+9.344,0.643,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.346,1.540,Mainline,Ending state machine pass of arcTowardsBeacon
+9.347,0.824,Mainline,Beginning state machine pass 1
+9.347,0.708,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.349,1.804,Mainline,Ending state machine pass of arcTowardsBeacon
+9.350,0.609,Mainline,Beginning state machine pass 1
+9.350,0.564,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.353,2.350,Mainline,Ending state machine pass of arcTowardsBeacon
+9.354,1.335,Mainline,Beginning state machine pass 1
+9.355,1.022,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.356,1.247,Mainline,Ending state machine pass of arcTowardsBeacon
+9.357,0.606,Mainline,Beginning state machine pass 1
+9.357,0.489,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.359,1.614,Mainline,Ending state machine pass of arcTowardsBeacon
+9.360,0.594,Mainline,Beginning state machine pass 1
+9.360,0.622,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.362,1.706,Mainline,Ending state machine pass of arcTowardsBeacon
+9.363,1.151,Mainline,Beginning state machine pass 1
+9.364,0.625,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.366,2.002,Mainline,Ending state machine pass of arcTowardsBeacon
+9.367,1.369,Mainline,Beginning state machine pass 1
+9.368,0.637,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.369,1.493,Mainline,Ending state machine pass of arcTowardsBeacon
+9.370,0.597,Mainline,Beginning state machine pass 1
+9.371,1.301,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.373,1.835,Mainline,Ending state machine pass of arcTowardsBeacon
+9.374,0.871,Mainline,Beginning state machine pass 1
+9.374,0.597,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.376,1.245,Mainline,Ending state machine pass of arcTowardsBeacon
+9.376,0.609,Mainline,Beginning state machine pass 1
+9.377,0.884,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.379,1.465,Mainline,Ending state machine pass of arcTowardsBeacon
+9.380,1.423,Mainline,Beginning state machine pass 1
+9.382,1.541,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.384,1.993,Mainline,Ending state machine pass of arcTowardsBeacon
+9.384,0.660,Mainline,Beginning state machine pass 1
+9.385,0.725,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.386,1.339,Mainline,Ending state machine pass of arcTowardsBeacon
+9.387,0.595,Mainline,Beginning state machine pass 1
+9.388,0.756,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.390,2.529,Mainline,Ending state machine pass of arcTowardsBeacon
+9.391,0.786,Mainline,Beginning state machine pass 1
+9.392,0.944,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.393,1.427,Mainline,Ending state machine pass of arcTowardsBeacon
+9.395,1.394,Mainline,Beginning state machine pass 1
+9.396,1.122,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.398,1.999,Mainline,Ending state machine pass of arcTowardsBeacon
+9.398,0.637,Mainline,Beginning state machine pass 1
+9.399,0.523,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.401,1.739,Mainline,Ending state machine pass of arcTowardsBeacon
+9.402,0.927,Mainline,Beginning state machine pass 1
+9.402,0.582,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.404,1.519,Mainline,Ending state machine pass of arcTowardsBeacon
+9.405,1.561,Mainline,Beginning state machine pass 1
+9.407,1.389,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.408,1.213,Mainline,Ending state machine pass of arcTowardsBeacon
+9.409,1.381,Mainline,Beginning state machine pass 1
+9.410,0.943,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.412,1.741,Mainline,Ending state machine pass of arcTowardsBeacon
+9.413,0.685,Mainline,Beginning state machine pass 1
+9.414,0.899,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.416,2.353,Mainline,Ending state machine pass of arcTowardsBeacon
+9.417,0.937,Mainline,Beginning state machine pass 1
+9.417,0.589,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.419,1.485,Mainline,Ending state machine pass of arcTowardsBeacon
+9.420,0.876,Mainline,Beginning state machine pass 1
+9.421,1.200,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.423,1.693,Mainline,Ending state machine pass of arcTowardsBeacon
+9.423,0.756,Mainline,Beginning state machine pass 1
+9.424,0.765,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.426,1.453,Mainline,Ending state machine pass of arcTowardsBeacon
+9.427,1.611,Mainline,Beginning state machine pass 1
+9.429,1.232,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.430,1.817,Mainline,Ending state machine pass of arcTowardsBeacon
+9.432,1.268,Mainline,Beginning state machine pass 1
+9.432,0.635,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.435,2.452,Mainline,Ending state machine pass of arcTowardsBeacon
+9.436,1.180,Mainline,Beginning state machine pass 1
+9.437,1.194,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.439,1.572,Mainline,Ending state machine pass of arcTowardsBeacon
+9.440,1.135,Mainline,Beginning state machine pass 1
+9.440,0.551,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.442,1.408,Mainline,Ending state machine pass of arcTowardsBeacon
+9.443,1.340,Mainline,Beginning state machine pass 1
+9.444,0.832,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.446,1.997,Mainline,Ending state machine pass of arcTowardsBeacon
+9.447,0.676,Mainline,Beginning state machine pass 1
+9.447,0.737,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.449,1.267,Mainline,Ending state machine pass of arcTowardsBeacon
+9.449,0.640,Mainline,Beginning state machine pass 1
+9.450,0.621,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.452,2.176,Mainline,Ending state machine pass of arcTowardsBeacon
+9.453,0.620,Mainline,Beginning state machine pass 1
+9.453,0.483,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.455,1.436,Mainline,Ending state machine pass of arcTowardsBeacon
+9.455,0.592,Mainline,Beginning state machine pass 1
+9.456,0.652,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.460,3.980,Mainline,Ending state machine pass of arcTowardsBeacon
+9.460,0.647,Mainline,Beginning state machine pass 1
+9.461,0.805,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.463,1.670,Mainline,Ending state machine pass of arcTowardsBeacon
+9.464,0.820,Mainline,Beginning state machine pass 1
+9.464,0.562,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.466,1.606,Mainline,Ending state machine pass of arcTowardsBeacon
+9.467,1.053,Mainline,Beginning state machine pass 1
+9.468,0.602,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.469,1.601,Mainline,Ending state machine pass of arcTowardsBeacon
+9.470,0.631,Mainline,Beginning state machine pass 1
+9.470,0.522,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.473,2.328,Mainline,Ending state machine pass of arcTowardsBeacon
+9.474,0.957,Mainline,Beginning state machine pass 1
+9.474,0.604,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.476,2.065,Mainline,Ending state machine pass of arcTowardsBeacon
+9.477,0.681,Mainline,Beginning state machine pass 1
+9.478,0.569,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.479,1.262,Mainline,Ending state machine pass of arcTowardsBeacon
+9.480,1.044,Mainline,Beginning state machine pass 1
+9.480,0.581,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.482,1.378,Mainline,Ending state machine pass of arcTowardsBeacon
+9.482,0.624,Mainline,Beginning state machine pass 1
+9.484,1.187,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.485,1.752,Mainline,Ending state machine pass of arcTowardsBeacon
+9.486,1.077,Mainline,Beginning state machine pass 1
+9.487,0.587,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.489,1.552,Mainline,Ending state machine pass of arcTowardsBeacon
+9.489,0.594,Mainline,Beginning state machine pass 1
+9.490,0.606,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.491,1.331,Mainline,Ending state machine pass of arcTowardsBeacon
+9.492,0.819,Mainline,Beginning state machine pass 1
+9.493,1.125,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.495,1.647,Mainline,Ending state machine pass of arcTowardsBeacon
+9.495,0.661,Mainline,Beginning state machine pass 1
+9.496,0.947,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.498,2.174,Mainline,Ending state machine pass of arcTowardsBeacon
+9.499,0.972,Mainline,Beginning state machine pass 1
+9.500,0.558,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.502,1.678,Mainline,Ending state machine pass of arcTowardsBeacon
+9.502,0.706,Mainline,Beginning state machine pass 1
+9.503,0.466,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.505,1.681,Mainline,Ending state machine pass of arcTowardsBeacon
+9.505,0.656,Mainline,Beginning state machine pass 1
+9.506,0.542,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.507,1.673,Mainline,Ending state machine pass of arcTowardsBeacon
+9.508,0.686,Mainline,Beginning state machine pass 1
+9.509,1.043,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.511,1.656,Mainline,Ending state machine pass of arcTowardsBeacon
+9.512,1.087,Mainline,Beginning state machine pass 1
+9.513,0.728,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.514,1.781,Mainline,Ending state machine pass of arcTowardsBeacon
+9.515,0.569,Mainline,Beginning state machine pass 1
+9.515,0.542,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.518,2.298,Mainline,Ending state machine pass of arcTowardsBeacon
+9.519,0.721,Mainline,Beginning state machine pass 1
+9.520,1.297,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.522,1.925,Mainline,Ending state machine pass of arcTowardsBeacon
+9.522,0.570,Mainline,Beginning state machine pass 1
+9.523,0.810,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.525,1.938,Mainline,Ending state machine pass of arcTowardsBeacon
+9.526,0.636,Mainline,Beginning state machine pass 1
+9.527,0.932,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.529,2.362,Mainline,Ending state machine pass of arcTowardsBeacon
+9.530,1.138,Mainline,Beginning state machine pass 1
+9.531,0.683,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.543,12.160,Mainline,Ending state machine pass of arcTowardsBeacon
+9.544,1.224,Mainline,Beginning state machine pass 1
+9.545,0.828,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.548,3.155,Mainline,Ending state machine pass of arcTowardsBeacon
+9.549,0.901,Mainline,Beginning state machine pass 1
+9.550,1.236,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.552,1.896,Mainline,Ending state machine pass of arcTowardsBeacon
+9.554,1.711,Mainline,Beginning state machine pass 1
+9.555,1.064,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.557,1.890,Mainline,Ending state machine pass of arcTowardsBeacon
+9.557,0.619,Mainline,Beginning state machine pass 1
+9.560,2.422,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.563,3.097,Mainline,Ending state machine pass of arcTowardsBeacon
+9.566,3.088,Mainline,Beginning state machine pass 1
+9.567,1.264,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.570,2.545,Mainline,Ending state machine pass of arcTowardsBeacon
+9.571,0.738,Mainline,Beginning state machine pass 1
+9.572,1.826,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.574,1.960,Mainline,Ending state machine pass of arcTowardsBeacon
+9.575,0.814,Mainline,Beginning state machine pass 1
+9.578,3.402,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.581,2.692,Mainline,Ending state machine pass of arcTowardsBeacon
+9.582,0.767,Mainline,Beginning state machine pass 1
+9.583,0.616,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.586,3.428,Mainline,Ending state machine pass of arcTowardsBeacon
+9.588,1.816,Mainline,Beginning state machine pass 1
+9.590,1.559,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.598,8.620,Mainline,Ending state machine pass of arcTowardsBeacon
+9.602,3.623,Mainline,Beginning state machine pass 1
+9.605,2.825,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.614,9.548,Mainline,Ending state machine pass of arcTowardsBeacon
+9.616,1.779,Mainline,Beginning state machine pass 1
+9.618,1.595,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.620,2.790,Mainline,Ending state machine pass of arcTowardsBeacon
+9.624,3.237,Mainline,Beginning state machine pass 1
+9.626,2.723,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.630,3.615,Mainline,Ending state machine pass of arcTowardsBeacon
+9.632,2.123,Mainline,Beginning state machine pass 1
+9.636,3.670,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.639,3.665,Mainline,Ending state machine pass of arcTowardsBeacon
+9.640,0.914,Mainline,Beginning state machine pass 1
+9.663,22.556,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.665,2.308,Mainline,Ending state machine pass of arcTowardsBeacon
+9.667,1.427,Mainline,Beginning state machine pass 1
+9.668,1.505,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.670,1.877,Mainline,Ending state machine pass of arcTowardsBeacon
+9.672,1.592,Mainline,Beginning state machine pass 1
+9.674,2.896,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.677,2.424,Mainline,Ending state machine pass of arcTowardsBeacon
+9.678,0.975,Mainline,Beginning state machine pass 1
+9.680,1.704,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.682,2.503,Mainline,Ending state machine pass of arcTowardsBeacon
+9.683,1.332,Mainline,Beginning state machine pass 1
+9.684,1.124,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.686,1.953,Mainline,Ending state machine pass of arcTowardsBeacon
+9.688,1.146,Mainline,Beginning state machine pass 1
+9.688,0.645,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.691,2.744,Mainline,Ending state machine pass of arcTowardsBeacon
+9.692,1.233,Mainline,Beginning state machine pass 1
+9.694,1.384,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.697,3.300,Mainline,Ending state machine pass of arcTowardsBeacon
+9.698,1.199,Mainline,Beginning state machine pass 1
+9.699,1.312,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.701,1.842,Mainline,Ending state machine pass of arcTowardsBeacon
+9.702,0.894,Mainline,Beginning state machine pass 1
+9.703,0.651,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.705,1.904,Mainline,Ending state machine pass of arcTowardsBeacon
+9.706,1.120,Mainline,Beginning state machine pass 1
+9.707,0.770,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.708,1.321,Mainline,Ending state machine pass of arcTowardsBeacon
+9.709,0.764,Mainline,Beginning state machine pass 1
+9.709,0.674,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.714,4.380,Mainline,Ending state machine pass of arcTowardsBeacon
+9.714,0.679,Mainline,Beginning state machine pass 1
+9.715,0.709,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.716,1.365,Mainline,Ending state machine pass of arcTowardsBeacon
+9.717,0.951,Mainline,Beginning state machine pass 1
+9.718,0.700,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.720,1.949,Mainline,Ending state machine pass of arcTowardsBeacon
+9.721,0.805,Mainline,Beginning state machine pass 1
+9.722,0.662,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.723,1.394,Mainline,Ending state machine pass of arcTowardsBeacon
+9.724,0.760,Mainline,Beginning state machine pass 1
+9.724,0.535,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.726,1.508,Mainline,Ending state machine pass of arcTowardsBeacon
+9.726,0.666,Mainline,Beginning state machine pass 1
+9.727,0.781,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.729,1.412,Mainline,Ending state machine pass of arcTowardsBeacon
+9.729,0.824,Mainline,Beginning state machine pass 1
+9.730,0.954,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.732,1.971,Mainline,Ending state machine pass of arcTowardsBeacon
+9.733,0.766,Mainline,Beginning state machine pass 1
+9.734,0.715,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.735,1.255,Mainline,Ending state machine pass of arcTowardsBeacon
+9.736,1.358,Mainline,Beginning state machine pass 1
+9.737,0.557,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.740,3.441,Mainline,Ending state machine pass of arcTowardsBeacon
+9.742,1.572,Mainline,Beginning state machine pass 1
+9.743,0.529,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.744,1.264,Mainline,Ending state machine pass of arcTowardsBeacon
+9.745,0.726,Mainline,Beginning state machine pass 1
+9.745,0.496,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.746,1.278,Mainline,Ending state machine pass of arcTowardsBeacon
+9.747,0.602,Mainline,Beginning state machine pass 1
+9.747,0.532,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.749,1.217,Mainline,Ending state machine pass of arcTowardsBeacon
+9.749,0.578,Mainline,Beginning state machine pass 1
+9.750,0.522,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.752,2.148,Mainline,Ending state machine pass of arcTowardsBeacon
+9.752,0.591,Mainline,Beginning state machine pass 1
+9.753,0.758,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.755,1.268,Mainline,Ending state machine pass of arcTowardsBeacon
+9.755,0.610,Mainline,Beginning state machine pass 1
+9.756,0.528,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.757,1.791,Mainline,Ending state machine pass of arcTowardsBeacon
+9.758,0.633,Mainline,Beginning state machine pass 1
+9.759,0.701,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.760,1.216,Mainline,Ending state machine pass of arcTowardsBeacon
+9.761,0.694,Mainline,Beginning state machine pass 1
+9.761,0.656,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.763,1.981,Mainline,Ending state machine pass of arcTowardsBeacon
+9.764,0.615,Mainline,Beginning state machine pass 1
+9.764,0.539,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.766,1.963,Mainline,Ending state machine pass of arcTowardsBeacon
+9.767,0.787,Mainline,Beginning state machine pass 1
+9.768,0.840,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.770,1.476,Mainline,Ending state machine pass of arcTowardsBeacon
+9.770,0.647,Mainline,Beginning state machine pass 1
+9.771,0.784,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.773,1.911,Mainline,Ending state machine pass of arcTowardsBeacon
+9.774,0.695,Mainline,Beginning state machine pass 1
+9.774,0.699,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.776,1.265,Mainline,Ending state machine pass of arcTowardsBeacon
+9.776,0.636,Mainline,Beginning state machine pass 1
+9.777,0.560,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.779,2.051,Mainline,Ending state machine pass of arcTowardsBeacon
+9.779,0.687,Mainline,Beginning state machine pass 1
+9.780,0.528,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.781,1.332,Mainline,Ending state machine pass of arcTowardsBeacon
+9.782,0.832,Mainline,Beginning state machine pass 1
+9.783,0.569,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.784,1.403,Mainline,Ending state machine pass of arcTowardsBeacon
+9.785,0.664,Mainline,Beginning state machine pass 1
+9.786,0.717,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.788,2.115,Mainline,Ending state machine pass of arcTowardsBeacon
+9.788,0.832,Mainline,Beginning state machine pass 1
+9.789,0.621,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.791,2.083,Mainline,Ending state machine pass of arcTowardsBeacon
+9.792,0.692,Mainline,Beginning state machine pass 1
+9.792,0.555,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.795,2.106,Mainline,Ending state machine pass of arcTowardsBeacon
+9.796,1.246,Mainline,Beginning state machine pass 1
+9.796,0.573,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.798,1.519,Mainline,Ending state machine pass of arcTowardsBeacon
+9.799,0.657,Mainline,Beginning state machine pass 1
+9.799,0.696,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.801,1.362,Mainline,Ending state machine pass of arcTowardsBeacon
+9.802,0.970,Mainline,Beginning state machine pass 1
+9.802,0.552,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.804,1.568,Mainline,Ending state machine pass of arcTowardsBeacon
+9.804,0.635,Mainline,Beginning state machine pass 1
+9.805,0.708,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.806,1.207,Mainline,Ending state machine pass of arcTowardsBeacon
+9.807,0.708,Mainline,Beginning state machine pass 1
+9.807,0.542,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.809,1.733,Mainline,Ending state machine pass of arcTowardsBeacon
+9.810,1.296,Mainline,Beginning state machine pass 1
+9.812,1.719,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.813,1.292,Mainline,Ending state machine pass of arcTowardsBeacon
+9.814,0.769,Mainline,Beginning state machine pass 1
+9.815,0.533,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.816,1.439,Mainline,Ending state machine pass of arcTowardsBeacon
+9.817,1.038,Mainline,Beginning state machine pass 1
+9.819,1.322,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.820,1.497,Mainline,Ending state machine pass of arcTowardsBeacon
+9.821,0.983,Mainline,Beginning state machine pass 1
+9.822,1.042,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.824,1.408,Mainline,Ending state machine pass of arcTowardsBeacon
+9.825,1.031,Mainline,Beginning state machine pass 1
+9.825,0.873,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.827,1.735,Mainline,Ending state machine pass of arcTowardsBeacon
+9.828,0.838,Mainline,Beginning state machine pass 1
+9.829,1.218,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.831,1.451,Mainline,Ending state machine pass of arcTowardsBeacon
+9.832,1.623,Mainline,Beginning state machine pass 1
+9.833,1.053,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.835,1.699,Mainline,Ending state machine pass of arcTowardsBeacon
+9.836,0.793,Mainline,Beginning state machine pass 1
+9.837,1.029,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.839,2.232,Mainline,Ending state machine pass of arcTowardsBeacon
+9.840,1.024,Mainline,Beginning state machine pass 1
+9.841,1.275,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.843,1.445,Mainline,Ending state machine pass of arcTowardsBeacon
+9.844,0.976,Mainline,Beginning state machine pass 1
+9.845,0.977,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.847,1.977,Mainline,Ending state machine pass of arcTowardsBeacon
+9.848,0.799,Mainline,Beginning state machine pass 1
+9.848,0.887,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.850,1.469,Mainline,Ending state machine pass of arcTowardsBeacon
+9.851,1.377,Mainline,Beginning state machine pass 1
+9.852,0.595,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.855,2.975,Mainline,Ending state machine pass of arcTowardsBeacon
+9.856,0.777,Mainline,Beginning state machine pass 1
+9.856,0.752,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.858,1.671,Mainline,Ending state machine pass of arcTowardsBeacon
+9.859,0.804,Mainline,Beginning state machine pass 1
+9.859,0.560,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.861,1.819,Mainline,Ending state machine pass of arcTowardsBeacon
+9.862,0.687,Mainline,Beginning state machine pass 1
+9.863,0.834,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.864,1.652,Mainline,Ending state machine pass of arcTowardsBeacon
+9.865,1.060,Mainline,Beginning state machine pass 1
+9.866,0.585,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.868,1.680,Mainline,Ending state machine pass of arcTowardsBeacon
+9.868,0.679,Mainline,Beginning state machine pass 1
+9.869,0.926,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.871,1.349,Mainline,Ending state machine pass of arcTowardsBeacon
+9.872,0.820,Mainline,Beginning state machine pass 1
+9.872,0.584,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.874,1.691,Mainline,Ending state machine pass of arcTowardsBeacon
+9.874,0.598,Mainline,Beginning state machine pass 1
+9.877,2.336,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.879,2.445,Mainline,Ending state machine pass of arcTowardsBeacon
+9.881,1.561,Mainline,Beginning state machine pass 1
+9.882,1.441,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.884,1.786,Mainline,Ending state machine pass of arcTowardsBeacon
+9.885,1.114,Mainline,Beginning state machine pass 1
+9.886,0.590,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.887,1.709,Mainline,Ending state machine pass of arcTowardsBeacon
+9.888,0.646,Mainline,Beginning state machine pass 1
+9.890,1.511,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.893,3.006,Mainline,Ending state machine pass of arcTowardsBeacon
+9.893,0.906,Mainline,Beginning state machine pass 1
+9.894,0.848,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.896,1.914,Mainline,Ending state machine pass of arcTowardsBeacon
+9.898,1.437,Mainline,Beginning state machine pass 1
+9.899,0.924,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.900,1.334,Mainline,Ending state machine pass of arcTowardsBeacon
+9.901,0.796,Mainline,Beginning state machine pass 1
+9.901,0.601,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.903,2.143,Mainline,Ending state machine pass of arcTowardsBeacon
+9.904,0.684,Mainline,Beginning state machine pass 1
+9.905,0.683,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.906,1.237,Mainline,Ending state machine pass of arcTowardsBeacon
+9.907,0.697,Mainline,Beginning state machine pass 1
+9.907,0.560,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.909,1.331,Mainline,Ending state machine pass of arcTowardsBeacon
+9.909,0.696,Mainline,Beginning state machine pass 1
+9.910,0.693,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.912,1.638,Mainline,Ending state machine pass of arcTowardsBeacon
+9.913,1.216,Mainline,Beginning state machine pass 1
+9.913,0.609,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.916,2.132,Mainline,Ending state machine pass of arcTowardsBeacon
+9.916,0.650,Mainline,Beginning state machine pass 1
+9.917,0.631,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.919,1.800,Mainline,Ending state machine pass of arcTowardsBeacon
+9.920,1.213,Mainline,Beginning state machine pass 1
+9.921,0.726,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.923,1.981,Mainline,Ending state machine pass of arcTowardsBeacon
+9.923,0.609,Mainline,Beginning state machine pass 1
+9.924,0.703,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.925,1.518,Mainline,Ending state machine pass of arcTowardsBeacon
+9.926,0.966,Mainline,Beginning state machine pass 1
+9.927,0.557,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.929,2.190,Mainline,Ending state machine pass of arcTowardsBeacon
+9.930,0.686,Mainline,Beginning state machine pass 1
+9.931,0.700,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.932,1.295,Mainline,Ending state machine pass of arcTowardsBeacon
+9.933,1.068,Mainline,Beginning state machine pass 1
+9.934,0.659,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.935,1.833,Mainline,Ending state machine pass of arcTowardsBeacon
+9.937,1.895,Mainline,Beginning state machine pass 1
+9.938,0.767,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.940,1.881,Mainline,Ending state machine pass of arcTowardsBeacon
+9.941,0.926,Mainline,Beginning state machine pass 1
+9.941,0.613,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.943,1.502,Mainline,Ending state machine pass of arcTowardsBeacon
+9.944,0.817,Mainline,Beginning state machine pass 1
+9.945,0.781,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.946,1.202,Mainline,Ending state machine pass of arcTowardsBeacon
+9.947,0.845,Mainline,Beginning state machine pass 1
+9.947,0.529,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.949,1.745,Mainline,Ending state machine pass of arcTowardsBeacon
+9.950,0.657,Mainline,Beginning state machine pass 1
+9.950,0.702,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.953,3.090,Mainline,Ending state machine pass of arcTowardsBeacon
+9.955,1.992,Mainline,Beginning state machine pass 1
+9.956,0.717,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.958,1.487,Mainline,Ending state machine pass of arcTowardsBeacon
+9.958,0.802,Mainline,Beginning state machine pass 1
+9.959,0.788,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.962,2.752,Mainline,Ending state machine pass of arcTowardsBeacon
+9.963,0.841,Mainline,Beginning state machine pass 1
+9.963,0.715,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.965,1.973,Mainline,Ending state machine pass of arcTowardsBeacon
+9.967,1.418,Mainline,Beginning state machine pass 1
+9.967,0.608,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.969,1.501,Mainline,Ending state machine pass of arcTowardsBeacon
+9.970,0.738,Mainline,Beginning state machine pass 1
+9.970,0.580,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.972,1.971,Mainline,Ending state machine pass of arcTowardsBeacon
+9.973,0.882,Mainline,Beginning state machine pass 1
+9.974,0.719,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.976,1.973,Mainline,Ending state machine pass of arcTowardsBeacon
+9.977,1.361,Mainline,Beginning state machine pass 1
+9.978,0.635,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.980,1.686,Mainline,Ending state machine pass of arcTowardsBeacon
+9.980,0.656,Mainline,Beginning state machine pass 1
+9.981,0.856,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.982,1.436,Mainline,Ending state machine pass of arcTowardsBeacon
+9.983,0.894,Mainline,Beginning state machine pass 1
+9.984,0.698,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.987,2.627,Mainline,Ending state machine pass of arcTowardsBeacon
+9.987,0.633,Mainline,Beginning state machine pass 1
+9.988,0.925,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.991,2.342,Mainline,Ending state machine pass of arcTowardsBeacon
+9.992,1.010,Mainline,Beginning state machine pass 1
+9.992,0.581,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.995,2.438,Mainline,Ending state machine pass of arcTowardsBeacon
+9.996,1.029,Mainline,Beginning state machine pass 1
+9.997,0.948,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+9.999,2.910,Mainline,Ending state machine pass of arcTowardsBeacon
+10.001,1.202,Mainline,Beginning state machine pass 1
+10.001,0.631,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.003,1.410,Mainline,Ending state machine pass of arcTowardsBeacon
+10.003,0.624,Mainline,Beginning state machine pass 1
+10.004,0.567,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.006,1.618,Mainline,Ending state machine pass of arcTowardsBeacon
+10.006,0.760,Mainline,Beginning state machine pass 1
+10.007,0.611,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.009,2.325,Mainline,Ending state machine pass of arcTowardsBeacon
+10.010,1.152,Mainline,Beginning state machine pass 1
+10.012,1.889,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.015,2.814,Mainline,Ending state machine pass of arcTowardsBeacon
+10.016,1.252,Mainline,Beginning state machine pass 1
+10.017,0.665,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.019,2.431,Mainline,Ending state machine pass of arcTowardsBeacon
+10.020,0.794,Mainline,Beginning state machine pass 1
+10.021,1.101,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.025,3.698,Mainline,Ending state machine pass of arcTowardsBeacon
+10.026,0.772,Mainline,Beginning state machine pass 1
+10.029,3.449,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.031,1.401,Mainline,Ending state machine pass of arcTowardsBeacon
+10.031,0.641,Mainline,Beginning state machine pass 1
+10.032,0.644,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.033,1.210,Mainline,Ending state machine pass of arcTowardsBeacon
+10.034,0.700,Mainline,Beginning state machine pass 1
+10.034,0.541,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.036,1.334,Mainline,Ending state machine pass of arcTowardsBeacon
+10.036,0.548,Mainline,Beginning state machine pass 1
+10.037,0.601,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.039,1.848,Mainline,Ending state machine pass of arcTowardsBeacon
+10.039,0.772,Mainline,Beginning state machine pass 1
+10.040,0.478,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.041,1.351,Mainline,Ending state machine pass of arcTowardsBeacon
+10.042,0.630,Mainline,Beginning state machine pass 1
+10.043,1.315,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.045,1.508,Mainline,Ending state machine pass of arcTowardsBeacon
+10.046,0.750,Mainline,Beginning state machine pass 1
+10.046,0.622,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.048,1.434,Mainline,Ending state machine pass of arcTowardsBeacon
+10.048,0.669,Mainline,Beginning state machine pass 1
+10.049,0.914,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.050,1.267,Mainline,Ending state machine pass of arcTowardsBeacon
+10.051,0.976,Mainline,Beginning state machine pass 1
+10.052,0.573,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.053,1.345,Mainline,Ending state machine pass of arcTowardsBeacon
+10.054,0.637,Mainline,Beginning state machine pass 1
+10.055,0.658,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.056,1.234,Mainline,Ending state machine pass of arcTowardsBeacon
+10.057,1.092,Mainline,Beginning state machine pass 1
+10.058,0.626,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.059,1.893,Mainline,Ending state machine pass of arcTowardsBeacon
+10.060,0.640,Mainline,Beginning state machine pass 1
+10.061,0.790,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.062,1.353,Mainline,Ending state machine pass of arcTowardsBeacon
+10.063,0.781,Mainline,Beginning state machine pass 1
+10.064,0.615,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.066,1.905,Mainline,Ending state machine pass of arcTowardsBeacon
+10.066,0.668,Mainline,Beginning state machine pass 1
+10.067,0.902,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.068,1.222,Mainline,Ending state machine pass of arcTowardsBeacon
+10.069,0.840,Mainline,Beginning state machine pass 1
+10.070,0.512,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.071,1.391,Mainline,Ending state machine pass of arcTowardsBeacon
+10.072,0.632,Mainline,Beginning state machine pass 1
+10.072,0.557,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.074,1.288,Mainline,Ending state machine pass of arcTowardsBeacon
+10.074,0.685,Mainline,Beginning state machine pass 1
+10.075,0.540,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.076,1.151,Mainline,Ending state machine pass of arcTowardsBeacon
+10.077,0.613,Mainline,Beginning state machine pass 1
+10.077,0.554,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.078,1.250,Mainline,Ending state machine pass of arcTowardsBeacon
+10.079,0.642,Mainline,Beginning state machine pass 1
+10.080,0.567,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.081,1.330,Mainline,Ending state machine pass of arcTowardsBeacon
+10.082,0.847,Mainline,Beginning state machine pass 1
+10.082,0.549,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.083,1.163,Mainline,Ending state machine pass of arcTowardsBeacon
+10.084,0.632,Mainline,Beginning state machine pass 1
+10.085,0.524,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.086,1.196,Mainline,Ending state machine pass of arcTowardsBeacon
+10.086,0.654,Mainline,Beginning state machine pass 1
+10.087,0.502,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.088,1.272,Mainline,Ending state machine pass of arcTowardsBeacon
+10.089,0.627,Mainline,Beginning state machine pass 1
+10.089,0.533,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.091,1.543,Mainline,Ending state machine pass of arcTowardsBeacon
+10.092,0.641,Mainline,Beginning state machine pass 1
+10.092,0.554,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.098,5.518,Mainline,Ending state machine pass of arcTowardsBeacon
+10.103,4.927,Mainline,Beginning state machine pass 1
+10.107,4.510,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.113,6.174,Mainline,Ending state machine pass of arcTowardsBeacon
+10.115,1.524,Mainline,Beginning state machine pass 1
+10.116,1.598,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.119,2.994,Mainline,Ending state machine pass of arcTowardsBeacon
+10.121,1.507,Mainline,Beginning state machine pass 1
+10.122,1.299,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.125,2.367,Mainline,Ending state machine pass of arcTowardsBeacon
+10.128,3.732,Mainline,Beginning state machine pass 1
+10.130,1.626,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.134,3.760,Mainline,Ending state machine pass of arcTowardsBeacon
+10.135,1.763,Mainline,Beginning state machine pass 1
+10.136,0.683,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.139,2.478,Mainline,Ending state machine pass of arcTowardsBeacon
+10.140,1.423,Mainline,Beginning state machine pass 1
+10.141,0.977,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.145,3.783,Mainline,Ending state machine pass of arcTowardsBeacon
+10.168,23.007,Mainline,Beginning state machine pass 1
+10.169,1.366,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.171,1.839,Mainline,Ending state machine pass of arcTowardsBeacon
+10.172,0.664,Mainline,Beginning state machine pass 1
+10.173,0.885,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.176,3.337,Mainline,Ending state machine pass of arcTowardsBeacon
+10.178,1.629,Mainline,Beginning state machine pass 1
+10.178,0.768,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.180,2.082,Mainline,Ending state machine pass of arcTowardsBeacon
+10.181,0.850,Mainline,Beginning state machine pass 1
+10.182,0.831,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.184,1.896,Mainline,Ending state machine pass of arcTowardsBeacon
+10.185,0.960,Mainline,Beginning state machine pass 1
+10.186,1.238,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.189,2.982,Mainline,Ending state machine pass of arcTowardsBeacon
+10.190,0.716,Mainline,Beginning state machine pass 1
+10.191,0.825,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.192,1.433,Mainline,Ending state machine pass of arcTowardsBeacon
+10.193,1.082,Mainline,Beginning state machine pass 1
+10.194,1.003,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.196,1.642,Mainline,Ending state machine pass of arcTowardsBeacon
+10.197,0.742,Mainline,Beginning state machine pass 1
+10.197,0.651,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.199,1.623,Mainline,Ending state machine pass of arcTowardsBeacon
+10.200,0.831,Mainline,Beginning state machine pass 1
+10.201,1.016,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.202,1.708,Mainline,Ending state machine pass of arcTowardsBeacon
+10.203,1.033,Mainline,Beginning state machine pass 1
+10.204,0.892,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.206,1.971,Mainline,Ending state machine pass of arcTowardsBeacon
+10.207,0.973,Mainline,Beginning state machine pass 1
+10.208,0.632,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.209,1.494,Mainline,Ending state machine pass of arcTowardsBeacon
+10.210,0.690,Mainline,Beginning state machine pass 1
+10.211,0.936,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.212,1.488,Mainline,Ending state machine pass of arcTowardsBeacon
+10.214,1.443,Mainline,Beginning state machine pass 1
+10.215,0.653,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.218,3.284,Mainline,Ending state machine pass of arcTowardsBeacon
+10.219,0.858,Mainline,Beginning state machine pass 1
+10.220,0.877,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.221,1.490,Mainline,Ending state machine pass of arcTowardsBeacon
+10.222,0.806,Mainline,Beginning state machine pass 1
+10.223,0.731,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.224,1.390,Mainline,Ending state machine pass of arcTowardsBeacon
+10.225,0.675,Mainline,Beginning state machine pass 1
+10.225,0.773,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.227,1.681,Mainline,Ending state machine pass of arcTowardsBeacon
+10.228,0.787,Mainline,Beginning state machine pass 1
+10.229,0.564,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.232,3.558,Mainline,Ending state machine pass of arcTowardsBeacon
+10.233,1.240,Mainline,Beginning state machine pass 1
+10.234,0.707,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.235,1.416,Mainline,Ending state machine pass of arcTowardsBeacon
+10.237,1.101,Mainline,Beginning state machine pass 1
+10.237,0.580,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.239,1.731,Mainline,Ending state machine pass of arcTowardsBeacon
+10.240,0.683,Mainline,Beginning state machine pass 1
+10.240,0.704,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.243,3.120,Mainline,Ending state machine pass of arcTowardsBeacon
+10.244,1.048,Mainline,Beginning state machine pass 1
+10.245,0.598,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.247,1.595,Mainline,Ending state machine pass of arcTowardsBeacon
+10.247,0.642,Mainline,Beginning state machine pass 1
+10.248,1.196,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.252,3.511,Mainline,Ending state machine pass of arcTowardsBeacon
+10.253,0.965,Mainline,Beginning state machine pass 1
+10.254,1.389,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.257,2.538,Mainline,Ending state machine pass of arcTowardsBeacon
+10.257,0.657,Mainline,Beginning state machine pass 1
+10.258,0.810,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.260,1.711,Mainline,Ending state machine pass of arcTowardsBeacon
+10.261,1.104,Mainline,Beginning state machine pass 1
+10.262,0.778,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.263,1.550,Mainline,Ending state machine pass of arcTowardsBeacon
+10.264,1.019,Mainline,Beginning state machine pass 1
+10.265,0.817,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.266,1.184,Mainline,Ending state machine pass of arcTowardsBeacon
+10.267,0.759,Mainline,Beginning state machine pass 1
+10.268,0.561,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.269,1.437,Mainline,Ending state machine pass of arcTowardsBeacon
+10.271,1.404,Mainline,Beginning state machine pass 1
+10.272,1.001,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.273,1.515,Mainline,Ending state machine pass of arcTowardsBeacon
+10.274,1.007,Mainline,Beginning state machine pass 1
+10.275,0.866,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.277,1.682,Mainline,Ending state machine pass of arcTowardsBeacon
+10.277,0.685,Mainline,Beginning state machine pass 1
+10.278,0.841,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.280,1.325,Mainline,Ending state machine pass of arcTowardsBeacon
+10.281,1.317,Mainline,Beginning state machine pass 1
+10.281,0.593,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.284,2.086,Mainline,Ending state machine pass of arcTowardsBeacon
+10.284,0.698,Mainline,Beginning state machine pass 1
+10.285,0.726,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.287,1.926,Mainline,Ending state machine pass of arcTowardsBeacon
+10.288,0.705,Mainline,Beginning state machine pass 1
+10.288,0.618,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.290,2.280,Mainline,Ending state machine pass of arcTowardsBeacon
+10.292,1.186,Mainline,Beginning state machine pass 1
+10.292,0.695,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.295,2.894,Mainline,Ending state machine pass of arcTowardsBeacon
+10.297,1.668,Mainline,Beginning state machine pass 1
+10.298,0.966,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.300,1.754,Mainline,Ending state machine pass of arcTowardsBeacon
+10.300,0.710,Mainline,Beginning state machine pass 1
+10.302,1.464,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.304,2.000,Mainline,Ending state machine pass of arcTowardsBeacon
+10.305,0.785,Mainline,Beginning state machine pass 1
+10.305,0.568,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.307,1.538,Mainline,Ending state machine pass of arcTowardsBeacon
+10.308,1.025,Mainline,Beginning state machine pass 1
+10.309,1.016,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.310,1.324,Mainline,Ending state machine pass of arcTowardsBeacon
+10.311,1.357,Mainline,Beginning state machine pass 1
+10.312,0.518,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.314,2.395,Mainline,Ending state machine pass of arcTowardsBeacon
+10.315,0.688,Mainline,Beginning state machine pass 1
+10.316,0.732,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.318,2.179,Mainline,Ending state machine pass of arcTowardsBeacon
+10.319,1.074,Mainline,Beginning state machine pass 1
+10.320,0.612,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.322,1.873,Mainline,Ending state machine pass of arcTowardsBeacon
+10.322,0.626,Mainline,Beginning state machine pass 1
+10.323,0.642,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.325,1.746,Mainline,Ending state machine pass of arcTowardsBeacon
+10.325,0.858,Mainline,Beginning state machine pass 1
+10.326,0.867,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.328,1.684,Mainline,Ending state machine pass of arcTowardsBeacon
+10.329,1.566,Mainline,Beginning state machine pass 1
+10.331,1.134,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.332,1.334,Mainline,Ending state machine pass of arcTowardsBeacon
+10.333,0.830,Mainline,Beginning state machine pass 1
+10.333,0.502,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.335,1.935,Mainline,Ending state machine pass of arcTowardsBeacon
+10.336,0.656,Mainline,Beginning state machine pass 1
+10.337,0.702,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.338,1.504,Mainline,Ending state machine pass of arcTowardsBeacon
+10.339,0.767,Mainline,Beginning state machine pass 1
+10.340,1.316,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.343,2.517,Mainline,Ending state machine pass of arcTowardsBeacon
+10.344,1.485,Mainline,Beginning state machine pass 1
+10.346,1.453,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.347,1.403,Mainline,Ending state machine pass of arcTowardsBeacon
+10.348,0.700,Mainline,Beginning state machine pass 1
+10.349,0.960,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.351,2.703,Mainline,Ending state machine pass of arcTowardsBeacon
+10.352,0.708,Mainline,Beginning state machine pass 1
+10.353,1.192,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.355,2.178,Mainline,Ending state machine pass of arcTowardsBeacon
+10.356,0.842,Mainline,Beginning state machine pass 1
+10.357,0.540,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.359,1.990,Mainline,Ending state machine pass of arcTowardsBeacon
+10.360,1.041,Mainline,Beginning state machine pass 1
+10.361,1.486,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.363,2.037,Mainline,Ending state machine pass of arcTowardsBeacon
+10.364,0.641,Mainline,Beginning state machine pass 1
+10.365,0.746,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.367,2.141,Mainline,Ending state machine pass of arcTowardsBeacon
+10.368,0.720,Mainline,Beginning state machine pass 1
+10.368,0.514,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.371,3.166,Mainline,Ending state machine pass of arcTowardsBeacon
+10.373,1.949,Mainline,Beginning state machine pass 1
+10.374,0.563,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.375,1.371,Mainline,Ending state machine pass of arcTowardsBeacon
+10.376,0.545,Mainline,Beginning state machine pass 1
+10.377,1.070,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.378,1.385,Mainline,Ending state machine pass of arcTowardsBeacon
+10.379,1.274,Mainline,Beginning state machine pass 1
+10.380,0.628,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.383,2.490,Mainline,Ending state machine pass of arcTowardsBeacon
+10.383,0.659,Mainline,Beginning state machine pass 1
+10.384,1.031,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.386,2.006,Mainline,Ending state machine pass of arcTowardsBeacon
+10.388,1.330,Mainline,Beginning state machine pass 1
+10.388,0.577,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.390,1.657,Mainline,Ending state machine pass of arcTowardsBeacon
+10.391,0.708,Mainline,Beginning state machine pass 1
+10.392,0.935,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.394,2.495,Mainline,Ending state machine pass of arcTowardsBeacon
+10.395,0.753,Mainline,Beginning state machine pass 1
+10.396,0.892,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.397,1.633,Mainline,Ending state machine pass of arcTowardsBeacon
+10.398,1.089,Mainline,Beginning state machine pass 1
+10.399,0.568,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.400,1.296,Mainline,Ending state machine pass of arcTowardsBeacon
+10.401,0.705,Mainline,Beginning state machine pass 1
+10.401,0.543,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.403,1.188,Mainline,Ending state machine pass of arcTowardsBeacon
+10.404,0.913,Mainline,Beginning state machine pass 1
+10.404,0.507,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.406,1.622,Mainline,Ending state machine pass of arcTowardsBeacon
+10.406,0.567,Mainline,Beginning state machine pass 1
+10.407,0.514,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.409,2.338,Mainline,Ending state machine pass of arcTowardsBeacon
+10.410,0.602,Mainline,Beginning state machine pass 1
+10.410,0.559,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.412,1.401,Mainline,Ending state machine pass of arcTowardsBeacon
+10.412,0.545,Mainline,Beginning state machine pass 1
+10.413,0.520,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.415,1.884,Mainline,Ending state machine pass of arcTowardsBeacon
+10.415,0.633,Mainline,Beginning state machine pass 1
+10.416,0.488,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.418,2.330,Mainline,Ending state machine pass of arcTowardsBeacon
+10.419,1.068,Mainline,Beginning state machine pass 1
+10.420,0.592,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.423,2.891,Mainline,Ending state machine pass of arcTowardsBeacon
+10.423,0.613,Mainline,Beginning state machine pass 1
+10.424,0.515,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.426,2.671,Mainline,Ending state machine pass of arcTowardsBeacon
+10.427,0.747,Mainline,Beginning state machine pass 1
+10.428,0.508,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.429,1.330,Mainline,Ending state machine pass of arcTowardsBeacon
+10.430,1.083,Mainline,Beginning state machine pass 1
+10.431,0.737,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.432,1.235,Mainline,Ending state machine pass of arcTowardsBeacon
+10.433,0.776,Mainline,Beginning state machine pass 1
+10.434,0.882,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.436,2.038,Mainline,Ending state machine pass of arcTowardsBeacon
+10.436,0.669,Mainline,Beginning state machine pass 1
+10.437,0.540,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.438,1.311,Mainline,Ending state machine pass of arcTowardsBeacon
+10.439,0.573,Mainline,Beginning state machine pass 1
+10.439,0.571,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.441,1.713,Mainline,Ending state machine pass of arcTowardsBeacon
+10.442,0.926,Mainline,Beginning state machine pass 1
+10.443,0.620,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.444,1.574,Mainline,Ending state machine pass of arcTowardsBeacon
+10.445,0.633,Mainline,Beginning state machine pass 1
+10.446,0.825,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.447,1.704,Mainline,Ending state machine pass of arcTowardsBeacon
+10.448,0.967,Mainline,Beginning state machine pass 1
+10.449,0.571,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.451,2.131,Mainline,Ending state machine pass of arcTowardsBeacon
+10.452,0.742,Mainline,Beginning state machine pass 1
+10.453,0.712,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.454,1.825,Mainline,Ending state machine pass of arcTowardsBeacon
+10.455,1.044,Mainline,Beginning state machine pass 1
+10.457,1.640,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.459,2.266,Mainline,Ending state machine pass of arcTowardsBeacon
+10.461,1.281,Mainline,Beginning state machine pass 1
+10.462,0.954,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.463,1.538,Mainline,Ending state machine pass of arcTowardsBeacon
+10.464,0.610,Mainline,Beginning state machine pass 1
+10.464,0.579,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.465,1.158,Mainline,Ending state machine pass of arcTowardsBeacon
+10.466,0.643,Mainline,Beginning state machine pass 1
+10.468,1.420,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.469,1.440,Mainline,Ending state machine pass of arcTowardsBeacon
+10.470,0.603,Mainline,Beginning state machine pass 1
+10.470,0.479,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.471,1.314,Mainline,Ending state machine pass of arcTowardsBeacon
+10.472,0.579,Mainline,Beginning state machine pass 1
+10.472,0.525,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.474,1.599,Mainline,Ending state machine pass of arcTowardsBeacon
+10.475,0.617,Mainline,Beginning state machine pass 1
+10.475,0.542,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.477,1.380,Mainline,Ending state machine pass of arcTowardsBeacon
+10.477,0.763,Mainline,Beginning state machine pass 1
+10.478,0.853,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.479,1.233,Mainline,Ending state machine pass of arcTowardsBeacon
+10.480,0.820,Mainline,Beginning state machine pass 1
+10.481,0.651,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.483,1.720,Mainline,Ending state machine pass of arcTowardsBeacon
+10.484,1.000,Mainline,Beginning state machine pass 1
+10.484,0.577,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.485,1.214,Mainline,Ending state machine pass of arcTowardsBeacon
+10.486,0.848,Mainline,Beginning state machine pass 1
+10.487,0.521,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.488,1.178,Mainline,Ending state machine pass of arcTowardsBeacon
+10.489,0.950,Mainline,Beginning state machine pass 1
+10.489,0.559,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.491,1.617,Mainline,Ending state machine pass of arcTowardsBeacon
+10.492,0.671,Mainline,Beginning state machine pass 1
+10.493,0.730,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.494,1.273,Mainline,Ending state machine pass of arcTowardsBeacon
+10.495,1.210,Mainline,Beginning state machine pass 1
+10.496,0.544,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.497,1.653,Mainline,Ending state machine pass of arcTowardsBeacon
+10.498,0.672,Mainline,Beginning state machine pass 1
+10.499,0.777,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.500,1.649,Mainline,Ending state machine pass of arcTowardsBeacon
+10.501,0.858,Mainline,Beginning state machine pass 1
+10.502,0.566,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.503,1.378,Mainline,Ending state machine pass of arcTowardsBeacon
+10.504,0.951,Mainline,Beginning state machine pass 1
+10.505,1.401,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.507,1.548,Mainline,Ending state machine pass of arcTowardsBeacon
+10.508,1.421,Mainline,Beginning state machine pass 1
+10.509,0.604,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.512,3.392,Mainline,Ending state machine pass of arcTowardsBeacon
+10.514,1.669,Mainline,Beginning state machine pass 1
+10.516,1.500,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.517,1.529,Mainline,Ending state machine pass of arcTowardsBeacon
+10.518,0.850,Mainline,Beginning state machine pass 1
+10.519,1.030,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.523,3.630,Mainline,Ending state machine pass of arcTowardsBeacon
+10.523,0.700,Mainline,Beginning state machine pass 1
+10.525,1.252,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.526,1.523,Mainline,Ending state machine pass of arcTowardsBeacon
+10.527,1.031,Mainline,Beginning state machine pass 1
+10.528,0.653,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.529,1.668,Mainline,Ending state machine pass of arcTowardsBeacon
+10.530,0.676,Mainline,Beginning state machine pass 1
+10.533,3.232,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.536,2.492,Mainline,Ending state machine pass of arcTowardsBeacon
+10.538,2.652,Mainline,Beginning state machine pass 1
+10.539,0.648,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.541,2.165,Mainline,Ending state machine pass of arcTowardsBeacon
+10.542,0.627,Mainline,Beginning state machine pass 1
+10.545,2.766,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.547,1.868,Mainline,Ending state machine pass of arcTowardsBeacon
+10.547,0.871,Mainline,Beginning state machine pass 1
+10.549,1.262,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.550,1.522,Mainline,Ending state machine pass of arcTowardsBeacon
+10.551,0.902,Mainline,Beginning state machine pass 1
+10.552,1.147,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.554,2.216,Mainline,Ending state machine pass of arcTowardsBeacon
+10.556,1.140,Mainline,Beginning state machine pass 1
+10.556,0.812,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.558,2.036,Mainline,Ending state machine pass of arcTowardsBeacon
+10.560,1.260,Mainline,Beginning state machine pass 1
+10.560,0.619,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.562,1.734,Mainline,Ending state machine pass of arcTowardsBeacon
+10.563,0.619,Mainline,Beginning state machine pass 1
+10.563,0.764,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.565,1.331,Mainline,Ending state machine pass of arcTowardsBeacon
+10.566,0.802,Mainline,Beginning state machine pass 1
+10.566,0.841,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.568,1.968,Mainline,Ending state machine pass of arcTowardsBeacon
+10.569,0.912,Mainline,Beginning state machine pass 1
+10.570,0.866,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.572,1.316,Mainline,Ending state machine pass of arcTowardsBeacon
+10.572,0.935,Mainline,Beginning state machine pass 1
+10.573,0.529,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.575,1.631,Mainline,Ending state machine pass of arcTowardsBeacon
+10.576,1.048,Mainline,Beginning state machine pass 1
+10.576,0.753,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.578,1.266,Mainline,Ending state machine pass of arcTowardsBeacon
+10.579,0.902,Mainline,Beginning state machine pass 1
+10.580,1.843,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.583,2.286,Mainline,Ending state machine pass of arcTowardsBeacon
+10.584,0.921,Mainline,Beginning state machine pass 1
+10.584,0.720,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.587,2.392,Mainline,Ending state machine pass of arcTowardsBeacon
+10.588,0.792,Mainline,Beginning state machine pass 1
+10.588,0.862,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.590,1.878,Mainline,Ending state machine pass of arcTowardsBeacon
+10.591,0.898,Mainline,Beginning state machine pass 1
+10.592,0.600,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.594,1.873,Mainline,Ending state machine pass of arcTowardsBeacon
+10.594,0.678,Mainline,Beginning state machine pass 1
+10.595,0.529,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.597,2.064,Mainline,Ending state machine pass of arcTowardsBeacon
+10.598,1.193,Mainline,Beginning state machine pass 1
+10.599,0.585,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.600,1.693,Mainline,Ending state machine pass of arcTowardsBeacon
+10.602,1.328,Mainline,Beginning state machine pass 1
+10.602,0.710,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.604,1.422,Mainline,Ending state machine pass of arcTowardsBeacon
+10.605,1.071,Mainline,Beginning state machine pass 1
+10.606,1.484,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.608,1.591,Mainline,Ending state machine pass of arcTowardsBeacon
+10.609,0.671,Mainline,Beginning state machine pass 1
+10.609,0.825,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.611,1.633,Mainline,Ending state machine pass of arcTowardsBeacon
+10.613,1.450,Mainline,Beginning state machine pass 1
+10.613,0.750,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.615,1.456,Mainline,Ending state machine pass of arcTowardsBeacon
+10.616,0.781,Mainline,Beginning state machine pass 1
+10.619,3.224,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.625,6.277,Mainline,Ending state machine pass of arcTowardsBeacon
+10.626,1.349,Mainline,Beginning state machine pass 1
+10.627,0.696,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.631,3.816,Mainline,Ending state machine pass of arcTowardsBeacon
+10.636,5.182,Mainline,Beginning state machine pass 1
+10.641,4.665,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.645,4.203,Mainline,Ending state machine pass of arcTowardsBeacon
+10.646,1.051,Mainline,Beginning state machine pass 1
+10.647,1.332,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.651,3.434,Mainline,Ending state machine pass of arcTowardsBeacon
+10.652,1.565,Mainline,Beginning state machine pass 1
+10.654,1.609,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.658,3.736,Mainline,Ending state machine pass of arcTowardsBeacon
+10.660,2.655,Mainline,Beginning state machine pass 1
+10.662,1.967,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.667,4.565,Mainline,Ending state machine pass of arcTowardsBeacon
+10.668,1.139,Mainline,Beginning state machine pass 1
+10.689,20.930,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.692,2.641,Mainline,Ending state machine pass of arcTowardsBeacon
+10.692,0.885,Mainline,Beginning state machine pass 1
+10.693,0.646,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.695,1.519,Mainline,Ending state machine pass of arcTowardsBeacon
+10.696,0.976,Mainline,Beginning state machine pass 1
+10.696,0.620,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.698,1.546,Mainline,Ending state machine pass of arcTowardsBeacon
+10.699,1.462,Mainline,Beginning state machine pass 1
+10.700,0.960,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.702,2.398,Mainline,Ending state machine pass of arcTowardsBeacon
+10.704,0.912,Mainline,Beginning state machine pass 1
+10.704,0.564,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.706,1.961,Mainline,Ending state machine pass of arcTowardsBeacon
+10.707,0.780,Mainline,Beginning state machine pass 1
+10.707,0.681,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.714,6.685,Mainline,Ending state machine pass of arcTowardsBeacon
+10.715,1.237,Mainline,Beginning state machine pass 1
+10.716,0.798,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.718,1.781,Mainline,Ending state machine pass of arcTowardsBeacon
+10.719,0.814,Mainline,Beginning state machine pass 1
+10.720,0.747,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.722,2.620,Mainline,Ending state machine pass of arcTowardsBeacon
+10.723,0.779,Mainline,Beginning state machine pass 1
+10.724,1.035,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.726,1.973,Mainline,Ending state machine pass of arcTowardsBeacon
+10.727,1.221,Mainline,Beginning state machine pass 1
+10.728,0.829,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.730,1.991,Mainline,Ending state machine pass of arcTowardsBeacon
+10.731,1.355,Mainline,Beginning state machine pass 1
+10.732,0.906,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.734,2.167,Mainline,Ending state machine pass of arcTowardsBeacon
+10.735,0.639,Mainline,Beginning state machine pass 1
+10.736,0.810,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.737,1.530,Mainline,Ending state machine pass of arcTowardsBeacon
+10.738,1.059,Mainline,Beginning state machine pass 1
+10.739,0.908,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.741,1.830,Mainline,Ending state machine pass of arcTowardsBeacon
+10.742,0.658,Mainline,Beginning state machine pass 1
+10.743,0.920,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.745,2.026,Mainline,Ending state machine pass of arcTowardsBeacon
+10.746,0.837,Mainline,Beginning state machine pass 1
+10.746,0.600,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.748,1.318,Mainline,Ending state machine pass of arcTowardsBeacon
+10.749,0.981,Mainline,Beginning state machine pass 1
+10.749,0.686,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.750,1.234,Mainline,Ending state machine pass of arcTowardsBeacon
+10.752,1.045,Mainline,Beginning state machine pass 1
+10.753,1.084,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.754,1.624,Mainline,Ending state machine pass of arcTowardsBeacon
+10.755,0.652,Mainline,Beginning state machine pass 1
+10.756,0.813,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.757,1.360,Mainline,Ending state machine pass of arcTowardsBeacon
+10.758,1.202,Mainline,Beginning state machine pass 1
+10.759,0.697,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.761,1.926,Mainline,Ending state machine pass of arcTowardsBeacon
+10.762,0.675,Mainline,Beginning state machine pass 1
+10.765,3.164,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.768,3.459,Mainline,Ending state machine pass of arcTowardsBeacon
+10.769,0.859,Mainline,Beginning state machine pass 1
+10.770,0.993,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.772,1.848,Mainline,Ending state machine pass of arcTowardsBeacon
+10.773,0.879,Mainline,Beginning state machine pass 1
+10.773,0.709,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.775,1.516,Mainline,Ending state machine pass of arcTowardsBeacon
+10.776,0.776,Mainline,Beginning state machine pass 1
+10.777,1.391,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.781,3.949,Mainline,Ending state machine pass of arcTowardsBeacon
+10.782,0.678,Mainline,Beginning state machine pass 1
+10.782,0.684,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.784,2.005,Mainline,Ending state machine pass of arcTowardsBeacon
+10.786,1.289,Mainline,Beginning state machine pass 1
+10.787,0.944,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.788,1.758,Mainline,Ending state machine pass of arcTowardsBeacon
+10.789,0.666,Mainline,Beginning state machine pass 1
+10.790,1.320,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.792,2.001,Mainline,Ending state machine pass of arcTowardsBeacon
+10.794,1.313,Mainline,Beginning state machine pass 1
+10.795,1.693,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.798,2.569,Mainline,Ending state machine pass of arcTowardsBeacon
+10.799,0.978,Mainline,Beginning state machine pass 1
+10.800,0.677,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.802,1.858,Mainline,Ending state machine pass of arcTowardsBeacon
+10.802,0.859,Mainline,Beginning state machine pass 1
+10.803,0.546,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.804,1.553,Mainline,Ending state machine pass of arcTowardsBeacon
+10.806,1.062,Mainline,Beginning state machine pass 1
+10.808,2.000,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.809,1.601,Mainline,Ending state machine pass of arcTowardsBeacon
+10.810,0.858,Mainline,Beginning state machine pass 1
+10.811,1.049,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.813,1.635,Mainline,Ending state machine pass of arcTowardsBeacon
+10.813,0.710,Mainline,Beginning state machine pass 1
+10.814,0.886,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.816,1.278,Mainline,Ending state machine pass of arcTowardsBeacon
+10.817,1.157,Mainline,Beginning state machine pass 1
+10.817,0.598,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.821,3.642,Mainline,Ending state machine pass of arcTowardsBeacon
+10.823,1.614,Mainline,Beginning state machine pass 1
+10.823,0.907,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.825,1.799,Mainline,Ending state machine pass of arcTowardsBeacon
+10.826,0.719,Mainline,Beginning state machine pass 1
+10.827,1.495,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.830,2.075,Mainline,Ending state machine pass of arcTowardsBeacon
+10.831,1.490,Mainline,Beginning state machine pass 1
+10.834,2.851,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.837,3.023,Mainline,Ending state machine pass of arcTowardsBeacon
+10.838,1.142,Mainline,Beginning state machine pass 1
+10.839,0.624,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.841,2.560,Mainline,Ending state machine pass of arcTowardsBeacon
+10.843,1.573,Mainline,Beginning state machine pass 1
+10.844,0.974,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.846,1.708,Mainline,Ending state machine pass of arcTowardsBeacon
+10.847,1.049,Mainline,Beginning state machine pass 1
+10.847,0.534,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.849,2.332,Mainline,Ending state machine pass of arcTowardsBeacon
+10.850,0.626,Mainline,Beginning state machine pass 1
+10.851,1.221,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.854,2.307,Mainline,Ending state machine pass of arcTowardsBeacon
+10.854,0.843,Mainline,Beginning state machine pass 1
+10.855,0.555,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.857,1.555,Mainline,Ending state machine pass of arcTowardsBeacon
+10.857,0.668,Mainline,Beginning state machine pass 1
+10.858,0.640,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.860,1.687,Mainline,Ending state machine pass of arcTowardsBeacon
+10.861,1.190,Mainline,Beginning state machine pass 1
+10.861,0.617,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.863,2.017,Mainline,Ending state machine pass of arcTowardsBeacon
+10.864,0.971,Mainline,Beginning state machine pass 1
+10.865,0.906,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.866,1.259,Mainline,Ending state machine pass of arcTowardsBeacon
+10.867,0.846,Mainline,Beginning state machine pass 1
+10.868,0.514,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.869,1.324,Mainline,Ending state machine pass of arcTowardsBeacon
+10.870,0.960,Mainline,Beginning state machine pass 1
+10.871,0.822,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.872,1.285,Mainline,Ending state machine pass of arcTowardsBeacon
+10.873,0.798,Mainline,Beginning state machine pass 1
+10.874,0.757,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.876,2.509,Mainline,Ending state machine pass of arcTowardsBeacon
+10.877,0.671,Mainline,Beginning state machine pass 1
+10.878,0.871,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.879,1.386,Mainline,Ending state machine pass of arcTowardsBeacon
+10.880,0.622,Mainline,Beginning state machine pass 1
+10.882,2.175,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.884,2.425,Mainline,Ending state machine pass of arcTowardsBeacon
+10.886,1.593,Mainline,Beginning state machine pass 1
+10.887,1.022,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.889,2.266,Mainline,Ending state machine pass of arcTowardsBeacon
+10.891,1.709,Mainline,Beginning state machine pass 1
+10.892,0.678,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.894,1.823,Mainline,Ending state machine pass of arcTowardsBeacon
+10.895,1.012,Mainline,Beginning state machine pass 1
+10.895,0.838,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.898,2.448,Mainline,Ending state machine pass of arcTowardsBeacon
+10.900,1.820,Mainline,Beginning state machine pass 1
+10.900,0.655,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.904,3.504,Mainline,Ending state machine pass of arcTowardsBeacon
+10.905,0.779,Mainline,Beginning state machine pass 1
+10.906,0.982,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.907,1.796,Mainline,Ending state machine pass of arcTowardsBeacon
+10.908,1.000,Mainline,Beginning state machine pass 1
+10.909,0.533,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.911,1.716,Mainline,Ending state machine pass of arcTowardsBeacon
+10.911,0.737,Mainline,Beginning state machine pass 1
+10.912,0.532,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.915,2.735,Mainline,Ending state machine pass of arcTowardsBeacon
+10.915,0.752,Mainline,Beginning state machine pass 1
+10.916,0.572,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.917,1.355,Mainline,Ending state machine pass of arcTowardsBeacon
+10.919,1.324,Mainline,Beginning state machine pass 1
+10.920,1.035,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.921,1.440,Mainline,Ending state machine pass of arcTowardsBeacon
+10.922,0.772,Mainline,Beginning state machine pass 1
+10.922,0.529,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.924,1.912,Mainline,Ending state machine pass of arcTowardsBeacon
+10.925,0.590,Mainline,Beginning state machine pass 1
+10.926,0.832,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.927,1.575,Mainline,Ending state machine pass of arcTowardsBeacon
+10.928,1.050,Mainline,Beginning state machine pass 1
+10.929,0.573,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.930,1.519,Mainline,Ending state machine pass of arcTowardsBeacon
+10.931,0.756,Mainline,Beginning state machine pass 1
+10.932,0.717,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.933,1.262,Mainline,Ending state machine pass of arcTowardsBeacon
+10.934,1.270,Mainline,Beginning state machine pass 1
+10.935,0.744,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.937,1.530,Mainline,Ending state machine pass of arcTowardsBeacon
+10.937,0.648,Mainline,Beginning state machine pass 1
+10.938,0.681,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.940,1.650,Mainline,Ending state machine pass of arcTowardsBeacon
+10.940,0.766,Mainline,Beginning state machine pass 1
+10.941,0.690,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.943,1.728,Mainline,Ending state machine pass of arcTowardsBeacon
+10.944,0.645,Mainline,Beginning state machine pass 1
+10.945,1.033,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.946,1.237,Mainline,Ending state machine pass of arcTowardsBeacon
+10.947,0.715,Mainline,Beginning state machine pass 1
+10.947,0.610,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.948,1.321,Mainline,Ending state machine pass of arcTowardsBeacon
+10.950,1.134,Mainline,Beginning state machine pass 1
+10.950,0.732,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.952,1.313,Mainline,Ending state machine pass of arcTowardsBeacon
+10.952,0.780,Mainline,Beginning state machine pass 1
+10.953,0.679,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.954,1.284,Mainline,Ending state machine pass of arcTowardsBeacon
+10.955,1.002,Mainline,Beginning state machine pass 1
+10.956,0.642,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.957,1.403,Mainline,Ending state machine pass of arcTowardsBeacon
+10.958,0.816,Mainline,Beginning state machine pass 1
+10.959,0.553,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.961,1.773,Mainline,Ending state machine pass of arcTowardsBeacon
+10.962,1.103,Mainline,Beginning state machine pass 1
+10.962,0.673,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.964,1.593,Mainline,Ending state machine pass of arcTowardsBeacon
+10.965,0.761,Mainline,Beginning state machine pass 1
+10.966,0.902,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.967,1.414,Mainline,Ending state machine pass of arcTowardsBeacon
+10.968,0.743,Mainline,Beginning state machine pass 1
+10.969,1.322,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.973,4.357,Mainline,Ending state machine pass of arcTowardsBeacon
+10.974,0.841,Mainline,Beginning state machine pass 1
+10.975,0.568,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.976,1.436,Mainline,Ending state machine pass of arcTowardsBeacon
+10.977,0.955,Mainline,Beginning state machine pass 1
+10.978,0.731,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.979,1.300,Mainline,Ending state machine pass of arcTowardsBeacon
+10.980,0.730,Mainline,Beginning state machine pass 1
+10.981,0.633,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.982,1.361,Mainline,Ending state machine pass of arcTowardsBeacon
+10.984,1.620,Mainline,Beginning state machine pass 1
+10.985,0.980,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.986,1.330,Mainline,Ending state machine pass of arcTowardsBeacon
+10.987,0.778,Mainline,Beginning state machine pass 1
+10.987,0.502,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.989,1.605,Mainline,Ending state machine pass of arcTowardsBeacon
+10.989,0.598,Mainline,Beginning state machine pass 1
+10.990,0.637,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.991,1.392,Mainline,Ending state machine pass of arcTowardsBeacon
+10.992,0.947,Mainline,Beginning state machine pass 1
+10.993,0.519,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.995,2.078,Mainline,Ending state machine pass of arcTowardsBeacon
+10.996,0.721,Mainline,Beginning state machine pass 1
+10.996,0.735,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+10.998,1.290,Mainline,Ending state machine pass of arcTowardsBeacon
+10.998,0.623,Mainline,Beginning state machine pass 1
+10.999,0.820,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.001,1.415,Mainline,Ending state machine pass of arcTowardsBeacon
+11.001,0.762,Mainline,Beginning state machine pass 1
+11.002,0.698,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.003,1.275,Mainline,Ending state machine pass of arcTowardsBeacon
+11.005,1.182,Mainline,Beginning state machine pass 1
+11.005,0.575,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.006,1.394,Mainline,Ending state machine pass of arcTowardsBeacon
+11.007,0.637,Mainline,Beginning state machine pass 1
+11.008,0.730,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.009,1.556,Mainline,Ending state machine pass of arcTowardsBeacon
+11.010,0.940,Mainline,Beginning state machine pass 1
+11.011,0.903,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.013,1.414,Mainline,Ending state machine pass of arcTowardsBeacon
+11.013,0.598,Mainline,Beginning state machine pass 1
+11.014,1.064,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.017,2.381,Mainline,Ending state machine pass of arcTowardsBeacon
+11.018,0.872,Mainline,Beginning state machine pass 1
+11.018,0.577,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.020,1.573,Mainline,Ending state machine pass of arcTowardsBeacon
+11.021,1.061,Mainline,Beginning state machine pass 1
+11.021,0.658,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.023,1.145,Mainline,Ending state machine pass of arcTowardsBeacon
+11.023,0.749,Mainline,Beginning state machine pass 1
+11.024,0.580,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.026,1.899,Mainline,Ending state machine pass of arcTowardsBeacon
+11.027,0.791,Mainline,Beginning state machine pass 1
+11.028,1.494,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.030,2.030,Mainline,Ending state machine pass of arcTowardsBeacon
+11.032,1.794,Mainline,Beginning state machine pass 1
+11.034,2.110,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.039,5.254,Mainline,Ending state machine pass of arcTowardsBeacon
+11.043,3.297,Mainline,Beginning state machine pass 1
+11.043,0.860,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.045,1.416,Mainline,Ending state machine pass of arcTowardsBeacon
+11.046,0.816,Mainline,Beginning state machine pass 1
+11.047,1.177,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.052,4.775,Mainline,Ending state machine pass of arcTowardsBeacon
+11.053,1.264,Mainline,Beginning state machine pass 1
+11.056,3.011,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.059,2.817,Mainline,Ending state machine pass of arcTowardsBeacon
+11.061,2.129,Mainline,Beginning state machine pass 1
+11.062,1.083,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.063,1.527,Mainline,Ending state machine pass of arcTowardsBeacon
+11.064,0.824,Mainline,Beginning state machine pass 1
+11.065,0.831,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.066,1.317,Mainline,Ending state machine pass of arcTowardsBeacon
+11.067,0.836,Mainline,Beginning state machine pass 1
+11.068,0.504,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.070,1.902,Mainline,Ending state machine pass of arcTowardsBeacon
+11.071,1.593,Mainline,Beginning state machine pass 1
+11.072,0.829,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.075,2.486,Mainline,Ending state machine pass of arcTowardsBeacon
+11.075,0.732,Mainline,Beginning state machine pass 1
+11.076,0.832,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.077,1.328,Mainline,Ending state machine pass of arcTowardsBeacon
+11.078,0.568,Mainline,Beginning state machine pass 1
+11.079,0.490,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.080,1.309,Mainline,Ending state machine pass of arcTowardsBeacon
+11.081,0.755,Mainline,Beginning state machine pass 1
+11.081,0.549,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.083,1.533,Mainline,Ending state machine pass of arcTowardsBeacon
+11.083,0.605,Mainline,Beginning state machine pass 1
+11.084,0.828,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.085,1.287,Mainline,Ending state machine pass of arcTowardsBeacon
+11.086,0.930,Mainline,Beginning state machine pass 1
+11.087,0.899,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.090,2.351,Mainline,Ending state machine pass of arcTowardsBeacon
+11.090,0.699,Mainline,Beginning state machine pass 1
+11.092,1.304,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.093,1.265,Mainline,Ending state machine pass of arcTowardsBeacon
+11.094,0.968,Mainline,Beginning state machine pass 1
+11.094,0.531,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.099,4.305,Mainline,Ending state machine pass of arcTowardsBeacon
+11.100,1.501,Mainline,Beginning state machine pass 1
+11.103,3.016,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.105,2.315,Mainline,Ending state machine pass of arcTowardsBeacon
+11.107,1.386,Mainline,Beginning state machine pass 1
+11.109,1.726,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.112,3.085,Mainline,Ending state machine pass of arcTowardsBeacon
+11.113,0.967,Mainline,Beginning state machine pass 1
+11.114,0.935,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.116,2.235,Mainline,Ending state machine pass of arcTowardsBeacon
+11.117,0.744,Mainline,Beginning state machine pass 1
+11.118,1.709,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.120,2.121,Mainline,Ending state machine pass of arcTowardsBeacon
+11.122,1.326,Mainline,Beginning state machine pass 1
+11.123,1.192,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.126,2.942,Mainline,Ending state machine pass of arcTowardsBeacon
+11.128,2.118,Mainline,Beginning state machine pass 1
+11.131,3.150,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.133,2.209,Mainline,Ending state machine pass of arcTowardsBeacon
+11.134,0.965,Mainline,Beginning state machine pass 1
+11.135,0.914,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.137,1.600,Mainline,Ending state machine pass of arcTowardsBeacon
+11.137,0.661,Mainline,Beginning state machine pass 1
+11.139,1.182,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.140,1.311,Mainline,Ending state machine pass of arcTowardsBeacon
+11.141,0.692,Mainline,Beginning state machine pass 1
+11.141,0.544,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.142,1.271,Mainline,Ending state machine pass of arcTowardsBeacon
+11.143,0.628,Mainline,Beginning state machine pass 1
+11.144,1.132,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.45, 0.00, 0.50
+11.146,1.690,Mainline,Ending state machine pass of arcTowardsBeacon
+11.147,0.877,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+11.149,1.775,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+11.152,3.297,robot,pushButton was invoked with button 0
+11.153,1.216,autonomous,Done with opmode, exited based on OpmodeIsActive false

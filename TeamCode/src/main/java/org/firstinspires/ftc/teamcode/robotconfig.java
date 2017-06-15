@@ -1,7 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.hardware.adafruit.BNO055IMU;
-import com.qualcomm.hardware.adafruit.JustLoggingAccelerationIntegrator;
+import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
 import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cRangeSensor;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
@@ -24,7 +24,9 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import java.util.Locale;
 
 import static org.firstinspires.ftc.teamcode.measurements.x1;
+import static org.firstinspires.ftc.teamcode.measurements.x3;
 import static org.firstinspires.ftc.teamcode.measurements.y1;
+import static org.firstinspires.ftc.teamcode.measurements.y3;
 
 /***
  * robotconfig is a simple and effective way to import the robot configuration information into every program.
@@ -47,9 +49,8 @@ public class robotconfig {
     public ColorSensor ada;
     public ModernRoboticsI2cRangeSensor ultra;
     public boolean ultraEnabled = true;
-    public boolean autoIntake = true;
-    public boolean firstIntake = true;
-    public boolean eject = true;
+    public boolean autoIntake = false;
+    public boolean eject = false;
     public ElapsedTime puncherTimer = new ElapsedTime();
     public boolean puncherTime = false;
     public int puncherDeadzone = 600;
@@ -58,8 +59,8 @@ public class robotconfig {
     double minGyro = -maxGyro;
     double maxUltra = 1;
     double minUltra = -maxUltra;
-    double ultraGain = 0.001;
-    double gyroGain = 0.0001;
+    double ultraGain = 0.08;
+    double gyroGain = 0.04;
 
     DcMotor fLeftMotor;
     DcMotor fRightMotor;
@@ -267,17 +268,6 @@ public class robotconfig {
         bRightMotorTarget = (bRightMotor.getCurrentPosition() + forward + right - spin);
     }
 
-    void increaseMyMotorTargets(int forward, int right, int spin) {
-        addlog(dl, "robot", "setMotorTargets was called - f:r:s: " + String.format(Locale.ENGLISH, "%d", forward) + " : " + String.format(Locale.ENGLISH, "%d", right) + " : " + String.format(Locale.ENGLISH, "%d", spin));
-        if (debugMode) {
-            return;
-        }
-        fLeftMotorTarget += forward + right + spin;
-        fRightMotorTarget += forward - right - spin;
-        bLeftMotorTarget += forward - right + spin;
-        bRightMotorTarget += forward + right - spin;
-    }
-
     /**
      * Set motor targets to move robot a specific amount from the current position
      *
@@ -293,70 +283,6 @@ public class robotconfig {
         fRightMotorTarget = fRightMotor.getCurrentPosition() + right;
         bLeftMotorTarget = bLeftMotor.getCurrentPosition() + left;
         bRightMotorTarget = bRightMotor.getCurrentPosition() + right;
-    }
-
-    /***
-     * sets my motor target variables for an arc
-     * @param clockwise true if arc clockwise relative to front of the robot
-     * @param arcRadius distance of radius in pulses
-     * @param angle angle to arc in degrees because I don't like radians
-     */
-    void setMyMotorArcTargets(boolean clockwise, double arcRadius, double angle) {
-        addlog(dl, "robot", "setMyMotorArcTargets was called - l, r, a: " + String.format(Locale.ENGLISH, "%b, %.2f, %.2f", clockwise, arcRadius, angle));
-        if (debugMode) {
-            return;
-        }
-
-        //half vertical distance between wheels
-        final double wheelHeight = mmPerInch * 9;
-        //half horizontal distance between wheels
-        final double wheelWidth = mmPerInch * 8;
-
-        double shortArc = Math.sqrt(Math.pow(arcRadius - wheelWidth, 2) + Math.pow(wheelHeight, 2));
-        double longArc = Math.sqrt(Math.pow(arcRadius + wheelWidth, 2) + Math.pow(wheelHeight, 2));
-
-        int left, right;
-        if (clockwise) {
-            left = (int) (longArc * Math.PI * angle / 180);
-            right = (int) (shortArc * Math.PI * angle / 180);
-        } else {
-            left = (int) (shortArc * Math.PI * angle / 180);
-            right = (int) (longArc * Math.PI * angle / 180);
-        }
-
-        fLeftMotorTarget = fLeftMotor.getCurrentPosition() + left;
-        fRightMotorTarget = fRightMotor.getCurrentPosition() + right;
-        bLeftMotorTarget = bLeftMotor.getCurrentPosition() + left;
-        bRightMotorTarget = bRightMotor.getCurrentPosition() + right;
-    }
-
-    void increaseMyMotorArcTargets(boolean clockwise, double arcRadius, double angle) {
-        addlog(dl, "robot", "setMyMotorArcTargets was called - l, r, a: " + String.format(Locale.ENGLISH, "%b, %.2f, %.2f", clockwise, arcRadius, angle));
-        if (debugMode) {
-            return;
-        }
-
-        //half vertical distance between wheels
-        final double wheelHeight = mmPerInch * 9;
-        //half horizontal distance between wheels
-        final double wheelWidth = mmPerInch * 8;
-
-        double shortArc = Math.sqrt(Math.pow(arcRadius - wheelWidth, 2) + Math.pow(wheelHeight, 2));
-        double longArc = Math.sqrt(Math.pow(arcRadius + wheelWidth, 2) + Math.pow(wheelHeight, 2));
-
-        int left, right;
-        if (clockwise) {
-            left = (int) (longArc * Math.PI * angle / 180);
-            right = (int) (shortArc * Math.PI * angle / 180);
-        } else {
-            left = (int) (shortArc * Math.PI * angle / 180);
-            right = (int) (longArc * Math.PI * angle / 180);
-        }
-
-        fLeftMotorTarget += left;
-        fRightMotorTarget += right;
-        bLeftMotorTarget += left;
-        bRightMotorTarget += right;
     }
 
     /***
@@ -575,6 +501,7 @@ public class robotconfig {
             opMode.telemetry.addData("wiring", "connect motor puncher");
         }
 
+        if(autoIntake)
         try {
             intake1 = hwMap.touchSensor.get("intake1");
             intake2 = hwMap.touchSensor.get("intake2");
@@ -601,14 +528,15 @@ public class robotconfig {
 //            opMode.telemetry.addData("wiring", "connect redundant touch sensors intake[13]b");
 //        }
 
-        try {
-            intake = hwMap.colorSensor.get("intake");
-            intake.enableLed(false);
-            intake.enableLed(true);
-        } catch (Exception err) {
-            eject = false;
-            opMode.telemetry.addData("wiring", "connect color sensor intake and touch sensor intake1");
-        }
+        if (eject)
+            try {
+                intake = hwMap.colorSensor.get("intake");
+                intake.enableLed(false);
+                intake.enableLed(true);
+            } catch (Exception err) {
+                eject = false;
+                opMode.telemetry.addData("wiring", "connect color sensor intake and touch sensor intake1");
+            }
 
         dl = new DataLogger("10635", "teleopTest.csv", opMode.telemetry);
         addlog(dl, "r.init", "r.init was invoked (a)");
@@ -1022,88 +950,6 @@ public class robotconfig {
 
         addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
 
-    }
-
-    public boolean nbettermove() {
-
-
-        if (debugMode) {
-            return true;
-        }
-
-        double fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition());
-        double fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());
-        double bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition());
-        double bRightMotorPower = (bRightMotorTarget - bRightMotor.getCurrentPosition());
-        double max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower)));
-
-        if (Math.abs(fLeftMotorPower) < bettermovedeadzone)
-            fLeftMotorPower = 0;
-        if (Math.abs(fRightMotorPower) < bettermovedeadzone)
-            fRightMotorPower = 0;
-        if (Math.abs(bRightMotorPower) < bettermovedeadzone)
-            bRightMotorPower = 0;
-        if (Math.abs(bLeftMotorPower) < bettermovedeadzone)
-            bLeftMotorPower = 0;
-
-        max /= Math.min(1, Math.max(Math.abs(max / 3000), 0.1));
-
-        if (max > 0) {
-            fLeftMotor.setPower(fLeftMotorPower / max);
-            fRightMotor.setPower(fRightMotorPower / max);
-            bLeftMotor.setPower(bLeftMotorPower / max);
-            bRightMotor.setPower(bRightMotorPower / max);
-        } else {
-            fLeftMotor.setPower(0);
-            fRightMotor.setPower(0);
-            bLeftMotor.setPower(0);
-            bRightMotor.setPower(0);
-            return true;
-        }
-
-        addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
-        return Math.abs(fLeftMotorPower) < bettermovedeadzone && Math.abs(fRightMotorPower) < bettermovedeadzone && Math.abs(bLeftMotorPower) < bettermovedeadzone && Math.abs(bRightMotorPower) < bettermovedeadzone;
-    }
-
-    public boolean nbettermove(double maxPower, double minPower) {
-
-
-        if (debugMode) {
-            return true;
-        }
-
-        double fLeftMotorPower = (fLeftMotorTarget - fLeftMotor.getCurrentPosition());
-        double fRightMotorPower = (fRightMotorTarget - fRightMotor.getCurrentPosition());
-        double bLeftMotorPower = (bLeftMotorTarget - bLeftMotor.getCurrentPosition());
-        double bRightMotorPower = (bRightMotorTarget - bRightMotor.getCurrentPosition());
-        double max = Math.max(Math.max(Math.abs(fLeftMotorPower), Math.abs(bLeftMotorPower)), Math.max(Math.abs(fRightMotorPower), Math.abs(bRightMotorPower)));
-
-        if (Math.abs(fLeftMotorPower) < bettermovedeadzone)
-            fLeftMotorPower = 0;
-        if (Math.abs(fRightMotorPower) < bettermovedeadzone)
-            fRightMotorPower = 0;
-        if (Math.abs(bRightMotorPower) < bettermovedeadzone)
-            bRightMotorPower = 0;
-        if (Math.abs(bLeftMotorPower) < bettermovedeadzone)
-            bLeftMotorPower = 0;
-
-        max /= Math.min(maxPower, Math.max(Math.abs(max / 3000), minPower));
-
-        if (max > 0) {
-            fLeftMotor.setPower(fLeftMotorPower / max);
-            fRightMotor.setPower(fRightMotorPower / max);
-            bLeftMotor.setPower(bLeftMotorPower / max);
-            bRightMotor.setPower(bRightMotorPower / max);
-        } else {
-            fLeftMotor.setPower(0);
-            fRightMotor.setPower(0);
-            bLeftMotor.setPower(0);
-            bRightMotor.setPower(0);
-            return true;
-        }
-
-        addlog(dl, "robot", "bettermove powers are fl:fr:bl:br, " + String.format(Locale.ENGLISH, "%.2f", fLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", fRightMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bLeftMotor.getPower()) + ", " + String.format(Locale.ENGLISH, "%.2f", bRightMotor.getPower()));
-        return Math.abs(fLeftMotorPower) < bettermovedeadzone && Math.abs(fRightMotorPower) < bettermovedeadzone && Math.abs(bLeftMotorPower) < bettermovedeadzone && Math.abs(bRightMotorPower) < bettermovedeadzone;
     }
 
     /***

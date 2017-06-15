@@ -1,0 +1,8 @@
+sec,d ms,r.init,r.init was invoked (a)
+0.001,1.300,r.init,debug mode is false
+0.003,2.552,robot,pushButton was invoked with button 0
+3.537,3533.180,robot,resetMotorEncoders was called
+3.549,12.269,robot,enableMotorEncoders was called
+3.573,23.696,r.init,r.init finished (a)
+3.659,86.762,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+3.661,1.584,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00

@@ -1,0 +1,6 @@
+sec,d ms,r.init,r.init was invoked (a)
+0.004,3.918,r.init,debug mode is false
+0.008,3.695,robot,pushButton was invoked with button 0
+5.369,5361.214,robot,resetMotorEncoders was called
+5.387,17.553,robot,enableMotorEncoders was called
+5.416,29.490,r.init,r.init finished (a)

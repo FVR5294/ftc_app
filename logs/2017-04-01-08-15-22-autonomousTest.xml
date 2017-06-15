@@ -1,0 +1,553 @@
+sec,d ms,r.init,r.init was invoked (a)
+0.001,1.164,r.init,debug mode is false
+0.002,1.303,r.init,colorSensorLineThreshhold is 0.05865102639296188
+0.105,102.409,robot,pushButton was invoked with button 0
+3.664,3559.430,robot,resetMotorEncoders was called
+3.688,23.808,robot,enableMotorEncoders was called
+3.733,44.537,r.init,r.init finished (a)
+3.809,76.269,autonomous,Done with robot.init --- waiting for start in masterV3
+3.810,1.008,autonomous,Started
+11.477,7666.858,Mainline,Beginning state machine pass 0
+11.478,1.264,<colorRed>
+11.480,1.773,colorRedStateMachine,Execution of colorRed has started
+11.480,0.738,</colorRed>
+11.481,0.617,colorRedStateMachine,Execution of colorRed has been completed in, 0, intervals over a time of, 0.000573.3, seconds
+11.482,0.953,Mainline,Ending state machine pass of sleep0
+11.483,0.813,Mainline,Beginning state machine pass 1
+11.483,0.619,<sleep0>
+11.484,0.890,sleep0StateMachine,Execution of sleep0 has started
+11.485,0.930,</sleep0>
+11.486,0.822,sleep0StateMachine,Execution of sleep0 has been completed in, 0, intervals over a time of, 0.000890.3, seconds
+11.487,1.194,Mainline,Ending state machine pass of backup42
+11.488,0.831,Mainline,Beginning state machine pass 2
+11.489,0.851,robot,setMotorTargets was called - f:r:s: -2493 : 0 : 0
+11.490,1.190,<backup42>
+11.604,113.868,backup42StateMachine,Execution of backup42 has started
+11.605,0.955,robot,getCurrentAngle was invoked, returning 45
+11.606,0.885,robot,getCurrentAngle was invoked, returning 45
+11.607,0.714,robot,getCurrentAngle was invoked, returning 45
+11.608,0.950,robot,getCurrentAngle was invoked, returning 45
+11.608,0.728,robot,bettermove powers are fl:fr:bl:br, -0.83, -0.83, -0.83, -0.83
+11.698,89.973,Mainline,Ending state machine pass of backup42
+11.699,0.890,Mainline,Beginning state machine pass 2
+11.700,0.884,robot,getCurrentAngle was invoked, returning 45
+11.702,1.520,robot,getCurrentAngle was invoked, returning 45
+11.703,1.069,robot,getCurrentAngle was invoked, returning 45
+11.704,1.401,robot,getCurrentAngle was invoked, returning 45
+11.705,1.007,robot,bettermove powers are fl:fr:bl:br, -0.82, -0.82, -0.83, -0.83
+11.755,49.684,Mainline,Ending state machine pass of backup42
+11.756,1.037,Mainline,Beginning state machine pass 2
+11.757,0.772,robot,getCurrentAngle was invoked, returning 45
+11.757,0.770,robot,getCurrentAngle was invoked, returning 45
+11.758,0.837,robot,getCurrentAngle was invoked, returning 45
+11.759,1.104,robot,getCurrentAngle was invoked, returning 45
+11.760,0.956,robot,bettermove powers are fl:fr:bl:br, -0.81, -0.82, -0.81, -0.82
+11.795,34.482,Mainline,Ending state machine pass of backup42
+11.796,0.949,Mainline,Beginning state machine pass 2
+11.798,2.319,robot,getCurrentAngle was invoked, returning 45
+11.799,1.142,robot,getCurrentAngle was invoked, returning 45
+11.801,1.866,robot,getCurrentAngle was invoked, returning 45
+11.802,1.440,robot,getCurrentAngle was invoked, returning 45
+11.803,1.033,robot,bettermove powers are fl:fr:bl:br, -0.80, -0.81, -0.80, -0.81
+11.880,76.144,Mainline,Ending state machine pass of backup42
+11.881,1.401,Mainline,Beginning state machine pass 2
+11.882,0.867,robot,getCurrentAngle was invoked, returning 45
+11.883,0.760,robot,getCurrentAngle was invoked, returning 45
+11.883,0.561,robot,getCurrentAngle was invoked, returning 45
+11.884,0.785,robot,getCurrentAngle was invoked, returning 45
+11.884,0.509,robot,bettermove powers are fl:fr:bl:br, -0.77, -0.80, -0.77, -0.80
+11.956,71.226,Mainline,Ending state machine pass of backup42
+11.957,1.020,Mainline,Beginning state machine pass 2
+11.957,0.711,robot,getCurrentAngle was invoked, returning 45
+11.958,0.644,robot,getCurrentAngle was invoked, returning 45
+11.959,0.698,robot,getCurrentAngle was invoked, returning 45
+11.960,1.363,robot,getCurrentAngle was invoked, returning 45
+11.962,1.805,robot,bettermove powers are fl:fr:bl:br, -0.74, -0.77, -0.73, -0.76
+12.012,50.050,Mainline,Ending state machine pass of backup42
+12.013,1.025,Mainline,Beginning state machine pass 2
+12.014,0.949,robot,getCurrentAngle was invoked, returning 45
+12.015,0.674,robot,getCurrentAngle was invoked, returning 45
+12.016,1.184,robot,getCurrentAngle was invoked, returning 45
+12.017,1.160,robot,getCurrentAngle was invoked, returning 45
+12.018,0.812,robot,bettermove powers are fl:fr:bl:br, -0.70, -0.74, -0.70, -0.74
+12.091,73.223,Mainline,Ending state machine pass of backup42
+12.092,0.835,Mainline,Beginning state machine pass 2
+12.093,0.769,robot,getCurrentAngle was invoked, returning 45
+12.094,0.936,robot,getCurrentAngle was invoked, returning 45
+12.094,0.788,robot,getCurrentAngle was invoked, returning 45
+12.095,0.981,robot,getCurrentAngle was invoked, returning 45
+12.096,0.718,robot,bettermove powers are fl:fr:bl:br, -0.65, -0.69, -0.64, -0.70
+12.162,66.265,Mainline,Ending state machine pass of backup42
+12.163,1.087,Mainline,Beginning state machine pass 2
+12.164,0.632,robot,getCurrentAngle was invoked, returning 45
+12.165,0.693,robot,getCurrentAngle was invoked, returning 45
+12.165,0.713,robot,getCurrentAngle was invoked, returning 45
+12.166,0.791,robot,getCurrentAngle was invoked, returning 45
+12.167,0.823,robot,bettermove powers are fl:fr:bl:br, -0.60, -0.65, -0.59, -0.65
+12.246,78.552,Mainline,Ending state machine pass of backup42
+12.247,1.043,Mainline,Beginning state machine pass 2
+12.248,1.006,robot,getCurrentAngle was invoked, returning 45
+12.248,0.740,robot,getCurrentAngle was invoked, returning 45
+12.249,0.785,robot,getCurrentAngle was invoked, returning 45
+12.250,1.077,robot,getCurrentAngle was invoked, returning 45
+12.251,1.037,robot,bettermove powers are fl:fr:bl:br, -0.55, -0.59, -0.54, -0.59
+12.312,60.832,Mainline,Ending state machine pass of backup42
+12.313,0.897,Mainline,Beginning state machine pass 2
+12.314,0.627,robot,getCurrentAngle was invoked, returning 45
+12.315,0.978,robot,getCurrentAngle was invoked, returning 45
+12.316,0.977,robot,getCurrentAngle was invoked, returning 45
+12.316,0.941,robot,getCurrentAngle was invoked, returning 45
+12.317,0.678,robot,bettermove powers are fl:fr:bl:br, -0.50, -0.55, -0.49, -0.55
+12.371,53.515,Mainline,Ending state machine pass of backup42
+12.372,0.890,Mainline,Beginning state machine pass 2
+12.372,0.703,robot,getCurrentAngle was invoked, returning 45
+12.373,0.793,robot,getCurrentAngle was invoked, returning 45
+12.374,0.718,robot,getCurrentAngle was invoked, returning 45
+12.375,1.032,robot,getCurrentAngle was invoked, returning 45
+12.376,0.711,robot,bettermove powers are fl:fr:bl:br, -0.46, -0.50, -0.45, -0.50
+12.443,67.609,Mainline,Ending state machine pass of backup42
+12.444,0.878,Mainline,Beginning state machine pass 2
+12.445,0.738,robot,getCurrentAngle was invoked, returning 45
+12.446,0.812,robot,getCurrentAngle was invoked, returning 45
+12.446,0.821,robot,getCurrentAngle was invoked, returning 45
+12.447,0.779,robot,getCurrentAngle was invoked, returning 45
+12.448,0.763,robot,bettermove powers are fl:fr:bl:br, -0.45, -0.49, -0.44, -0.50
+12.494,45.972,Mainline,Ending state machine pass of backup42
+12.495,1.054,Mainline,Beginning state machine pass 2
+12.496,1.111,robot,getCurrentAngle was invoked, returning 45
+12.497,1.232,robot,getCurrentAngle was invoked, returning 45
+12.498,0.912,robot,getCurrentAngle was invoked, returning 45
+12.500,1.975,robot,getCurrentAngle was invoked, returning 45
+12.501,1.225,robot,bettermove powers are fl:fr:bl:br, -0.45, -0.50, -0.44, -0.49
+12.537,35.137,Mainline,Ending state machine pass of backup42
+12.538,1.324,Mainline,Beginning state machine pass 2
+12.541,2.626,robot,getCurrentAngle was invoked, returning 45
+12.544,3.293,robot,getCurrentAngle was invoked, returning 45
+12.545,0.755,robot,getCurrentAngle was invoked, returning 45
+12.546,1.262,robot,getCurrentAngle was invoked, returning 45
+12.546,0.621,robot,bettermove powers are fl:fr:bl:br, -0.45, -0.49, -0.45, -0.50
+12.582,35.760,Mainline,Ending state machine pass of backup42
+12.583,0.730,Mainline,Beginning state machine pass 2
+12.584,0.754,robot,getCurrentAngle was invoked, returning 45
+12.584,0.767,robot,getCurrentAngle was invoked, returning 45
+12.585,0.725,robot,getCurrentAngle was invoked, returning 45
+12.586,0.929,robot,getCurrentAngle was invoked, returning 45
+12.587,0.971,robot,bettermove powers are fl:fr:bl:br, -0.47, -0.49, -0.46, -0.50
+12.617,29.886,Mainline,Ending state machine pass of backup42
+12.619,1.954,Mainline,Beginning state machine pass 2
+12.621,1.851,robot,getCurrentAngle was invoked, returning 45
+12.622,1.470,robot,getCurrentAngle was invoked, returning 45
+12.624,1.736,robot,getCurrentAngle was invoked, returning 45
+12.625,1.508,robot,getCurrentAngle was invoked, returning 45
+12.626,0.832,robot,bettermove powers are fl:fr:bl:br, -0.46, -0.48, -0.47, -0.50
+12.683,56.588,Mainline,Ending state machine pass of backup42
+12.685,1.636,Mainline,Beginning state machine pass 2
+12.686,1.702,robot,getCurrentAngle was invoked, returning 45
+12.687,0.865,robot,getCurrentAngle was invoked, returning 45
+12.688,0.695,robot,getCurrentAngle was invoked, returning 45
+12.689,0.720,robot,getCurrentAngle was invoked, returning 45
+12.690,1.696,robot,bettermove powers are fl:fr:bl:br, -0.49, -0.49, -0.50, -0.49
+12.762,71.983,Mainline,Ending state machine pass of backup42
+12.763,0.690,Mainline,Beginning state machine pass 2
+12.764,0.682,robot,getCurrentAngle was invoked, returning 45
+12.765,1.469,robot,getCurrentAngle was invoked, returning 45
+12.766,0.817,robot,getCurrentAngle was invoked, returning 45
+12.767,0.753,robot,getCurrentAngle was invoked, returning 45
+12.767,0.701,robot,bettermove powers are fl:fr:bl:br, -0.50, -0.44, -0.49, -0.44
+12.843,75.321,Mainline,Ending state machine pass of backup42
+12.844,1.216,Mainline,Beginning state machine pass 2
+12.845,1.126,robot,getCurrentAngle was invoked, returning 45
+12.846,0.830,robot,getCurrentAngle was invoked, returning 45
+12.847,0.941,robot,getCurrentAngle was invoked, returning 45
+12.848,0.783,robot,getCurrentAngle was invoked, returning 45
+12.848,0.911,robot,bettermove powers are fl:fr:bl:br, -0.50, -0.40, -0.50, -0.40
+12.886,37.172,Mainline,Ending state machine pass of backup42
+12.887,0.900,Mainline,Beginning state machine pass 2
+12.888,1.363,robot,getCurrentAngle was invoked, returning 45
+12.889,0.639,robot,getCurrentAngle was invoked, returning 45
+12.890,1.576,robot,getCurrentAngle was invoked, returning 45
+12.891,1.335,robot,getCurrentAngle was invoked, returning 45
+12.892,0.932,robot,bettermove powers are fl:fr:bl:br, -0.50, -0.39, -0.49, -0.40
+12.931,38.281,Mainline,Ending state machine pass of backup42
+12.932,1.135,Mainline,Beginning state machine pass 2
+12.933,0.914,robot,getCurrentAngle was invoked, returning 45
+12.935,1.903,robot,getCurrentAngle was invoked, returning 45
+12.935,0.869,robot,getCurrentAngle was invoked, returning 45
+12.938,2.286,robot,getCurrentAngle was invoked, returning 45
+12.939,1.552,robot,bettermove powers are fl:fr:bl:br, -0.50, -0.39, -0.49, -0.40
+12.942,2.854,Mainline,Ending state machine pass of backup42
+12.944,1.533,Mainline,Beginning state machine pass 2
+12.945,1.398,robot,getCurrentAngle was invoked, returning 45
+12.946,0.853,robot,getCurrentAngle was invoked, returning 45
+12.947,0.580,robot,getCurrentAngle was invoked, returning 45
+12.949,2.061,robot,getCurrentAngle was invoked, returning 45
+12.951,2.640,robot,bettermove powers are fl:fr:bl:br, -0.50, -0.39, -0.48, -0.39
+13.017,65.956,Mainline,Ending state machine pass of backup42
+13.019,2.030,Mainline,Beginning state machine pass 2
+13.023,3.431,robot,getCurrentAngle was invoked, returning 45
+13.023,0.785,robot,getCurrentAngle was invoked, returning 45
+13.024,0.716,robot,getCurrentAngle was invoked, returning 45
+13.025,1.270,robot,getCurrentAngle was invoked, returning 45
+13.026,0.729,robot,bettermove powers are fl:fr:bl:br, -0.50, -0.38, -0.49, -0.39
+13.058,32.105,Mainline,Ending state machine pass of backup42
+13.059,0.823,Mainline,Beginning state machine pass 2
+13.060,0.669,robot,getCurrentAngle was invoked, returning 45
+13.061,0.891,robot,getCurrentAngle was invoked, returning 45
+13.061,0.643,robot,getCurrentAngle was invoked, returning 45
+13.062,0.777,robot,getCurrentAngle was invoked, returning 45
+13.063,0.698,robot,bettermove powers are fl:fr:bl:br, -0.50, -0.38, -0.49, -0.40
+13.088,25.346,Mainline,Ending state machine pass of backup42
+13.089,1.162,Mainline,Beginning state machine pass 2
+13.090,0.690,robot,getCurrentAngle was invoked, returning 45
+13.091,1.287,robot,getCurrentAngle was invoked, returning 45
+13.092,0.886,robot,getCurrentAngle was invoked, returning 45
+13.093,0.948,robot,getCurrentAngle was invoked, returning 45
+13.094,0.703,robot,bettermove powers are fl:fr:bl:br, -0.50, -0.38, -0.49, -0.40
+13.096,2.391,Mainline,Ending state machine pass of backup42
+13.097,1.008,Mainline,Beginning state machine pass 2
+13.098,0.563,robot,getCurrentAngle was invoked, returning 45
+13.098,0.584,robot,getCurrentAngle was invoked, returning 45
+13.099,0.658,robot,getCurrentAngle was invoked, returning 45
+13.100,0.783,robot,getCurrentAngle was invoked, returning 45
+13.100,0.682,robot,bettermove powers are fl:fr:bl:br, -0.50, -0.38, -0.49, -0.40
+13.103,2.306,Mainline,Ending state machine pass of backup42
+13.103,0.747,Mainline,Beginning state machine pass 2
+13.104,0.590,robot,getCurrentAngle was invoked, returning 45
+13.105,0.574,robot,getCurrentAngle was invoked, returning 45
+13.105,0.625,robot,getCurrentAngle was invoked, returning 45
+13.106,0.719,robot,getCurrentAngle was invoked, returning 45
+13.107,0.746,robot,bettermove powers are fl:fr:bl:br, -0.50, -0.38, -0.47, -0.39
+13.176,69.320,Mainline,Ending state machine pass of backup42
+13.177,0.839,Mainline,Beginning state machine pass 2
+13.177,0.553,robot,getCurrentAngle was invoked, returning 45
+13.178,0.862,robot,getCurrentAngle was invoked, returning 45
+13.179,0.775,robot,getCurrentAngle was invoked, returning 45
+13.180,0.929,robot,getCurrentAngle was invoked, returning 45
+13.181,0.588,robot,bettermove powers are fl:fr:bl:br, -0.50, -0.41, -0.49, -0.42
+13.230,49.628,Mainline,Ending state machine pass of backup42
+13.231,0.823,Mainline,Beginning state machine pass 2
+13.232,0.554,robot,getCurrentAngle was invoked, returning 45
+13.232,0.483,robot,getCurrentAngle was invoked, returning 45
+13.233,0.748,robot,getCurrentAngle was invoked, returning 45
+13.234,0.717,robot,getCurrentAngle was invoked, returning 45
+13.234,0.633,robot,bettermove powers are fl:fr:bl:br, -0.49, -0.43, -0.50, -0.44
+13.279,44.900,Mainline,Ending state machine pass of backup42
+13.280,1.076,Mainline,Beginning state machine pass 2
+13.282,2.229,robot,getCurrentAngle was invoked, returning 45
+13.283,1.052,robot,getCurrentAngle was invoked, returning 45
+13.285,1.692,robot,getCurrentAngle was invoked, returning 45
+13.287,1.958,robot,getCurrentAngle was invoked, returning 45
+13.288,0.745,robot,bettermove powers are fl:fr:bl:br, -0.50, -0.45, -0.48, -0.45
+13.340,52.104,Mainline,Ending state machine pass of backup42
+13.341,1.041,Mainline,Beginning state machine pass 2
+13.342,0.871,robot,getCurrentAngle was invoked, returning 45
+13.343,1.460,robot,getCurrentAngle was invoked, returning 45
+13.344,1.006,robot,getCurrentAngle was invoked, returning 45
+13.346,1.550,robot,getCurrentAngle was invoked, returning 45
+13.347,0.932,robot,bettermove powers are fl:fr:bl:br, -0.45, -0.46, -0.48, -0.50
+13.394,47.093,Mainline,Ending state machine pass of backup42
+13.395,1.237,Mainline,Beginning state machine pass 2
+13.397,1.453,robot,getCurrentAngle was invoked, returning 45
+13.398,1.173,robot,getCurrentAngle was invoked, returning 45
+13.399,1.148,robot,getCurrentAngle was invoked, returning 45
+13.400,1.490,robot,getCurrentAngle was invoked, returning 45
+13.402,2.057,robot,bettermove powers are fl:fr:bl:br, 0.00, -0.49, 0.00, -0.50
+13.467,64.579,Mainline,Ending state machine pass of backup42
+13.468,0.817,Mainline,Beginning state machine pass 2
+13.469,0.836,robot,getCurrentAngle was invoked, returning 45
+13.470,0.986,robot,getCurrentAngle was invoked, returning 45
+13.471,0.931,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+13.473,2.041,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+13.492,19.112,</backup42>
+13.493,0.917,backup42StateMachine,Execution of backup42 has been completed in, 33, intervals over a time of, 1.887622.3, seconds
+13.493,0.807,Mainline,Ending state machine pass of shoot 2 balls
+13.494,0.624,Mainline,Beginning state machine pass 3
+13.495,0.753,<shoot 2 balls>
+16.839,3344.350,shoot 2 ballsStateMachine,Execution of shoot 2 balls has started
+16.840,0.830,</shoot 2 balls>
+16.893,52.754,shoot 2 ballsStateMachine,Execution of shoot 2 balls has been completed in, 0, intervals over a time of, 0.052797.3, seconds
+16.894,0.817,Mainline,Ending state machine pass of sleep0
+16.894,0.629,Mainline,Beginning state machine pass 4
+16.895,0.504,<sleep0>
+16.896,1.268,sleep0StateMachine,Execution of sleep0 has started
+16.897,0.648,</sleep0>
+16.897,0.527,sleep0StateMachine,Execution of sleep0 has been completed in, 0, intervals over a time of, 0.000511.3, seconds
+16.898,0.818,Mainline,Ending state machine pass of rotate40
+16.899,0.576,Mainline,Beginning state machine pass 5
+16.899,0.543,robot,setMotorTargets was called - f:r:s: 0 : 0 : 590
+16.900,0.697,<rotate40>
+16.900,0.541,rotate40StateMachine,Execution of rotate40 has started
+16.902,1.281,robot,bettermove powers are fl:fr:bl:br, 0.50, -0.50, 0.50, -0.50
+16.952,50.124,Mainline,Ending state machine pass of rotate40
+16.953,0.907,Mainline,Beginning state machine pass 5
+16.954,0.853,robot,bettermove powers are fl:fr:bl:br, 0.49, -0.50, 0.50, -0.50
+16.977,23.214,Mainline,Ending state machine pass of rotate40
+16.978,0.847,Mainline,Beginning state machine pass 5
+16.978,0.580,robot,bettermove powers are fl:fr:bl:br, 0.48, -0.49, 0.49, -0.50
+17.031,52.944,Mainline,Ending state machine pass of rotate40
+17.032,0.664,Mainline,Beginning state machine pass 5
+17.032,0.618,robot,bettermove powers are fl:fr:bl:br, 0.49, -0.50, 0.49, -0.49
+17.091,58.817,Mainline,Ending state machine pass of rotate40
+17.092,0.823,Mainline,Beginning state machine pass 5
+17.093,0.488,robot,bettermove powers are fl:fr:bl:br, 0.48, -0.49, 0.49, -0.50
+17.133,40.913,Mainline,Ending state machine pass of rotate40
+17.134,0.741,Mainline,Beginning state machine pass 5
+17.135,0.644,robot,bettermove powers are fl:fr:bl:br, 0.47, -0.49, 0.49, -0.50
+17.170,34.861,Mainline,Ending state machine pass of rotate40
+17.171,0.891,Mainline,Beginning state machine pass 5
+17.172,1.049,robot,bettermove powers are fl:fr:bl:br, 0.46, -0.48, 0.49, -0.50
+17.226,53.937,Mainline,Ending state machine pass of rotate40
+17.226,0.635,Mainline,Beginning state machine pass 5
+17.227,0.880,robot,bettermove powers are fl:fr:bl:br, 0.43, -0.46, 0.48, -0.50
+17.300,72.877,Mainline,Ending state machine pass of rotate40
+17.301,0.727,Mainline,Beginning state machine pass 5
+17.301,0.513,robot,bettermove powers are fl:fr:bl:br, 0.42, -0.45, 0.47, -0.50
+17.365,64.104,Mainline,Ending state machine pass of rotate40
+17.366,0.763,Mainline,Beginning state machine pass 5
+17.367,0.471,robot,bettermove powers are fl:fr:bl:br, 0.40, -0.44, 0.46, -0.50
+17.419,52.565,Mainline,Ending state machine pass of rotate40
+17.420,0.981,Mainline,Beginning state machine pass 5
+17.421,0.815,robot,bettermove powers are fl:fr:bl:br, 0.36, -0.41, 0.45, -0.50
+17.477,56.316,Mainline,Ending state machine pass of rotate40
+17.478,0.510,Mainline,Beginning state machine pass 5
+17.478,0.559,robot,bettermove powers are fl:fr:bl:br, 0.31, -0.38, 0.44, -0.50
+17.523,44.968,Mainline,Ending state machine pass of rotate40
+17.524,0.679,Mainline,Beginning state machine pass 5
+17.524,0.488,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.00, 0.42, -0.50
+17.574,50.057,Mainline,Ending state machine pass of rotate40
+17.575,0.851,Mainline,Beginning state machine pass 5
+17.576,0.909,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+17.578,1.322,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+17.626,48.023,</rotate40>
+17.626,0.906,rotate40StateMachine,Execution of rotate40 has been completed in, 13, intervals over a time of, 0.724616.3, seconds
+17.627,0.818,Mainline,Ending state machine pass of backup24
+17.628,0.791,Mainline,Beginning state machine pass 6
+17.629,0.634,robot,setMotorTargets was called - f:r:s: -1424 : 0 : 0
+17.630,1.138,<backup24>
+17.631,0.754,backup24StateMachine,Execution of backup24 has started
+17.632,1.084,robot,getCurrentAngle was invoked, returning 45
+17.633,1.215,robot,getCurrentAngle was invoked, returning 45
+17.635,1.994,robot,getCurrentAngle was invoked, returning 45
+17.637,2.447,robot,getCurrentAngle was invoked, returning 45
+17.640,2.404,robot,bettermove powers are fl:fr:bl:br, -0.26, -0.68, -0.26, -0.68
+17.716,76.555,Mainline,Ending state machine pass of backup24
+17.717,0.652,Mainline,Beginning state machine pass 6
+17.718,0.854,robot,getCurrentAngle was invoked, returning 45
+17.718,0.547,robot,getCurrentAngle was invoked, returning 45
+17.719,0.711,robot,getCurrentAngle was invoked, returning 45
+17.720,0.787,robot,getCurrentAngle was invoked, returning 45
+17.721,1.126,robot,bettermove powers are fl:fr:bl:br, -0.35, -0.59, -0.35, -0.59
+17.776,55.317,Mainline,Ending state machine pass of backup24
+17.777,0.640,Mainline,Beginning state machine pass 6
+17.778,0.930,robot,getCurrentAngle was invoked, returning 45
+17.779,0.662,robot,getCurrentAngle was invoked, returning 45
+17.779,0.666,robot,getCurrentAngle was invoked, returning 45
+17.780,0.986,robot,getCurrentAngle was invoked, returning 45
+17.781,1.030,robot,bettermove powers are fl:fr:bl:br, -0.35, -0.57, -0.35, -0.57
+17.825,43.733,Mainline,Ending state machine pass of backup24
+17.826,1.118,Mainline,Beginning state machine pass 6
+17.827,0.992,robot,getCurrentAngle was invoked, returning 45
+17.828,0.585,robot,getCurrentAngle was invoked, returning 45
+17.828,0.749,robot,getCurrentAngle was invoked, returning 45
+17.829,0.747,robot,getCurrentAngle was invoked, returning 45
+17.831,1.884,robot,bettermove powers are fl:fr:bl:br, -0.34, -0.57, -0.34, -0.58
+17.886,55.162,Mainline,Ending state machine pass of backup24
+17.887,0.747,Mainline,Beginning state machine pass 6
+17.888,0.613,robot,getCurrentAngle was invoked, returning 45
+17.888,0.642,robot,getCurrentAngle was invoked, returning 45
+17.889,0.879,robot,getCurrentAngle was invoked, returning 45
+17.890,0.946,robot,getCurrentAngle was invoked, returning 45
+17.891,0.693,robot,bettermove powers are fl:fr:bl:br, -0.33, -0.56, -0.33, -0.56
+17.961,70.703,Mainline,Ending state machine pass of backup24
+17.962,0.860,Mainline,Beginning state machine pass 6
+17.966,3.353,robot,getCurrentAngle was invoked, returning 45
+17.966,0.722,robot,getCurrentAngle was invoked, returning 45
+17.967,0.638,robot,getCurrentAngle was invoked, returning 45
+17.969,1.745,robot,getCurrentAngle was invoked, returning 45
+17.971,2.024,robot,bettermove powers are fl:fr:bl:br, -0.33, -0.53, -0.33, -0.53
+17.998,27.646,Mainline,Ending state machine pass of backup24
+17.999,0.665,Mainline,Beginning state machine pass 6
+18.001,1.531,robot,getCurrentAngle was invoked, returning 45
+18.001,0.645,robot,getCurrentAngle was invoked, returning 45
+18.002,0.865,robot,getCurrentAngle was invoked, returning 45
+18.003,1.107,robot,getCurrentAngle was invoked, returning 45
+18.004,0.794,robot,bettermove powers are fl:fr:bl:br, -0.33, -0.50, -0.33, -0.50
+18.034,30.211,Mainline,Ending state machine pass of backup24
+18.035,0.745,Mainline,Beginning state machine pass 6
+18.036,0.932,robot,getCurrentAngle was invoked, returning 45
+18.037,0.923,robot,getCurrentAngle was invoked, returning 45
+18.038,1.252,robot,getCurrentAngle was invoked, returning 45
+18.039,0.968,robot,getCurrentAngle was invoked, returning 45
+18.040,0.903,robot,bettermove powers are fl:fr:bl:br, -0.33, -0.49, -0.33, -0.50
+18.065,25.210,Mainline,Ending state machine pass of backup24
+18.066,0.694,Mainline,Beginning state machine pass 6
+18.067,0.905,robot,getCurrentAngle was invoked, returning 45
+18.067,0.733,robot,getCurrentAngle was invoked, returning 45
+18.068,0.843,robot,getCurrentAngle was invoked, returning 45
+18.069,0.925,robot,getCurrentAngle was invoked, returning 45
+18.070,0.946,robot,bettermove powers are fl:fr:bl:br, -0.35, -0.49, -0.35, -0.50
+18.093,22.328,Mainline,Ending state machine pass of backup24
+18.094,1.102,Mainline,Beginning state machine pass 6
+18.095,1.133,robot,getCurrentAngle was invoked, returning 45
+18.095,0.568,robot,getCurrentAngle was invoked, returning 45
+18.096,1.086,robot,getCurrentAngle was invoked, returning 45
+18.100,3.804,robot,getCurrentAngle was invoked, returning 45
+18.101,1.221,robot,bettermove powers are fl:fr:bl:br, -0.35, -0.49, -0.35, -0.50
+18.105,3.630,Mainline,Ending state machine pass of backup24
+18.106,0.851,Mainline,Beginning state machine pass 6
+18.107,0.740,robot,getCurrentAngle was invoked, returning 45
+18.109,1.919,robot,getCurrentAngle was invoked, returning 45
+18.110,1.586,robot,getCurrentAngle was invoked, returning 45
+18.112,1.888,robot,getCurrentAngle was invoked, returning 45
+18.113,1.115,robot,bettermove powers are fl:fr:bl:br, -0.35, -0.49, -0.35, -0.50
+18.115,2.276,Mainline,Ending state machine pass of backup24
+18.116,0.830,Mainline,Beginning state machine pass 6
+18.117,1.026,robot,getCurrentAngle was invoked, returning 45
+18.118,0.696,robot,getCurrentAngle was invoked, returning 45
+18.119,0.737,robot,getCurrentAngle was invoked, returning 45
+18.120,1.326,robot,getCurrentAngle was invoked, returning 45
+18.121,0.662,robot,bettermove powers are fl:fr:bl:br, -0.36, -0.50, -0.35, -0.49
+18.164,42.978,Mainline,Ending state machine pass of backup24
+18.164,0.604,Mainline,Beginning state machine pass 6
+18.165,0.479,robot,getCurrentAngle was invoked, returning 45
+18.166,0.948,robot,getCurrentAngle was invoked, returning 45
+18.166,0.689,robot,getCurrentAngle was invoked, returning 45
+18.167,0.923,robot,getCurrentAngle was invoked, returning 45
+18.169,1.474,robot,bettermove powers are fl:fr:bl:br, -0.38, -0.49, -0.38, -0.50
+18.227,57.929,Mainline,Ending state machine pass of backup24
+18.227,0.731,Mainline,Beginning state machine pass 6
+18.228,0.555,robot,getCurrentAngle was invoked, returning 45
+18.229,0.564,robot,getCurrentAngle was invoked, returning 45
+18.229,0.627,robot,getCurrentAngle was invoked, returning 45
+18.230,0.846,robot,getCurrentAngle was invoked, returning 45
+18.231,1.421,robot,bettermove powers are fl:fr:bl:br, -0.39, -0.49, -0.39, -0.50
+18.268,36.877,Mainline,Ending state machine pass of backup24
+18.269,1.108,Mainline,Beginning state machine pass 6
+18.271,1.408,robot,getCurrentAngle was invoked, returning 45
+18.271,0.554,robot,getCurrentAngle was invoked, returning 45
+18.272,0.809,robot,getCurrentAngle was invoked, returning 45
+18.273,0.828,robot,getCurrentAngle was invoked, returning 45
+18.274,0.667,robot,bettermove powers are fl:fr:bl:br, -0.42, -0.49, -0.42, -0.50
+18.301,27.013,Mainline,Ending state machine pass of backup24
+18.301,0.638,Mainline,Beginning state machine pass 6
+18.302,0.838,robot,getCurrentAngle was invoked, returning 45
+18.304,1.502,robot,getCurrentAngle was invoked, returning 45
+18.305,0.841,robot,getCurrentAngle was invoked, returning 45
+18.305,0.904,robot,getCurrentAngle was invoked, returning 45
+18.306,0.903,robot,bettermove powers are fl:fr:bl:br, -0.46, -0.50, -0.45, -0.49
+18.371,64.451,Mainline,Ending state machine pass of backup24
+18.372,1.075,Mainline,Beginning state machine pass 6
+18.373,1.113,robot,getCurrentAngle was invoked, returning 45
+18.374,1.312,robot,getCurrentAngle was invoked, returning 45
+18.376,1.613,robot,getCurrentAngle was invoked, returning 45
+18.377,0.924,robot,getCurrentAngle was invoked, returning 45
+18.378,0.774,robot,bettermove powers are fl:fr:bl:br, -0.48, -0.49, -0.48, -0.50
+18.432,54.184,Mainline,Ending state machine pass of backup24
+18.433,1.098,Mainline,Beginning state machine pass 6
+18.434,0.961,robot,getCurrentAngle was invoked, returning 45
+18.435,0.953,robot,getCurrentAngle was invoked, returning 45
+18.436,0.799,robot,getCurrentAngle was invoked, returning 45
+18.437,1.596,robot,getCurrentAngle was invoked, returning 45
+18.439,1.372,robot,bettermove powers are fl:fr:bl:br, -0.50, -0.49, -0.48, -0.49
+18.480,40.966,Mainline,Ending state machine pass of backup24
+18.481,1.202,Mainline,Beginning state machine pass 6
+18.482,0.907,robot,getCurrentAngle was invoked, returning 45
+18.483,0.942,robot,getCurrentAngle was invoked, returning 45
+18.484,0.954,robot,getCurrentAngle was invoked, returning 45
+18.485,1.202,robot,getCurrentAngle was invoked, returning 45
+18.486,0.833,robot,bettermove powers are fl:fr:bl:br, -0.50, -0.48, -0.49, -0.48
+18.535,49.735,Mainline,Ending state machine pass of backup24
+18.536,0.835,Mainline,Beginning state machine pass 6
+18.537,0.797,robot,getCurrentAngle was invoked, returning 45
+18.538,0.665,robot,getCurrentAngle was invoked, returning 45
+18.538,0.671,robot,getCurrentAngle was invoked, returning 45
+18.539,0.993,robot,getCurrentAngle was invoked, returning 45
+18.540,0.951,robot,bettermove powers are fl:fr:bl:br, -0.49, -0.45, -0.50, -0.44
+18.620,80.157,Mainline,Ending state machine pass of backup24
+18.621,0.661,Mainline,Beginning state machine pass 6
+18.622,0.529,robot,getCurrentAngle was invoked, returning 45
+18.625,2.923,robot,getCurrentAngle was invoked, returning 45
+18.625,0.952,robot,getCurrentAngle was invoked, returning 45
+18.626,0.808,robot,getCurrentAngle was invoked, returning 45
+18.627,0.588,robot,bettermove powers are fl:fr:bl:br, -0.48, -0.39, -0.50, -0.35
+18.694,67.509,Mainline,Ending state machine pass of backup24
+18.695,0.562,Mainline,Beginning state machine pass 6
+18.695,0.469,robot,getCurrentAngle was invoked, returning 45
+18.697,1.231,robot,getCurrentAngle was invoked, returning 45
+18.697,0.760,robot,getCurrentAngle was invoked, returning 45
+18.698,0.708,robot,getCurrentAngle was invoked, returning 45
+18.699,0.729,robot,bettermove powers are fl:fr:bl:br, -0.48, -0.32, -0.50, -0.29
+18.743,44.361,Mainline,Ending state machine pass of backup24
+18.744,0.653,Mainline,Beginning state machine pass 6
+18.744,0.499,robot,getCurrentAngle was invoked, returning 45
+18.745,0.565,robot,getCurrentAngle was invoked, returning 45
+18.745,0.528,robot,getCurrentAngle was invoked, returning 45
+18.746,0.758,robot,getCurrentAngle was invoked, returning 45
+18.747,1.015,robot,bettermove powers are fl:fr:bl:br, -0.47, -0.30, -0.50, -0.24
+18.793,45.311,Mainline,Ending state machine pass of backup24
+18.793,0.661,Mainline,Beginning state machine pass 6
+18.795,1.387,robot,getCurrentAngle was invoked, returning 45
+18.796,1.032,robot,getCurrentAngle was invoked, returning 45
+18.796,0.770,robot,getCurrentAngle was invoked, returning 45
+18.797,0.642,robot,getCurrentAngle was invoked, returning 45
+18.798,0.746,robot,bettermove powers are fl:fr:bl:br, -0.47, -0.24, -0.50, -0.19
+18.839,41.130,Mainline,Ending state machine pass of backup24
+18.840,0.623,Mainline,Beginning state machine pass 6
+18.840,0.539,robot,getCurrentAngle was invoked, returning 45
+18.841,0.461,robot,getCurrentAngle was invoked, returning 45
+18.841,0.668,robot,getCurrentAngle was invoked, returning 45
+18.842,1.193,robot,getCurrentAngle was invoked, returning 45
+18.843,0.873,robot,bettermove powers are fl:fr:bl:br, -0.46, -0.21, -0.50, -0.15
+18.906,62.608,Mainline,Ending state machine pass of backup24
+18.907,0.880,Mainline,Beginning state machine pass 6
+18.908,0.919,robot,getCurrentAngle was invoked, returning 45
+18.908,0.515,robot,getCurrentAngle was invoked, returning 45
+18.909,0.764,robot,getCurrentAngle was invoked, returning 45
+18.911,1.630,robot,getCurrentAngle was invoked, returning 45
+18.914,2.941,robot,bettermove powers are fl:fr:bl:br, -0.49, -0.15, -0.50, 0.02
+18.986,72.330,Mainline,Ending state machine pass of backup24
+18.986,0.572,Mainline,Beginning state machine pass 6
+18.988,1.502,robot,getCurrentAngle was invoked, returning 45
+18.988,0.503,robot,getCurrentAngle was invoked, returning 45
+18.989,0.682,robot,getCurrentAngle was invoked, returning 45
+18.990,0.715,robot,getCurrentAngle was invoked, returning 45
+18.991,1.124,robot,bettermove powers are fl:fr:bl:br, -0.47, 0.02, -0.50, 0.02
+19.041,50.334,Mainline,Ending state machine pass of backup24
+19.042,0.676,Mainline,Beginning state machine pass 6
+19.042,0.469,robot,getCurrentAngle was invoked, returning 45
+19.043,0.539,robot,getCurrentAngle was invoked, returning 45
+19.043,0.515,robot,getCurrentAngle was invoked, returning 45
+19.044,0.637,robot,getCurrentAngle was invoked, returning 45
+19.045,0.489,robot,bettermove powers are fl:fr:bl:br, -0.42, 0.02, -0.50, 0.02
+19.079,34.617,Mainline,Ending state machine pass of backup24
+19.080,0.758,Mainline,Beginning state machine pass 6
+19.081,0.832,robot,getCurrentAngle was invoked, returning 45
+19.081,0.574,robot,getCurrentAngle was invoked, returning 45
+19.082,0.642,robot,getCurrentAngle was invoked, returning 45
+19.083,1.174,robot,getCurrentAngle was invoked, returning 45
+19.084,0.651,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.00, -0.50, 0.00
+19.154,70.572,Mainline,Ending state machine pass of backup24
+19.155,0.577,Mainline,Beginning state machine pass 6
+19.155,0.459,robot,getCurrentAngle was invoked, returning 45
+19.156,0.740,robot,getCurrentAngle was invoked, returning 45
+19.157,0.557,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+19.158,1.031,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+19.180,22.222,</backup24>
+19.182,1.613,backup24StateMachine,Execution of backup24 has been completed in, 29, intervals over a time of, 1.549946.3, seconds
+19.182,0.693,Mainline,Ending state machine pass of sleep0
+19.183,0.532,Mainline,Beginning state machine pass 7
+19.183,0.600,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+19.184,0.860,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+19.186,1.497,StateMachine,stop requested
+19.187,1.110,Mainline,Beginning state machine pass 7
+19.187,0.495,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+19.188,0.790,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+19.189,0.983,StateMachine,stop requested
+19.190,0.673,Mainline,Beginning state machine pass 7
+19.190,0.496,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+19.191,0.778,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+19.193,2.353,StateMachine,stop requested
+19.194,0.538,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+19.195,0.824,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+19.196,0.942,robot,pushButton was invoked with button 0
+19.196,0.480,autonomous,Done with opmode, exited based on OpmodeIsActive false

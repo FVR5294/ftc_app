@@ -1,0 +1,2812 @@
+sec,d ms,r.init,r.init was invoked (a)
+0.001,0.865,r.init,debug mode is false
+0.002,1.358,r.init,colorSensorLineThreshhold is 0.05474095796676442
+0.072,70.053,robot,pushButton was invoked with button 0
+4.140,4068.245,robot,resetMotorEncoders was called
+4.156,15.608,robot,enableMotorEncoders was called
+4.182,25.942,r.init,r.init finished (a)
+4.256,73.743,autonomous,Done with robot.init --- waiting for start in masterV3
+4.257,1.370,autonomous,Started
+5.683,1426.286,Mainline,Beginning state machine pass 0
+5.685,1.407,<colorRed>
+5.687,2.366,colorRedStateMachine,Execution of colorRed has started
+5.688,0.677,</colorRed>
+5.688,0.731,colorRedStateMachine,Execution of colorRed has been completed in, 0, intervals over a time of, 0.000609.3, seconds
+5.690,1.236,Mainline,Ending state machine pass of arcTowardsBeacon
+5.692,2.082,Mainline,Beginning state machine pass 1
+5.694,1.719,robot,enableMotorBreak was called
+5.696,2.100,robot,setMotorTankTargets was called - L:r: 2610 : 5408
+5.767,71.807,<arcTowardsBeacon>
+5.802,34.286,arcTowardsBeaconStateMachine,Execution of arcTowardsBeacon has started
+5.803,1.362,robot,bettermove powers are fl:fr:bl:br, 0.48, 1.00, 0.48, 1.00
+5.892,88.511,Mainline,Ending state machine pass of arcTowardsBeacon
+5.893,1.483,Mainline,Beginning state machine pass 1
+5.894,1.292,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.48, 1.00
+5.931,36.471,Mainline,Ending state machine pass of arcTowardsBeacon
+5.932,0.872,Mainline,Beginning state machine pass 1
+5.932,0.744,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+5.956,23.369,Mainline,Ending state machine pass of arcTowardsBeacon
+5.957,0.886,Mainline,Beginning state machine pass 1
+5.958,0.896,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+5.960,1.985,Mainline,Ending state machine pass of arcTowardsBeacon
+5.961,1.349,Mainline,Beginning state machine pass 1
+5.962,1.013,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+5.964,2.552,Mainline,Ending state machine pass of arcTowardsBeacon
+5.966,1.680,Mainline,Beginning state machine pass 1
+5.969,2.893,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+5.971,2.355,Mainline,Ending state machine pass of arcTowardsBeacon
+5.973,1.121,Mainline,Beginning state machine pass 1
+5.974,1.270,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+5.976,2.478,Mainline,Ending state machine pass of arcTowardsBeacon
+5.978,1.650,Mainline,Beginning state machine pass 1
+5.979,0.915,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+5.981,2.297,Mainline,Ending state machine pass of arcTowardsBeacon
+5.984,2.431,Mainline,Beginning state machine pass 1
+5.984,0.734,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+5.987,2.710,Mainline,Ending state machine pass of arcTowardsBeacon
+5.989,1.775,Mainline,Beginning state machine pass 1
+5.990,1.410,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+5.993,2.810,Mainline,Ending state machine pass of arcTowardsBeacon
+5.994,1.110,Mainline,Beginning state machine pass 1
+5.995,0.784,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+5.997,2.363,Mainline,Ending state machine pass of arcTowardsBeacon
+5.999,1.408,Mainline,Beginning state machine pass 1
+6.000,1.799,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.005,4.211,Mainline,Ending state machine pass of arcTowardsBeacon
+6.008,3.562,Mainline,Beginning state machine pass 1
+6.010,2.207,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.013,2.618,Mainline,Ending state machine pass of arcTowardsBeacon
+6.015,1.480,Mainline,Beginning state machine pass 1
+6.016,1.851,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.019,2.187,Mainline,Ending state machine pass of arcTowardsBeacon
+6.020,1.184,Mainline,Beginning state machine pass 1
+6.021,1.088,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.024,3.322,Mainline,Ending state machine pass of arcTowardsBeacon
+6.025,1.104,Mainline,Beginning state machine pass 1
+6.026,0.769,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.028,1.957,Mainline,Ending state machine pass of arcTowardsBeacon
+6.029,0.826,Mainline,Beginning state machine pass 1
+6.030,0.963,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.032,2.532,Mainline,Ending state machine pass of arcTowardsBeacon
+6.034,1.349,Mainline,Beginning state machine pass 1
+6.035,1.697,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.037,2.078,Mainline,Ending state machine pass of arcTowardsBeacon
+6.038,0.772,Mainline,Beginning state machine pass 1
+6.039,0.914,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.041,1.816,Mainline,Ending state machine pass of arcTowardsBeacon
+6.042,1.304,Mainline,Beginning state machine pass 1
+6.043,1.207,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.045,1.745,Mainline,Ending state machine pass of arcTowardsBeacon
+6.046,1.046,Mainline,Beginning state machine pass 1
+6.047,0.918,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.050,3.236,Mainline,Ending state machine pass of arcTowardsBeacon
+6.051,1.016,Mainline,Beginning state machine pass 1
+6.052,0.917,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.054,2.045,Mainline,Ending state machine pass of arcTowardsBeacon
+6.055,0.969,Mainline,Beginning state machine pass 1
+6.056,0.842,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.058,2.147,Mainline,Ending state machine pass of arcTowardsBeacon
+6.059,1.036,Mainline,Beginning state machine pass 1
+6.060,1.063,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.98, 0.47, 1.00
+6.090,29.202,Mainline,Ending state machine pass of arcTowardsBeacon
+6.091,0.932,Mainline,Beginning state machine pass 1
+6.092,1.430,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.98, 0.47, 1.00
+6.095,2.504,Mainline,Ending state machine pass of arcTowardsBeacon
+6.095,0.905,Mainline,Beginning state machine pass 1
+6.096,0.881,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.99, 0.47, 1.00
+6.116,19.354,Mainline,Ending state machine pass of arcTowardsBeacon
+6.117,1.063,Mainline,Beginning state machine pass 1
+6.118,1.071,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.98, 0.47, 1.00
+6.157,39.203,Mainline,Ending state machine pass of arcTowardsBeacon
+6.158,0.904,Mainline,Beginning state machine pass 1
+6.159,0.888,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.98, 0.47, 1.00
+6.161,1.718,Mainline,Ending state machine pass of arcTowardsBeacon
+6.161,0.813,Mainline,Beginning state machine pass 1
+6.163,1.281,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.98, 0.47, 1.00
+6.164,1.705,Mainline,Ending state machine pass of arcTowardsBeacon
+6.166,1.286,Mainline,Beginning state machine pass 1
+6.167,0.895,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.98, 0.47, 1.00
+6.168,1.687,Mainline,Ending state machine pass of arcTowardsBeacon
+6.169,1.219,Mainline,Beginning state machine pass 1
+6.171,1.186,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.98, 0.47, 1.00
+6.172,1.628,Mainline,Ending state machine pass of arcTowardsBeacon
+6.173,1.191,Mainline,Beginning state machine pass 1
+6.174,1.043,robot,bettermove powers are fl:fr:bl:br, 0.47, 0.98, 0.47, 1.00
+6.177,2.106,Mainline,Ending state machine pass of arcTowardsBeacon
+6.177,0.814,Mainline,Beginning state machine pass 1
+6.178,0.855,robot,bettermove powers are fl:fr:bl:br, 0.46, 0.98, 0.47, 1.00
+6.199,21.163,Mainline,Ending state machine pass of arcTowardsBeacon
+6.201,1.536,Mainline,Beginning state machine pass 1
+6.202,1.334,robot,bettermove powers are fl:fr:bl:br, 0.46, 0.98, 0.46, 1.00
+6.217,14.348,Mainline,Ending state machine pass of arcTowardsBeacon
+6.217,0.765,Mainline,Beginning state machine pass 1
+6.219,1.455,robot,bettermove powers are fl:fr:bl:br, 0.46, 0.98, 0.46, 1.00
+6.223,3.896,Mainline,Ending state machine pass of arcTowardsBeacon
+6.227,4.044,Mainline,Beginning state machine pass 1
+6.228,1.386,robot,bettermove powers are fl:fr:bl:br, 0.46, 0.98, 0.46, 1.00
+6.230,1.644,Mainline,Ending state machine pass of arcTowardsBeacon
+6.232,1.854,Mainline,Beginning state machine pass 1
+6.233,1.156,robot,bettermove powers are fl:fr:bl:br, 0.46, 0.98, 0.46, 1.00
+6.236,2.929,Mainline,Ending state machine pass of arcTowardsBeacon
+6.236,0.670,Mainline,Beginning state machine pass 1
+6.237,0.544,robot,bettermove powers are fl:fr:bl:br, 0.46, 0.98, 0.46, 1.00
+6.239,1.754,Mainline,Ending state machine pass of arcTowardsBeacon
+6.239,0.698,Mainline,Beginning state machine pass 1
+6.240,0.959,robot,bettermove powers are fl:fr:bl:br, 0.46, 0.98, 0.46, 1.00
+6.243,2.275,Mainline,Ending state machine pass of arcTowardsBeacon
+6.244,0.877,Mainline,Beginning state machine pass 1
+6.244,0.600,robot,bettermove powers are fl:fr:bl:br, 0.46, 0.98, 0.46, 1.00
+6.247,3.011,Mainline,Ending state machine pass of arcTowardsBeacon
+6.249,1.911,Mainline,Beginning state machine pass 1
+6.250,0.943,robot,bettermove powers are fl:fr:bl:br, 0.46, 0.98, 0.46, 1.00
+6.253,3.162,Mainline,Ending state machine pass of arcTowardsBeacon
+6.254,1.228,Mainline,Beginning state machine pass 1
+6.255,0.663,robot,bettermove powers are fl:fr:bl:br, 0.46, 0.98, 0.46, 1.00
+6.258,2.547,Mainline,Ending state machine pass of arcTowardsBeacon
+6.258,0.715,Mainline,Beginning state machine pass 1
+6.259,1.099,robot,bettermove powers are fl:fr:bl:br, 0.46, 0.98, 0.46, 1.00
+6.261,1.677,Mainline,Ending state machine pass of arcTowardsBeacon
+6.263,1.600,Mainline,Beginning state machine pass 1
+6.264,1.759,robot,bettermove powers are fl:fr:bl:br, 0.46, 0.98, 0.46, 1.00
+6.266,1.946,Mainline,Ending state machine pass of arcTowardsBeacon
+6.267,0.984,Mainline,Beginning state machine pass 1
+6.268,0.928,robot,bettermove powers are fl:fr:bl:br, 0.46, 0.98, 0.46, 1.00
+6.271,2.409,Mainline,Ending state machine pass of arcTowardsBeacon
+6.271,0.738,Mainline,Beginning state machine pass 1
+6.273,1.818,robot,bettermove powers are fl:fr:bl:br, 0.46, 0.98, 0.46, 1.00
+6.276,2.283,Mainline,Ending state machine pass of arcTowardsBeacon
+6.276,0.717,Mainline,Beginning state machine pass 1
+6.277,0.757,robot,bettermove powers are fl:fr:bl:br, 0.46, 0.97, 0.46, 1.00
+6.305,28.180,Mainline,Ending state machine pass of arcTowardsBeacon
+6.306,1.089,Mainline,Beginning state machine pass 1
+6.308,1.291,robot,bettermove powers are fl:fr:bl:br, 0.45, 0.98, 0.46, 1.00
+6.354,46.105,Mainline,Ending state machine pass of arcTowardsBeacon
+6.354,0.792,Mainline,Beginning state machine pass 1
+6.356,2.159,robot,bettermove powers are fl:fr:bl:br, 0.45, 0.98, 0.45, 1.00
+6.388,30.910,Mainline,Ending state machine pass of arcTowardsBeacon
+6.389,1.236,Mainline,Beginning state machine pass 1
+6.390,1.043,robot,bettermove powers are fl:fr:bl:br, 0.45, 0.97, 0.45, 1.00
+6.431,41.242,Mainline,Ending state machine pass of arcTowardsBeacon
+6.434,3.264,Mainline,Beginning state machine pass 1
+6.437,2.275,robot,bettermove powers are fl:fr:bl:br, 0.44, 0.98, 0.44, 1.00
+6.498,61.076,Mainline,Ending state machine pass of arcTowardsBeacon
+6.499,0.893,Mainline,Beginning state machine pass 1
+6.500,1.293,robot,bettermove powers are fl:fr:bl:br, 0.43, 0.97, 0.44, 1.00
+6.545,45.594,Mainline,Ending state machine pass of arcTowardsBeacon
+6.547,1.277,Mainline,Beginning state machine pass 1
+6.548,0.835,robot,bettermove powers are fl:fr:bl:br, 0.43, 0.98, 0.43, 1.00
+6.581,33.623,Mainline,Ending state machine pass of arcTowardsBeacon
+6.582,1.098,Mainline,Beginning state machine pass 1
+6.584,1.525,robot,bettermove powers are fl:fr:bl:br, 0.42, 0.97, 0.43, 1.00
+6.631,47.530,Mainline,Ending state machine pass of arcTowardsBeacon
+6.633,1.359,Mainline,Beginning state machine pass 1
+6.634,0.849,robot,bettermove powers are fl:fr:bl:br, 0.42, 0.98, 0.43, 1.00
+6.664,30.092,Mainline,Ending state machine pass of arcTowardsBeacon
+6.665,1.740,Mainline,Beginning state machine pass 1
+6.669,3.686,robot,bettermove powers are fl:fr:bl:br, 0.42, 0.97, 0.43, 1.00
+6.700,31.047,Mainline,Ending state machine pass of arcTowardsBeacon
+6.704,3.664,Mainline,Beginning state machine pass 1
+6.706,2.333,robot,bettermove powers are fl:fr:bl:br, 0.42, 0.98, 0.42, 1.00
+6.745,38.663,Mainline,Ending state machine pass of arcTowardsBeacon
+6.747,1.841,Mainline,Beginning state machine pass 1
+6.750,3.048,robot,bettermove powers are fl:fr:bl:br, 0.42, 0.99, 0.43, 1.00
+6.780,29.846,Mainline,Ending state machine pass of arcTowardsBeacon
+6.780,0.764,Mainline,Beginning state machine pass 1
+6.781,0.998,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.98, 0.43, 1.00
+6.830,48.845,Mainline,Ending state machine pass of arcTowardsBeacon
+6.831,1.123,Mainline,Beginning state machine pass 1
+6.833,1.966,robot,bettermove powers are fl:fr:bl:br, 0.42, 0.98, 0.43, 1.00
+6.862,28.654,Mainline,Ending state machine pass of arcTowardsBeacon
+6.865,2.787,Mainline,Beginning state machine pass 1
+6.867,1.985,robot,bettermove powers are fl:fr:bl:br, 0.42, 0.99, 0.43, 1.00
+6.893,25.885,Mainline,Ending state machine pass of arcTowardsBeacon
+6.896,3.070,Mainline,Beginning state machine pass 1
+6.898,1.956,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.98, 0.43, 1.00
+6.946,48.556,Mainline,Ending state machine pass of arcTowardsBeacon
+6.947,1.174,Mainline,Beginning state machine pass 1
+6.950,2.921,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.99, 0.43, 1.00
+6.978,28.026,Mainline,Ending state machine pass of arcTowardsBeacon
+6.979,1.001,Mainline,Beginning state machine pass 1
+6.980,0.994,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.99, 0.43, 1.00
+6.984,4.073,Mainline,Ending state machine pass of arcTowardsBeacon
+6.987,2.992,Mainline,Beginning state machine pass 1
+6.990,2.310,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.99, 0.43, 1.00
+6.999,8.959,Mainline,Ending state machine pass of arcTowardsBeacon
+7.001,1.957,Mainline,Beginning state machine pass 1
+7.002,1.309,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.98, 0.43, 1.00
+7.035,33.355,Mainline,Ending state machine pass of arcTowardsBeacon
+7.036,1.013,Mainline,Beginning state machine pass 1
+7.039,3.181,robot,bettermove powers are fl:fr:bl:br, 0.41, 0.98, 0.43, 0.99
+7.063,23.645,Mainline,Ending state machine pass of arcTowardsBeacon
+7.065,1.584,Mainline,Beginning state machine pass 1
+7.066,1.163,robot,bettermove powers are fl:fr:bl:br, 0.40, 0.97, 0.42, 0.97
+7.132,65.802,Mainline,Ending state machine pass of arcTowardsBeacon
+7.133,1.106,Mainline,Beginning state machine pass 1
+7.137,4.503,robot,bettermove powers are fl:fr:bl:br, 0.38, 0.91, 0.40, 0.92
+7.184,46.788,Mainline,Ending state machine pass of arcTowardsBeacon
+7.185,0.922,Mainline,Beginning state machine pass 1
+7.186,0.875,robot,bettermove powers are fl:fr:bl:br, 0.36, 0.87, 0.38, 0.87
+7.239,52.982,Mainline,Ending state machine pass of arcTowardsBeacon
+7.240,0.801,Mainline,Beginning state machine pass 1
+7.240,0.605,robot,bettermove powers are fl:fr:bl:br, 0.34, 0.82, 0.36, 0.83
+7.300,60.141,Mainline,Ending state machine pass of arcTowardsBeacon
+7.301,1.171,Mainline,Beginning state machine pass 1
+7.303,1.902,robot,bettermove powers are fl:fr:bl:br, 0.32, 0.77, 0.34, 0.77
+7.368,64.246,Mainline,Ending state machine pass of arcTowardsBeacon
+7.369,1.536,Mainline,Beginning state machine pass 1
+7.371,1.704,robot,bettermove powers are fl:fr:bl:br, 0.30, 0.71, 0.32, 0.72
+7.421,50.581,Mainline,Ending state machine pass of arcTowardsBeacon
+7.423,1.625,Mainline,Beginning state machine pass 1
+7.424,1.077,robot,bettermove powers are fl:fr:bl:br, 0.29, 0.67, 0.30, 0.68
+7.522,98.051,Mainline,Ending state machine pass of arcTowardsBeacon
+7.523,1.204,Mainline,Beginning state machine pass 1
+7.524,1.063,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.59, 0.27, 0.60
+7.577,52.244,Mainline,Ending state machine pass of arcTowardsBeacon
+7.578,0.978,Mainline,Beginning state machine pass 1
+7.579,1.024,robot,bettermove powers are fl:fr:bl:br, 0.25, 0.55, 0.26, 0.56
+7.648,69.597,Mainline,Ending state machine pass of arcTowardsBeacon
+7.652,3.623,Mainline,Beginning state machine pass 1
+7.653,1.159,robot,bettermove powers are fl:fr:bl:br, 0.24, 0.50, 0.24, 0.50
+7.703,49.509,Mainline,Ending state machine pass of arcTowardsBeacon
+7.703,0.871,Mainline,Beginning state machine pass 1
+7.704,0.744,robot,bettermove powers are fl:fr:bl:br, 0.24, 0.49, 0.25, 0.50
+7.731,27.210,Mainline,Ending state machine pass of arcTowardsBeacon
+7.734,3.073,Mainline,Beginning state machine pass 1
+7.739,4.368,robot,bettermove powers are fl:fr:bl:br, 0.24, 0.49, 0.25, 0.50
+7.746,6.845,Mainline,Ending state machine pass of arcTowardsBeacon
+7.747,0.830,Mainline,Beginning state machine pass 1
+7.748,1.165,robot,bettermove powers are fl:fr:bl:br, 0.24, 0.48, 0.25, 0.50
+7.775,26.855,Mainline,Ending state machine pass of arcTowardsBeacon
+7.775,0.775,Mainline,Beginning state machine pass 1
+7.776,0.590,robot,bettermove powers are fl:fr:bl:br, 0.25, 0.49, 0.25, 0.50
+7.834,57.962,Mainline,Ending state machine pass of arcTowardsBeacon
+7.835,0.796,Mainline,Beginning state machine pass 1
+7.836,1.272,robot,bettermove powers are fl:fr:bl:br, 0.26, 0.49, 0.26, 0.50
+7.865,29.389,Mainline,Ending state machine pass of arcTowardsBeacon
+7.866,0.840,Mainline,Beginning state machine pass 1
+7.869,3.197,robot,bettermove powers are fl:fr:bl:br, 0.26, 0.50, 0.26, 0.50
+7.904,34.744,Mainline,Ending state machine pass of arcTowardsBeacon
+7.905,0.733,Mainline,Beginning state machine pass 1
+7.906,1.287,robot,bettermove powers are fl:fr:bl:br, 0.26, 0.49, 0.27, 0.50
+7.934,27.935,Mainline,Ending state machine pass of arcTowardsBeacon
+7.935,1.217,Mainline,Beginning state machine pass 1
+7.936,0.952,robot,bettermove powers are fl:fr:bl:br, 0.26, 0.49, 0.27, 0.50
+7.938,2.059,Mainline,Ending state machine pass of arcTowardsBeacon
+7.939,0.899,Mainline,Beginning state machine pass 1
+7.940,0.811,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.49, 0.27, 0.50
+7.969,29.249,Mainline,Ending state machine pass of arcTowardsBeacon
+7.970,0.867,Mainline,Beginning state machine pass 1
+7.971,0.906,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.49, 0.27, 0.50
+7.973,2.159,Mainline,Ending state machine pass of arcTowardsBeacon
+7.974,1.123,Mainline,Beginning state machine pass 1
+7.975,1.024,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.49, 0.27, 0.50
+7.978,2.611,Mainline,Ending state machine pass of arcTowardsBeacon
+7.979,0.832,Mainline,Beginning state machine pass 1
+7.980,1.209,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.49, 0.27, 0.50
+7.982,2.106,Mainline,Ending state machine pass of arcTowardsBeacon
+7.984,1.600,Mainline,Beginning state machine pass 1
+7.986,2.163,robot,bettermove powers are fl:fr:bl:br, 0.26, 0.48, 0.27, 0.50
+8.034,48.134,Mainline,Ending state machine pass of arcTowardsBeacon
+8.035,0.827,Mainline,Beginning state machine pass 1
+8.036,0.909,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.49, 0.27, 0.50
+8.089,53.196,Mainline,Ending state machine pass of arcTowardsBeacon
+8.090,0.880,Mainline,Beginning state machine pass 1
+8.091,0.816,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.49, 0.27, 0.50
+8.093,2.116,Mainline,Ending state machine pass of arcTowardsBeacon
+8.094,0.869,Mainline,Beginning state machine pass 1
+8.094,0.762,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.49, 0.27, 0.50
+8.096,1.871,Mainline,Ending state machine pass of arcTowardsBeacon
+8.098,1.312,Mainline,Beginning state machine pass 1
+8.099,1.004,robot,bettermove powers are fl:fr:bl:br, 0.26, 0.48, 0.27, 0.50
+8.145,46.323,Mainline,Ending state machine pass of arcTowardsBeacon
+8.146,0.975,Mainline,Beginning state machine pass 1
+8.147,0.720,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.49, 0.27, 0.50
+8.189,42.828,Mainline,Ending state machine pass of arcTowardsBeacon
+8.190,0.857,Mainline,Beginning state machine pass 1
+8.191,0.782,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.48, 0.27, 0.50
+8.227,36.148,Mainline,Ending state machine pass of arcTowardsBeacon
+8.228,0.837,Mainline,Beginning state machine pass 1
+8.229,0.632,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.48, 0.26, 0.50
+8.260,31.501,Mainline,Ending state machine pass of arcTowardsBeacon
+8.261,0.947,Mainline,Beginning state machine pass 1
+8.262,0.887,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.48, 0.26, 0.50
+8.264,1.928,Mainline,Ending state machine pass of arcTowardsBeacon
+8.265,0.802,Mainline,Beginning state machine pass 1
+8.266,1.056,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.48, 0.26, 0.50
+8.272,5.884,Mainline,Ending state machine pass of arcTowardsBeacon
+8.275,3.070,Mainline,Beginning state machine pass 1
+8.278,2.922,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.47, 0.26, 0.50
+8.319,41.770,Mainline,Ending state machine pass of arcTowardsBeacon
+8.320,0.802,Mainline,Beginning state machine pass 1
+8.321,1.014,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.48, 0.26, 0.50
+8.373,51.811,Mainline,Ending state machine pass of arcTowardsBeacon
+8.374,0.742,Mainline,Beginning state machine pass 1
+8.374,0.679,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.47, 0.26, 0.50
+8.399,24.262,Mainline,Ending state machine pass of arcTowardsBeacon
+8.399,0.762,Mainline,Beginning state machine pass 1
+8.401,1.985,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.47, 0.26, 0.50
+8.404,2.441,Mainline,Ending state machine pass of arcTowardsBeacon
+8.405,0.862,Mainline,Beginning state machine pass 1
+8.406,0.759,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.47, 0.26, 0.50
+8.407,1.408,Mainline,Ending state machine pass of arcTowardsBeacon
+8.408,0.641,Mainline,Beginning state machine pass 1
+8.410,2.718,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.46, 0.26, 0.50
+8.438,27.687,Mainline,Ending state machine pass of arcTowardsBeacon
+8.439,0.829,Mainline,Beginning state machine pass 1
+8.440,1.040,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.48, 0.26, 0.50
+8.460,19.688,Mainline,Ending state machine pass of arcTowardsBeacon
+8.461,1.765,Mainline,Beginning state machine pass 1
+8.463,1.254,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.47, 0.26, 0.50
+8.499,36.522,Mainline,Ending state machine pass of arcTowardsBeacon
+8.500,1.396,Mainline,Beginning state machine pass 1
+8.501,0.835,robot,bettermove powers are fl:fr:bl:br, 0.28, 0.47, 0.25, 0.50
+8.527,26.036,Mainline,Ending state machine pass of arcTowardsBeacon
+8.528,1.140,Mainline,Beginning state machine pass 1
+8.529,0.691,robot,bettermove powers are fl:fr:bl:br, 0.29, 0.46, 0.25, 0.50
+8.574,44.945,Mainline,Ending state machine pass of arcTowardsBeacon
+8.575,0.753,Mainline,Beginning state machine pass 1
+8.576,0.831,robot,bettermove powers are fl:fr:bl:br, 0.29, 0.45, 0.25, 0.50
+8.602,26.778,Mainline,Ending state machine pass of arcTowardsBeacon
+8.603,0.725,Mainline,Beginning state machine pass 1
+8.604,0.602,robot,bettermove powers are fl:fr:bl:br, 0.27, 0.43, 0.25, 0.50
+8.648,44.231,Mainline,Ending state machine pass of arcTowardsBeacon
+8.649,0.871,Mainline,Beginning state machine pass 1
+8.650,0.692,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.43, 0.00, 0.50
+8.677,26.948,Mainline,Ending state machine pass of arcTowardsBeacon
+8.677,0.798,Mainline,Beginning state machine pass 1
+8.678,0.678,robot,bettermove powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.50
+8.702,24.303,Mainline,Ending state machine pass of arcTowardsBeacon
+8.703,0.788,Mainline,Beginning state machine pass 1
+8.705,1.641,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+8.706,1.267,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+8.732,25.790,robot,enableEncodersToPosition was called
+8.733,0.961,robot,setMotorPower was called - power: 1.00
+8.752,19.107,pm.automaticSquareUp without telemetry,called
+8.816,63.735,robot,getCurrentAngle was invoked, returning 45
+8.816,0.731,robot,getCurrentAngle was invoked, returning 45
+8.954,137.369,pm.move,called with right:0.00 and spin:1.81
+8.955,1.549,robot,setMotorTargets was called - f:r:s: 0 : 0 : 26
+8.956,1.166,pm.waitforMotors,called with right:0.00 and spin:1.81 and forward:0.00
+9.017,60.382,robot,isMotorBusy was called, returning true
+9.023,6.420,robot,isMotorBusy was called, returning true
+9.025,1.471,robot,isMotorBusy was called, returning true
+9.026,0.961,robot,isMotorBusy was called, returning true
+9.027,1.185,robot,isMotorBusy was called, returning true
+9.028,0.800,robot,isMotorBusy was called, returning true
+9.029,1.526,robot,isMotorBusy was called, returning true
+9.031,1.872,robot,isMotorBusy was called, returning true
+9.033,2.028,robot,isMotorBusy was called, returning true
+9.034,0.973,robot,isMotorBusy was called, returning true
+9.036,1.589,robot,isMotorBusy was called, returning true
+9.037,1.659,robot,isMotorBusy was called, returning true
+9.038,1.103,robot,isMotorBusy was called, returning true
+9.039,1.050,robot,isMotorBusy was called, returning true
+9.041,1.523,robot,isMotorBusy was called, returning true
+9.042,1.289,robot,isMotorBusy was called, returning true
+9.043,1.163,robot,isMotorBusy was called, returning true
+9.044,0.917,robot,isMotorBusy was called, returning true
+9.045,1.057,robot,isMotorBusy was called, returning true
+9.046,0.830,robot,isMotorBusy was called, returning true
+9.047,0.974,robot,isMotorBusy was called, returning true
+9.048,1.146,robot,isMotorBusy was called, returning true
+9.049,1.084,robot,isMotorBusy was called, returning true
+9.050,0.915,robot,isMotorBusy was called, returning true
+9.051,0.850,robot,isMotorBusy was called, returning true
+9.053,1.777,robot,isMotorBusy was called, returning true
+9.054,1.001,robot,isMotorBusy was called, returning true
+9.055,1.056,robot,isMotorBusy was called, returning true
+9.056,1.116,robot,isMotorBusy was called, returning true
+9.057,1.021,robot,isMotorBusy was called, returning true
+9.058,1.098,robot,isMotorBusy was called, returning true
+9.059,1.087,robot,isMotorBusy was called, returning true
+9.060,0.881,robot,isMotorBusy was called, returning true
+9.061,1.010,robot,isMotorBusy was called, returning true
+9.062,1.243,robot,isMotorBusy was called, returning true
+9.064,1.285,robot,isMotorBusy was called, returning true
+9.067,2.914,robot,isMotorBusy was called, returning true
+9.068,1.444,robot,isMotorBusy was called, returning true
+9.069,0.915,robot,isMotorBusy was called, returning true
+9.070,0.800,robot,isMotorBusy was called, returning true
+9.071,1.023,robot,isMotorBusy was called, returning true
+9.072,0.832,robot,isMotorBusy was called, returning true
+9.073,1.104,robot,isMotorBusy was called, returning true
+9.075,1.784,robot,isMotorBusy was called, returning true
+9.078,2.973,robot,isMotorBusy was called, returning true
+9.079,1.128,robot,isMotorBusy was called, returning true
+9.080,1.411,robot,isMotorBusy was called, returning true
+9.081,1.224,robot,isMotorBusy was called, returning true
+9.083,1.516,robot,isMotorBusy was called, returning true
+9.084,1.240,robot,isMotorBusy was called, returning true
+9.085,1.221,robot,isMotorBusy was called, returning true
+9.087,2.161,robot,isMotorBusy was called, returning true
+9.089,1.307,robot,isMotorBusy was called, returning true
+9.091,2.280,robot,isMotorBusy was called, returning true
+9.093,1.482,robot,isMotorBusy was called, returning true
+9.094,1.133,robot,isMotorBusy was called, returning true
+9.096,2.655,robot,isMotorBusy was called, returning true
+9.099,2.345,robot,isMotorBusy was called, returning true
+9.100,1.386,robot,isMotorBusy was called, returning true
+9.101,1.138,robot,isMotorBusy was called, returning true
+9.105,3.696,robot,isMotorBusy was called, returning true
+9.106,1.423,robot,isMotorBusy was called, returning true
+9.107,0.897,robot,isMotorBusy was called, returning true
+9.111,3.431,robot,isMotorBusy was called, returning true
+9.114,3.581,robot,isMotorBusy was called, returning true
+9.116,1.554,robot,isMotorBusy was called, returning true
+9.124,7.986,robot,isMotorBusy was called, returning true
+9.131,7.597,robot,isMotorBusy was called, returning true
+9.136,4.250,robot,isMotorBusy was called, returning true
+9.138,2.825,robot,isMotorBusy was called, returning true
+9.141,2.321,robot,isMotorBusy was called, returning true
+9.144,3.180,robot,isMotorBusy was called, returning true
+9.146,2.230,robot,isMotorBusy was called, returning true
+9.148,1.410,robot,isMotorBusy was called, returning true
+9.152,4.187,robot,isMotorBusy was called, returning true
+9.154,2.060,robot,isMotorBusy was called, returning true
+9.157,3.345,robot,isMotorBusy was called, returning true
+9.159,2.157,robot,isMotorBusy was called, returning true
+9.162,2.306,robot,isMotorBusy was called, returning true
+9.165,3.102,robot,isMotorBusy was called, returning true
+9.166,1.518,robot,isMotorBusy was called, returning true
+9.197,31.206,robot,isMotorBusy was called, returning true
+9.199,1.602,robot,isMotorBusy was called, returning true
+9.200,1.094,robot,isMotorBusy was called, returning true
+9.201,1.012,robot,isMotorBusy was called, returning true
+9.202,1.322,robot,isMotorBusy was called, returning true
+9.204,1.119,robot,isMotorBusy was called, returning true
+9.205,1.288,robot,isMotorBusy was called, returning true
+9.208,2.712,robot,isMotorBusy was called, returning true
+9.208,0.708,robot,isMotorBusy was called, returning true
+9.209,1.022,robot,isMotorBusy was called, returning true
+9.210,0.729,robot,isMotorBusy was called, returning true
+9.212,1.718,robot,isMotorBusy was called, returning true
+9.213,1.096,robot,isMotorBusy was called, returning true
+9.215,1.664,robot,isMotorBusy was called, returning true
+9.216,1.034,robot,isMotorBusy was called, returning true
+9.217,1.622,robot,isMotorBusy was called, returning true
+9.218,0.750,robot,isMotorBusy was called, returning true
+9.219,0.848,robot,isMotorBusy was called, returning true
+9.220,0.955,robot,isMotorBusy was called, returning true
+9.221,0.826,robot,isMotorBusy was called, returning true
+9.221,0.885,robot,isMotorBusy was called, returning true
+9.223,1.034,robot,isMotorBusy was called, returning true
+9.224,1.517,robot,isMotorBusy was called, returning true
+9.225,1.242,robot,isMotorBusy was called, returning true
+9.227,2.194,robot,isMotorBusy was called, returning true
+9.228,0.966,robot,isMotorBusy was called, returning true
+9.230,1.165,robot,isMotorBusy was called, returning true
+9.230,0.831,robot,isMotorBusy was called, returning true
+9.231,1.069,robot,isMotorBusy was called, returning true
+9.233,1.940,robot,isMotorBusy was called, returning true
+9.235,1.168,robot,isMotorBusy was called, returning true
+9.236,1.071,robot,isMotorBusy was called, returning true
+9.236,0.798,robot,isMotorBusy was called, returning true
+9.238,1.590,robot,isMotorBusy was called, returning true
+9.239,1.000,robot,isMotorBusy was called, returning true
+9.240,1.099,robot,isMotorBusy was called, returning true
+9.242,1.448,robot,isMotorBusy was called, returning true
+9.243,1.390,robot,isMotorBusy was called, returning true
+9.244,0.963,robot,isMotorBusy was called, returning true
+9.245,1.334,robot,isMotorBusy was called, returning true
+9.246,0.818,robot,isMotorBusy was called, returning true
+9.247,1.198,robot,isMotorBusy was called, returning true
+9.249,1.333,robot,isMotorBusy was called, returning true
+9.250,1.020,robot,isMotorBusy was called, returning true
+9.251,1.103,robot,isMotorBusy was called, returning true
+9.252,1.737,robot,isMotorBusy was called, returning true
+9.254,1.065,robot,isMotorBusy was called, returning true
+9.255,1.282,robot,isMotorBusy was called, returning true
+9.258,2.901,robot,isMotorBusy was called, returning true
+9.259,1.582,robot,isMotorBusy was called, returning true
+9.260,1.037,robot,isMotorBusy was called, returning true
+9.262,1.686,robot,isMotorBusy was called, returning true
+9.264,1.511,robot,isMotorBusy was called, returning true
+9.266,2.674,robot,isMotorBusy was called, returning true
+9.269,2.484,robot,isMotorBusy was called, returning true
+9.270,1.607,robot,isMotorBusy was called, returning true
+9.271,0.769,robot,isMotorBusy was called, returning true
+9.273,1.405,robot,isMotorBusy was called, returning true
+9.274,1.620,robot,isMotorBusy was called, returning true
+9.275,1.014,robot,isMotorBusy was called, returning true
+9.276,0.770,robot,isMotorBusy was called, returning true
+9.277,0.751,robot,isMotorBusy was called, returning true
+9.279,2.759,robot,isMotorBusy was called, returning true
+9.281,1.646,robot,isMotorBusy was called, returning true
+9.284,3.226,robot,isMotorBusy was called, returning true
+9.285,1.082,robot,isMotorBusy was called, returning true
+9.286,0.642,robot,isMotorBusy was called, returning true
+9.287,0.728,robot,isMotorBusy was called, returning true
+9.288,0.831,robot,isMotorBusy was called, returning true
+9.288,0.786,robot,isMotorBusy was called, returning true
+9.291,2.602,robot,isMotorBusy was called, returning true
+9.292,1.070,robot,isMotorBusy was called, returning true
+9.293,0.994,robot,isMotorBusy was called, returning true
+9.295,1.613,robot,isMotorBusy was called, returning true
+9.296,1.227,robot,isMotorBusy was called, returning true
+9.297,0.764,robot,isMotorBusy was called, returning true
+9.298,1.765,robot,isMotorBusy was called, returning true
+9.300,1.830,robot,isMotorBusy was called, returning true
+9.301,0.647,robot,isMotorBusy was called, returning true
+9.303,1.896,robot,isMotorBusy was called, returning true
+9.305,1.770,robot,isMotorBusy was called, returning true
+9.306,1.606,robot,isMotorBusy was called, returning true
+9.308,1.755,robot,isMotorBusy was called, returning true
+9.309,0.927,robot,isMotorBusy was called, returning true
+9.309,0.620,robot,isMotorBusy was called, returning true
+9.310,0.910,robot,isMotorBusy was called, returning true
+9.312,1.582,robot,isMotorBusy was called, returning true
+9.313,0.907,robot,isMotorBusy was called, returning true
+9.314,1.151,robot,isMotorBusy was called, returning true
+9.315,1.059,robot,isMotorBusy was called, returning true
+9.316,0.888,robot,isMotorBusy was called, returning true
+9.317,1.155,robot,isMotorBusy was called, returning true
+9.318,0.904,robot,isMotorBusy was called, returning true
+9.319,0.664,robot,isMotorBusy was called, returning true
+9.319,0.605,robot,isMotorBusy was called, returning true
+9.321,1.483,robot,isMotorBusy was called, returning true
+9.322,1.731,robot,isMotorBusy was called, returning true
+9.323,0.933,robot,isMotorBusy was called, returning true
+9.324,0.637,robot,isMotorBusy was called, returning true
+9.325,0.886,robot,isMotorBusy was called, returning true
+9.326,0.582,robot,isMotorBusy was called, returning true
+9.326,0.739,robot,isMotorBusy was called, returning true
+9.327,0.938,robot,isMotorBusy was called, returning true
+9.328,0.938,robot,isMotorBusy was called, returning true
+9.330,1.467,robot,isMotorBusy was called, returning true
+9.331,1.446,robot,isMotorBusy was called, returning true
+9.333,1.979,robot,isMotorBusy was called, returning true
+9.334,0.895,robot,isMotorBusy was called, returning true
+9.335,0.625,robot,isMotorBusy was called, returning true
+9.336,1.121,robot,isMotorBusy was called, returning true
+9.337,1.449,robot,isMotorBusy was called, returning true
+9.338,1.035,robot,isMotorBusy was called, returning true
+9.340,1.570,robot,isMotorBusy was called, returning true
+9.341,1.012,robot,isMotorBusy was called, returning true
+9.342,1.395,robot,isMotorBusy was called, returning true
+9.343,0.888,robot,isMotorBusy was called, returning true
+9.344,0.710,robot,isMotorBusy was called, returning true
+9.345,1.001,robot,isMotorBusy was called, returning true
+9.346,1.447,robot,isMotorBusy was called, returning true
+9.347,1.048,robot,isMotorBusy was called, returning true
+9.349,1.413,robot,isMotorBusy was called, returning true
+9.350,1.395,robot,isMotorBusy was called, returning true
+9.351,1.148,robot,isMotorBusy was called, returning true
+9.353,1.419,robot,isMotorBusy was called, returning true
+9.354,1.165,robot,isMotorBusy was called, returning true
+9.355,0.836,robot,isMotorBusy was called, returning true
+9.355,0.670,robot,isMotorBusy was called, returning true
+9.356,0.978,robot,isMotorBusy was called, returning true
+9.357,0.658,robot,isMotorBusy was called, returning true
+9.358,0.767,robot,isMotorBusy was called, returning true
+9.359,1.141,robot,isMotorBusy was called, returning true
+9.360,1.256,robot,isMotorBusy was called, returning true
+9.361,1.405,robot,isMotorBusy was called, returning true
+9.363,1.609,robot,isMotorBusy was called, returning true
+9.364,0.863,robot,isMotorBusy was called, returning true
+9.365,1.294,robot,isMotorBusy was called, returning true
+9.366,0.810,robot,isMotorBusy was called, returning true
+9.368,1.672,robot,isMotorBusy was called, returning true
+9.368,0.749,robot,isMotorBusy was called, returning true
+9.370,1.250,robot,isMotorBusy was called, returning true
+9.370,0.717,robot,isMotorBusy was called, returning true
+9.372,1.739,robot,isMotorBusy was called, returning true
+9.373,1.139,robot,isMotorBusy was called, returning true
+9.374,0.793,robot,isMotorBusy was called, returning true
+9.376,1.481,robot,isMotorBusy was called, returning true
+9.377,1.738,robot,isMotorBusy was called, returning true
+9.378,0.838,robot,isMotorBusy was called, returning true
+9.379,0.932,robot,isMotorBusy was called, returning true
+9.380,0.788,robot,isMotorBusy was called, returning true
+9.381,0.813,robot,isMotorBusy was called, returning true
+9.381,0.536,robot,isMotorBusy was called, returning true
+9.382,1.238,robot,isMotorBusy was called, returning true
+9.384,1.576,robot,isMotorBusy was called, returning true
+9.385,0.882,robot,isMotorBusy was called, returning true
+9.386,1.209,robot,isMotorBusy was called, returning true
+9.387,0.919,robot,isMotorBusy was called, returning true
+9.389,1.568,robot,isMotorBusy was called, returning true
+9.390,1.209,robot,isMotorBusy was called, returning true
+9.391,0.899,robot,isMotorBusy was called, returning true
+9.392,1.755,robot,isMotorBusy was called, returning true
+9.394,1.351,robot,isMotorBusy was called, returning true
+9.396,1.683,robot,isMotorBusy was called, returning true
+9.397,1.312,robot,isMotorBusy was called, returning true
+9.398,1.077,robot,isMotorBusy was called, returning true
+9.400,1.739,robot,isMotorBusy was called, returning true
+9.402,2.077,robot,isMotorBusy was called, returning true
+9.406,4.575,robot,isMotorBusy was called, returning true
+9.409,2.208,robot,isMotorBusy was called, returning true
+9.412,3.864,robot,isMotorBusy was called, returning true
+9.415,2.797,robot,isMotorBusy was called, returning true
+9.417,2.181,robot,isMotorBusy was called, returning true
+9.419,1.182,robot,isMotorBusy was called, returning true
+9.419,0.954,robot,isMotorBusy was called, returning true
+9.421,1.299,robot,isMotorBusy was called, returning true
+9.422,0.848,robot,isMotorBusy was called, returning true
+9.423,1.467,robot,isMotorBusy was called, returning true
+9.426,3.231,robot,isMotorBusy was called, returning true
+9.427,0.735,robot,isMotorBusy was called, returning true
+9.428,1.036,robot,isMotorBusy was called, returning true
+9.429,0.721,robot,isMotorBusy was called, returning true
+9.429,0.610,robot,isMotorBusy was called, returning true
+9.430,0.641,robot,isMotorBusy was called, returning true
+9.431,0.539,robot,isMotorBusy was called, returning true
+9.431,0.545,robot,isMotorBusy was called, returning true
+9.432,1.059,robot,isMotorBusy was called, returning true
+9.433,0.760,robot,isMotorBusy was called, returning true
+9.434,1.033,robot,isMotorBusy was called, returning true
+9.436,1.596,robot,isMotorBusy was called, returning true
+9.437,1.311,robot,isMotorBusy was called, returning true
+9.438,1.147,robot,isMotorBusy was called, returning true
+9.439,0.886,robot,isMotorBusy was called, returning true
+9.440,0.921,robot,isMotorBusy was called, returning true
+9.441,1.222,robot,isMotorBusy was called, returning true
+9.444,2.548,robot,isMotorBusy was called, returning true
+9.445,1.114,robot,isMotorBusy was called, returning true
+9.445,0.734,robot,isMotorBusy was called, returning true
+9.446,0.950,robot,isMotorBusy was called, returning true
+9.447,0.753,robot,isMotorBusy was called, returning true
+9.448,0.573,robot,isMotorBusy was called, returning true
+9.448,0.563,robot,isMotorBusy was called, returning true
+9.449,0.467,robot,isMotorBusy was called, returning true
+9.449,0.491,robot,isMotorBusy was called, returning true
+9.450,0.766,robot,isMotorBusy was called, returning true
+9.451,0.848,robot,isMotorBusy was called, returning true
+9.452,0.828,robot,isMotorBusy was called, returning true
+9.452,0.560,robot,isMotorBusy was called, returning true
+9.453,0.492,robot,isMotorBusy was called, returning true
+9.454,0.721,robot,isMotorBusy was called, returning true
+9.454,0.549,robot,isMotorBusy was called, returning true
+9.455,0.507,robot,isMotorBusy was called, returning true
+9.455,0.467,robot,isMotorBusy was called, returning true
+9.455,0.424,robot,isMotorBusy was called, returning true
+9.456,0.495,robot,isMotorBusy was called, returning true
+9.456,0.510,robot,isMotorBusy was called, returning true
+9.457,0.551,robot,isMotorBusy was called, returning true
+9.458,0.879,robot,isMotorBusy was called, returning true
+9.458,0.474,robot,isMotorBusy was called, returning true
+9.459,0.424,robot,isMotorBusy was called, returning true
+9.459,0.491,robot,isMotorBusy was called, returning true
+9.460,0.513,robot,isMotorBusy was called, returning true
+9.461,0.709,robot,isMotorBusy was called, returning true
+9.461,0.496,robot,isMotorBusy was called, returning true
+9.461,0.488,robot,isMotorBusy was called, returning true
+9.462,0.632,robot,isMotorBusy was called, returning true
+9.463,0.560,robot,isMotorBusy was called, returning true
+9.463,0.480,robot,isMotorBusy was called, returning true
+9.464,0.470,robot,isMotorBusy was called, returning true
+9.464,0.480,robot,isMotorBusy was called, returning true
+9.465,0.434,robot,isMotorBusy was called, returning true
+9.465,0.418,robot,isMotorBusy was called, returning true
+9.465,0.482,robot,isMotorBusy was called, returning true
+9.466,0.580,robot,isMotorBusy was called, returning true
+9.467,0.741,robot,isMotorBusy was called, returning true
+9.467,0.543,robot,isMotorBusy was called, returning true
+9.468,0.544,robot,isMotorBusy was called, returning true
+9.468,0.538,robot,isMotorBusy was called, returning true
+9.469,0.576,robot,isMotorBusy was called, returning true
+9.470,0.571,robot,isMotorBusy was called, returning true
+9.470,0.532,robot,isMotorBusy was called, returning true
+9.471,0.447,robot,isMotorBusy was called, returning true
+9.471,0.399,robot,isMotorBusy was called, returning true
+9.471,0.438,robot,isMotorBusy was called, returning true
+9.472,0.610,robot,isMotorBusy was called, returning true
+9.473,0.550,robot,isMotorBusy was called, returning true
+9.473,0.501,robot,isMotorBusy was called, returning true
+9.474,0.530,robot,isMotorBusy was called, returning true
+9.474,0.526,robot,isMotorBusy was called, returning true
+9.475,0.479,robot,isMotorBusy was called, returning true
+9.475,0.420,robot,isMotorBusy was called, returning true
+9.475,0.487,robot,isMotorBusy was called, returning true
+9.476,0.505,robot,isMotorBusy was called, returning true
+9.477,1.134,robot,isMotorBusy was called, returning true
+9.479,1.635,robot,isMotorBusy was called, returning true
+9.479,0.632,robot,isMotorBusy was called, returning true
+9.480,0.729,robot,isMotorBusy was called, returning true
+9.481,0.451,robot,isMotorBusy was called, returning true
+9.481,0.400,robot,isMotorBusy was called, returning true
+9.481,0.445,robot,isMotorBusy was called, returning true
+9.482,0.646,robot,isMotorBusy was called, returning true
+9.483,0.485,robot,isMotorBusy was called, returning true
+9.483,0.499,robot,isMotorBusy was called, returning true
+9.484,0.503,robot,isMotorBusy was called, returning true
+9.484,0.555,robot,isMotorBusy was called, returning true
+9.485,0.503,robot,isMotorBusy was called, returning true
+9.485,0.576,robot,isMotorBusy was called, returning true
+9.486,0.483,robot,isMotorBusy was called, returning true
+9.486,0.447,robot,isMotorBusy was called, returning true
+9.487,0.618,robot,isMotorBusy was called, returning true
+9.488,1.236,robot,isMotorBusy was called, returning true
+9.489,0.576,robot,isMotorBusy was called, returning true
+9.489,0.643,robot,isMotorBusy was called, returning true
+9.490,0.785,robot,isMotorBusy was called, returning true
+9.490,0.490,robot,isMotorBusy was called, returning true
+9.491,0.403,robot,isMotorBusy was called, returning true
+9.491,0.473,robot,isMotorBusy was called, returning true
+9.492,0.793,robot,isMotorBusy was called, returning true
+9.493,0.508,robot,isMotorBusy was called, returning true
+9.493,0.458,robot,isMotorBusy was called, returning true
+9.494,0.486,robot,isMotorBusy was called, returning true
+9.494,0.527,robot,isMotorBusy was called, returning true
+9.495,0.484,robot,isMotorBusy was called, returning true
+9.495,0.479,robot,isMotorBusy was called, returning true
+9.496,0.486,robot,isMotorBusy was called, returning true
+9.496,0.506,robot,isMotorBusy was called, returning true
+9.497,0.536,robot,isMotorBusy was called, returning true
+9.497,0.534,robot,isMotorBusy was called, returning true
+9.498,0.510,robot,isMotorBusy was called, returning true
+9.498,0.616,robot,isMotorBusy was called, returning true
+9.499,0.503,robot,isMotorBusy was called, returning true
+9.499,0.513,robot,isMotorBusy was called, returning true
+9.500,0.484,robot,isMotorBusy was called, returning true
+9.500,0.491,robot,isMotorBusy was called, returning true
+9.501,0.672,robot,isMotorBusy was called, returning true
+9.501,0.569,robot,isMotorBusy was called, returning true
+9.502,0.785,robot,isMotorBusy was called, returning true
+9.503,0.485,robot,isMotorBusy was called, returning true
+9.503,0.486,robot,isMotorBusy was called, returning true
+9.504,0.488,robot,isMotorBusy was called, returning true
+9.504,0.491,robot,isMotorBusy was called, returning true
+9.505,0.478,robot,isMotorBusy was called, returning true
+9.505,0.529,robot,isMotorBusy was called, returning true
+9.506,0.498,robot,isMotorBusy was called, returning true
+9.506,0.518,robot,isMotorBusy was called, returning true
+9.507,0.487,robot,isMotorBusy was called, returning true
+9.507,0.513,robot,isMotorBusy was called, returning true
+9.508,0.548,robot,isMotorBusy was called, returning true
+9.508,0.460,robot,isMotorBusy was called, returning true
+9.509,0.465,robot,isMotorBusy was called, returning true
+9.509,0.471,robot,isMotorBusy was called, returning true
+9.510,0.514,robot,isMotorBusy was called, returning true
+9.511,1.146,robot,isMotorBusy was called, returning true
+9.511,0.566,robot,isMotorBusy was called, returning true
+9.513,1.570,robot,isMotorBusy was called, returning true
+9.514,0.603,robot,isMotorBusy was called, returning true
+9.514,0.624,robot,isMotorBusy was called, returning true
+9.515,0.723,robot,isMotorBusy was called, returning true
+9.515,0.524,robot,isMotorBusy was called, returning true
+9.516,0.422,robot,isMotorBusy was called, returning true
+9.516,0.431,robot,isMotorBusy was called, returning true
+9.517,0.486,robot,isMotorBusy was called, returning true
+9.517,0.527,robot,isMotorBusy was called, returning true
+9.518,0.476,robot,isMotorBusy was called, returning true
+9.518,0.491,robot,isMotorBusy was called, returning true
+9.519,0.476,robot,isMotorBusy was called, returning true
+9.519,0.499,robot,isMotorBusy was called, returning true
+9.520,0.444,robot,isMotorBusy was called, returning true
+9.520,0.458,robot,isMotorBusy was called, returning true
+9.521,0.457,robot,isMotorBusy was called, returning true
+9.521,0.505,robot,isMotorBusy was called, returning true
+9.522,0.584,robot,isMotorBusy was called, returning true
+9.522,0.805,robot,isMotorBusy was called, returning true
+9.523,0.890,robot,isMotorBusy was called, returning true
+9.524,0.683,robot,isMotorBusy was called, returning true
+9.525,0.677,robot,isMotorBusy was called, returning true
+9.525,0.511,robot,isMotorBusy was called, returning true
+9.526,0.450,robot,isMotorBusy was called, returning true
+9.526,0.447,robot,isMotorBusy was called, returning true
+9.527,0.420,robot,isMotorBusy was called, returning true
+9.527,0.557,robot,isMotorBusy was called, returning true
+9.528,0.493,robot,isMotorBusy was called, returning true
+9.528,0.530,robot,isMotorBusy was called, returning true
+9.529,0.483,robot,isMotorBusy was called, returning true
+9.529,0.566,robot,isMotorBusy was called, returning true
+9.530,0.615,robot,isMotorBusy was called, returning true
+9.530,0.558,robot,isMotorBusy was called, returning true
+9.531,0.500,robot,isMotorBusy was called, returning true
+9.531,0.589,robot,isMotorBusy was called, returning true
+9.532,0.627,robot,isMotorBusy was called, returning true
+9.533,0.498,robot,isMotorBusy was called, returning true
+9.533,0.773,robot,isMotorBusy was called, returning true
+9.535,1.370,robot,isMotorBusy was called, returning true
+9.536,0.814,robot,isMotorBusy was called, returning true
+9.536,0.550,robot,isMotorBusy was called, returning true
+9.537,0.502,robot,isMotorBusy was called, returning true
+9.537,0.692,robot,isMotorBusy was called, returning true
+9.538,0.537,robot,isMotorBusy was called, returning true
+9.538,0.514,robot,isMotorBusy was called, returning true
+9.539,0.488,robot,isMotorBusy was called, returning true
+9.539,0.559,robot,isMotorBusy was called, returning true
+9.540,0.463,robot,isMotorBusy was called, returning true
+9.540,0.512,robot,isMotorBusy was called, returning true
+9.541,0.498,robot,isMotorBusy was called, returning true
+9.542,0.714,robot,isMotorBusy was called, returning true
+9.542,0.602,robot,isMotorBusy was called, returning true
+9.543,0.706,robot,isMotorBusy was called, returning true
+9.543,0.597,robot,isMotorBusy was called, returning true
+9.544,0.572,robot,isMotorBusy was called, returning true
+9.545,0.496,robot,isMotorBusy was called, returning true
+9.545,0.496,robot,isMotorBusy was called, returning true
+9.546,0.720,robot,isMotorBusy was called, returning true
+9.546,0.507,robot,isMotorBusy was called, returning true
+9.547,0.508,robot,isMotorBusy was called, returning true
+9.547,0.551,robot,isMotorBusy was called, returning true
+9.548,0.504,robot,isMotorBusy was called, returning true
+9.548,0.547,robot,isMotorBusy was called, returning true
+9.549,0.559,robot,isMotorBusy was called, returning true
+9.550,0.903,robot,isMotorBusy was called, returning true
+9.550,0.519,robot,isMotorBusy was called, returning true
+9.551,0.656,robot,isMotorBusy was called, returning true
+9.552,1.414,robot,isMotorBusy was called, returning true
+9.554,1.107,robot,isMotorBusy was called, returning true
+9.554,0.643,robot,isMotorBusy was called, returning true
+9.555,0.493,robot,isMotorBusy was called, returning true
+9.555,0.488,robot,isMotorBusy was called, returning true
+9.556,0.497,robot,isMotorBusy was called, returning true
+9.556,0.526,robot,isMotorBusy was called, returning true
+9.557,0.486,robot,isMotorBusy was called, returning true
+9.557,0.508,robot,isMotorBusy was called, returning true
+9.558,0.514,robot,isMotorBusy was called, returning true
+9.558,0.491,robot,isMotorBusy was called, returning true
+9.559,0.458,robot,isMotorBusy was called, returning true
+9.559,0.521,robot,isMotorBusy was called, returning true
+9.560,0.558,robot,isMotorBusy was called, returning true
+9.560,0.538,robot,isMotorBusy was called, returning true
+9.561,0.497,robot,isMotorBusy was called, returning true
+9.561,0.557,robot,isMotorBusy was called, returning true
+9.562,0.856,robot,isMotorBusy was called, returning true
+9.563,0.553,robot,isMotorBusy was called, returning true
+9.563,0.547,robot,isMotorBusy was called, returning true
+9.565,1.609,robot,isMotorBusy was called, returning true
+9.566,0.966,robot,isMotorBusy was called, returning true
+9.567,1.413,robot,isMotorBusy was called, returning true
+9.569,1.897,robot,isMotorBusy was called, returning true
+9.570,0.776,robot,isMotorBusy was called, returning true
+9.570,0.556,robot,isMotorBusy was called, returning true
+9.571,0.489,robot,isMotorBusy was called, returning true
+9.571,0.504,robot,isMotorBusy was called, returning true
+9.572,0.660,robot,isMotorBusy was called, returning true
+9.573,0.468,robot,isMotorBusy was called, returning true
+9.573,0.503,robot,isMotorBusy was called, returning true
+9.574,0.465,robot,isMotorBusy was called, returning true
+9.574,0.523,robot,isMotorBusy was called, returning true
+9.575,0.550,robot,isMotorBusy was called, returning true
+9.575,0.574,robot,isMotorBusy was called, returning true
+9.576,0.487,robot,isMotorBusy was called, returning true
+9.576,0.494,robot,isMotorBusy was called, returning true
+9.577,0.457,robot,isMotorBusy was called, returning true
+9.577,0.547,robot,isMotorBusy was called, returning true
+9.578,0.632,robot,isMotorBusy was called, returning true
+9.578,0.571,robot,isMotorBusy was called, returning true
+9.579,0.546,robot,isMotorBusy was called, returning true
+9.579,0.497,robot,isMotorBusy was called, returning true
+9.580,0.555,robot,isMotorBusy was called, returning true
+9.581,0.525,robot,isMotorBusy was called, returning true
+9.581,0.592,robot,isMotorBusy was called, returning true
+9.582,0.621,robot,isMotorBusy was called, returning true
+9.582,0.584,robot,isMotorBusy was called, returning true
+9.583,0.558,robot,isMotorBusy was called, returning true
+9.583,0.528,robot,isMotorBusy was called, returning true
+9.584,0.507,robot,isMotorBusy was called, returning true
+9.584,0.499,robot,isMotorBusy was called, returning true
+9.585,0.572,robot,isMotorBusy was called, returning true
+9.586,0.558,robot,isMotorBusy was called, returning true
+9.586,0.477,robot,isMotorBusy was called, returning true
+9.586,0.417,robot,isMotorBusy was called, returning true
+9.587,0.410,robot,isMotorBusy was called, returning true
+9.588,0.663,robot,isMotorBusy was called, returning true
+9.588,0.592,robot,isMotorBusy was called, returning true
+9.589,0.517,robot,isMotorBusy was called, returning true
+9.589,0.535,robot,isMotorBusy was called, returning true
+9.590,0.529,robot,isMotorBusy was called, returning true
+9.590,0.580,robot,isMotorBusy was called, returning true
+9.591,0.561,robot,isMotorBusy was called, returning true
+9.591,0.508,robot,isMotorBusy was called, returning true
+9.592,0.700,robot,isMotorBusy was called, returning true
+9.593,0.544,robot,isMotorBusy was called, returning true
+9.593,0.556,robot,isMotorBusy was called, returning true
+9.594,0.488,robot,isMotorBusy was called, returning true
+9.594,0.483,robot,isMotorBusy was called, returning true
+9.595,0.439,robot,isMotorBusy was called, returning true
+9.595,0.470,robot,isMotorBusy was called, returning true
+9.596,0.485,robot,isMotorBusy was called, returning true
+9.596,0.510,robot,isMotorBusy was called, returning true
+9.597,0.498,robot,isMotorBusy was called, returning true
+9.597,0.492,robot,isMotorBusy was called, returning true
+9.598,0.504,robot,isMotorBusy was called, returning true
+9.598,0.522,robot,isMotorBusy was called, returning true
+9.599,0.529,robot,isMotorBusy was called, returning true
+9.599,0.493,robot,isMotorBusy was called, returning true
+9.600,0.533,robot,isMotorBusy was called, returning true
+9.600,0.525,robot,isMotorBusy was called, returning true
+9.601,0.478,robot,isMotorBusy was called, returning true
+9.601,0.575,robot,isMotorBusy was called, returning true
+9.602,0.793,robot,isMotorBusy was called, returning true
+9.603,0.575,robot,isMotorBusy was called, returning true
+9.603,0.633,robot,isMotorBusy was called, returning true
+9.604,0.641,robot,isMotorBusy was called, returning true
+9.604,0.517,robot,isMotorBusy was called, returning true
+9.605,0.550,robot,isMotorBusy was called, returning true
+9.605,0.613,robot,isMotorBusy was called, returning true
+9.606,0.498,robot,isMotorBusy was called, returning true
+9.607,0.542,robot,isMotorBusy was called, returning true
+9.608,1.672,robot,isMotorBusy was called, returning true
+9.609,0.831,robot,isMotorBusy was called, returning true
+9.610,0.511,robot,isMotorBusy was called, returning true
+9.610,0.767,robot,isMotorBusy was called, returning true
+9.611,0.603,robot,isMotorBusy was called, returning true
+9.612,0.665,robot,isMotorBusy was called, returning true
+9.612,0.643,robot,isMotorBusy was called, returning true
+9.613,0.807,robot,isMotorBusy was called, returning true
+9.613,0.474,robot,isMotorBusy was called, returning true
+9.614,0.724,robot,isMotorBusy was called, returning true
+9.615,0.465,robot,isMotorBusy was called, returning true
+9.615,0.622,robot,isMotorBusy was called, returning true
+9.616,0.483,robot,isMotorBusy was called, returning true
+9.617,0.717,robot,isMotorBusy was called, returning true
+9.617,0.539,robot,isMotorBusy was called, returning true
+9.618,0.816,robot,isMotorBusy was called, returning true
+9.618,0.542,robot,isMotorBusy was called, returning true
+9.619,0.756,robot,isMotorBusy was called, returning true
+9.620,0.557,robot,isMotorBusy was called, returning true
+9.620,0.683,robot,isMotorBusy was called, returning true
+9.621,0.531,robot,isMotorBusy was called, returning true
+9.622,1.133,robot,isMotorBusy was called, returning true
+9.623,0.687,robot,isMotorBusy was called, returning true
+9.624,0.785,robot,isMotorBusy was called, returning true
+9.625,1.764,robot,isMotorBusy was called, returning true
+9.630,4.235,robot,isMotorBusy was called, returning true
+9.632,2.862,robot,isMotorBusy was called, returning true
+9.638,5.146,robot,isMotorBusy was called, returning true
+9.640,2.461,robot,isMotorBusy was called, returning true
+9.641,1.379,robot,isMotorBusy was called, returning true
+9.643,1.583,robot,isMotorBusy was called, returning true
+9.648,4.604,robot,isMotorBusy was called, returning true
+9.649,0.961,robot,isMotorBusy was called, returning true
+9.650,1.903,robot,isMotorBusy was called, returning true
+9.653,2.079,robot,isMotorBusy was called, returning true
+9.654,1.826,robot,isMotorBusy was called, returning true
+9.658,3.258,robot,isMotorBusy was called, returning true
+9.659,1.043,robot,isMotorBusy was called, returning true
+9.659,0.765,robot,isMotorBusy was called, returning true
+9.660,0.990,robot,isMotorBusy was called, returning true
+9.662,1.670,robot,isMotorBusy was called, returning true
+9.665,2.520,robot,isMotorBusy was called, returning true
+9.666,1.630,robot,isMotorBusy was called, returning true
+9.667,1.077,robot,isMotorBusy was called, returning true
+9.669,1.262,robot,isMotorBusy was called, returning true
+9.670,1.458,robot,isMotorBusy was called, returning true
+9.693,22.974,robot,isMotorBusy was called, returning true
+9.694,0.796,robot,isMotorBusy was called, returning true
+9.695,0.935,robot,isMotorBusy was called, returning true
+9.697,1.802,robot,isMotorBusy was called, returning true
+9.698,1.440,robot,isMotorBusy was called, returning true
+9.699,1.142,robot,isMotorBusy was called, returning true
+9.700,0.678,robot,isMotorBusy was called, returning true
+9.701,1.224,robot,isMotorBusy was called, returning true
+9.702,0.943,robot,isMotorBusy was called, returning true
+9.703,0.892,robot,isMotorBusy was called, returning true
+9.704,1.258,robot,isMotorBusy was called, returning true
+9.706,1.469,robot,isMotorBusy was called, returning true
+9.706,0.676,robot,isMotorBusy was called, returning true
+9.707,0.699,robot,isMotorBusy was called, returning true
+9.708,0.572,robot,isMotorBusy was called, returning true
+9.708,0.801,robot,isMotorBusy was called, returning true
+9.709,1.166,robot,isMotorBusy was called, returning true
+9.710,0.849,robot,isMotorBusy was called, returning true
+9.711,0.646,robot,isMotorBusy was called, returning true
+9.712,0.731,robot,isMotorBusy was called, returning true
+9.712,0.626,robot,isMotorBusy was called, returning true
+9.713,0.735,robot,isMotorBusy was called, returning true
+9.714,0.738,robot,isMotorBusy was called, returning true
+9.716,1.786,robot,isMotorBusy was called, returning true
+9.716,0.625,robot,isMotorBusy was called, returning true
+9.717,1.097,robot,isMotorBusy was called, returning true
+9.718,0.683,robot,isMotorBusy was called, returning true
+9.720,1.565,robot,isMotorBusy was called, returning true
+9.721,1.116,robot,isMotorBusy was called, returning true
+9.721,0.794,robot,isMotorBusy was called, returning true
+9.722,0.892,robot,isMotorBusy was called, returning true
+9.724,1.361,robot,isMotorBusy was called, returning true
+9.724,0.629,robot,isMotorBusy was called, returning true
+9.726,1.219,robot,isMotorBusy was called, returning true
+9.726,0.678,robot,isMotorBusy was called, returning true
+9.727,1.221,robot,isMotorBusy was called, returning true
+9.728,0.625,robot,isMotorBusy was called, returning true
+9.729,0.707,robot,isMotorBusy was called, returning true
+9.730,0.801,robot,isMotorBusy was called, returning true
+9.730,0.567,robot,isMotorBusy was called, returning true
+9.731,1.069,robot,isMotorBusy was called, returning true
+9.732,0.954,robot,isMotorBusy was called, returning true
+9.733,0.658,robot,isMotorBusy was called, returning true
+9.733,0.566,robot,isMotorBusy was called, returning true
+9.735,1.429,robot,isMotorBusy was called, returning true
+9.735,0.597,robot,isMotorBusy was called, returning true
+9.736,0.953,robot,isMotorBusy was called, returning true
+9.737,0.521,robot,isMotorBusy was called, returning true
+9.737,0.499,robot,isMotorBusy was called, returning true
+9.738,0.504,robot,isMotorBusy was called, returning true
+9.738,0.519,robot,isMotorBusy was called, returning true
+9.739,0.449,robot,isMotorBusy was called, returning true
+9.739,0.481,robot,isMotorBusy was called, returning true
+9.740,0.529,robot,isMotorBusy was called, returning true
+9.740,0.551,robot,isMotorBusy was called, returning true
+9.741,0.482,robot,isMotorBusy was called, returning true
+9.743,2.079,robot,isMotorBusy was called, returning true
+9.745,1.613,robot,isMotorBusy was called, returning true
+9.745,0.644,robot,isMotorBusy was called, returning true
+9.746,0.541,robot,isMotorBusy was called, returning true
+9.746,0.566,robot,isMotorBusy was called, returning true
+9.748,1.200,robot,isMotorBusy was called, returning true
+9.748,0.582,robot,isMotorBusy was called, returning true
+9.749,0.489,robot,isMotorBusy was called, returning true
+9.749,0.440,robot,isMotorBusy was called, returning true
+9.750,0.599,robot,isMotorBusy was called, returning true
+9.751,1.297,robot,isMotorBusy was called, returning true
+9.752,1.357,robot,isMotorBusy was called, returning true
+9.753,0.594,robot,isMotorBusy was called, returning true
+9.753,0.565,robot,isMotorBusy was called, returning true
+9.754,0.562,robot,isMotorBusy was called, returning true
+9.755,0.492,robot,isMotorBusy was called, returning true
+9.755,0.469,robot,isMotorBusy was called, returning true
+9.756,0.524,robot,isMotorBusy was called, returning true
+9.756,0.564,robot,isMotorBusy was called, returning true
+9.757,0.446,robot,isMotorBusy was called, returning true
+9.757,0.887,robot,isMotorBusy was called, returning true
+9.758,0.642,robot,isMotorBusy was called, returning true
+9.759,0.517,robot,isMotorBusy was called, returning true
+9.759,0.549,robot,isMotorBusy was called, returning true
+9.760,0.496,robot,isMotorBusy was called, returning true
+9.760,0.549,robot,isMotorBusy was called, returning true
+9.761,0.563,robot,isMotorBusy was called, returning true
+9.761,0.534,robot,isMotorBusy was called, returning true
+9.762,0.599,robot,isMotorBusy was called, returning true
+9.763,0.820,robot,isMotorBusy was called, returning true
+9.763,0.609,robot,isMotorBusy was called, returning true
+9.764,0.522,robot,isMotorBusy was called, returning true
+9.764,0.504,robot,isMotorBusy was called, returning true
+9.765,0.474,robot,isMotorBusy was called, returning true
+9.765,0.488,robot,isMotorBusy was called, returning true
+9.766,0.458,robot,isMotorBusy was called, returning true
+9.766,0.489,robot,isMotorBusy was called, returning true
+9.767,0.445,robot,isMotorBusy was called, returning true
+9.767,0.455,robot,isMotorBusy was called, returning true
+9.768,0.855,robot,isMotorBusy was called, returning true
+9.769,0.572,robot,isMotorBusy was called, returning true
+9.769,0.501,robot,isMotorBusy was called, returning true
+9.770,0.437,robot,isMotorBusy was called, returning true
+9.770,0.462,robot,isMotorBusy was called, returning true
+9.771,0.560,robot,isMotorBusy was called, returning true
+9.771,0.616,robot,isMotorBusy was called, returning true
+9.772,0.608,robot,isMotorBusy was called, returning true
+9.774,2.496,robot,isMotorBusy was called, returning true
+9.775,0.747,robot,isMotorBusy was called, returning true
+9.776,0.732,robot,isMotorBusy was called, returning true
+9.776,0.493,robot,isMotorBusy was called, returning true
+9.777,0.413,robot,isMotorBusy was called, returning true
+9.777,0.460,robot,isMotorBusy was called, returning true
+9.778,0.477,robot,isMotorBusy was called, returning true
+9.778,0.493,robot,isMotorBusy was called, returning true
+9.779,0.637,robot,isMotorBusy was called, returning true
+9.780,1.345,robot,isMotorBusy was called, returning true
+9.781,0.614,robot,isMotorBusy was called, returning true
+9.781,0.541,robot,isMotorBusy was called, returning true
+9.783,1.551,robot,isMotorBusy was called, returning true
+9.783,0.669,robot,isMotorBusy was called, returning true
+9.784,0.952,robot,isMotorBusy was called, returning true
+9.785,0.526,robot,isMotorBusy was called, returning true
+9.786,0.840,robot,isMotorBusy was called, returning true
+9.786,0.639,robot,isMotorBusy was called, returning true
+9.787,0.500,robot,isMotorBusy was called, returning true
+9.787,0.583,robot,isMotorBusy was called, returning true
+9.788,0.465,robot,isMotorBusy was called, returning true
+9.788,0.484,robot,isMotorBusy was called, returning true
+9.789,0.575,robot,isMotorBusy was called, returning true
+9.789,0.486,robot,isMotorBusy was called, returning true
+9.790,0.546,robot,isMotorBusy was called, returning true
+9.790,0.450,robot,isMotorBusy was called, returning true
+9.791,0.645,robot,isMotorBusy was called, returning true
+9.793,2.238,robot,isMotorBusy was called, returning true
+9.794,0.891,robot,isMotorBusy was called, returning true
+9.795,0.549,robot,isMotorBusy was called, returning true
+9.796,0.706,robot,isMotorBusy was called, returning true
+9.796,0.565,robot,isMotorBusy was called, returning true
+9.797,0.503,robot,isMotorBusy was called, returning true
+9.797,0.433,robot,isMotorBusy was called, returning true
+9.797,0.482,robot,isMotorBusy was called, returning true
+9.798,0.588,robot,isMotorBusy was called, returning true
+9.799,0.497,robot,isMotorBusy was called, returning true
+9.799,0.472,robot,isMotorBusy was called, returning true
+9.802,2.560,robot,isMotorBusy was called, returning true
+9.802,0.718,robot,isMotorBusy was called, returning true
+9.803,0.945,robot,isMotorBusy was called, returning true
+9.804,0.750,robot,isMotorBusy was called, returning true
+9.805,0.793,robot,isMotorBusy was called, returning true
+9.806,0.833,robot,isMotorBusy was called, returning true
+9.806,0.784,robot,isMotorBusy was called, returning true
+9.807,0.683,robot,isMotorBusy was called, returning true
+9.808,0.725,robot,isMotorBusy was called, returning true
+9.809,0.700,pm.waitforMotors,exited move normally
+9.809,0.641,robot,setMotorPower was called - power: 0.00
+9.810,1.168,robot,enableMotorEncoders was called
+9.843,32.972,</arcTowardsBeacon>
+9.885,41.850,arcTowardsBeaconStateMachine,Execution of arcTowardsBeacon has been completed in, 113, intervals over a time of, 4.082048.3, seconds
+9.886,0.974,Mainline,Ending state machine pass of scanForLine
+9.887,0.810,Mainline,Beginning state machine pass 2
+9.888,0.729,robot,move was called - f:r:s:, 0.00, 0.20, 0.00
+9.890,2.343,robot,move powers are fl:fr:bl:br, 0.20, -0.20, -0.20, 0.20
+9.954,63.968,<scanForLine>
+9.955,0.872,scanForLineStateMachine,Execution of scanForLine has started
+9.955,0.563,robot,detectLine was called
+9.956,0.471,in detectLine,ods.getLightDetected(), 0.015
+9.957,0.856,in detectLine,returning, false
+9.957,0.702,robot,getCurrentAngle was invoked, returning 45
+9.958,0.535,robot,getCurrentAngle was invoked, returning 45
+9.959,0.716,robot,ultramove powers are fl:fr:bl:br, 0.20, -0.17, -0.19, 0.22
+10.011,52.627,Mainline,Ending state machine pass of scanForLine
+10.013,1.247,Mainline,Beginning state machine pass 2
+10.013,0.752,robot,detectLine was called
+10.014,0.591,in detectLine,ods.getLightDetected(), 0.015
+10.015,0.747,in detectLine,returning, false
+10.015,0.596,robot,getCurrentAngle was invoked, returning 45
+10.016,0.500,robot,getCurrentAngle was invoked, returning 45
+10.016,0.644,robot,ultramove powers are fl:fr:bl:br, 0.20, -0.17, -0.19, 0.22
+10.019,2.409,Mainline,Ending state machine pass of scanForLine
+10.019,0.661,Mainline,Beginning state machine pass 2
+10.020,0.512,robot,detectLine was called
+10.020,0.471,in detectLine,ods.getLightDetected(), 0.016
+10.021,0.805,in detectLine,returning, false
+10.022,0.975,robot,getCurrentAngle was invoked, returning 45
+10.023,0.661,robot,getCurrentAngle was invoked, returning 45
+10.024,1.087,robot,ultramove powers are fl:fr:bl:br, 0.20, -0.17, -0.19, 0.22
+10.028,3.854,Mainline,Ending state machine pass of scanForLine
+10.028,0.642,Mainline,Beginning state machine pass 2
+10.030,1.103,robot,detectLine was called
+10.030,0.519,in detectLine,ods.getLightDetected(), 0.016
+10.031,0.646,in detectLine,returning, false
+10.032,1.149,robot,getCurrentAngle was invoked, returning 45
+10.032,0.461,robot,getCurrentAngle was invoked, returning 45
+10.034,1.341,robot,ultramove powers are fl:fr:bl:br, 0.20, -0.17, -0.19, 0.22
+10.036,1.803,Mainline,Ending state machine pass of scanForLine
+10.037,1.694,Mainline,Beginning state machine pass 2
+10.038,0.874,robot,detectLine was called
+10.039,0.542,in detectLine,ods.getLightDetected(), 0.016
+10.040,1.237,in detectLine,returning, false
+10.041,0.661,robot,getCurrentAngle was invoked, returning 45
+10.041,0.599,robot,getCurrentAngle was invoked, returning 45
+10.042,1.054,robot,ultramove powers are fl:fr:bl:br, 0.20, -0.17, -0.19, 0.22
+10.044,2.168,Mainline,Ending state machine pass of scanForLine
+10.045,0.787,Mainline,Beginning state machine pass 2
+10.046,0.736,robot,detectLine was called
+10.046,0.541,in detectLine,ods.getLightDetected(), 0.016
+10.047,1.004,in detectLine,returning, false
+10.048,0.589,robot,getCurrentAngle was invoked, returning 45
+10.049,0.880,robot,getCurrentAngle was invoked, returning 45
+10.050,0.848,robot,ultramove powers are fl:fr:bl:br, 0.20, -0.17, -0.19, 0.22
+10.052,1.890,Mainline,Ending state machine pass of scanForLine
+10.052,0.737,Mainline,Beginning state machine pass 2
+10.054,1.263,robot,detectLine was called
+10.054,0.575,in detectLine,ods.getLightDetected(), 0.016
+10.055,1.133,in detectLine,returning, false
+10.056,0.854,robot,getCurrentAngle was invoked, returning 45
+10.057,0.581,robot,getCurrentAngle was invoked, returning 45
+10.058,0.847,robot,ultramove powers are fl:fr:bl:br, 0.20, -0.17, -0.19, 0.22
+10.060,1.984,Mainline,Ending state machine pass of scanForLine
+10.060,0.670,Mainline,Beginning state machine pass 2
+10.061,0.800,robot,detectLine was called
+10.062,0.835,in detectLine,ods.getLightDetected(), 0.016
+10.063,0.963,in detectLine,returning, false
+10.064,0.792,robot,getCurrentAngle was invoked, returning 45
+10.064,0.803,robot,getCurrentAngle was invoked, returning 45
+10.065,0.615,robot,ultramove powers are fl:fr:bl:br, 0.20, -0.17, -0.19, 0.22
+10.067,1.675,Mainline,Ending state machine pass of scanForLine
+10.067,0.643,Mainline,Beginning state machine pass 2
+10.068,0.872,robot,detectLine was called
+10.069,0.545,in detectLine,ods.getLightDetected(), 0.016
+10.070,1.006,in detectLine,returning, false
+10.070,0.620,robot,getCurrentAngle was invoked, returning 45
+10.071,0.809,robot,getCurrentAngle was invoked, returning 45
+10.072,0.829,robot,ultramove powers are fl:fr:bl:br, 0.20, -0.17, -0.19, 0.22
+10.074,1.947,Mainline,Ending state machine pass of scanForLine
+10.075,0.811,Mainline,Beginning state machine pass 2
+10.076,1.295,robot,detectLine was called
+10.077,0.771,in detectLine,ods.getLightDetected(), 0.016
+10.078,1.036,in detectLine,returning, false
+10.079,0.611,robot,getCurrentAngle was invoked, returning 45
+10.079,0.618,robot,getCurrentAngle was invoked, returning 45
+10.080,0.583,robot,ultramove powers are fl:fr:bl:br, 0.20, -0.17, -0.19, 0.22
+10.081,1.368,Mainline,Ending state machine pass of scanForLine
+10.082,1.155,Mainline,Beginning state machine pass 2
+10.083,0.690,robot,detectLine was called
+10.083,0.509,in detectLine,ods.getLightDetected(), 0.016
+10.084,0.880,in detectLine,returning, false
+10.085,0.577,robot,getCurrentAngle was invoked, returning 45
+10.086,0.667,robot,getCurrentAngle was invoked, returning 45
+10.086,0.618,robot,ultramove powers are fl:fr:bl:br, 0.20, -0.16, -0.19, 0.23
+10.109,22.877,Mainline,Ending state machine pass of scanForLine
+10.110,0.749,Mainline,Beginning state machine pass 2
+10.110,0.518,robot,detectLine was called
+10.111,0.882,in detectLine,ods.getLightDetected(), 0.016
+10.112,1.128,in detectLine,returning, false
+10.114,1.662,robot,getCurrentAngle was invoked, returning 45
+10.115,1.420,robot,getCurrentAngle was invoked, returning 45
+10.116,0.860,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.181,64.539,Mainline,Ending state machine pass of scanForLine
+10.182,0.887,Mainline,Beginning state machine pass 2
+10.183,1.161,robot,detectLine was called
+10.184,1.064,in detectLine,ods.getLightDetected(), 0.016
+10.185,1.443,in detectLine,returning, false
+10.186,0.873,robot,getCurrentAngle was invoked, returning 45
+10.187,1.134,robot,getCurrentAngle was invoked, returning 45
+10.188,0.725,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.190,2.155,Mainline,Ending state machine pass of scanForLine
+10.191,0.829,Mainline,Beginning state machine pass 2
+10.192,1.180,robot,detectLine was called
+10.193,0.956,in detectLine,ods.getLightDetected(), 0.016
+10.195,1.752,in detectLine,returning, false
+10.196,0.845,robot,getCurrentAngle was invoked, returning 45
+10.197,0.874,robot,getCurrentAngle was invoked, returning 45
+10.197,0.643,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.199,1.679,Mainline,Ending state machine pass of scanForLine
+10.200,0.657,Mainline,Beginning state machine pass 2
+10.201,0.870,robot,detectLine was called
+10.201,0.574,in detectLine,ods.getLightDetected(), 0.016
+10.202,1.151,in detectLine,returning, false
+10.203,0.805,robot,getCurrentAngle was invoked, returning 45
+10.204,0.813,robot,getCurrentAngle was invoked, returning 45
+10.205,0.619,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.206,1.629,Mainline,Ending state machine pass of scanForLine
+10.207,0.665,Mainline,Beginning state machine pass 2
+10.208,0.721,robot,detectLine was called
+10.208,0.588,in detectLine,ods.getLightDetected(), 0.016
+10.209,0.866,in detectLine,returning, false
+10.210,0.628,robot,getCurrentAngle was invoked, returning 45
+10.210,0.676,robot,getCurrentAngle was invoked, returning 45
+10.211,0.641,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.213,1.633,Mainline,Ending state machine pass of scanForLine
+10.213,0.744,Mainline,Beginning state machine pass 2
+10.214,0.693,robot,detectLine was called
+10.214,0.484,in detectLine,ods.getLightDetected(), 0.016
+10.215,0.884,in detectLine,returning, false
+10.216,0.604,robot,getCurrentAngle was invoked, returning 45
+10.217,0.650,robot,getCurrentAngle was invoked, returning 45
+10.217,0.606,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.219,1.417,Mainline,Ending state machine pass of scanForLine
+10.219,0.708,Mainline,Beginning state machine pass 2
+10.220,0.736,robot,detectLine was called
+10.221,0.520,in detectLine,ods.getLightDetected(), 0.016
+10.222,0.964,in detectLine,returning, false
+10.222,0.817,robot,getCurrentAngle was invoked, returning 45
+10.223,0.892,robot,getCurrentAngle was invoked, returning 45
+10.224,0.627,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.225,1.405,Mainline,Ending state machine pass of scanForLine
+10.226,0.700,Mainline,Beginning state machine pass 2
+10.227,0.995,robot,detectLine was called
+10.227,0.484,in detectLine,ods.getLightDetected(), 0.016
+10.229,1.026,in detectLine,returning, false
+10.229,0.648,robot,getCurrentAngle was invoked, returning 45
+10.230,0.585,robot,getCurrentAngle was invoked, returning 45
+10.231,0.988,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.233,2.547,Mainline,Ending state machine pass of scanForLine
+10.234,0.709,Mainline,Beginning state machine pass 2
+10.235,1.073,robot,detectLine was called
+10.236,0.474,in detectLine,ods.getLightDetected(), 0.016
+10.237,1.038,in detectLine,returning, false
+10.237,0.619,robot,getCurrentAngle was invoked, returning 45
+10.238,0.726,robot,getCurrentAngle was invoked, returning 45
+10.239,0.996,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.241,2.149,Mainline,Ending state machine pass of scanForLine
+10.242,0.711,Mainline,Beginning state machine pass 2
+10.243,0.961,robot,detectLine was called
+10.243,0.556,in detectLine,ods.getLightDetected(), 0.015
+10.245,1.207,in detectLine,returning, false
+10.245,0.711,robot,getCurrentAngle was invoked, returning 45
+10.246,0.629,robot,getCurrentAngle was invoked, returning 45
+10.247,0.865,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.252,5.715,Mainline,Ending state machine pass of scanForLine
+10.257,4.455,Mainline,Beginning state machine pass 2
+10.260,2.893,robot,detectLine was called
+10.261,1.423,in detectLine,ods.getLightDetected(), 0.015
+10.263,1.759,in detectLine,returning, false
+10.264,1.509,robot,getCurrentAngle was invoked, returning 45
+10.265,1.009,robot,getCurrentAngle was invoked, returning 45
+10.267,1.301,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.275,8.011,Mainline,Ending state machine pass of scanForLine
+10.276,1.219,Mainline,Beginning state machine pass 2
+10.278,1.666,robot,detectLine was called
+10.278,0.788,in detectLine,ods.getLightDetected(), 0.015
+10.281,2.248,in detectLine,returning, false
+10.281,0.774,robot,getCurrentAngle was invoked, returning 45
+10.283,1.831,robot,getCurrentAngle was invoked, returning 45
+10.284,1.044,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.289,4.465,Mainline,Ending state machine pass of scanForLine
+10.290,1.586,Mainline,Beginning state machine pass 2
+10.293,2.174,robot,detectLine was called
+10.294,1.493,in detectLine,ods.getLightDetected(), 0.015
+10.296,1.621,in detectLine,returning, false
+10.297,1.622,robot,getCurrentAngle was invoked, returning 45
+10.298,0.682,robot,getCurrentAngle was invoked, returning 45
+10.320,21.954,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.323,3.189,Mainline,Ending state machine pass of scanForLine
+10.324,0.850,Mainline,Beginning state machine pass 2
+10.325,0.546,robot,detectLine was called
+10.325,0.665,in detectLine,ods.getLightDetected(), 0.015
+10.326,1.075,in detectLine,returning, false
+10.327,0.668,robot,getCurrentAngle was invoked, returning 45
+10.328,0.696,robot,getCurrentAngle was invoked, returning 45
+10.328,0.636,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.330,1.682,Mainline,Ending state machine pass of scanForLine
+10.331,0.679,Mainline,Beginning state machine pass 2
+10.332,0.929,robot,detectLine was called
+10.332,0.666,in detectLine,ods.getLightDetected(), 0.015
+10.334,1.428,in detectLine,returning, false
+10.335,0.913,robot,getCurrentAngle was invoked, returning 45
+10.335,0.708,robot,getCurrentAngle was invoked, returning 45
+10.336,0.662,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.338,2.116,Mainline,Ending state machine pass of scanForLine
+10.339,0.716,Mainline,Beginning state machine pass 2
+10.340,1.547,robot,detectLine was called
+10.341,0.587,in detectLine,ods.getLightDetected(), 0.015
+10.342,1.354,in detectLine,returning, false
+10.343,0.639,robot,getCurrentAngle was invoked, returning 45
+10.344,0.658,robot,getCurrentAngle was invoked, returning 45
+10.345,1.271,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.346,1.635,Mainline,Ending state machine pass of scanForLine
+10.347,0.724,Mainline,Beginning state machine pass 2
+10.348,0.851,robot,detectLine was called
+10.349,0.525,in detectLine,ods.getLightDetected(), 0.015
+10.349,0.834,in detectLine,returning, false
+10.350,0.597,robot,getCurrentAngle was invoked, returning 45
+10.351,0.634,robot,getCurrentAngle was invoked, returning 45
+10.351,0.845,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.353,1.949,Mainline,Ending state machine pass of scanForLine
+10.354,0.729,Mainline,Beginning state machine pass 2
+10.355,0.706,robot,detectLine was called
+10.355,0.534,in detectLine,ods.getLightDetected(), 0.015
+10.356,0.941,in detectLine,returning, false
+10.357,0.561,robot,getCurrentAngle was invoked, returning 45
+10.358,0.606,robot,getCurrentAngle was invoked, returning 45
+10.358,0.706,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.360,2.256,Mainline,Ending state machine pass of scanForLine
+10.361,0.688,Mainline,Beginning state machine pass 2
+10.362,0.921,robot,detectLine was called
+10.363,0.536,in detectLine,ods.getLightDetected(), 0.015
+10.364,0.986,in detectLine,returning, false
+10.364,0.714,robot,getCurrentAngle was invoked, returning 45
+10.365,0.655,robot,getCurrentAngle was invoked, returning 45
+10.366,0.553,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.367,1.960,Mainline,Ending state machine pass of scanForLine
+10.368,0.699,Mainline,Beginning state machine pass 2
+10.369,0.686,robot,detectLine was called
+10.369,0.556,in detectLine,ods.getLightDetected(), 0.015
+10.370,1.018,in detectLine,returning, false
+10.371,0.653,robot,getCurrentAngle was invoked, returning 45
+10.372,0.798,robot,getCurrentAngle was invoked, returning 45
+10.372,0.591,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.374,1.414,Mainline,Ending state machine pass of scanForLine
+10.375,0.676,Mainline,Beginning state machine pass 2
+10.375,0.757,robot,detectLine was called
+10.376,0.494,in detectLine,ods.getLightDetected(), 0.015
+10.377,0.868,in detectLine,returning, false
+10.377,0.670,robot,getCurrentAngle was invoked, returning 45
+10.378,0.853,robot,getCurrentAngle was invoked, returning 45
+10.379,0.967,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.381,1.483,Mainline,Ending state machine pass of scanForLine
+10.381,0.682,Mainline,Beginning state machine pass 2
+10.382,0.921,robot,detectLine was called
+10.383,0.522,in detectLine,ods.getLightDetected(), 0.015
+10.384,1.005,in detectLine,returning, false
+10.384,0.605,robot,getCurrentAngle was invoked, returning 45
+10.385,0.882,robot,getCurrentAngle was invoked, returning 45
+10.386,0.575,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.388,2.635,Mainline,Ending state machine pass of scanForLine
+10.389,0.710,Mainline,Beginning state machine pass 2
+10.390,0.845,robot,detectLine was called
+10.391,0.564,in detectLine,ods.getLightDetected(), 0.015
+10.391,0.843,in detectLine,returning, false
+10.392,0.697,robot,getCurrentAngle was invoked, returning 45
+10.393,0.678,robot,getCurrentAngle was invoked, returning 45
+10.394,1.246,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.396,2.270,Mainline,Ending state machine pass of scanForLine
+10.398,1.216,Mainline,Beginning state machine pass 2
+10.398,0.625,robot,detectLine was called
+10.399,0.823,in detectLine,ods.getLightDetected(), 0.015
+10.400,0.816,in detectLine,returning, false
+10.400,0.673,robot,getCurrentAngle was invoked, returning 45
+10.401,0.594,robot,getCurrentAngle was invoked, returning 45
+10.402,0.969,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.405,3.047,Mainline,Ending state machine pass of scanForLine
+10.406,0.963,Mainline,Beginning state machine pass 2
+10.408,1.651,robot,detectLine was called
+10.408,0.608,in detectLine,ods.getLightDetected(), 0.015
+10.409,1.126,in detectLine,returning, false
+10.410,0.906,robot,getCurrentAngle was invoked, returning 45
+10.411,0.611,robot,getCurrentAngle was invoked, returning 45
+10.412,0.820,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.414,1.776,Mainline,Ending state machine pass of scanForLine
+10.415,1.701,Mainline,Beginning state machine pass 2
+10.416,0.690,robot,detectLine was called
+10.417,0.911,in detectLine,ods.getLightDetected(), 0.015
+10.418,0.853,in detectLine,returning, false
+10.418,0.705,robot,getCurrentAngle was invoked, returning 45
+10.419,0.597,robot,getCurrentAngle was invoked, returning 45
+10.420,1.189,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.423,2.739,Mainline,Ending state machine pass of scanForLine
+10.424,1.410,Mainline,Beginning state machine pass 2
+10.425,0.524,robot,detectLine was called
+10.425,0.573,in detectLine,ods.getLightDetected(), 0.014
+10.426,1.023,in detectLine,returning, false
+10.427,0.906,robot,getCurrentAngle was invoked, returning 45
+10.428,0.491,robot,getCurrentAngle was invoked, returning 45
+10.429,0.851,robot,ultramove powers are fl:fr:bl:br, 0.19, -0.18, -0.20, 0.21
+10.467,37.880,Mainline,Ending state machine pass of scanForLine
+10.467,0.766,Mainline,Beginning state machine pass 2
+10.468,0.850,robot,detectLine was called
+10.469,0.685,in detectLine,ods.getLightDetected(), 0.014
+10.470,1.002,in detectLine,returning, false
+10.471,0.773,robot,getCurrentAngle was invoked, returning 45
+10.472,1.043,robot,getCurrentAngle was invoked, returning 45
+10.473,0.789,robot,ultramove powers are fl:fr:bl:br, 0.19, -0.18, -0.20, 0.21
+10.475,2.255,Mainline,Ending state machine pass of scanForLine
+10.477,2.558,Mainline,Beginning state machine pass 2
+10.479,1.198,robot,detectLine was called
+10.480,1.686,in detectLine,ods.getLightDetected(), 0.014
+10.481,0.935,in detectLine,returning, false
+10.482,0.914,robot,getCurrentAngle was invoked, returning 45
+10.483,1.331,robot,getCurrentAngle was invoked, returning 45
+10.484,0.585,robot,ultramove powers are fl:fr:bl:br, 0.19, -0.18, -0.20, 0.21
+10.487,2.736,Mainline,Ending state machine pass of scanForLine
+10.489,1.845,Mainline,Beginning state machine pass 2
+10.490,1.783,robot,detectLine was called
+10.493,2.256,in detectLine,ods.getLightDetected(), 0.014
+10.493,0.814,in detectLine,returning, false
+10.495,1.148,robot,getCurrentAngle was invoked, returning 45
+10.495,0.518,robot,getCurrentAngle was invoked, returning 45
+10.497,1.694,robot,ultramove powers are fl:fr:bl:br, 0.19, -0.18, -0.20, 0.21
+10.499,1.933,Mainline,Ending state machine pass of scanForLine
+10.500,1.666,Mainline,Beginning state machine pass 2
+10.501,0.994,robot,detectLine was called
+10.503,1.229,in detectLine,ods.getLightDetected(), 0.014
+10.504,1.114,in detectLine,returning, false
+10.505,1.207,robot,getCurrentAngle was invoked, returning 45
+10.506,0.641,robot,getCurrentAngle was invoked, returning 45
+10.506,0.842,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.559,52.789,Mainline,Ending state machine pass of scanForLine
+10.560,0.616,Mainline,Beginning state machine pass 2
+10.561,1.177,robot,detectLine was called
+10.562,0.707,in detectLine,ods.getLightDetected(), 0.012
+10.563,1.110,in detectLine,returning, false
+10.563,0.668,robot,getCurrentAngle was invoked, returning 45
+10.565,1.246,robot,getCurrentAngle was invoked, returning 45
+10.567,1.968,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.571,4.125,Mainline,Ending state machine pass of scanForLine
+10.573,2.057,Mainline,Beginning state machine pass 2
+10.575,2.179,robot,detectLine was called
+10.576,0.902,in detectLine,ods.getLightDetected(), 0.012
+10.577,1.093,in detectLine,returning, false
+10.579,1.519,robot,getCurrentAngle was invoked, returning 45
+10.579,0.816,robot,getCurrentAngle was invoked, returning 45
+10.582,2.380,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.584,2.437,Mainline,Ending state machine pass of scanForLine
+10.585,1.162,Mainline,Beginning state machine pass 2
+10.586,0.691,robot,detectLine was called
+10.588,1.689,in detectLine,ods.getLightDetected(), 0.012
+10.591,3.473,in detectLine,returning, false
+10.594,3.250,robot,getCurrentAngle was invoked, returning 45
+10.596,1.562,robot,getCurrentAngle was invoked, returning 45
+10.598,2.000,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.602,4.311,Mainline,Ending state machine pass of scanForLine
+10.603,0.907,Mainline,Beginning state machine pass 2
+10.604,1.126,robot,detectLine was called
+10.605,0.829,in detectLine,ods.getLightDetected(), 0.012
+10.606,1.173,in detectLine,returning, false
+10.607,0.741,robot,getCurrentAngle was invoked, returning 45
+10.608,0.729,robot,getCurrentAngle was invoked, returning 45
+10.609,0.898,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.611,1.937,Mainline,Ending state machine pass of scanForLine
+10.612,0.888,Mainline,Beginning state machine pass 2
+10.613,1.191,robot,detectLine was called
+10.613,0.686,in detectLine,ods.getLightDetected(), 0.012
+10.615,1.246,in detectLine,returning, false
+10.615,0.738,robot,getCurrentAngle was invoked, returning 45
+10.617,1.268,robot,getCurrentAngle was invoked, returning 45
+10.617,0.752,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.620,2.341,Mainline,Ending state machine pass of scanForLine
+10.621,1.345,Mainline,Beginning state machine pass 2
+10.623,1.401,robot,detectLine was called
+10.623,0.636,in detectLine,ods.getLightDetected(), 0.012
+10.624,1.064,in detectLine,returning, false
+10.625,0.946,robot,getCurrentAngle was invoked, returning 45
+10.626,0.688,robot,getCurrentAngle was invoked, returning 45
+10.627,0.835,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.629,2.017,Mainline,Ending state machine pass of scanForLine
+10.629,0.714,Mainline,Beginning state machine pass 2
+10.631,1.153,robot,detectLine was called
+10.631,0.673,in detectLine,ods.getLightDetected(), 0.012
+10.633,1.350,in detectLine,returning, false
+10.633,0.653,robot,getCurrentAngle was invoked, returning 45
+10.634,0.596,robot,getCurrentAngle was invoked, returning 45
+10.635,0.914,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.637,2.476,Mainline,Ending state machine pass of scanForLine
+10.638,0.683,Mainline,Beginning state machine pass 2
+10.640,1.641,robot,detectLine was called
+10.640,0.802,in detectLine,ods.getLightDetected(), 0.012
+10.641,0.984,in detectLine,returning, false
+10.642,0.699,robot,getCurrentAngle was invoked, returning 45
+10.643,0.714,robot,getCurrentAngle was invoked, returning 45
+10.643,0.587,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.01, -0.01, 0.41
+10.666,22.900,Mainline,Ending state machine pass of scanForLine
+10.667,0.728,Mainline,Beginning state machine pass 2
+10.668,0.860,robot,detectLine was called
+10.682,14.624,in detectLine,ods.getLightDetected(), 0.012
+10.684,1.144,in detectLine,returning, false
+10.685,1.227,robot,getCurrentAngle was invoked, returning 45
+10.686,1.080,robot,getCurrentAngle was invoked, returning 45
+10.689,3.446,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.01, -0.01, 0.41
+10.691,1.743,Mainline,Ending state machine pass of scanForLine
+10.692,0.964,Mainline,Beginning state machine pass 2
+10.694,1.516,robot,detectLine was called
+10.694,0.750,in detectLine,ods.getLightDetected(), 0.012
+10.695,1.033,in detectLine,returning, false
+10.696,0.982,robot,getCurrentAngle was invoked, returning 45
+10.697,0.879,robot,getCurrentAngle was invoked, returning 45
+10.698,0.674,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.01, -0.01, 0.41
+10.703,5.242,Mainline,Ending state machine pass of scanForLine
+10.711,7.662,Mainline,Beginning state machine pass 2
+10.715,4.331,robot,detectLine was called
+10.717,1.597,in detectLine,ods.getLightDetected(), 0.012
+10.721,4.677,in detectLine,returning, false
+10.723,1.343,robot,getCurrentAngle was invoked, returning 45
+10.724,0.757,robot,getCurrentAngle was invoked, returning 45
+10.724,0.987,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.748,23.683,Mainline,Ending state machine pass of scanForLine
+10.749,1.021,Mainline,Beginning state machine pass 2
+10.750,0.586,robot,detectLine was called
+10.751,0.892,in detectLine,ods.getLightDetected(), 0.012
+10.753,1.906,in detectLine,returning, false
+10.753,0.784,robot,getCurrentAngle was invoked, returning 45
+10.754,1.128,robot,getCurrentAngle was invoked, returning 45
+10.755,0.707,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.759,4.245,Mainline,Ending state machine pass of scanForLine
+10.761,1.094,Mainline,Beginning state machine pass 2
+10.762,1.379,robot,detectLine was called
+10.763,1.224,in detectLine,ods.getLightDetected(), 0.012
+10.764,1.152,in detectLine,returning, false
+10.765,0.846,robot,getCurrentAngle was invoked, returning 45
+10.766,0.960,robot,getCurrentAngle was invoked, returning 45
+10.767,0.701,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.769,1.809,Mainline,Ending state machine pass of scanForLine
+10.769,0.842,Mainline,Beginning state machine pass 2
+10.770,0.933,robot,detectLine was called
+10.771,0.588,in detectLine,ods.getLightDetected(), 0.012
+10.772,1.182,in detectLine,returning, false
+10.773,0.636,robot,getCurrentAngle was invoked, returning 45
+10.774,0.738,robot,getCurrentAngle was invoked, returning 45
+10.775,1.484,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.777,2.433,Mainline,Ending state machine pass of scanForLine
+10.778,0.710,Mainline,Beginning state machine pass 2
+10.779,0.792,robot,detectLine was called
+10.780,0.606,in detectLine,ods.getLightDetected(), 0.012
+10.780,0.890,in detectLine,returning, false
+10.781,0.640,robot,getCurrentAngle was invoked, returning 45
+10.782,0.752,robot,getCurrentAngle was invoked, returning 45
+10.783,0.734,robot,ultramove powers are fl:fr:bl:br, 0.38, 0.01, -0.01, 0.41
+10.787,4.750,Mainline,Ending state machine pass of scanForLine
+10.789,1.682,Mainline,Beginning state machine pass 2
+10.791,1.536,robot,detectLine was called
+10.791,0.633,in detectLine,ods.getLightDetected(), 0.012
+10.792,1.202,in detectLine,returning, false
+10.793,0.636,robot,getCurrentAngle was invoked, returning 45
+10.794,0.610,robot,getCurrentAngle was invoked, returning 45
+10.794,0.632,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+10.845,51.203,Mainline,Ending state machine pass of scanForLine
+10.846,0.764,Mainline,Beginning state machine pass 2
+10.847,0.844,robot,detectLine was called
+10.848,0.534,in detectLine,ods.getLightDetected(), 0.012
+10.849,1.240,in detectLine,returning, false
+10.850,0.763,robot,getCurrentAngle was invoked, returning 45
+10.850,0.659,robot,getCurrentAngle was invoked, returning 45
+10.852,1.326,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+10.855,3.302,Mainline,Ending state machine pass of scanForLine
+10.857,1.769,Mainline,Beginning state machine pass 2
+10.858,1.013,robot,detectLine was called
+10.859,0.935,in detectLine,ods.getLightDetected(), 0.012
+10.861,2.024,in detectLine,returning, false
+10.862,1.305,robot,getCurrentAngle was invoked, returning 45
+10.863,0.788,robot,getCurrentAngle was invoked, returning 45
+10.864,1.360,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+10.867,3.236,Mainline,Ending state machine pass of scanForLine
+10.868,0.650,Mainline,Beginning state machine pass 2
+10.869,0.790,robot,detectLine was called
+10.870,0.985,in detectLine,ods.getLightDetected(), 0.012
+10.871,1.624,in detectLine,returning, false
+10.872,0.705,robot,getCurrentAngle was invoked, returning 45
+10.873,1.113,robot,getCurrentAngle was invoked, returning 45
+10.874,0.572,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+10.876,2.737,Mainline,Ending state machine pass of scanForLine
+10.877,0.936,Mainline,Beginning state machine pass 2
+10.879,1.100,robot,detectLine was called
+10.879,0.960,in detectLine,ods.getLightDetected(), 0.012
+10.880,0.895,in detectLine,returning, false
+10.881,0.680,robot,getCurrentAngle was invoked, returning 45
+10.882,0.789,robot,getCurrentAngle was invoked, returning 45
+10.883,0.895,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+10.884,1.530,Mainline,Ending state machine pass of scanForLine
+10.885,0.663,Mainline,Beginning state machine pass 2
+10.886,0.805,robot,detectLine was called
+10.887,0.757,in detectLine,ods.getLightDetected(), 0.012
+10.888,1.460,in detectLine,returning, false
+10.889,0.565,robot,getCurrentAngle was invoked, returning 45
+10.889,0.706,robot,getCurrentAngle was invoked, returning 45
+10.890,0.552,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+10.892,2.675,Mainline,Ending state machine pass of scanForLine
+10.894,1.070,Mainline,Beginning state machine pass 2
+10.895,1.132,robot,detectLine was called
+10.896,0.892,in detectLine,ods.getLightDetected(), 0.012
+10.897,1.328,in detectLine,returning, false
+10.898,1.521,robot,getCurrentAngle was invoked, returning 45
+10.899,0.561,robot,getCurrentAngle was invoked, returning 45
+10.900,1.300,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+10.902,1.646,Mainline,Ending state machine pass of scanForLine
+10.903,0.941,Mainline,Beginning state machine pass 2
+10.903,0.546,robot,detectLine was called
+10.904,0.878,in detectLine,ods.getLightDetected(), 0.012
+10.907,2.927,in detectLine,returning, false
+10.910,3.078,robot,getCurrentAngle was invoked, returning 45
+10.912,2.117,robot,getCurrentAngle was invoked, returning 45
+10.915,2.983,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+10.924,9.028,Mainline,Ending state machine pass of scanForLine
+10.926,1.112,Mainline,Beginning state machine pass 2
+10.926,0.667,robot,detectLine was called
+10.927,1.106,in detectLine,ods.getLightDetected(), 0.012
+10.930,2.268,in detectLine,returning, false
+10.930,0.891,robot,getCurrentAngle was invoked, returning 45
+10.932,1.468,robot,getCurrentAngle was invoked, returning 45
+10.935,3.133,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+10.943,7.558,Mainline,Ending state machine pass of scanForLine
+10.945,2.005,Mainline,Beginning state machine pass 2
+10.946,1.852,robot,detectLine was called
+10.950,3.050,in detectLine,ods.getLightDetected(), 0.012
+10.951,1.324,in detectLine,returning, false
+10.953,1.710,robot,getCurrentAngle was invoked, returning 45
+10.957,4.092,robot,getCurrentAngle was invoked, returning 45
+10.964,6.987,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+10.991,26.966,Mainline,Ending state machine pass of scanForLine
+10.992,1.036,Mainline,Beginning state machine pass 2
+10.993,1.542,robot,detectLine was called
+10.994,0.923,in detectLine,ods.getLightDetected(), 0.012
+10.995,1.378,in detectLine,returning, false
+10.997,1.119,robot,getCurrentAngle was invoked, returning 45
+10.998,1.104,robot,getCurrentAngle was invoked, returning 45
+10.999,1.490,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.002,2.510,Mainline,Ending state machine pass of scanForLine
+11.004,1.853,Mainline,Beginning state machine pass 2
+11.005,1.103,robot,detectLine was called
+11.006,1.416,in detectLine,ods.getLightDetected(), 0.012
+11.007,1.250,in detectLine,returning, false
+11.008,1.149,robot,getCurrentAngle was invoked, returning 45
+11.010,1.148,robot,getCurrentAngle was invoked, returning 45
+11.011,1.680,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.014,2.891,Mainline,Ending state machine pass of scanForLine
+11.016,1.445,Mainline,Beginning state machine pass 2
+11.018,1.917,robot,detectLine was called
+11.019,1.133,in detectLine,ods.getLightDetected(), 0.012
+11.021,2.042,in detectLine,returning, false
+11.023,1.789,robot,getCurrentAngle was invoked, returning 45
+11.024,1.537,robot,getCurrentAngle was invoked, returning 45
+11.026,1.584,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.028,2.603,Mainline,Ending state machine pass of scanForLine
+11.031,2.326,Mainline,Beginning state machine pass 2
+11.032,1.458,robot,detectLine was called
+11.033,1.449,in detectLine,ods.getLightDetected(), 0.012
+11.034,0.901,in detectLine,returning, false
+11.036,1.323,robot,getCurrentAngle was invoked, returning 45
+11.037,1.014,robot,getCurrentAngle was invoked, returning 45
+11.039,2.087,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.043,4.275,Mainline,Ending state machine pass of scanForLine
+11.044,1.097,Mainline,Beginning state machine pass 2
+11.045,1.139,robot,detectLine was called
+11.046,0.694,in detectLine,ods.getLightDetected(), 0.012
+11.047,0.999,in detectLine,returning, false
+11.048,0.750,robot,getCurrentAngle was invoked, returning 45
+11.050,1.882,robot,getCurrentAngle was invoked, returning 45
+11.051,1.356,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.055,3.817,Mainline,Ending state machine pass of scanForLine
+11.056,1.149,Mainline,Beginning state machine pass 2
+11.057,0.551,robot,detectLine was called
+11.057,0.621,in detectLine,ods.getLightDetected(), 0.012
+11.058,1.056,in detectLine,returning, false
+11.059,0.783,robot,getCurrentAngle was invoked, returning 45
+11.059,0.495,robot,getCurrentAngle was invoked, returning 45
+11.060,0.526,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.062,2.246,Mainline,Ending state machine pass of scanForLine
+11.063,0.576,Mainline,Beginning state machine pass 2
+11.063,0.528,robot,detectLine was called
+11.064,0.500,in detectLine,ods.getLightDetected(), 0.012
+11.065,0.767,in detectLine,returning, false
+11.065,0.611,robot,getCurrentAngle was invoked, returning 45
+11.066,0.475,robot,getCurrentAngle was invoked, returning 45
+11.066,0.592,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.068,2.162,Mainline,Ending state machine pass of scanForLine
+11.069,0.638,Mainline,Beginning state machine pass 2
+11.070,0.547,robot,detectLine was called
+11.070,0.548,in detectLine,ods.getLightDetected(), 0.012
+11.071,0.781,in detectLine,returning, false
+11.072,0.693,robot,getCurrentAngle was invoked, returning 45
+11.072,0.572,robot,getCurrentAngle was invoked, returning 45
+11.073,0.973,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.075,1.302,Mainline,Ending state machine pass of scanForLine
+11.075,0.673,Mainline,Beginning state machine pass 2
+11.076,0.537,robot,detectLine was called
+11.076,0.535,in detectLine,ods.getLightDetected(), 0.012
+11.077,0.589,in detectLine,returning, false
+11.077,0.562,robot,getCurrentAngle was invoked, returning 45
+11.078,0.502,robot,getCurrentAngle was invoked, returning 45
+11.079,0.609,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.080,1.258,Mainline,Ending state machine pass of scanForLine
+11.080,0.672,Mainline,Beginning state machine pass 2
+11.081,0.536,robot,detectLine was called
+11.081,0.498,in detectLine,ods.getLightDetected(), 0.012
+11.082,0.847,in detectLine,returning, false
+11.083,0.552,robot,getCurrentAngle was invoked, returning 45
+11.083,0.487,robot,getCurrentAngle was invoked, returning 45
+11.084,0.533,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.085,1.244,Mainline,Ending state machine pass of scanForLine
+11.086,0.565,Mainline,Beginning state machine pass 2
+11.086,0.667,robot,detectLine was called
+11.087,0.727,in detectLine,ods.getLightDetected(), 0.012
+11.088,0.722,in detectLine,returning, false
+11.089,0.854,robot,getCurrentAngle was invoked, returning 45
+11.089,0.498,robot,getCurrentAngle was invoked, returning 45
+11.090,0.730,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.092,2.400,Mainline,Ending state machine pass of scanForLine
+11.093,0.630,Mainline,Beginning state machine pass 2
+11.094,0.602,robot,detectLine was called
+11.094,0.533,in detectLine,ods.getLightDetected(), 0.012
+11.095,0.636,in detectLine,returning, false
+11.095,0.576,robot,getCurrentAngle was invoked, returning 45
+11.096,0.446,robot,getCurrentAngle was invoked, returning 45
+11.097,0.832,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.098,1.677,Mainline,Ending state machine pass of scanForLine
+11.099,0.617,Mainline,Beginning state machine pass 2
+11.099,0.561,robot,detectLine was called
+11.100,0.501,in detectLine,ods.getLightDetected(), 0.012
+11.101,0.657,in detectLine,returning, false
+11.101,0.487,robot,getCurrentAngle was invoked, returning 45
+11.101,0.519,robot,getCurrentAngle was invoked, returning 45
+11.102,0.752,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.104,1.261,Mainline,Ending state machine pass of scanForLine
+11.104,0.620,Mainline,Beginning state machine pass 2
+11.105,0.476,robot,detectLine was called
+11.105,0.533,in detectLine,ods.getLightDetected(), 0.012
+11.106,0.707,in detectLine,returning, false
+11.107,0.584,robot,getCurrentAngle was invoked, returning 45
+11.107,0.385,robot,getCurrentAngle was invoked, returning 45
+11.107,0.563,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.110,2.994,Mainline,Ending state machine pass of scanForLine
+11.111,0.674,Mainline,Beginning state machine pass 2
+11.112,1.234,robot,detectLine was called
+11.114,1.579,in detectLine,ods.getLightDetected(), 0.012
+11.115,0.730,in detectLine,returning, false
+11.115,0.563,robot,getCurrentAngle was invoked, returning 45
+11.116,0.411,robot,getCurrentAngle was invoked, returning 45
+11.116,0.527,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.117,1.227,Mainline,Ending state machine pass of scanForLine
+11.118,0.598,Mainline,Beginning state machine pass 2
+11.119,0.537,robot,detectLine was called
+11.119,0.587,in detectLine,ods.getLightDetected(), 0.012
+11.120,0.710,in detectLine,returning, false
+11.120,0.569,robot,getCurrentAngle was invoked, returning 45
+11.121,0.417,robot,getCurrentAngle was invoked, returning 45
+11.121,0.576,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.123,1.422,Mainline,Ending state machine pass of scanForLine
+11.123,0.656,Mainline,Beginning state machine pass 2
+11.124,0.553,robot,detectLine was called
+11.125,0.493,in detectLine,ods.getLightDetected(), 0.012
+11.125,0.726,in detectLine,returning, false
+11.126,0.594,robot,getCurrentAngle was invoked, returning 45
+11.126,0.513,robot,getCurrentAngle was invoked, returning 45
+11.127,0.659,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.129,1.540,Mainline,Ending state machine pass of scanForLine
+11.129,0.743,Mainline,Beginning state machine pass 2
+11.130,0.519,robot,detectLine was called
+11.130,0.542,in detectLine,ods.getLightDetected(), 0.012
+11.131,0.657,in detectLine,returning, false
+11.132,0.664,robot,getCurrentAngle was invoked, returning 45
+11.132,0.629,robot,getCurrentAngle was invoked, returning 45
+11.133,0.523,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.135,2.468,Mainline,Ending state machine pass of scanForLine
+11.136,0.639,Mainline,Beginning state machine pass 2
+11.136,0.539,robot,detectLine was called
+11.137,0.540,in detectLine,ods.getLightDetected(), 0.012
+11.138,0.663,in detectLine,returning, false
+11.138,0.565,robot,getCurrentAngle was invoked, returning 45
+11.139,0.399,robot,getCurrentAngle was invoked, returning 45
+11.139,0.569,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.141,1.946,Mainline,Ending state machine pass of scanForLine
+11.142,0.786,Mainline,Beginning state machine pass 2
+11.142,0.548,robot,detectLine was called
+11.143,0.571,in detectLine,ods.getLightDetected(), 0.015
+11.144,0.729,in detectLine,returning, false
+11.144,0.624,robot,getCurrentAngle was invoked, returning 45
+11.145,0.510,robot,getCurrentAngle was invoked, returning 45
+11.145,0.576,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.147,1.701,Mainline,Ending state machine pass of scanForLine
+11.148,0.642,Mainline,Beginning state machine pass 2
+11.148,0.544,robot,detectLine was called
+11.149,0.458,in detectLine,ods.getLightDetected(), 0.015
+11.150,0.744,in detectLine,returning, false
+11.150,0.595,robot,getCurrentAngle was invoked, returning 45
+11.151,0.437,robot,getCurrentAngle was invoked, returning 45
+11.151,0.540,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.154,2.936,Mainline,Ending state machine pass of scanForLine
+11.155,0.601,Mainline,Beginning state machine pass 2
+11.155,0.516,robot,detectLine was called
+11.156,0.488,in detectLine,ods.getLightDetected(), 0.015
+11.156,0.724,in detectLine,returning, false
+11.157,0.487,robot,getCurrentAngle was invoked, returning 45
+11.157,0.485,robot,getCurrentAngle was invoked, returning 45
+11.158,0.603,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.160,1.716,Mainline,Ending state machine pass of scanForLine
+11.160,0.645,Mainline,Beginning state machine pass 2
+11.161,0.519,robot,detectLine was called
+11.161,0.545,in detectLine,ods.getLightDetected(), 0.015
+11.162,0.831,in detectLine,returning, false
+11.163,0.560,robot,getCurrentAngle was invoked, returning 45
+11.163,0.513,robot,getCurrentAngle was invoked, returning 45
+11.164,0.548,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.167,2.812,Mainline,Ending state machine pass of scanForLine
+11.167,0.659,Mainline,Beginning state machine pass 2
+11.168,0.563,robot,detectLine was called
+11.168,0.506,in detectLine,ods.getLightDetected(), 0.015
+11.169,0.744,in detectLine,returning, false
+11.170,0.570,robot,getCurrentAngle was invoked, returning 45
+11.170,0.485,robot,getCurrentAngle was invoked, returning 45
+11.171,0.516,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.172,1.310,Mainline,Ending state machine pass of scanForLine
+11.173,0.657,Mainline,Beginning state machine pass 2
+11.173,0.659,robot,detectLine was called
+11.174,0.803,in detectLine,ods.getLightDetected(), 0.015
+11.175,0.696,in detectLine,returning, false
+11.175,0.589,robot,getCurrentAngle was invoked, returning 45
+11.176,0.458,robot,getCurrentAngle was invoked, returning 45
+11.176,0.546,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.178,1.178,Mainline,Ending state machine pass of scanForLine
+11.178,0.737,Mainline,Beginning state machine pass 2
+11.179,0.600,robot,detectLine was called
+11.179,0.518,in detectLine,ods.getLightDetected(), 0.015
+11.180,0.732,in detectLine,returning, false
+11.181,0.607,robot,getCurrentAngle was invoked, returning 45
+11.181,0.447,robot,getCurrentAngle was invoked, returning 45
+11.182,0.642,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.183,1.354,Mainline,Ending state machine pass of scanForLine
+11.184,0.596,Mainline,Beginning state machine pass 2
+11.184,0.575,robot,detectLine was called
+11.185,0.458,in detectLine,ods.getLightDetected(), 0.015
+11.186,0.715,in detectLine,returning, false
+11.186,0.569,robot,getCurrentAngle was invoked, returning 45
+11.187,0.406,robot,getCurrentAngle was invoked, returning 45
+11.187,0.523,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.188,1.252,Mainline,Ending state machine pass of scanForLine
+11.189,0.954,Mainline,Beginning state machine pass 2
+11.190,0.610,robot,detectLine was called
+11.190,0.557,in detectLine,ods.getLightDetected(), 0.015
+11.191,0.760,in detectLine,returning, false
+11.192,0.834,robot,getCurrentAngle was invoked, returning 45
+11.193,0.461,robot,getCurrentAngle was invoked, returning 45
+11.193,0.577,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.195,2.010,Mainline,Ending state machine pass of scanForLine
+11.196,0.622,Mainline,Beginning state machine pass 2
+11.196,0.658,robot,detectLine was called
+11.197,0.419,in detectLine,ods.getLightDetected(), 0.015
+11.197,0.631,in detectLine,returning, false
+11.198,0.557,robot,getCurrentAngle was invoked, returning 45
+11.199,0.791,robot,getCurrentAngle was invoked, returning 45
+11.199,0.660,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.201,1.907,Mainline,Ending state machine pass of scanForLine
+11.202,0.801,Mainline,Beginning state machine pass 2
+11.203,0.564,robot,detectLine was called
+11.203,0.540,in detectLine,ods.getLightDetected(), 0.015
+11.204,0.758,in detectLine,returning, false
+11.205,0.617,robot,getCurrentAngle was invoked, returning 45
+11.205,0.463,robot,getCurrentAngle was invoked, returning 45
+11.206,0.544,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.207,1.613,Mainline,Ending state machine pass of scanForLine
+11.208,0.637,Mainline,Beginning state machine pass 2
+11.209,0.625,robot,detectLine was called
+11.209,0.601,in detectLine,ods.getLightDetected(), 0.015
+11.210,0.886,in detectLine,returning, false
+11.211,0.954,robot,getCurrentAngle was invoked, returning 45
+11.211,0.503,robot,getCurrentAngle was invoked, returning 45
+11.212,0.682,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.215,2.539,Mainline,Ending state machine pass of scanForLine
+11.215,0.623,Mainline,Beginning state machine pass 2
+11.216,0.547,robot,detectLine was called
+11.216,0.488,in detectLine,ods.getLightDetected(), 0.015
+11.221,4.540,in detectLine,returning, false
+11.222,1.060,robot,getCurrentAngle was invoked, returning 45
+11.224,1.735,robot,getCurrentAngle was invoked, returning 45
+11.224,0.706,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.226,1.283,Mainline,Ending state machine pass of scanForLine
+11.228,1.946,Mainline,Beginning state machine pass 2
+11.228,0.726,robot,detectLine was called
+11.229,0.891,in detectLine,ods.getLightDetected(), 0.014
+11.230,0.758,in detectLine,returning, false
+11.231,0.907,robot,getCurrentAngle was invoked, returning 45
+11.232,1.085,robot,getCurrentAngle was invoked, returning 45
+11.233,0.821,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.234,1.627,Mainline,Ending state machine pass of scanForLine
+11.235,0.897,Mainline,Beginning state machine pass 2
+11.236,0.556,robot,detectLine was called
+11.236,0.500,in detectLine,ods.getLightDetected(), 0.014
+11.237,1.081,in detectLine,returning, false
+11.238,0.932,robot,getCurrentAngle was invoked, returning 45
+11.239,0.474,robot,getCurrentAngle was invoked, returning 45
+11.240,0.702,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.243,3.552,Mainline,Ending state machine pass of scanForLine
+11.244,0.978,Mainline,Beginning state machine pass 2
+11.245,0.518,robot,detectLine was called
+11.245,0.752,in detectLine,ods.getLightDetected(), 0.014
+11.246,0.686,in detectLine,returning, false
+11.247,0.793,robot,getCurrentAngle was invoked, returning 45
+11.248,1.359,robot,getCurrentAngle was invoked, returning 45
+11.249,0.849,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.251,1.856,Mainline,Ending state machine pass of scanForLine
+11.252,0.813,Mainline,Beginning state machine pass 2
+11.252,0.599,robot,detectLine was called
+11.254,1.272,in detectLine,ods.getLightDetected(), 0.014
+11.254,0.777,in detectLine,returning, false
+11.255,1.012,robot,getCurrentAngle was invoked, returning 45
+11.256,0.515,robot,getCurrentAngle was invoked, returning 45
+11.257,1.435,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.260,2.842,Mainline,Ending state machine pass of scanForLine
+11.261,1.280,Mainline,Beginning state machine pass 2
+11.262,0.736,robot,detectLine was called
+11.263,0.727,in detectLine,ods.getLightDetected(), 0.014
+11.264,1.203,in detectLine,returning, false
+11.265,0.870,robot,getCurrentAngle was invoked, returning 45
+11.266,0.612,robot,getCurrentAngle was invoked, returning 45
+11.266,0.722,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.268,1.773,Mainline,Ending state machine pass of scanForLine
+11.269,1.169,Mainline,Beginning state machine pass 2
+11.270,0.797,robot,detectLine was called
+11.271,0.665,in detectLine,ods.getLightDetected(), 0.014
+11.272,1.059,in detectLine,returning, false
+11.273,0.727,robot,getCurrentAngle was invoked, returning 45
+11.273,0.515,robot,getCurrentAngle was invoked, returning 45
+11.274,0.950,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.276,1.859,Mainline,Ending state machine pass of scanForLine
+11.277,0.791,Mainline,Beginning state machine pass 2
+11.277,0.573,robot,detectLine was called
+11.278,0.650,in detectLine,ods.getLightDetected(), 0.014
+11.279,0.759,in detectLine,returning, false
+11.280,1.121,robot,getCurrentAngle was invoked, returning 45
+11.280,0.564,robot,getCurrentAngle was invoked, returning 45
+11.281,1.009,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.283,2.104,Mainline,Ending state machine pass of scanForLine
+11.285,1.852,Mainline,Beginning state machine pass 2
+11.286,0.942,robot,detectLine was called
+11.287,0.978,in detectLine,ods.getLightDetected(), 0.014
+11.288,0.996,in detectLine,returning, false
+11.289,0.857,robot,getCurrentAngle was invoked, returning 45
+11.290,0.846,robot,getCurrentAngle was invoked, returning 45
+11.291,0.834,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.293,2.404,Mainline,Ending state machine pass of scanForLine
+11.294,0.959,Mainline,Beginning state machine pass 2
+11.295,0.577,robot,detectLine was called
+11.296,1.114,in detectLine,ods.getLightDetected(), 0.014
+11.297,0.732,in detectLine,returning, false
+11.297,0.955,robot,getCurrentAngle was invoked, returning 45
+11.298,0.530,robot,getCurrentAngle was invoked, returning 45
+11.299,0.691,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.302,3.138,Mainline,Ending state machine pass of scanForLine
+11.303,0.935,Mainline,Beginning state machine pass 2
+11.303,0.520,robot,detectLine was called
+11.304,0.568,in detectLine,ods.getLightDetected(), 0.014
+11.305,0.666,in detectLine,returning, false
+11.305,0.701,robot,getCurrentAngle was invoked, returning 45
+11.306,0.870,robot,getCurrentAngle was invoked, returning 45
+11.307,0.722,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.308,1.282,Mainline,Ending state machine pass of scanForLine
+11.309,0.741,Mainline,Beginning state machine pass 2
+11.309,0.567,robot,detectLine was called
+11.310,0.793,in detectLine,ods.getLightDetected(), 0.014
+11.311,1.204,in detectLine,returning, false
+11.312,0.902,robot,getCurrentAngle was invoked, returning 45
+11.313,0.478,robot,getCurrentAngle was invoked, returning 45
+11.314,0.877,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.315,1.822,Mainline,Ending state machine pass of scanForLine
+11.316,0.932,Mainline,Beginning state machine pass 2
+11.317,0.576,robot,detectLine was called
+11.318,0.624,in detectLine,ods.getLightDetected(), 0.014
+11.318,0.756,in detectLine,returning, false
+11.319,0.849,robot,getCurrentAngle was invoked, returning 45
+11.320,0.485,robot,getCurrentAngle was invoked, returning 45
+11.320,0.720,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.322,1.898,Mainline,Ending state machine pass of scanForLine
+11.323,0.883,Mainline,Beginning state machine pass 2
+11.324,0.591,robot,detectLine was called
+11.324,0.663,in detectLine,ods.getLightDetected(), 0.014
+11.325,0.734,in detectLine,returning, false
+11.326,0.823,robot,getCurrentAngle was invoked, returning 45
+11.327,0.505,robot,getCurrentAngle was invoked, returning 45
+11.328,1.393,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.329,1.276,Mainline,Ending state machine pass of scanForLine
+11.330,0.849,Mainline,Beginning state machine pass 2
+11.331,0.521,robot,detectLine was called
+11.331,0.638,in detectLine,ods.getLightDetected(), 0.014
+11.332,1.275,in detectLine,returning, false
+11.333,0.799,robot,getCurrentAngle was invoked, returning 45
+11.334,0.474,robot,getCurrentAngle was invoked, returning 45
+11.334,0.758,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.336,1.201,Mainline,Ending state machine pass of scanForLine
+11.336,0.738,Mainline,Beginning state machine pass 2
+11.337,0.765,robot,detectLine was called
+11.338,1.176,in detectLine,ods.getLightDetected(), 0.014
+11.339,0.716,in detectLine,returning, false
+11.340,0.713,robot,getCurrentAngle was invoked, returning 45
+11.340,0.486,robot,getCurrentAngle was invoked, returning 45
+11.341,0.692,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.342,1.421,Mainline,Ending state machine pass of scanForLine
+11.344,1.216,Mainline,Beginning state machine pass 2
+11.344,0.560,robot,detectLine was called
+11.345,0.887,in detectLine,ods.getLightDetected(), 0.014
+11.346,0.726,in detectLine,returning, false
+11.347,0.718,robot,getCurrentAngle was invoked, returning 45
+11.347,0.438,robot,getCurrentAngle was invoked, returning 45
+11.348,0.879,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.350,1.737,Mainline,Ending state machine pass of scanForLine
+11.350,0.782,Mainline,Beginning state machine pass 2
+11.351,0.488,robot,detectLine was called
+11.351,0.517,in detectLine,ods.getLightDetected(), 0.014
+11.352,1.004,in detectLine,returning, false
+11.353,0.893,robot,getCurrentAngle was invoked, returning 45
+11.354,0.894,robot,getCurrentAngle was invoked, returning 45
+11.355,0.872,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.357,1.639,Mainline,Ending state machine pass of scanForLine
+11.358,1.065,Mainline,Beginning state machine pass 2
+11.358,0.605,robot,detectLine was called
+11.359,1.105,in detectLine,ods.getLightDetected(), 0.014
+11.360,0.742,in detectLine,returning, false
+11.361,0.895,robot,getCurrentAngle was invoked, returning 45
+11.362,0.527,robot,getCurrentAngle was invoked, returning 45
+11.362,0.783,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.364,1.311,Mainline,Ending state machine pass of scanForLine
+11.365,1.406,Mainline,Beginning state machine pass 2
+11.366,0.788,robot,detectLine was called
+11.367,0.649,in detectLine,ods.getLightDetected(), 0.014
+11.368,0.974,in detectLine,returning, false
+11.368,0.840,robot,getCurrentAngle was invoked, returning 45
+11.369,0.463,robot,getCurrentAngle was invoked, returning 45
+11.370,0.805,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.371,1.440,Mainline,Ending state machine pass of scanForLine
+11.372,0.952,Mainline,Beginning state machine pass 2
+11.373,0.592,robot,detectLine was called
+11.373,0.773,in detectLine,ods.getLightDetected(), 0.014
+11.374,0.702,in detectLine,returning, false
+11.375,0.875,robot,getCurrentAngle was invoked, returning 45
+11.375,0.465,robot,getCurrentAngle was invoked, returning 45
+11.376,0.811,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.378,1.292,Mainline,Ending state machine pass of scanForLine
+11.378,0.882,Mainline,Beginning state machine pass 2
+11.379,0.559,robot,detectLine was called
+11.380,0.655,in detectLine,ods.getLightDetected(), 0.014
+11.381,1.098,in detectLine,returning, false
+11.382,0.841,robot,getCurrentAngle was invoked, returning 45
+11.382,0.559,robot,getCurrentAngle was invoked, returning 45
+11.383,1.282,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.385,1.467,Mainline,Ending state machine pass of scanForLine
+11.386,1.311,Mainline,Beginning state machine pass 2
+11.387,0.564,robot,detectLine was called
+11.387,0.656,in detectLine,ods.getLightDetected(), 0.014
+11.388,0.807,in detectLine,returning, false
+11.389,0.858,robot,getCurrentAngle was invoked, returning 45
+11.390,0.566,robot,getCurrentAngle was invoked, returning 45
+11.390,0.698,robot,ultramove powers are fl:fr:bl:br, 0.39, 0.00, 0.00, 0.40
+11.394,3.348,Mainline,Ending state machine pass of scanForLine
+11.395,0.868,Mainline,Beginning state machine pass 2
+11.395,0.595,robot,detectLine was called
+11.396,0.455,in detectLine,ods.getLightDetected(), 0.014
+11.397,1.106,in detectLine,returning, false
+11.397,0.762,robot,getCurrentAngle was invoked, returning 45
+11.398,0.502,robot,getCurrentAngle was invoked, returning 45
+11.399,0.659,robot,ultramove powers are fl:fr:bl:br, 0.40, 0.00, 0.00, 0.39
+11.430,31.270,Mainline,Ending state machine pass of scanForLine
+11.431,0.903,Mainline,Beginning state machine pass 2
+11.432,0.810,robot,detectLine was called
+11.432,0.652,in detectLine,ods.getLightDetected(), 0.014
+11.434,1.567,in detectLine,returning, false
+11.435,1.129,robot,getCurrentAngle was invoked, returning 45
+11.436,1.164,robot,getCurrentAngle was invoked, returning 45
+11.437,1.391,robot,ultramove powers are fl:fr:bl:br, 0.40, 0.00, 0.00, 0.39
+11.442,4.973,Mainline,Ending state machine pass of scanForLine
+11.444,1.099,Mainline,Beginning state machine pass 2
+11.444,0.826,robot,detectLine was called
+11.445,0.959,in detectLine,ods.getLightDetected(), 0.014
+11.446,1.126,in detectLine,returning, false
+11.448,1.160,robot,getCurrentAngle was invoked, returning 45
+11.448,0.774,robot,getCurrentAngle was invoked, returning 45
+11.450,1.172,robot,ultramove powers are fl:fr:bl:br, 0.40, 0.00, 0.00, 0.39
+11.455,5.158,Mainline,Ending state machine pass of scanForLine
+11.456,0.872,Mainline,Beginning state machine pass 2
+11.458,2.635,robot,detectLine was called
+11.460,1.291,in detectLine,ods.getLightDetected(), 0.014
+11.461,1.815,in detectLine,returning, false
+11.462,0.732,robot,getCurrentAngle was invoked, returning 45
+11.463,0.618,robot,getCurrentAngle was invoked, returning 45
+11.463,0.560,robot,ultramove powers are fl:fr:bl:br, 0.40, 0.00, 0.00, 0.39
+11.464,1.226,Mainline,Ending state machine pass of scanForLine
+11.465,1.000,Mainline,Beginning state machine pass 2
+11.472,6.182,robot,detectLine was called
+11.473,1.317,in detectLine,ods.getLightDetected(), 0.014
+11.475,1.533,in detectLine,returning, false
+11.475,0.721,robot,getCurrentAngle was invoked, returning 45
+11.476,0.519,robot,getCurrentAngle was invoked, returning 45
+11.477,1.416,robot,ultramove powers are fl:fr:bl:br, 0.40, 0.00, 0.00, 0.39
+11.480,2.389,Mainline,Ending state machine pass of scanForLine
+11.481,1.431,Mainline,Beginning state machine pass 2
+11.483,1.510,robot,detectLine was called
+11.483,0.618,in detectLine,ods.getLightDetected(), 0.015
+11.484,1.085,in detectLine,returning, false
+11.485,0.683,robot,getCurrentAngle was invoked, returning 45
+11.486,0.876,robot,getCurrentAngle was invoked, returning 45
+11.488,2.624,robot,ultramove powers are fl:fr:bl:br, 0.40, 0.00, 0.00, 0.39
+11.497,8.456,Mainline,Ending state machine pass of scanForLine
+11.500,2.936,Mainline,Beginning state machine pass 2
+11.502,2.411,robot,detectLine was called
+11.505,2.452,in detectLine,ods.getLightDetected(), 0.015
+11.508,3.375,in detectLine,returning, false
+11.511,2.556,robot,getCurrentAngle was invoked, returning 45
+11.512,1.769,robot,getCurrentAngle was invoked, returning 45
+11.514,1.612,robot,ultramove powers are fl:fr:bl:br, 0.40, 0.00, 0.00, 0.39
+11.522,8.515,Mainline,Ending state machine pass of scanForLine
+11.525,2.836,Mainline,Beginning state machine pass 2
+11.551,25.383,robot,detectLine was called
+11.552,0.966,in detectLine,ods.getLightDetected(), 0.015
+11.553,0.843,in detectLine,returning, false
+11.553,0.732,robot,getCurrentAngle was invoked, returning 45
+11.554,0.585,robot,getCurrentAngle was invoked, returning 45
+11.555,1.607,robot,ultramove powers are fl:fr:bl:br, 0.40, 0.00, 0.00, 0.39
+11.557,1.402,Mainline,Ending state machine pass of scanForLine
+11.558,0.670,Mainline,Beginning state machine pass 2
+11.558,0.785,robot,detectLine was called
+11.559,0.530,in detectLine,ods.getLightDetected(), 0.015
+11.560,0.890,in detectLine,returning, false
+11.561,0.815,robot,getCurrentAngle was invoked, returning 45
+11.561,0.812,robot,getCurrentAngle was invoked, returning 45
+11.562,0.683,robot,ultramove powers are fl:fr:bl:br, 0.40, 0.00, 0.00, 0.39
+11.564,2.350,Mainline,Ending state machine pass of scanForLine
+11.565,0.653,Mainline,Beginning state machine pass 2
+11.566,0.698,robot,detectLine was called
+11.566,0.528,in detectLine,ods.getLightDetected(), 0.015
+11.567,0.837,in detectLine,returning, false
+11.568,0.597,robot,getCurrentAngle was invoked, returning 45
+11.568,0.786,robot,getCurrentAngle was invoked, returning 45
+11.569,0.602,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.39
+11.608,39.018,Mainline,Ending state machine pass of scanForLine
+11.609,0.644,Mainline,Beginning state machine pass 2
+11.610,0.787,robot,detectLine was called
+11.610,0.621,in detectLine,ods.getLightDetected(), 0.014
+11.611,1.131,in detectLine,returning, false
+11.612,1.037,robot,getCurrentAngle was invoked, returning 45
+11.613,0.483,robot,getCurrentAngle was invoked, returning 45
+11.614,1.422,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.39
+11.617,3.088,Mainline,Ending state machine pass of scanForLine
+11.619,1.387,Mainline,Beginning state machine pass 2
+11.621,2.213,robot,detectLine was called
+11.622,0.960,in detectLine,ods.getLightDetected(), 0.014
+11.623,1.293,in detectLine,returning, false
+11.624,1.333,robot,getCurrentAngle was invoked, returning 45
+11.625,0.620,robot,getCurrentAngle was invoked, returning 45
+11.626,1.060,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.39
+11.628,2.120,Mainline,Ending state machine pass of scanForLine
+11.630,1.279,Mainline,Beginning state machine pass 2
+11.631,1.046,robot,detectLine was called
+11.632,1.075,in detectLine,ods.getLightDetected(), 0.014
+11.633,1.532,in detectLine,returning, false
+11.634,1.191,robot,getCurrentAngle was invoked, returning 45
+11.635,0.783,robot,getCurrentAngle was invoked, returning 45
+11.636,0.737,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.39
+11.639,3.486,Mainline,Ending state machine pass of scanForLine
+11.641,1.163,Mainline,Beginning state machine pass 2
+11.641,0.697,robot,detectLine was called
+11.642,0.975,in detectLine,ods.getLightDetected(), 0.014
+11.643,0.788,in detectLine,returning, false
+11.644,0.709,robot,getCurrentAngle was invoked, returning 45
+11.645,0.918,robot,getCurrentAngle was invoked, returning 45
+11.646,0.890,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+11.671,24.953,Mainline,Ending state machine pass of scanForLine
+11.671,0.768,Mainline,Beginning state machine pass 2
+11.672,1.012,robot,detectLine was called
+11.673,0.578,in detectLine,ods.getLightDetected(), 0.014
+11.674,0.882,in detectLine,returning, false
+11.675,1.661,robot,getCurrentAngle was invoked, returning 45
+11.676,0.964,robot,getCurrentAngle was invoked, returning 45
+11.677,0.798,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+11.679,1.861,Mainline,Ending state machine pass of scanForLine
+11.680,0.621,Mainline,Beginning state machine pass 2
+11.681,1.673,robot,detectLine was called
+11.682,0.884,in detectLine,ods.getLightDetected(), 0.014
+11.683,1.175,in detectLine,returning, false
+11.686,2.350,robot,getCurrentAngle was invoked, returning 45
+11.687,0.892,robot,getCurrentAngle was invoked, returning 45
+11.688,1.192,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+11.691,2.759,Mainline,Ending state machine pass of scanForLine
+11.694,3.096,Mainline,Beginning state machine pass 2
+11.696,1.856,robot,detectLine was called
+11.697,1.400,in detectLine,ods.getLightDetected(), 0.014
+11.699,2.498,in detectLine,returning, false
+11.701,1.647,robot,getCurrentAngle was invoked, returning 45
+11.703,1.528,robot,getCurrentAngle was invoked, returning 45
+11.704,0.974,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+11.708,3.988,Mainline,Ending state machine pass of scanForLine
+11.709,1.104,Mainline,Beginning state machine pass 2
+11.710,0.893,robot,detectLine was called
+11.713,3.234,in detectLine,ods.getLightDetected(), 0.014
+11.714,1.602,in detectLine,returning, false
+11.715,0.813,robot,getCurrentAngle was invoked, returning 45
+11.717,1.516,robot,getCurrentAngle was invoked, returning 45
+11.719,2.345,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+11.722,2.504,Mainline,Ending state machine pass of scanForLine
+11.723,1.102,Mainline,Beginning state machine pass 2
+11.723,0.813,robot,detectLine was called
+11.724,0.763,in detectLine,ods.getLightDetected(), 0.014
+11.725,1.143,in detectLine,returning, false
+11.726,0.871,robot,getCurrentAngle was invoked, returning 45
+11.728,1.308,robot,getCurrentAngle was invoked, returning 45
+11.729,1.465,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+11.731,2.319,Mainline,Ending state machine pass of scanForLine
+11.734,2.700,Mainline,Beginning state machine pass 2
+11.735,0.813,robot,detectLine was called
+11.735,0.577,in detectLine,ods.getLightDetected(), 0.014
+11.737,1.833,in detectLine,returning, false
+11.738,0.951,robot,getCurrentAngle was invoked, returning 45
+11.739,0.846,robot,getCurrentAngle was invoked, returning 45
+11.740,0.843,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+11.743,2.634,Mainline,Ending state machine pass of scanForLine
+11.743,0.684,Mainline,Beginning state machine pass 2
+11.744,0.833,robot,detectLine was called
+11.745,0.822,in detectLine,ods.getLightDetected(), 0.014
+11.746,0.986,in detectLine,returning, false
+11.747,0.991,robot,getCurrentAngle was invoked, returning 45
+11.748,0.710,robot,getCurrentAngle was invoked, returning 45
+11.749,1.183,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+11.751,1.967,Mainline,Ending state machine pass of scanForLine
+11.751,0.656,Mainline,Beginning state machine pass 2
+11.752,1.010,robot,detectLine was called
+11.753,0.623,in detectLine,ods.getLightDetected(), 0.014
+11.755,1.486,in detectLine,returning, false
+11.755,0.797,robot,getCurrentAngle was invoked, returning 45
+11.756,1.024,robot,getCurrentAngle was invoked, returning 45
+11.757,0.660,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+11.759,2.091,Mainline,Ending state machine pass of scanForLine
+11.760,0.630,Mainline,Beginning state machine pass 2
+11.761,1.194,robot,detectLine was called
+11.761,0.568,in detectLine,ods.getLightDetected(), 0.014
+11.763,1.990,in detectLine,returning, false
+11.765,1.277,robot,getCurrentAngle was invoked, returning 45
+11.765,0.679,robot,getCurrentAngle was invoked, returning 45
+11.766,0.609,robot,ultramove powers are fl:fr:bl:br, 0.01, -0.41, -0.38, -0.01
+11.839,72.515,Mainline,Ending state machine pass of scanForLine
+11.839,0.814,Mainline,Beginning state machine pass 2
+11.840,0.608,robot,detectLine was called
+11.841,0.602,in detectLine,ods.getLightDetected(), 0.014
+11.842,1.289,in detectLine,returning, false
+11.843,0.864,robot,getCurrentAngle was invoked, returning 45
+11.843,0.752,robot,getCurrentAngle was invoked, returning 45
+11.844,0.593,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+11.923,78.935,Mainline,Ending state machine pass of scanForLine
+11.924,0.877,Mainline,Beginning state machine pass 2
+11.925,0.821,robot,detectLine was called
+11.925,0.608,in detectLine,ods.getLightDetected(), 0.014
+11.926,1.041,in detectLine,returning, false
+11.927,0.864,robot,getCurrentAngle was invoked, returning 45
+11.928,1.062,robot,getCurrentAngle was invoked, returning 45
+11.929,0.917,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+11.933,3.308,Mainline,Ending state machine pass of scanForLine
+11.934,1.223,Mainline,Beginning state machine pass 2
+11.935,1.472,robot,detectLine was called
+11.936,0.697,in detectLine,ods.getLightDetected(), 0.015
+11.937,1.466,in detectLine,returning, false
+11.938,0.740,robot,getCurrentAngle was invoked, returning 45
+11.939,0.839,robot,getCurrentAngle was invoked, returning 45
+11.940,0.727,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+11.943,3.044,Mainline,Ending state machine pass of scanForLine
+11.945,1.928,Mainline,Beginning state machine pass 2
+11.946,1.197,robot,detectLine was called
+11.947,1.557,in detectLine,ods.getLightDetected(), 0.015
+11.949,1.143,in detectLine,returning, false
+11.949,0.665,robot,getCurrentAngle was invoked, returning 45
+11.950,1.220,robot,getCurrentAngle was invoked, returning 45
+11.951,0.852,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+11.956,4.586,Mainline,Ending state machine pass of scanForLine
+11.957,0.882,Mainline,Beginning state machine pass 2
+11.958,0.899,robot,detectLine was called
+11.959,0.947,in detectLine,ods.getLightDetected(), 0.015
+11.960,1.344,in detectLine,returning, false
+11.963,2.747,robot,getCurrentAngle was invoked, returning 45
+11.964,1.007,robot,getCurrentAngle was invoked, returning 45
+11.966,2.456,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+11.970,3.675,Mainline,Ending state machine pass of scanForLine
+11.971,1.377,Mainline,Beginning state machine pass 2
+11.973,2.124,robot,detectLine was called
+11.974,0.737,in detectLine,ods.getLightDetected(), 0.015
+11.975,1.175,in detectLine,returning, false
+11.977,1.884,robot,getCurrentAngle was invoked, returning 45
+11.978,0.793,robot,getCurrentAngle was invoked, returning 45
+11.980,1.641,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+11.982,2.349,Mainline,Ending state machine pass of scanForLine
+11.983,0.897,Mainline,Beginning state machine pass 2
+11.984,1.304,robot,detectLine was called
+11.985,0.542,in detectLine,ods.getLightDetected(), 0.015
+11.986,1.231,in detectLine,returning, false
+11.987,0.640,robot,getCurrentAngle was invoked, returning 45
+11.987,0.610,robot,getCurrentAngle was invoked, returning 45
+11.988,0.591,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+11.990,1.877,Mainline,Ending state machine pass of scanForLine
+11.990,0.702,Mainline,Beginning state machine pass 2
+11.991,0.991,robot,detectLine was called
+11.992,0.794,in detectLine,ods.getLightDetected(), 0.015
+11.993,0.785,in detectLine,returning, false
+11.994,1.382,robot,getCurrentAngle was invoked, returning 45
+11.995,0.541,robot,getCurrentAngle was invoked, returning 45
+11.996,0.984,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+11.997,1.718,Mainline,Ending state machine pass of scanForLine
+11.998,0.701,Mainline,Beginning state machine pass 2
+11.999,0.900,robot,detectLine was called
+12.000,0.525,in detectLine,ods.getLightDetected(), 0.015
+12.000,0.844,in detectLine,returning, false
+12.001,0.819,robot,getCurrentAngle was invoked, returning 45
+12.002,0.726,robot,getCurrentAngle was invoked, returning 45
+12.004,2.182,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.006,2.192,Mainline,Ending state machine pass of scanForLine
+12.007,0.634,Mainline,Beginning state machine pass 2
+12.008,0.997,robot,detectLine was called
+12.009,0.554,in detectLine,ods.getLightDetected(), 0.015
+12.010,1.044,in detectLine,returning, false
+12.010,0.696,robot,getCurrentAngle was invoked, returning 45
+12.011,0.664,robot,getCurrentAngle was invoked, returning 45
+12.012,0.911,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.013,1.526,Mainline,Ending state machine pass of scanForLine
+12.014,0.857,Mainline,Beginning state machine pass 2
+12.015,0.724,robot,detectLine was called
+12.016,0.884,in detectLine,ods.getLightDetected(), 0.015
+12.017,0.858,in detectLine,returning, false
+12.018,0.778,robot,getCurrentAngle was invoked, returning 45
+12.018,0.736,robot,getCurrentAngle was invoked, returning 45
+12.019,0.815,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.021,1.470,Mainline,Ending state machine pass of scanForLine
+12.021,0.793,Mainline,Beginning state machine pass 2
+12.022,1.088,robot,detectLine was called
+12.023,0.688,in detectLine,ods.getLightDetected(), 0.015
+12.024,1.243,in detectLine,returning, false
+12.025,0.786,robot,getCurrentAngle was invoked, returning 45
+12.026,0.745,robot,getCurrentAngle was invoked, returning 45
+12.027,1.355,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.029,1.954,Mainline,Ending state machine pass of scanForLine
+12.030,1.294,Mainline,Beginning state machine pass 2
+12.032,1.174,robot,detectLine was called
+12.033,1.110,in detectLine,ods.getLightDetected(), 0.015
+12.034,1.687,in detectLine,returning, false
+12.036,1.080,robot,getCurrentAngle was invoked, returning 45
+12.037,1.487,robot,getCurrentAngle was invoked, returning 45
+12.038,0.988,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.041,2.579,Mainline,Ending state machine pass of scanForLine
+12.041,0.817,Mainline,Beginning state machine pass 2
+12.043,1.326,robot,detectLine was called
+12.044,0.805,in detectLine,ods.getLightDetected(), 0.015
+12.045,1.163,in detectLine,returning, false
+12.045,0.781,robot,getCurrentAngle was invoked, returning 45
+12.047,1.056,robot,getCurrentAngle was invoked, returning 45
+12.047,0.770,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.050,2.273,Mainline,Ending state machine pass of scanForLine
+12.051,1.793,Mainline,Beginning state machine pass 2
+12.053,1.291,robot,detectLine was called
+12.053,0.720,in detectLine,ods.getLightDetected(), 0.015
+12.055,1.195,in detectLine,returning, false
+12.055,0.759,robot,getCurrentAngle was invoked, returning 45
+12.056,1.039,robot,getCurrentAngle was invoked, returning 45
+12.059,2.344,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.061,2.622,Mainline,Ending state machine pass of scanForLine
+12.062,1.142,Mainline,Beginning state machine pass 2
+12.063,0.748,robot,detectLine was called
+12.065,1.304,in detectLine,ods.getLightDetected(), 0.015
+12.066,0.982,in detectLine,returning, false
+12.067,1.060,robot,getCurrentAngle was invoked, returning 45
+12.067,0.903,robot,getCurrentAngle was invoked, returning 45
+12.068,0.937,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.072,3.729,Mainline,Ending state machine pass of scanForLine
+12.073,0.912,Mainline,Beginning state machine pass 2
+12.074,1.080,robot,detectLine was called
+12.075,0.733,in detectLine,ods.getLightDetected(), 0.015
+12.076,0.791,in detectLine,returning, false
+12.077,1.117,robot,getCurrentAngle was invoked, returning 45
+12.078,0.869,robot,getCurrentAngle was invoked, returning 45
+12.079,1.183,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.082,2.932,Mainline,Ending state machine pass of scanForLine
+12.083,1.135,Mainline,Beginning state machine pass 2
+12.084,0.686,robot,detectLine was called
+12.085,0.962,in detectLine,ods.getLightDetected(), 0.015
+12.086,1.009,in detectLine,returning, false
+12.087,0.993,robot,getCurrentAngle was invoked, returning 45
+12.087,0.780,robot,getCurrentAngle was invoked, returning 45
+12.088,0.965,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.090,1.858,Mainline,Ending state machine pass of scanForLine
+12.091,0.972,Mainline,Beginning state machine pass 2
+12.092,1.218,robot,detectLine was called
+12.093,0.729,in detectLine,ods.getLightDetected(), 0.015
+12.094,1.100,in detectLine,returning, false
+12.095,0.719,robot,getCurrentAngle was invoked, returning 45
+12.096,0.786,robot,getCurrentAngle was invoked, returning 45
+12.097,1.076,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.099,2.527,Mainline,Ending state machine pass of scanForLine
+12.101,1.435,Mainline,Beginning state machine pass 2
+12.102,0.869,robot,detectLine was called
+12.102,0.842,in detectLine,ods.getLightDetected(), 0.015
+12.103,0.851,in detectLine,returning, false
+12.104,1.150,robot,getCurrentAngle was invoked, returning 45
+12.105,0.627,robot,getCurrentAngle was invoked, returning 45
+12.106,0.876,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.108,2.116,Mainline,Ending state machine pass of scanForLine
+12.109,0.906,Mainline,Beginning state machine pass 2
+12.110,0.619,robot,detectLine was called
+12.110,0.877,in detectLine,ods.getLightDetected(), 0.015
+12.112,1.818,in detectLine,returning, false
+12.114,1.603,robot,getCurrentAngle was invoked, returning 45
+12.115,1.209,robot,getCurrentAngle was invoked, returning 45
+12.116,0.918,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.118,2.438,Mainline,Ending state machine pass of scanForLine
+12.120,2.002,Mainline,Beginning state machine pass 2
+12.122,1.142,robot,detectLine was called
+12.123,1.896,in detectLine,ods.getLightDetected(), 0.015
+12.126,3.020,in detectLine,returning, false
+12.127,0.951,robot,getCurrentAngle was invoked, returning 45
+12.128,0.535,robot,getCurrentAngle was invoked, returning 45
+12.129,0.888,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.130,1.350,Mainline,Ending state machine pass of scanForLine
+12.131,0.926,Mainline,Beginning state machine pass 2
+12.132,0.836,robot,detectLine was called
+12.133,0.807,in detectLine,ods.getLightDetected(), 0.015
+12.134,0.794,in detectLine,returning, false
+12.134,0.800,robot,getCurrentAngle was invoked, returning 45
+12.135,0.764,robot,getCurrentAngle was invoked, returning 45
+12.136,0.891,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.138,2.223,Mainline,Ending state machine pass of scanForLine
+12.139,1.031,Mainline,Beginning state machine pass 2
+12.140,0.634,robot,detectLine was called
+12.141,0.634,in detectLine,ods.getLightDetected(), 0.015
+12.141,0.851,in detectLine,returning, false
+12.142,0.960,robot,getCurrentAngle was invoked, returning 45
+12.143,0.558,robot,getCurrentAngle was invoked, returning 45
+12.144,0.695,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.145,1.388,Mainline,Ending state machine pass of scanForLine
+12.146,0.840,Mainline,Beginning state machine pass 2
+12.146,0.619,robot,detectLine was called
+12.147,0.666,in detectLine,ods.getLightDetected(), 0.015
+12.148,0.663,in detectLine,returning, false
+12.149,0.769,robot,getCurrentAngle was invoked, returning 45
+12.149,0.536,robot,getCurrentAngle was invoked, returning 45
+12.150,0.723,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.152,1.787,Mainline,Ending state machine pass of scanForLine
+12.153,1.191,Mainline,Beginning state machine pass 2
+12.153,0.667,robot,detectLine was called
+12.154,0.918,in detectLine,ods.getLightDetected(), 0.015
+12.155,0.739,in detectLine,returning, false
+12.158,2.436,robot,getCurrentAngle was invoked, returning 45
+12.159,1.178,robot,getCurrentAngle was invoked, returning 45
+12.160,1.720,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.166,5.412,Mainline,Ending state machine pass of scanForLine
+12.168,2.438,Mainline,Beginning state machine pass 2
+12.169,1.004,robot,detectLine was called
+12.170,1.117,in detectLine,ods.getLightDetected(), 0.015
+12.172,1.532,in detectLine,returning, false
+12.173,1.182,robot,getCurrentAngle was invoked, returning 45
+12.174,0.750,robot,getCurrentAngle was invoked, returning 45
+12.175,1.269,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.178,3.034,Mainline,Ending state machine pass of scanForLine
+12.180,2.057,Mainline,Beginning state machine pass 2
+12.182,1.444,robot,detectLine was called
+12.183,1.153,in detectLine,ods.getLightDetected(), 0.015
+12.185,1.824,in detectLine,returning, false
+12.185,0.810,robot,getCurrentAngle was invoked, returning 45
+12.186,0.833,robot,getCurrentAngle was invoked, returning 45
+12.187,1.112,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.190,2.790,Mainline,Ending state machine pass of scanForLine
+12.193,3.135,Mainline,Beginning state machine pass 2
+12.194,1.003,robot,detectLine was called
+12.196,1.880,in detectLine,ods.getLightDetected(), 0.015
+12.197,0.919,in detectLine,returning, false
+12.220,22.556,robot,getCurrentAngle was invoked, returning 45
+12.221,1.380,robot,getCurrentAngle was invoked, returning 45
+12.223,1.486,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.224,1.686,Mainline,Ending state machine pass of scanForLine
+12.226,1.499,Mainline,Beginning state machine pass 2
+12.226,0.732,robot,detectLine was called
+12.227,0.871,in detectLine,ods.getLightDetected(), 0.015
+12.228,1.012,in detectLine,returning, false
+12.229,0.618,robot,getCurrentAngle was invoked, returning 45
+12.230,1.498,robot,getCurrentAngle was invoked, returning 45
+12.232,1.105,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.235,3.002,Mainline,Ending state machine pass of scanForLine
+12.237,2.211,Mainline,Beginning state machine pass 2
+12.238,0.973,robot,detectLine was called
+12.239,0.894,in detectLine,ods.getLightDetected(), 0.015
+12.240,0.923,in detectLine,returning, false
+12.240,0.635,robot,getCurrentAngle was invoked, returning 45
+12.244,3.743,robot,getCurrentAngle was invoked, returning 45
+12.245,0.731,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.247,1.985,Mainline,Ending state machine pass of scanForLine
+12.248,1.276,Mainline,Beginning state machine pass 2
+12.249,0.638,robot,detectLine was called
+12.249,0.756,in detectLine,ods.getLightDetected(), 0.015
+12.250,1.069,in detectLine,returning, false
+12.251,0.645,robot,getCurrentAngle was invoked, returning 45
+12.252,0.563,robot,getCurrentAngle was invoked, returning 45
+12.254,1.890,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.257,3.012,Mainline,Ending state machine pass of scanForLine
+12.257,0.726,Mainline,Beginning state machine pass 2
+12.259,1.309,robot,detectLine was called
+12.259,0.602,in detectLine,ods.getLightDetected(), 0.015
+12.260,0.629,in detectLine,returning, false
+12.260,0.656,robot,getCurrentAngle was invoked, returning 45
+12.261,0.505,robot,getCurrentAngle was invoked, returning 45
+12.262,0.628,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.263,1.497,Mainline,Ending state machine pass of scanForLine
+12.265,1.706,Mainline,Beginning state machine pass 2
+12.265,0.669,robot,detectLine was called
+12.266,0.635,in detectLine,ods.getLightDetected(), 0.015
+12.267,1.302,in detectLine,returning, false
+12.268,0.640,robot,getCurrentAngle was invoked, returning 45
+12.269,0.907,robot,getCurrentAngle was invoked, returning 45
+12.270,0.652,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.271,1.817,Mainline,Ending state machine pass of scanForLine
+12.272,0.875,Mainline,Beginning state machine pass 2
+12.273,0.520,robot,detectLine was called
+12.273,0.518,in detectLine,ods.getLightDetected(), 0.015
+12.274,0.926,in detectLine,returning, false
+12.275,0.537,robot,getCurrentAngle was invoked, returning 45
+12.275,0.500,robot,getCurrentAngle was invoked, returning 45
+12.276,0.560,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.277,1.300,Mainline,Ending state machine pass of scanForLine
+12.278,0.591,Mainline,Beginning state machine pass 2
+12.278,0.547,robot,detectLine was called
+12.279,0.504,in detectLine,ods.getLightDetected(), 0.015
+12.280,1.117,in detectLine,returning, false
+12.281,0.652,robot,getCurrentAngle was invoked, returning 45
+12.281,0.439,robot,getCurrentAngle was invoked, returning 45
+12.282,0.607,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.283,1.280,Mainline,Ending state machine pass of scanForLine
+12.284,0.622,Mainline,Beginning state machine pass 2
+12.284,0.554,robot,detectLine was called
+12.285,0.479,in detectLine,ods.getLightDetected(), 0.015
+12.286,1.124,in detectLine,returning, false
+12.286,0.631,robot,getCurrentAngle was invoked, returning 45
+12.287,0.412,robot,getCurrentAngle was invoked, returning 45
+12.287,0.552,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.289,1.262,Mainline,Ending state machine pass of scanForLine
+12.289,0.593,Mainline,Beginning state machine pass 2
+12.290,0.515,robot,detectLine was called
+12.290,0.861,in detectLine,ods.getLightDetected(), 0.015
+12.291,0.768,in detectLine,returning, false
+12.292,0.734,robot,getCurrentAngle was invoked, returning 45
+12.293,0.511,robot,getCurrentAngle was invoked, returning 45
+12.293,0.600,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.295,2.010,Mainline,Ending state machine pass of scanForLine
+12.296,1.057,Mainline,Beginning state machine pass 2
+12.297,0.694,robot,detectLine was called
+12.297,0.514,in detectLine,ods.getLightDetected(), 0.015
+12.298,0.672,in detectLine,returning, false
+12.299,0.521,robot,getCurrentAngle was invoked, returning 45
+12.299,0.461,robot,getCurrentAngle was invoked, returning 45
+12.300,0.670,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.302,2.419,Mainline,Ending state machine pass of scanForLine
+12.303,0.727,Mainline,Beginning state machine pass 2
+12.304,1.166,robot,detectLine was called
+12.305,0.512,in detectLine,ods.getLightDetected(), 0.015
+12.305,0.738,in detectLine,returning, false
+12.306,0.916,robot,getCurrentAngle was invoked, returning 45
+12.307,0.510,robot,getCurrentAngle was invoked, returning 45
+12.307,0.562,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.308,1.155,Mainline,Ending state machine pass of scanForLine
+12.309,0.574,Mainline,Beginning state machine pass 2
+12.310,0.531,robot,detectLine was called
+12.310,0.494,in detectLine,ods.getLightDetected(), 0.015
+12.311,0.660,in detectLine,returning, false
+12.312,0.926,robot,getCurrentAngle was invoked, returning 45
+12.312,0.651,robot,getCurrentAngle was invoked, returning 45
+12.313,0.829,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.316,2.613,Mainline,Ending state machine pass of scanForLine
+12.316,0.757,Mainline,Beginning state machine pass 2
+12.317,0.995,robot,detectLine was called
+12.318,0.545,in detectLine,ods.getLightDetected(), 0.015
+12.319,0.753,in detectLine,returning, false
+12.319,0.627,robot,getCurrentAngle was invoked, returning 45
+12.320,0.472,robot,getCurrentAngle was invoked, returning 45
+12.320,0.552,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.323,2.866,Mainline,Ending state machine pass of scanForLine
+12.324,0.700,Mainline,Beginning state machine pass 2
+12.325,0.604,robot,detectLine was called
+12.325,0.541,in detectLine,ods.getLightDetected(), 0.015
+12.326,0.685,in detectLine,returning, false
+12.326,0.511,robot,getCurrentAngle was invoked, returning 45
+12.327,0.407,robot,getCurrentAngle was invoked, returning 45
+12.328,1.261,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.330,1.623,Mainline,Ending state machine pass of scanForLine
+12.330,0.652,Mainline,Beginning state machine pass 2
+12.331,0.571,robot,detectLine was called
+12.331,0.533,in detectLine,ods.getLightDetected(), 0.015
+12.332,0.855,in detectLine,returning, false
+12.333,1.130,robot,getCurrentAngle was invoked, returning 45
+12.334,0.529,robot,getCurrentAngle was invoked, returning 45
+12.335,1.394,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.337,1.485,Mainline,Ending state machine pass of scanForLine
+12.338,1.557,Mainline,Beginning state machine pass 2
+12.339,0.839,robot,detectLine was called
+12.340,0.496,in detectLine,ods.getLightDetected(), 0.015
+12.340,0.745,in detectLine,returning, false
+12.341,0.724,robot,getCurrentAngle was invoked, returning 45
+12.342,0.712,robot,getCurrentAngle was invoked, returning 45
+12.343,0.794,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.344,1.773,Mainline,Ending state machine pass of scanForLine
+12.345,0.586,Mainline,Beginning state machine pass 2
+12.345,0.485,robot,detectLine was called
+12.346,0.433,in detectLine,ods.getLightDetected(), 0.015
+12.347,1.017,in detectLine,returning, false
+12.348,0.876,robot,getCurrentAngle was invoked, returning 45
+12.348,0.438,robot,getCurrentAngle was invoked, returning 45
+12.350,1.710,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.352,1.909,Mainline,Ending state machine pass of scanForLine
+12.352,0.602,Mainline,Beginning state machine pass 2
+12.353,0.530,robot,detectLine was called
+12.354,1.166,in detectLine,ods.getLightDetected(), 0.015
+12.355,0.699,in detectLine,returning, false
+12.355,0.576,robot,getCurrentAngle was invoked, returning 45
+12.356,0.450,robot,getCurrentAngle was invoked, returning 45
+12.356,0.499,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.358,1.680,Mainline,Ending state machine pass of scanForLine
+12.359,0.615,Mainline,Beginning state machine pass 2
+12.359,0.826,robot,detectLine was called
+12.360,0.489,in detectLine,ods.getLightDetected(), 0.015
+12.361,0.617,in detectLine,returning, false
+12.361,0.524,robot,getCurrentAngle was invoked, returning 45
+12.362,0.472,robot,getCurrentAngle was invoked, returning 45
+12.363,1.169,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.364,1.333,Mainline,Ending state machine pass of scanForLine
+12.365,0.929,Mainline,Beginning state machine pass 2
+12.365,0.496,robot,detectLine was called
+12.366,0.438,in detectLine,ods.getLightDetected(), 0.015
+12.367,0.601,in detectLine,returning, false
+12.367,0.494,robot,getCurrentAngle was invoked, returning 45
+12.367,0.387,robot,getCurrentAngle was invoked, returning 45
+12.368,0.490,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.369,1.586,Mainline,Ending state machine pass of scanForLine
+12.370,1.000,Mainline,Beginning state machine pass 2
+12.371,0.559,robot,detectLine was called
+12.372,0.553,in detectLine,ods.getLightDetected(), 0.015
+12.372,0.806,in detectLine,returning, false
+12.373,0.591,robot,getCurrentAngle was invoked, returning 45
+12.373,0.461,robot,getCurrentAngle was invoked, returning 45
+12.374,0.578,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.376,2.280,Mainline,Ending state machine pass of scanForLine
+12.377,0.576,Mainline,Beginning state machine pass 2
+12.377,0.510,robot,detectLine was called
+12.378,0.501,in detectLine,ods.getLightDetected(), 0.015
+12.379,0.660,in detectLine,returning, false
+12.379,0.647,robot,getCurrentAngle was invoked, returning 45
+12.380,0.472,robot,getCurrentAngle was invoked, returning 45
+12.380,0.561,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.382,2.088,Mainline,Ending state machine pass of scanForLine
+12.383,0.646,Mainline,Beginning state machine pass 2
+12.384,0.610,robot,detectLine was called
+12.384,0.556,in detectLine,ods.getLightDetected(), 0.015
+12.385,0.700,in detectLine,returning, false
+12.385,0.587,robot,getCurrentAngle was invoked, returning 45
+12.386,0.867,robot,getCurrentAngle was invoked, returning 45
+12.387,0.535,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.388,1.354,Mainline,Ending state machine pass of scanForLine
+12.389,0.630,Mainline,Beginning state machine pass 2
+12.389,0.573,robot,detectLine was called
+12.390,0.497,in detectLine,ods.getLightDetected(), 0.015
+12.391,0.723,in detectLine,returning, false
+12.392,1.076,robot,getCurrentAngle was invoked, returning 45
+12.392,0.592,robot,getCurrentAngle was invoked, returning 45
+12.393,0.624,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.394,1.425,Mainline,Ending state machine pass of scanForLine
+12.396,1.257,Mainline,Beginning state machine pass 2
+12.397,0.945,robot,detectLine was called
+12.397,0.590,in detectLine,ods.getLightDetected(), 0.015
+12.398,0.700,in detectLine,returning, false
+12.398,0.534,robot,getCurrentAngle was invoked, returning 45
+12.399,0.365,robot,getCurrentAngle was invoked, returning 45
+12.399,0.483,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.401,1.682,Mainline,Ending state machine pass of scanForLine
+12.403,1.918,Mainline,Beginning state machine pass 2
+12.403,0.694,robot,detectLine was called
+12.404,0.519,in detectLine,ods.getLightDetected(), 0.015
+12.405,0.757,in detectLine,returning, false
+12.405,0.580,robot,getCurrentAngle was invoked, returning 45
+12.406,0.460,robot,getCurrentAngle was invoked, returning 45
+12.406,0.575,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.408,1.252,Mainline,Ending state machine pass of scanForLine
+12.409,1.063,Mainline,Beginning state machine pass 2
+12.409,0.544,robot,detectLine was called
+12.410,0.430,in detectLine,ods.getLightDetected(), 0.015
+12.410,0.678,in detectLine,returning, false
+12.411,0.614,robot,getCurrentAngle was invoked, returning 45
+12.411,0.447,robot,getCurrentAngle was invoked, returning 45
+12.412,0.622,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.414,1.608,Mainline,Ending state machine pass of scanForLine
+12.414,0.740,Mainline,Beginning state machine pass 2
+12.415,0.551,robot,detectLine was called
+12.415,0.482,in detectLine,ods.getLightDetected(), 0.015
+12.416,0.700,in detectLine,returning, false
+12.417,0.470,robot,getCurrentAngle was invoked, returning 45
+12.417,0.415,robot,getCurrentAngle was invoked, returning 45
+12.418,0.535,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.420,2.191,Mainline,Ending state machine pass of scanForLine
+12.420,0.725,Mainline,Beginning state machine pass 2
+12.421,0.551,robot,detectLine was called
+12.421,0.454,in detectLine,ods.getLightDetected(), 0.015
+12.422,0.942,in detectLine,returning, false
+12.423,0.724,robot,getCurrentAngle was invoked, returning 45
+12.424,0.524,robot,getCurrentAngle was invoked, returning 45
+12.425,0.952,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.426,1.315,Mainline,Ending state machine pass of scanForLine
+12.427,0.629,Mainline,Beginning state machine pass 2
+12.427,0.524,robot,detectLine was called
+12.428,0.526,in detectLine,ods.getLightDetected(), 0.015
+12.428,0.777,in detectLine,returning, false
+12.429,0.512,robot,getCurrentAngle was invoked, returning 45
+12.430,0.807,robot,getCurrentAngle was invoked, returning 45
+12.430,0.618,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.432,1.957,Mainline,Ending state machine pass of scanForLine
+12.433,0.649,Mainline,Beginning state machine pass 2
+12.433,0.545,robot,detectLine was called
+12.434,0.514,in detectLine,ods.getLightDetected(), 0.015
+12.435,1.058,in detectLine,returning, false
+12.436,0.692,robot,getCurrentAngle was invoked, returning 45
+12.436,0.483,robot,getCurrentAngle was invoked, returning 45
+12.437,0.903,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.438,1.258,Mainline,Ending state machine pass of scanForLine
+12.439,0.610,Mainline,Beginning state machine pass 2
+12.440,0.544,robot,detectLine was called
+12.440,0.847,in detectLine,ods.getLightDetected(), 0.015
+12.441,0.760,in detectLine,returning, false
+12.442,0.848,robot,getCurrentAngle was invoked, returning 45
+12.443,0.528,robot,getCurrentAngle was invoked, returning 45
+12.443,0.563,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.444,1.316,Mainline,Ending state machine pass of scanForLine
+12.445,0.635,Mainline,Beginning state machine pass 2
+12.446,0.938,robot,detectLine was called
+12.447,1.090,in detectLine,ods.getLightDetected(), 0.015
+12.448,0.862,in detectLine,returning, false
+12.448,0.567,robot,getCurrentAngle was invoked, returning 45
+12.449,0.429,robot,getCurrentAngle was invoked, returning 45
+12.452,2.910,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.454,1.882,Mainline,Ending state machine pass of scanForLine
+12.455,0.821,Mainline,Beginning state machine pass 2
+12.455,0.530,robot,detectLine was called
+12.456,0.537,in detectLine,ods.getLightDetected(), 0.015
+12.457,1.816,in detectLine,returning, false
+12.458,0.669,robot,getCurrentAngle was invoked, returning 45
+12.459,0.842,robot,getCurrentAngle was invoked, returning 45
+12.460,1.165,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.462,1.519,Mainline,Ending state machine pass of scanForLine
+12.463,1.365,Mainline,Beginning state machine pass 2
+12.464,0.615,robot,detectLine was called
+12.464,0.515,in detectLine,ods.getLightDetected(), 0.015
+12.465,0.637,in detectLine,returning, false
+12.465,0.581,robot,getCurrentAngle was invoked, returning 45
+12.466,0.447,robot,getCurrentAngle was invoked, returning 45
+12.466,0.543,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.468,1.954,Mainline,Ending state machine pass of scanForLine
+12.469,0.685,Mainline,Beginning state machine pass 2
+12.470,0.672,robot,detectLine was called
+12.470,0.576,in detectLine,ods.getLightDetected(), 0.015
+12.471,1.124,in detectLine,returning, false
+12.472,0.896,robot,getCurrentAngle was invoked, returning 45
+12.473,0.838,robot,getCurrentAngle was invoked, returning 45
+12.474,0.589,robot,ultramove powers are fl:fr:bl:br, 0.41, -0.01, 0.01, 0.38
+12.475,1.820,Mainline,Ending state machine pass of scanForLine
+12.477,1.317,Mainline,Beginning state machine pass 2
+12.478,0.822,robot,detectLine was called
+12.479,1.268,in detectLine,ods.getLightDetected(), 0.015
+12.480,0.872,in detectLine,returning, false
+12.480,0.601,robot,getCurrentAngle was invoked, returning 45
+12.481,0.447,robot,getCurrentAngle was invoked, returning 45
+12.481,0.572,robot,ultramove powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+12.484,2.183,Mainline,Ending state machine pass of scanForLine
+12.484,0.808,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+12.485,0.957,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+12.487,1.461,robot,pushButton was invoked with button 0
+12.487,0.665,autonomous,Done with opmode, exited based on OpmodeIsActive false

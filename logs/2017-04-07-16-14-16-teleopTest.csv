@@ -1,0 +1,72 @@
+sec,d ms,r.init,r.init was invoked (a)
+0.001,0.801,r.init,debug mode is false
+0.002,0.800,robot,pushButton was invoked with button 0
+3.889,3887.096,robot,resetMotorEncoders was called
+3.903,14.161,robot,enableMotorEncoders was called
+3.952,48.981,r.init,r.init finished (a)
+4.018,66.487,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.051,32.248,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.225,174.434,in TeleOp_Revised,top of main loop
+4.226,1.247,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.254,27.324,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.255,1.750,in TeleOp_Revised,top of main loop
+4.257,1.488,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.275,18.070,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.278,2.853,in TeleOp_Revised,top of main loop
+4.279,0.943,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.281,2.096,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.282,1.460,in TeleOp_Revised,top of main loop
+4.283,0.695,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.295,12.155,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.297,1.753,in TeleOp_Revised,top of main loop
+4.298,1.450,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.306,7.844,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.308,1.644,in TeleOp_Revised,top of main loop
+4.309,1.115,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.311,1.847,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.312,1.315,in TeleOp_Revised,top of main loop
+4.313,0.850,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.315,2.216,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.317,1.369,in TeleOp_Revised,top of main loop
+4.317,0.840,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.339,21.484,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.342,3.536,in TeleOp_Revised,top of main loop
+4.343,0.925,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.347,3.135,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.349,2.457,in TeleOp_Revised,top of main loop
+4.350,1.088,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.352,2.074,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.354,1.654,in TeleOp_Revised,top of main loop
+4.355,1.004,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.358,2.944,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.359,1.305,in TeleOp_Revised,top of main loop
+4.360,1.273,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.363,2.224,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.364,1.622,in TeleOp_Revised,top of main loop
+4.365,0.783,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.367,1.793,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.368,1.678,in TeleOp_Revised,top of main loop
+4.369,0.740,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.371,2.122,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.373,1.499,in TeleOp_Revised,top of main loop
+4.374,0.949,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.377,2.828,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.379,2.308,in TeleOp_Revised,top of main loop
+4.380,0.781,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.381,1.843,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.383,1.402,in TeleOp_Revised,top of main loop
+4.384,0.961,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.386,2.278,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.388,1.462,in TeleOp_Revised,top of main loop
+4.388,0.886,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.390,1.921,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.393,2.403,in TeleOp_Revised,top of main loop
+4.394,0.790,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.396,2.041,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.397,1.531,in TeleOp_Revised,top of main loop
+4.398,0.883,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.400,2.169,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.404,4.627,in TeleOp_Revised,top of main loop
+4.406,1.359,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.408,2.212,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.414,5.709,in TeleOp_Revised,top of main loop

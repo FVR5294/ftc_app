@@ -1,0 +1,13 @@
+sec,d ms,r.init,r.init was invoked (a)
+0.001,0.466,r.init,debug mode is false
+0.002,1.071,r.init,colorSensorLineThreshhold is 0.05865102639296188
+0.086,84.063,robot,pushButton was invoked with button 0
+4.672,4586.300,robot,resetMotorEncoders was called
+4.673,1.143,robot,enableMotorEncoders was called
+4.674,0.913,r.init,r.init finished (a)
+4.677,2.670,autonomous,Done with robot.init --- waiting for start in masterV3
+4.678,1.074,autonomous,Started
+4.687,8.967,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+4.689,1.825,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+4.691,2.567,robot,pushButton was invoked with button 0
+4.693,1.755,autonomous,Done with opmode, exited based on OpmodeIsActive false

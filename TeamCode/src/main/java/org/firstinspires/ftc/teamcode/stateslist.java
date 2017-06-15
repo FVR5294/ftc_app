@@ -1,7 +1,5 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.util.ElapsedTime;
-
 import static java.lang.Thread.sleep;
 import static org.firstinspires.ftc.teamcode.measurements.mmPerInch;
 import static org.firstinspires.ftc.teamcode.measurements.pi;
@@ -29,31 +27,9 @@ class stateslist {
     state scanForLine = new state("scanForLine") {
         public void firstTime() {
             robot.move(0, color * 0.2, 0);
-        }
-
-        public void everyTime() {
-            robot.ultramove(0, color * 0.2, 30);
-        }
-
-        public boolean conditionsToCheck() {
-            return robot.detectLine();
-        }
-
-        public void onCompletion() {
-            robot.move(0, 0, 0);
-        }
-    };
-    state scanForLinePart2 = new state("scanForLinePart2") {
-        public void firstTime() {
-            robot.move(0, color * -0.125, 0);
-        }
-
-        public void everyTime() {
-            robot.ultramove(0, color * -0.125, 30);
-        }
-
-        public boolean conditionsToCheck() {
-            return robot.detectLine();
+            while (!robot.detectLine()) {
+                Thread.yield();
+            }
         }
 
         public void onCompletion() {
@@ -63,31 +39,9 @@ class stateslist {
     state scanForLineInverted = new state("scanForLineInverted") {
         public void firstTime() {
             robot.move(0, color * -0.2, 0);
-        }
-
-        public void everyTime() {
-            robot.ultramove(0, color * -0.2, 30);
-        }
-
-        public boolean conditionsToCheck() {
-            return robot.detectLine();
-        }
-
-        public void onCompletion() {
-            robot.move(0, 0, 0);
-        }
-    };
-    state scanForLineInvertedPart2 = new state("scanForLineInvertedPart2") {
-        public void firstTime() {
-            robot.move(0, color * 0.125, 0);
-        }
-
-        public void everyTime() {
-            robot.ultramove(0, color * 0.125, 30);
-        }
-
-        public boolean conditionsToCheck() {
-            return robot.detectLine();
+            while (!robot.detectLine()) {
+                Thread.yield();
+            }
         }
 
         public void onCompletion() {
@@ -170,48 +124,38 @@ class stateslist {
             Thread.yield();
             robot.enableMotorEncoders();
             Thread.yield();
-            robot.move(0.125, 0, 0);
-            robot.spinner.setPower(0);
+            robot.move(0.2, 0, 0);
+            while (!robot.touchBeacon.isPressed()) {
+                Thread.yield();
+            }
+            robot.move(0, 0, 0);
         }
 
         public void everyTime() {
-            robot.ultramove(0.125, 0);
+
         }
 
         public boolean conditionsToCheck() {
-            return robot.touchBeacon.isPressed();
+
+            //robotconfig.addlog(dl, "in driveTowardsBeacon", "checking against robot.touchBeacon.isPressed()");
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in driveTowardsBeacon", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in driveTowardsBeacon", "returning false");
+                    return (false);
+                }
+            } else {
+                return true;
+            }
+
         }
 
         public void onCompletion() {
             robot.move(0, 0, 0);
-            robot.spinner.setPower(0);
-        }
-    };
-
-    state driveTowardsBeacon2 = new state("driveTowardsBeacon2") {
-        ElapsedTime driveToBeaconTime = new ElapsedTime();
-
-        public void firstTime() {
-            robot.move(0.125, 0, 0);
-            driveToBeaconTime.reset();
-        }
-
-        public boolean conditionsToCheck() {
-            robot.pushButton(robot.detectColor() * color);
-            if (driveToBeaconTime.seconds() > 3) {
-                robot.enableEncodersToPosition();
-                Thread.yield();
-                robot.setMotorPower(1);
-                Thread.yield();
-                p.automaticSquareUp(robot);
-                Thread.yield();
-                robot.setMotorPower(0);
-                Thread.yield();
-                robot.enableMotorEncoders();
-                Thread.yield();
-                return true;
-            }
-            return robot.touchBeacon.isPressed();
         }
     };
 
@@ -226,70 +170,56 @@ class stateslist {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }
-    };
-
-    state waitForBeacon = new state("waitForBeacon") {
-        ElapsedTime beaconWaitTime = new ElapsedTime();
-
-        public void firstTime() {
             robot.move(0, 0, 0);
-            beaconWaitTime.reset();
+        }
+
+        public void everyTime() {
+
         }
 
         public boolean conditionsToCheck() {
-            return robot.detectColor() == color || beaconWaitTime.seconds() > 5;
+            return true;
+        }
+
+        public void onCompletion() {
+
         }
     };
-
     /***
      * state makes robot drive forward slightly
      */
     state clearWall = new state("clearWall") {
 
         public void firstTime() {
-            robot.setMyMotorTargets(p.mm2pulses(14 * mmPerInch), 0, 0);
+            //robot.setMyMotorTargets(p.mm2pulses(3 * mmPerInch), 0, 0);
         }
 
         public void everyTime() {
             //robotconfig.addlog(dl, "in clearWall", "error at, " + robot.getErrors());
+            //robot.bettermove();
         }
 
         public boolean conditionsToCheck() {
-            return robot.nbettermove(1, 1);
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in clearWall", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in clearWall", "returning false");
+                    return (false);
+                }
+            } else {
+                return true;
+                //return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+
         }
     };
-
-    state driveNearSecondBeacon = new state("driveNearSecondBeacon") {
-
-        public void firstTime() {
-            robot.increaseMyMotorTargets(p.mm2pulses(24 * mmPerInch), 0, 0);
-        }
-
-        public void everyTime() {
-            //robotconfig.addlog(dl, "in driveNearSecondBeacon", "error at, " + robot.getErrors());
-        }
-
-        public boolean conditionsToCheck() {
-            return robot.nbettermove(1, 1);
-        }
-    };
-
-    state arcToSecondBeacon = new state("arcToSecondBeacon") {
-
-        public void firstTime() {
-            robot.increaseMyMotorArcTargets(color == -1, p.mm2pulses(24 * mmPerInch), 90);
-        }
-
-        public void everyTime() {
-            //robotconfig.addlog(dl, "in arcToSecondBeacon", "error at, " + robot.getErrors());
-        }
-
-        public boolean conditionsToCheck() {
-            return robot.nbettermove(1, 0.2);
-        }
-    };
-
     /***
      * state makes robot arc 90 degrees so it ends up pointed towards the beacon
      */
@@ -348,29 +278,6 @@ class stateslist {
             Thread.yield();
             robot.enableMotorEncoders();
             Thread.yield();
-        }
-    };
-
-    state arcToBeacon = new state("arcToBeacon") {
-
-        public void firstTime() {
-
-            //Inner radius 49.25"
-            //Inner arc length 49.25*pi/2
-            //Outer radius 63.25"
-            //Outer arc length 63.25*pi/2
-            //Mid radius 56.25"
-            //Mid arc length 56.25*pi/2
-
-            robot.increaseMyMotorArcTargets(color == -1, p.mm2pulses(mmPerInch * 3 * 12), 90);
-        }
-
-        public void everyTime() {
-            //robotconfig.addlog(dl, "in arcToBeacon", "error at " + robot.getErrors());
-        }
-
-        public boolean conditionsToCheck() {
-            return robot.nbettermove(1, 0.2);
         }
     };
 
@@ -828,7 +735,7 @@ class stateslist {
         }
 
         public void everyTime() {
-            robot.drunkmove(30);
+            robot.ultramoving(30);
         }
 
         public boolean conditionsToCheck() {
@@ -1009,47 +916,6 @@ class stateslist {
                 }
             } else {
                 return robot.ultramoving(30);
-            }
-        }
-
-        public void onCompletion() {
-            robot.move(0, 0, 0);
-//            robot.enableEncodersToPosition();
-//            Thread.yield();
-//            robot.setMotorPower(1);
-//            Thread.yield();
-//            p.automaticSquareUp(robot);
-//            Thread.yield();
-//            robot.setMotorPower(0);
-//            Thread.yield();
-//            robot.enableMotorEncoders();
-//            Thread.yield();
-        }
-    };
-
-    state slideToTheLeft2 = new state("slideToTheLeft2") {
-        public void firstTime() {
-            robot.setMyMotorTargets(0, color * p.mm2pulses(-54 * mmPerInch), 0);
-        }
-
-        public void everyTime() {
-            robot.drunkmove(30);
-        }
-
-        public boolean conditionsToCheck() {
-            //robotconfig.addlog(dl, "in arcTowardsBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi) + startEncoderPos));
-
-            if (robotconfig.debugMode) {
-                if (this.isFirstTimeDebug) {
-                    robotconfig.addlog(dl, "in slideToTheLeft", "returning true");
-                    return (true);
-                } else {
-                    this.isFirstTimeDebug = true;
-                    robotconfig.addlog(dl, "in slideToTheLeft", "returning false");
-                    return (false);
-                }
-            } else {
-                return robot.drunkmoving(30);
             }
         }
 
@@ -1348,8 +1214,36 @@ class stateslist {
             robot.setMyMotorTargets(0, 0, p.mm2pulses(p.spin2mm(90 * color)));
         }
 
+        public void everyTime() {
+            robot.bettermove();
+        }
+
         public boolean conditionsToCheck() {
-            return robot.nbettermove();
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in rotate90", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in rotate90", "returning false");
+                    return (false);
+                }
+            } else {
+                return robot.bettermoving();
+            }
+        }
+
+        public void onCompletion() {
+            robot.enableEncodersToPosition();
+            Thread.yield();
+            robot.setMotorPower(1);
+            Thread.yield();
+            p.automaticSquareUp(robot);
+            Thread.yield();
+            robot.setMotorPower(0);
+            Thread.yield();
+            robot.enableMotorEncoders();
+            Thread.yield();
         }
     };
 
@@ -1583,66 +1477,6 @@ class stateslist {
             Thread.yield();
             robot.enableMotorEncoders();
             Thread.yield();
-        }
-    };
-
-    state noscope2 = new state("noscope2") {
-
-        double pulses = 2240.0;
-        double endpulses = 0.0;
-        double rampNumb = 3.5 / pulses;
-        double puncher = 0;
-
-        public void firstTime() {
-            robot.theHammerOfDawn.setPosition(1);
-            try {
-                sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            endpulses = robot.puncher.getCurrentPosition() + pulses;
-            robot.puncher.setPower(1);
-            while (!robot.garry.isPressed()) {
-                Thread.yield();
-            }
-            robot.setMyMotorTargets(0, 0, p.mm2pulses(p.spin2mm(360 * color)));
-            robot.lvex.setPosition(1);
-            robot.rvex.setPosition(1);
-
-            while (robot.garry.isPressed()) {
-                puncher = Math.min(1, Math.max(0.6, Math.abs(((double) robot.puncher.getCurrentPosition() - endpulses) * rampNumb)));
-                robot.puncher.setPower(puncher);
-                robot.bettermove();
-                Thread.yield();
-            }
-            robot.puncher.setPower(0);
-
-            while (!robot.bettermoving()) {
-                robot.bettermove();
-                Thread.yield();
-            }
-
-            robot.enableEncodersToPosition();
-            Thread.yield();
-            robot.setMotorPower(1);
-            Thread.yield();
-            p.automaticSquareUp(robot);
-            Thread.yield();
-            robot.setMotorPower(0);
-            Thread.yield();
-            robot.enableMotorEncoders();
-            Thread.yield();
-
-            endpulses = robot.puncher.getCurrentPosition() + pulses;
-            robot.puncher.setPower(1);
-            while (!robot.garry.isPressed()) {
-                Thread.yield();
-            }
-            while (robot.garry.isPressed()) {
-                puncher = Math.min(1, Math.max(0.6, Math.abs(((double) robot.puncher.getCurrentPosition() - endpulses) * rampNumb)));
-                robot.puncher.setPower(puncher);
-                Thread.yield();
-            }
         }
     };
 
@@ -2041,12 +1875,31 @@ class stateslist {
      */
     state backAwayFromBeacon = new state("backAwayFromBeacon") {
         public void firstTime() {
-            robot.theHammerOfDawn.setPosition(1);
             robot.setMyMotorTargets(p.mm2pulses(-20 * mmPerInch), 0, 0);
         }
 
+        public void everyTime() {
+            robot.gyromove();
+        }
+
         public boolean conditionsToCheck() {
-            return robot.nbettermove();
+
+            //robotconfig.addlog(dl, "in backAwayFromBeacon", "checking against p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos: " + String.format(Locale.ENGLISH, "%d", p.mm2pulses(3 * mmPerInch + 7 * mmPerInch * pi + 7 * mmPerInch) + startEncoderPos));
+
+            if (robotconfig.debugMode) {
+                if (this.isFirstTimeDebug) {
+                    robotconfig.addlog(dl, "in backAwayFromBeacon", "returning true");
+                    return (true);
+                } else {
+                    this.isFirstTimeDebug = true;
+                    robotconfig.addlog(dl, "in backAwayFromBeacon", "returning false");
+                    return (false);
+                }
+            } else {
+                //robotconfig.addlog(dl, "in backAwayFromBeacon", "checking robot.getMotorEncoderAverage(): " + String.format(Locale.ENGLISH, "%d", robot.getMotorEncoderAverage()));
+                return robot.gyromoving();
+            }
+
         }
 
         public void onCompletion() {

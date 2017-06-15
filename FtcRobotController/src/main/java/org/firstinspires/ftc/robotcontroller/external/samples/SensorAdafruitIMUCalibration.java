@@ -33,7 +33,6 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 package org.firstinspires.ftc.robotcontroller.external.samples;
 
 import com.qualcomm.hardware.adafruit.AdafruitBNO055IMU;
-import com.qualcomm.hardware.adafruit.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -54,7 +53,7 @@ import java.util.Locale;
  * "Section 3.11 Calibration" of the BNO055 specification.
  *
  * <p>Manual calibration of the IMU is definitely NOT necessary: except for the magnetometer
- * (which is not used by the default {@link com.qualcomm.hardware.adafruit.BNO055IMU.SensorMode#IMU
+ * (which is not used by the default {@link com.qualcomm.hardware.adafruit.AdafruitBNO055IMU.SensorMode#IMU
  * SensorMode#IMU}), the BNO055 is internally self-calibrating and thus can be very successfully
  * used without manual intervention. That said, performing a one-time calibration, saving the
  * results persistently, then loading them again at each run can help reduce the time that automatic
@@ -97,7 +96,7 @@ import java.util.Locale;
  * magnetometer cannot actually be calibrated.</p>
  *
  * @see AdafruitBNO055IMU
- * @see com.qualcomm.hardware.adafruit.BNO055IMU.Parameters#calibrationDataFile
+ * @see com.qualcomm.hardware.adafruit.AdafruitBNO055IMU.Parameters#calibrationDataFile
  * @see <a href="https://www.bosch-sensortec.com/bst/products/all_products/bno055">BNO055 product page</a>
  * @see <a href="https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST_BNO055_DS000_14.pdf">BNO055 specification</a>
  */
@@ -110,7 +109,7 @@ public class SensorAdafruitIMUCalibration extends LinearOpMode
     //----------------------------------------------------------------------------------------------
 
     // Our sensors, motors, and other devices go here, along with other long term state
-    BNO055IMU imu;
+    AdafruitBNO055IMU imu;
 
     // State used for updating telemetry
     Orientation angles;
@@ -133,10 +132,10 @@ public class SensorAdafruitIMUCalibration extends LinearOpMode
         telemetry.log().add("");
 
         // We are expecting the IMU to be attached to an I2C port on a Core Device Interface Module and named "imu".
-        BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
+        AdafruitBNO055IMU.Parameters parameters = new AdafruitBNO055IMU.Parameters();
         parameters.loggingEnabled = true;
         parameters.loggingTag     = "IMU";
-        imu = hardwareMap.get(BNO055IMU.class, "imu");
+        imu = hardwareMap.get(AdafruitBNO055IMU.class, "imu");
         imu.initialize(parameters);
 
         composeTelemetry();
@@ -155,7 +154,7 @@ public class SensorAdafruitIMUCalibration extends LinearOpMode
             if (gamepad1.a) {
 
                 // Get the calibration data
-                BNO055IMU.CalibrationData calibrationData = imu.readCalibrationData();
+                AdafruitBNO055IMU.CalibrationData calibrationData = imu.readCalibrationData();
 
                 // Save the calibration data to a file. You can choose whatever file
                 // name you wish here, but you'll want to indicate the same file name

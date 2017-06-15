@@ -1,0 +1,13 @@
+sec,d ms,r.init,r.init was invoked (a)
+0.000,0.825,r.init,debug mode is false
+0.002,1.154,r.init,colorSensorLineThreshhold is 0.09579667644183774
+0.003,1.571,robot,pushButton was invoked with button 0
+0.005,2.101,robot,resetMotorEncoders was called
+0.007,1.915,robot,enableMotorEncoders was called
+0.008,1.042,r.init,r.init finished (a)
+0.009,1.217,autonomous,Done with robot.init --- waiting for start in strafe_test
+0.011,1.475,autonomous,Started
+0.062,50.754,robot,move was called - f:r:s:, 0.00, 0.00, 0.00
+0.065,3.618,robot,move powers are fl:fr:bl:br, 0.00, 0.00, 0.00, 0.00
+0.067,2.181,robot,pushButton was invoked with button 0
+0.069,1.694,autonomous,Done with opmode, exited based on OpmodeIsActive false
